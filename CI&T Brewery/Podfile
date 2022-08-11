@@ -1,1 +1,4 @@
-
+target 'CI&T Brewery' do
+    pod 'Kingfisher', '~> 7.0'
+    pod 'Resolver'
+end
