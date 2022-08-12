@@ -1,0 +1,637 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
+		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
+		B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */; };
+		B99FDE1628A58F4E00F5DA30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1428A58F4E00F5DA30 /* LaunchScreen.storyboard */; };
+		B99FDE2128A58F4E00F5DA30 /* CI_T_BreweryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE2028A58F4E00F5DA30 /* CI_T_BreweryTests.swift */; };
+		B99FDE2B28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE2A28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift */; };
+		B99FDE2D28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B99FDE1D28A58F4E00F5DA30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B99FDDFE28A58F4D00F5DA30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B99FDE0528A58F4D00F5DA30;
+			remoteInfo = "CI&T Brewery";
+		};
+		B99FDE2728A58F4E00F5DA30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B99FDDFE28A58F4D00F5DA30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B99FDE0528A58F4D00F5DA30;
+			remoteInfo = "CI&T Brewery";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI&T Brewery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B99FDE1528A58F4E00F5DA30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B99FDE1728A58F4E00F5DA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B99FDE1C28A58F4E00F5DA30 /* CI&T BreweryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CI&T BreweryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B99FDE2028A58F4E00F5DA30 /* CI_T_BreweryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryTests.swift; sourceTree = "<group>"; };
+		B99FDE2628A58F4E00F5DA30 /* CI&T BreweryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CI&T BreweryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B99FDE2A28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryUITests.swift; sourceTree = "<group>"; };
+		B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B99FDE0328A58F4D00F5DA30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B99FDE1928A58F4E00F5DA30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B99FDE2328A58F4E00F5DA30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		152F7328484A51664085778A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B99FDDFD28A58F4D00F5DA30 = {
+			isa = PBXGroup;
+			children = (
+				B99FDE0828A58F4D00F5DA30 /* CI&T Brewery */,
+				B99FDE1F28A58F4E00F5DA30 /* CI&T BreweryTests */,
+				B99FDE2928A58F4E00F5DA30 /* CI&T BreweryUITests */,
+				B99FDE0728A58F4D00F5DA30 /* Products */,
+				152F7328484A51664085778A /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		B99FDE0728A58F4D00F5DA30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */,
+				B99FDE1C28A58F4E00F5DA30 /* CI&T BreweryTests.xctest */,
+				B99FDE2628A58F4E00F5DA30 /* CI&T BreweryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B99FDE0828A58F4D00F5DA30 /* CI&T Brewery */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE3C28A592F200F5DA30 /* Repository */,
+				B99FDE3928A592C200F5DA30 /* Home */,
+				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
+				B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */,
+				B99FDE1428A58F4E00F5DA30 /* LaunchScreen.storyboard */,
+				B99FDE1728A58F4E00F5DA30 /* Info.plist */,
+			);
+			path = "CI&T Brewery";
+			sourceTree = "<group>";
+		};
+		B99FDE1F28A58F4E00F5DA30 /* CI&T BreweryTests */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE2028A58F4E00F5DA30 /* CI_T_BreweryTests.swift */,
+			);
+			path = "CI&T BreweryTests";
+			sourceTree = "<group>";
+		};
+		B99FDE2928A58F4E00F5DA30 /* CI&T BreweryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE2A28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift */,
+				B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */,
+			);
+			path = "CI&T BreweryUITests";
+			sourceTree = "<group>";
+		};
+		B99FDE3928A592C200F5DA30 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE3B28A592D500F5DA30 /* View */,
+				B99FDE3A28A592CF00F5DA30 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B99FDE3A28A592CF00F5DA30 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B99FDE3B28A592D500F5DA30 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE3E28A593E800F5DA30 /* ViewControllers */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B99FDE3C28A592F200F5DA30 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B99FDE3E28A593E800F5DA30 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B99FDE0528A58F4D00F5DA30 /* CI&T Brewery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B99FDE3028A58F4E00F5DA30 /* Build configuration list for PBXNativeTarget "CI&T Brewery" */;
+			buildPhases = (
+				B99FDE0228A58F4D00F5DA30 /* Sources */,
+				B99FDE0328A58F4D00F5DA30 /* Frameworks */,
+				B99FDE0428A58F4D00F5DA30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CI&T Brewery";
+			productName = "CI&T Brewery";
+			productReference = B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B99FDE1B28A58F4E00F5DA30 /* CI&T BreweryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B99FDE3328A58F4E00F5DA30 /* Build configuration list for PBXNativeTarget "CI&T BreweryTests" */;
+			buildPhases = (
+				B99FDE1828A58F4E00F5DA30 /* Sources */,
+				B99FDE1928A58F4E00F5DA30 /* Frameworks */,
+				B99FDE1A28A58F4E00F5DA30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B99FDE1E28A58F4E00F5DA30 /* PBXTargetDependency */,
+			);
+			name = "CI&T BreweryTests";
+			productName = "CI&T BreweryTests";
+			productReference = B99FDE1C28A58F4E00F5DA30 /* CI&T BreweryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B99FDE2528A58F4E00F5DA30 /* CI&T BreweryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B99FDE3628A58F4E00F5DA30 /* Build configuration list for PBXNativeTarget "CI&T BreweryUITests" */;
+			buildPhases = (
+				B99FDE2228A58F4E00F5DA30 /* Sources */,
+				B99FDE2328A58F4E00F5DA30 /* Frameworks */,
+				B99FDE2428A58F4E00F5DA30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B99FDE2828A58F4E00F5DA30 /* PBXTargetDependency */,
+			);
+			name = "CI&T BreweryUITests";
+			productName = "CI&T BreweryUITests";
+			productReference = B99FDE2628A58F4E00F5DA30 /* CI&T BreweryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B99FDDFE28A58F4D00F5DA30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					B99FDE0528A58F4D00F5DA30 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					B99FDE1B28A58F4E00F5DA30 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = B99FDE0528A58F4D00F5DA30;
+					};
+					B99FDE2528A58F4E00F5DA30 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = B99FDE0528A58F4D00F5DA30;
+					};
+				};
+			};
+			buildConfigurationList = B99FDE0128A58F4D00F5DA30 /* Build configuration list for PBXProject "CI&T Brewery" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B99FDDFD28A58F4D00F5DA30;
+			productRefGroup = B99FDE0728A58F4D00F5DA30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B99FDE0528A58F4D00F5DA30 /* CI&T Brewery */,
+				B99FDE1B28A58F4E00F5DA30 /* CI&T BreweryTests */,
+				B99FDE2528A58F4E00F5DA30 /* CI&T BreweryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B99FDE0428A58F4D00F5DA30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B99FDE1628A58F4E00F5DA30 /* LaunchScreen.storyboard in Resources */,
+				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B99FDE1A28A58F4E00F5DA30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B99FDE2428A58F4E00F5DA30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B99FDE0228A58F4D00F5DA30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
+				B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B99FDE1828A58F4E00F5DA30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B99FDE2128A58F4E00F5DA30 /* CI_T_BreweryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B99FDE2228A58F4E00F5DA30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B99FDE2D28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift in Sources */,
+				B99FDE2B28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B99FDE1E28A58F4E00F5DA30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B99FDE0528A58F4D00F5DA30 /* CI&T Brewery */;
+			targetProxy = B99FDE1D28A58F4E00F5DA30 /* PBXContainerItemProxy */;
+		};
+		B99FDE2828A58F4E00F5DA30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B99FDE0528A58F4D00F5DA30 /* CI&T Brewery */;
+			targetProxy = B99FDE2728A58F4E00F5DA30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B99FDE1428A58F4E00F5DA30 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B99FDE1528A58F4E00F5DA30 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B99FDE2E28A58F4E00F5DA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B99FDE2F28A58F4E00F5DA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B99FDE3128A58F4E00F5DA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3FR268SB5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CI&T Brewery/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-Brewery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B99FDE3228A58F4E00F5DA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3FR268SB5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CI&T Brewery/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-Brewery";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B99FDE3428A58F4E00F5DA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3FR268SB5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-BreweryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI&T Brewery.app/CI&T Brewery";
+			};
+			name = Debug;
+		};
+		B99FDE3528A58F4E00F5DA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3FR268SB5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-BreweryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CI&T Brewery.app/CI&T Brewery";
+			};
+			name = Release;
+		};
+		B99FDE3728A58F4E00F5DA30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3FR268SB5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-BreweryUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "CI&T Brewery";
+			};
+			name = Debug;
+		};
+		B99FDE3828A58F4E00F5DA30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3FR268SB5J;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-BreweryUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "CI&T Brewery";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B99FDE0128A58F4D00F5DA30 /* Build configuration list for PBXProject "CI&T Brewery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B99FDE2E28A58F4E00F5DA30 /* Debug */,
+				B99FDE2F28A58F4E00F5DA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B99FDE3028A58F4E00F5DA30 /* Build configuration list for PBXNativeTarget "CI&T Brewery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B99FDE3128A58F4E00F5DA30 /* Debug */,
+				B99FDE3228A58F4E00F5DA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B99FDE3328A58F4E00F5DA30 /* Build configuration list for PBXNativeTarget "CI&T BreweryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B99FDE3428A58F4E00F5DA30 /* Debug */,
+				B99FDE3528A58F4E00F5DA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B99FDE3628A58F4E00F5DA30 /* Build configuration list for PBXNativeTarget "CI&T BreweryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B99FDE3728A58F4E00F5DA30 /* Debug */,
+				B99FDE3828A58F4E00F5DA30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B99FDDFE28A58F4D00F5DA30 /* Project object */;
+}

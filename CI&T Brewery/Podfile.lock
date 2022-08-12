@@ -1,0 +1,20 @@
+PODS:
+  - Kingfisher (7.3.0)
+  - Resolver (1.5.0)
+
+DEPENDENCIES:
+  - Kingfisher (~> 7.0)
+  - Resolver
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+    - Resolver
+
+SPEC CHECKSUMS:
+  Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
+  Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
+
+PODFILE CHECKSUM: f986ba2a7db49b5a0b6a672ce3fb7b77db355e16
+
+COCOAPODS: 1.11.3
