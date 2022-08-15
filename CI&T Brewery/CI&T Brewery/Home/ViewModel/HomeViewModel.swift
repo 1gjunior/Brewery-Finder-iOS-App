@@ -9,16 +9,22 @@ import Foundation
 import Combine
 
 class HomeViewModel {
-    let repository = BreweryRepository()
+    let repository: BreweryRepository
     @Published private(set) var breweries: [Brewery] = []
     
+    init(repository: BreweryRepository = BreweryRepository()) {
+        self.repository = repository
+    }
+    
     func fetchBreweriesBy(city: String) {
-        repository.getBreweriesBy(city: city) {[weak self] result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let breweriesResponse):
-                self?.breweries = breweriesResponse
+        if !city.isEmpty {
+            repository.getBreweriesBy(city: city) {[weak self] result in
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let breweriesResponse):
+                    self?.breweries = breweriesResponse
+                }
             }
         }
     }

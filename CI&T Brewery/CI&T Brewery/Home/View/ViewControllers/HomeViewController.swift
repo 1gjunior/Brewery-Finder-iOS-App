@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Resolver
 
 class HomeViewController: UIViewController {
     
-    let viewModel = HomeViewModel()
+    @Injected var viewModel: HomeViewModel
 
     init() {
         super.init(nibName: "HomeViewController", bundle: nil)
