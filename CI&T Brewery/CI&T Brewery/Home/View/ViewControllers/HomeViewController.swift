@@ -9,11 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    init() {
+        super.init(nibName: "HomeViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
 

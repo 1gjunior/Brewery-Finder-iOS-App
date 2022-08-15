@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
+		2BD9460228AA79EA00CFC657 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BD9460128AA79EA00CFC657 /* HomeViewController.xib */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
 		B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2BD9460128AA79EA00CFC657 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI&T Brewery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				B99FDE3C28A592F200F5DA30 /* Repository */,
 				B99FDE3928A592C200F5DA30 /* Home */,
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
+				2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */,
 				B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */,
 				B99FDE1428A58F4E00F5DA30 /* LaunchScreen.storyboard */,
 				B99FDE1728A58F4E00F5DA30 /* Info.plist */,
@@ -149,6 +154,7 @@
 		B99FDE3B28A592D500F5DA30 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2BD9460128AA79EA00CFC657 /* HomeViewController.xib */,
 				B99FDE3E28A593E800F5DA30 /* ViewControllers */,
 			);
 			path = View;
@@ -273,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BD9460228AA79EA00CFC657 /* HomeViewController.xib in Resources */,
 				B99FDE1628A58F4E00F5DA30 /* LaunchScreen.storyboard in Resources */,
 				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
 			);
@@ -301,6 +308,7 @@
 			files = (
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */,
+				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
