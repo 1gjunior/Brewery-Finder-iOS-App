@@ -10,7 +10,7 @@ import Foundation
 class BreweryAPIService {
     private static let apiBaseURL = "https://bootcamp-mobile-01.eastus.cloudapp.azure.com"
     
-    static func getBreweriesURLString(city: String = "") -> String {
+    static func getBreweriesURLString(city: String) -> String {
         apiBaseURL + "/breweries?by_city=\(city)"
     }
 }
