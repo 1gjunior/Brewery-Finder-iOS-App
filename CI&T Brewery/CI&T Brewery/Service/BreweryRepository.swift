@@ -19,7 +19,7 @@ class BreweryRepository: BreweryRepositoryProtocol {
     }
     
     func getBreweriesBy(city by_city: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
-        guard let url = BreweryAPIService.getBreweriesURLString(city: city) else { return }
+        guard let url = BreweryAPIService.getBreweriesURLString(city: by_city) else { return }
         
         apiManager.fetchItems(url: url) { (result: Result<[Brewery], Error>) in
             switch result {
