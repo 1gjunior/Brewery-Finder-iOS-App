@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
 		2BD9460228AA79EA00CFC657 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BD9460128AA79EA00CFC657 /* HomeViewController.xib */; };
+		2BD9460528AA8FB900CFC657 /* APIManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460428AA8FB900CFC657 /* APIManagerService.swift */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
 		B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BD9460128AA79EA00CFC657 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		2BD9460428AA8FB900CFC657 /* APIManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerService.swift; sourceTree = "<group>"; };
 		B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI&T Brewery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2BD9460328AA8F7C00CFC657 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2BD9460428AA8FB900CFC657 /* APIManagerService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B99FDDFD28A58F4D00F5DA30 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 		B99FDE0828A58F4D00F5DA30 /* CI&T Brewery */ = {
 			isa = PBXGroup;
 			children = (
+				2BD9460328AA8F7C00CFC657 /* Service */,
 				B99FDE3C28A592F200F5DA30 /* Repository */,
 				B99FDE3928A592C200F5DA30 /* Home */,
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
@@ -306,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BD9460528AA8FB900CFC657 /* APIManagerService.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */,
 				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
