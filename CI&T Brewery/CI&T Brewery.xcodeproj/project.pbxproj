@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
 		2BD9460228AA79EA00CFC657 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BD9460128AA79EA00CFC657 /* HomeViewController.xib */; };
+		95C614D22B01F6090CC4C7CC /* libPods-CI&T Brewery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4CB0670244B50186B5EEF1 /* libPods-CI&T Brewery.a */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
 		B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */; };
@@ -37,8 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C4CB0670244B50186B5EEF1 /* libPods-CI&T Brewery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CI&T Brewery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BD9460128AA79EA00CFC657 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		313BF704EF0A96204C0B612A /* Pods-CI&T Brewery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.debug.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.debug.xcconfig"; sourceTree = "<group>"; };
 		B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI&T Brewery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		B99FDE2A28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryUITests.swift; sourceTree = "<group>"; };
 		B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B99FDE4028AA966D00F5DA30 /* Brewery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
+		D88E0CED1D5703353084F051 /* Pods-CI&T Brewery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.release.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95C614D22B01F6090CC4C7CC /* libPods-CI&T Brewery.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,8 +86,18 @@
 		152F7328484A51664085778A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				313BF704EF0A96204C0B612A /* Pods-CI&T Brewery.debug.xcconfig */,
+				D88E0CED1D5703353084F051 /* Pods-CI&T Brewery.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3E5F9CC8BD6C8E51E83EF350 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C4CB0670244B50186B5EEF1 /* libPods-CI&T Brewery.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		B99FDDFD28A58F4D00F5DA30 = {
@@ -93,6 +108,7 @@
 				B99FDE2928A58F4E00F5DA30 /* CI&T BreweryUITests */,
 				B99FDE0728A58F4D00F5DA30 /* Products */,
 				152F7328484A51664085778A /* Pods */,
+				3E5F9CC8BD6C8E51E83EF350 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +209,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B99FDE3028A58F4E00F5DA30 /* Build configuration list for PBXNativeTarget "CI&T Brewery" */;
 			buildPhases = (
+				F78D794A2961B35E38B55829 /* [CP] Check Pods Manifest.lock */,
 				B99FDE0228A58F4D00F5DA30 /* Sources */,
 				B99FDE0328A58F4D00F5DA30 /* Frameworks */,
 				B99FDE0428A58F4D00F5DA30 /* Resources */,
@@ -311,6 +328,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F78D794A2961B35E38B55829 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CI&T Brewery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B99FDE0228A58F4D00F5DA30 /* Sources */ = {
@@ -484,6 +526,7 @@
 		};
 		B99FDE3128A58F4E00F5DA30 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 313BF704EF0A96204C0B612A /* Pods-CI&T Brewery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -511,6 +554,7 @@
 		};
 		B99FDE3228A58F4E00F5DA30 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D88E0CED1D5703353084F051 /* Pods-CI&T Brewery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
