@@ -10,7 +10,11 @@ import Foundation
 class BreweryAPIService {
     private static let apiBaseURL = "https://bootcamp-mobile-01.eastus.cloudapp.azure.com"
     
-    static func getBreweriesURLString(city: String) -> String {
-        apiBaseURL + "/breweries?by_city=\(city)"
+    static func getBreweriesURLString(city: String) -> URL? {
+        let query = URLQueryItem(name: "by_city", value: city)
+        var urlComponents = URLComponents(string: apiBaseURL + "/breweries")
+        urlComponents?.queryItems = [query]
+        
+        return urlComponents?.url
     }
 }

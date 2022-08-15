@@ -8,9 +8,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    let viewModel = HomeViewModel()
 
     init() {
         super.init(nibName: "HomeViewController", bundle: nil)
+        viewModel.fetchBreweriesBy(city: "new york")
     }
     
     required init?(coder: NSCoder) {
