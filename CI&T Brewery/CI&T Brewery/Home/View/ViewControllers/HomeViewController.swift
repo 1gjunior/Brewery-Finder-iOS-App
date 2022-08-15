@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     init() {
-        super.init(nibName: "MinhaView", bundle: nil)
+        super.init(nibName: "HomeViewController", bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -19,8 +19,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .red
     }
 }
 
