@@ -31,22 +31,22 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lgX-yP-WKw">
-                    <rect key="frame" x="16" y="98" width="446" height="402"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lgX-yP-WKw">
+                    <rect key="frame" x="0.0" y="98" width="478" height="402"/>
                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
             <constraints>
                 <constraint firstItem="dqQ-Qs-4op" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="RIm-EZ-Dln"/>
                 <constraint firstItem="8Pj-wN-ZLb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="d90-zT-jaf"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lgX-yP-WKw" secondAttribute="trailing" constant="16" id="g07-iG-Kgr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lgX-yP-WKw" secondAttribute="trailing" id="g07-iG-Kgr"/>
                 <constraint firstItem="8Pj-wN-ZLb" firstAttribute="top" secondItem="dqQ-Qs-4op" secondAttribute="bottom" constant="5" id="jgR-Gw-t5f"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Pj-wN-ZLb" secondAttribute="trailing" constant="16" id="krG-pV-5GH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dqQ-Qs-4op" secondAttribute="trailing" constant="16" id="lFg-sO-ycC"/>
                 <constraint firstItem="dqQ-Qs-4op" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="rqV-eR-Di6"/>
-                <constraint firstItem="lgX-yP-WKw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="ryC-J4-CG5"/>
+                <constraint firstItem="lgX-yP-WKw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ryC-J4-CG5"/>
                 <constraint firstItem="lgX-yP-WKw" firstAttribute="top" secondItem="8Pj-wN-ZLb" secondAttribute="bottom" constant="5" id="yIf-ZP-ui1"/>
                 <constraint firstItem="lgX-yP-WKw" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="yVx-8d-odS"/>
             </constraints>
@@ -55,9 +55,6 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
