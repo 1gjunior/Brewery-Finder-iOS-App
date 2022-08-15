@@ -18,6 +18,6 @@ extension Resolver: ResolverRegistering {
         register { BreweryRepository(apiManager: resolve()) as BreweryRepositoryProtocol }
         
         // MARK: - ViewModels
-//        register { BreweryViewModel(breweryRepository: resolve()) }
+        register { HomeViewModel() }
     }
 }
