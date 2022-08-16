@@ -9,11 +9,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BreweryDetailViewController" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="iN0-l3-epB" id="yMR-5y-qP3"/>
+                <outlet property="breweryDetailView" destination="iN0-l3-epB" id="ToA-1C-MZI"/>
+                <outlet property="view" destination="iN0-l3-epB" id="UIb-nT-hBK"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BreweryDetailView" customModule="CI_T_Brewery" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -23,6 +24,15 @@
                         <constraint firstAttribute="height" constant="230" id="2vi-7H-OK1"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalhes da Cervejaria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svj-ur-Bs8">
+                    <rect key="frame" x="16" y="10" width="343" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="NWL-GO-1Bh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nvY-Gp-ZMM" userLabel="ContentView">
                     <rect key="frame" x="16" y="146" width="343" height="374"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -162,15 +172,6 @@
                         <constraint firstItem="18L-hq-IL6" firstAttribute="top" secondItem="oLt-oO-3F8" secondAttribute="bottom" constant="30" id="zbE-eF-Plp"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalhes da Cervejaria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svj-ur-Bs8">
-                    <rect key="frame" x="16" y="70" width="343" height="29"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="29" id="NWL-GO-1Bh"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,9 +180,18 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="svj-ur-Bs8" secondAttribute="trailing" constant="16" id="9wA-To-fQW"/>
                 <constraint firstItem="svj-ur-Bs8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="giK-CN-jkl"/>
                 <constraint firstItem="cEO-xH-kN0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="pQs-4t-hFW"/>
-                <constraint firstItem="svj-ur-Bs8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="70" id="sPr-Am-M8y"/>
+                <constraint firstItem="svj-ur-Bs8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="sPr-Am-M8y"/>
                 <constraint firstItem="cEO-xH-kN0" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="wI8-Wc-g8c"/>
             </constraints>
+            <connections>
+                <outlet property="address" destination="vo5-zC-WvW" id="sGT-J7-iyn"/>
+                <outlet property="logo" destination="oLt-oO-3F8" id="yIx-zC-iUC"/>
+                <outlet property="name" destination="Yd3-6v-CI9" id="v6c-7U-qLy"/>
+                <outlet property="rating" destination="Pm1-O1-A3c" id="sDr-Xg-Hj1"/>
+                <outlet property="type" destination="GIy-te-vJ1" id="GvG-gg-NyB"/>
+                <outlet property="view" destination="nvY-Gp-ZMM" id="aAA-jP-hKp"/>
+                <outlet property="website" destination="jgn-X2-Ms4" id="pHB-rr-MDC"/>
+            </connections>
             <point key="canvasLocation" x="130.40000000000001" y="92.203898050974516"/>
         </view>
     </objects>

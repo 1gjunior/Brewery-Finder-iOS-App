@@ -10,10 +10,11 @@ import UIKit
 
 class BreweryDetailViewController: UIViewController {
     
-    init() {
-        super.init(nibName: "BreweryDetailViewController", bundle: nil)
-    }
+    @IBOutlet weak var breweryDetailView: BreweryDetailView!
     
+    init() {
+        super.init(nibName: "BreweryDetailView", bundle: nil)
+    }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -21,7 +22,13 @@ class BreweryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        
+        view.backgroundColor = .red
     }
+    
+//    private func setViewData(brewery: BreweryObject) {
+//        print(brewery)
+//    }
 }
 
 extension BreweryDetailViewController {
@@ -42,9 +49,9 @@ extension BreweryDetailViewController {
     }
     private func setupRightNavigationBar() {
         let favoriteIcon = UIButton(type: .system)
-        favoriteIcon.setImage(UIImage(named: "icon_share")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         let starIcon = UIButton(type: .system)
-        starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        starIcon.setImage(UIImage(named: "icon_share")?.withRenderingMode(.alwaysOriginal), for: .normal)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
     }
 }
