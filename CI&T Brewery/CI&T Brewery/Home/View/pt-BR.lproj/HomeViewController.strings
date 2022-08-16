@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; configuration.title = "use minha localização"; ObjectID = "7rx-8t-Rv6"; */
+"7rx-8t-Rv6.configuration.title" = "use minha localização";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7rx-8t-Rv6"; */
+"7rx-8t-Rv6.normalTitle" = "Button";
+
+/* Class = "UISearchBar"; placeholder = "Busque por local"; ObjectID = "I3U-ej-sAn"; */
+"I3U-ej-sAn.placeholder" = "Busque por local";
+
+/* Class = "UISearchBar"; I3U-ej-sAn.scopeButtonTitles[0] = "Title"; ObjectID = "I3U-ej-sAn"; */
+"I3U-ej-sAn.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; I3U-ej-sAn.scopeButtonTitles[1] = "Title"; ObjectID = "I3U-ej-sAn"; */
+"I3U-ej-sAn.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UILabel"; text = "Bem-Vindo(a)!"; ObjectID = "ahW-nu-oyv"; */
+"ahW-nu-oyv.text" = "Bem-Vindo(a)!";
+
+/* Class = "UILabel"; text = "Encontre as melhores Cervejarias!"; ObjectID = "hSi-ma-QFo"; */
+"hSi-ma-QFo.text" = "Encontre as melhores Cervejarias!";
