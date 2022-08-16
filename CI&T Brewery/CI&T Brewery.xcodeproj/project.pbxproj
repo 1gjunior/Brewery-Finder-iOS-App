@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
-		2BD9460228AA79EA00CFC657 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BD9460128AA79EA00CFC657 /* HomeViewController.xib */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
 		B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */; };
@@ -16,6 +15,8 @@
 		B99FDE2128A58F4E00F5DA30 /* CI_T_BreweryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE2028A58F4E00F5DA30 /* CI_T_BreweryTests.swift */; };
 		B99FDE2B28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE2A28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift */; };
 		B99FDE2D28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */; };
+		D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */; };
+		D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +38,9 @@
 
 /* Begin PBXFileReference section */
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BD9460128AA79EA00CFC657 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI&T Brewery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B99FDE1528A58F4E00F5DA30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B99FDE1728A58F4E00F5DA30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +49,10 @@
 		B99FDE2628A58F4E00F5DA30 /* CI&T BreweryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CI&T BreweryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99FDE2A28A58F4E00F5DA30 /* CI_T_BreweryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryUITests.swift; sourceTree = "<group>"; };
 		B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2AD32E928ABD9C200CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D2AD32ED28ABDB8E00CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D2AD32F328ABDD9D00CABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeViewController.xib; sourceTree = "<group>"; };
+		D2AD32F428ABDDD400CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/HomeViewController.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */,
 				B99FDE1428A58F4E00F5DA30 /* LaunchScreen.storyboard */,
 				B99FDE1728A58F4E00F5DA30 /* Info.plist */,
+				D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */,
 			);
 			path = "CI&T Brewery";
 			sourceTree = "<group>";
@@ -154,7 +159,7 @@
 		B99FDE3B28A592D500F5DA30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2BD9460128AA79EA00CFC657 /* HomeViewController.xib */,
+				D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */,
 				B99FDE3E28A593E800F5DA30 /* ViewControllers */,
 			);
 			path = View;
@@ -261,6 +266,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = B99FDDFD28A58F4D00F5DA30;
 			productRefGroup = B99FDE0728A58F4D00F5DA30 /* Products */;
@@ -279,7 +285,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BD9460228AA79EA00CFC657 /* HomeViewController.xib in Resources */,
+				D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */,
+				D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */,
 				B99FDE1628A58F4E00F5DA30 /* LaunchScreen.storyboard in Resources */,
 				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
 			);
@@ -349,8 +356,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				B99FDE1528A58F4E00F5DA30 /* Base */,
+				D2AD32E928ABD9C200CABCD3 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2AD32ED28ABDB8E00CABCD3 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			path = "CI&T Brewery";
+			sourceTree = SOURCE_ROOT;
+		};
+		D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2AD32F328ABDD9D00CABCD3 /* Base */,
+				D2AD32F428ABDDD400CABCD3 /* pt-BR */,
+			);
+			name = HomeViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -360,6 +386,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -420,6 +447,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
