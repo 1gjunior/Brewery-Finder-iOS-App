@@ -27,13 +27,4 @@ class BreweryListTableViewCell: UITableViewCell {
         cell.profileLetter.layer.cornerRadius = 22
         cell.profileLetter.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
     }
-
-    func addInitials(first: String, second: String) {
-        let initials = UILabel(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
-        initials.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
-        initials.textAlignment = .center
-        initials.text = first + " " + second
-        initials.textColor = .black
-        self.addSubview(initials)
-    }
 }
