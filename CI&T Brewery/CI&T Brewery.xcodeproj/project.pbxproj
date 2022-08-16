@@ -40,6 +40,13 @@
 		B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4028AA966D00F5DA30 /* Brewery.swift */; };
 		B99FDE4328AAC8ED00F5DA30 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4228AAC8ED00F5DA30 /* HomeViewModel.swift */; };
 		B99FDE5628AC10E700F5DA30 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE5528AC10E600F5DA30 /* EmptyState.swift */; };
+		B99FDE4C28AC00BD00F5DA30 /* BreweryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE4428AC00BD00F5DA30 /* BreweryListTableViewCell.xib */; };
+		B99FDE4D28AC00BD00F5DA30 /* BreweryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4528AC00BD00F5DA30 /* BreweryListView.swift */; };
+		B99FDE4E28AC00BD00F5DA30 /* APIManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4728AC00BD00F5DA30 /* APIManagerService.swift */; };
+		B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4828AC00BD00F5DA30 /* BreweryRepository.swift */; };
+		B99FDE5028AC00BD00F5DA30 /* BreweryAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4928AC00BD00F5DA30 /* BreweryAPIService.swift */; };
+		B99FDE5128AC00BD00F5DA30 /* BreweryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE4A28AC00BD00F5DA30 /* BreweryListView.xib */; };
+		B99FDE5228AC00BD00F5DA30 /* BreweryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4B28AC00BD00F5DA30 /* BreweryListTableViewCell.swift */; };
 		D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */; };
 		D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
@@ -101,6 +108,13 @@
 		B99FDE4028AA966D00F5DA30 /* Brewery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		B99FDE4228AAC8ED00F5DA30 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B99FDE5528AC10E600F5DA30 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
+		B99FDE4428AC00BD00F5DA30 /* BreweryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BreweryListTableViewCell.xib; path = "CI&T Brewery/Home/View/BreweryListTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		B99FDE4528AC00BD00F5DA30 /* BreweryListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryListView.swift; path = "CI&T Brewery/Home/View/BreweryListView.swift"; sourceTree = SOURCE_ROOT; };
+		B99FDE4728AC00BD00F5DA30 /* APIManagerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerService.swift; sourceTree = "<group>"; };
+		B99FDE4828AC00BD00F5DA30 /* BreweryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryRepository.swift; sourceTree = "<group>"; };
+		B99FDE4928AC00BD00F5DA30 /* BreweryAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryAPIService.swift; sourceTree = "<group>"; };
+		B99FDE4A28AC00BD00F5DA30 /* BreweryListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BreweryListView.xib; path = "CI&T Brewery/Home/View/BreweryListView.xib"; sourceTree = SOURCE_ROOT; };
+		B99FDE4B28AC00BD00F5DA30 /* BreweryListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryListTableViewCell.swift; path = "CI&T Brewery/Home/View/BreweryListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		D2AD32E928ABD9C200CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2AD32ED28ABDB8E00CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2AD32F328ABDD9D00CABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeViewController.xib; sourceTree = "<group>"; };
@@ -154,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				2BD9460428AA8FB900CFC657 /* APIManagerService.swift */,
+				B99FDE4628AC00BD00F5DA30 /* Service */,
 				2BD9460A28AA942900CFC657 /* BreweryAPIService.swift */,
 			);
 			path = Service;
@@ -269,6 +284,11 @@
 			isa = PBXGroup;
 			children = (
 				B99FDE5528AC10E600F5DA30 /* EmptyState.swift */,
+				B99FDE4A28AC00BD00F5DA30 /* BreweryListView.xib */,
+				B99FDE4528AC00BD00F5DA30 /* BreweryListView.swift */,
+				B99FDE4428AC00BD00F5DA30 /* BreweryListTableViewCell.xib */,
+				B99FDE4B28AC00BD00F5DA30 /* BreweryListTableViewCell.swift */,
+				337D826628AC0B4700DBAA56 /* EmptyState.swift */,
 				337D826828AC0B4E00DBAA56 /* EmptyState.xib */,
 				D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */,
 				B99FDE3E28A593E800F5DA30 /* ViewControllers */,
@@ -298,6 +318,16 @@
 				B99FDE4028AA966D00F5DA30 /* Brewery.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B99FDE4628AC00BD00F5DA30 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B99FDE4728AC00BD00F5DA30 /* APIManagerService.swift */,
+				B99FDE4828AC00BD00F5DA30 /* BreweryRepository.swift */,
+				B99FDE4928AC00BD00F5DA30 /* BreweryAPIService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +449,7 @@
 				337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */,
 				337D825928AC0B2A00DBAA56 /* Roboto-MediumItalic.ttf in Resources */,
 				D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */,
+				B99FDE4C28AC00BD00F5DA30 /* BreweryListTableViewCell.xib in Resources */,
 				B99FDE1628A58F4E00F5DA30 /* LaunchScreen.storyboard in Resources */,
 				337D826028AC0B2A00DBAA56 /* Roboto-CondensedItalic.ttf in Resources */,
 				337D825A28AC0B2A00DBAA56 /* Roboto-BoldCondensed.ttf in Resources */,
@@ -427,6 +458,7 @@
 				337D825B28AC0B2A00DBAA56 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				337D825C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf in Resources */,
 				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
+				B99FDE5128AC00BD00F5DA30 /* BreweryListView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,9 +509,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
+				B99FDE4D28AC00BD00F5DA30 /* BreweryListView.swift in Sources */,
+				B99FDE4E28AC00BD00F5DA30 /* APIManagerService.swift in Sources */,
 				2BD9460528AA8FB900CFC657 /* APIManagerService.swift in Sources */,
 				2BD9460928AA914600CFC657 /* BreweryRepository.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
+				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
+				B99FDE5028AC00BD00F5DA30 /* BreweryAPIService.swift in Sources */,
+				B99FDE5228AC00BD00F5DA30 /* BreweryListTableViewCell.swift in Sources */,
 				2BD9460B28AA942900CFC657 /* BreweryAPIService.swift in Sources */,
 				B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */,
 				B99FDE4328AAC8ED00F5DA30 /* HomeViewModel.swift in Sources */,
