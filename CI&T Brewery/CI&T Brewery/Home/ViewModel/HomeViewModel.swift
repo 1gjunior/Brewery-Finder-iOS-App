@@ -8,24 +8,36 @@
 import Foundation
 import Combine
 
+enum HomeViewModelState {
+    case initial
+    case loading
+    case success(breweries: [Brewery])
+    case emptyError
+    case genericError
+}
+
 class HomeViewModel {
     let repository: BreweryRepository
-    @Published private(set) var breweries: [Brewery] = []
+    @Published private(set) var state: HomeViewModelState = .initial
     
     init(repository: BreweryRepository = BreweryRepository()) {
         self.repository = repository
     }
     
-    func fetchBreweriesBy(city: String) {
+    func fetchBreweriesBy(city: String) {        
         if !city.isEmpty {
+            state = .loading
+            
             repository.getBreweriesBy(city: city) {[weak self] result in
                 switch result {
-                case .failure(let error):
-                    print(error)
+                case .failure(_):
+                    self?.state = .genericError
                 case .success(let breweriesResponse):
-                    self?.breweries = breweriesResponse
+                    self?.state = .success(breweries: breweriesResponse)
                 }
             }
+        } else {
+            state = .emptyError
         }
     }
 }
