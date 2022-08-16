@@ -28,7 +28,6 @@
 		337D826328AC0B2A00DBAA56 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825328AC0B2A00DBAA56 /* Roboto-Bold.ttf */; };
 		337D826428AC0B2A00DBAA56 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */; };
 		337D826528AC0B2A00DBAA56 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */; };
-		337D826728AC0B4700DBAA56 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D826628AC0B4700DBAA56 /* EmptyState.swift */; };
 		337D826928AC0B4E00DBAA56 /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 337D826828AC0B4E00DBAA56 /* EmptyState.xib */; };
 		59872B154EB0137A0EF37E4F /* libPods-CI&T Brewery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6918BD3608B7B76DA3DA1E50 /* libPods-CI&T Brewery.a */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
@@ -40,6 +39,7 @@
 		B99FDE2D28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */; };
 		B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4028AA966D00F5DA30 /* Brewery.swift */; };
 		B99FDE4328AAC8ED00F5DA30 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4228AAC8ED00F5DA30 /* HomeViewModel.swift */; };
+		B99FDE5628AC10E700F5DA30 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE5528AC10E600F5DA30 /* EmptyState.swift */; };
 		D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */; };
 		D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
@@ -83,7 +83,6 @@
 		337D825328AC0B2A00DBAA56 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
-		337D826628AC0B4700DBAA56 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyState.swift; path = "../../../../../ciandt_it-ciandt-bootcamp-mobile-ios-4-efba3f9958ae/CI&T Brewery/CI&T Brewery/Home/View/EmptyState.swift"; sourceTree = "<group>"; };
 		337D826828AC0B4E00DBAA56 /* EmptyState.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyState.xib; sourceTree = "<group>"; };
 		5217E51DBA8A6331E845F43F /* Pods-CI&T Brewery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.debug.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.debug.xcconfig"; sourceTree = "<group>"; };
 		6918BD3608B7B76DA3DA1E50 /* libPods-CI&T Brewery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CI&T Brewery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +100,7 @@
 		B99FDE2C28A58F4E00F5DA30 /* CI_T_BreweryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CI_T_BreweryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B99FDE4028AA966D00F5DA30 /* Brewery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		B99FDE4228AAC8ED00F5DA30 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B99FDE5528AC10E600F5DA30 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		D2AD32E928ABD9C200CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2AD32ED28ABDB8E00CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2AD32F328ABDD9D00CABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeViewController.xib; sourceTree = "<group>"; };
@@ -268,7 +268,7 @@
 		B99FDE3B28A592D500F5DA30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				337D826628AC0B4700DBAA56 /* EmptyState.swift */,
+				B99FDE5528AC10E600F5DA30 /* EmptyState.swift */,
 				337D826828AC0B4E00DBAA56 /* EmptyState.xib */,
 				D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */,
 				B99FDE3E28A593E800F5DA30 /* ViewControllers */,
@@ -485,7 +485,7 @@
 				B99FDE4328AAC8ED00F5DA30 /* HomeViewModel.swift in Sources */,
 				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
 				2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */,
-				337D826728AC0B4700DBAA56 /* EmptyState.swift in Sources */,
+				B99FDE5628AC10E700F5DA30 /* EmptyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
