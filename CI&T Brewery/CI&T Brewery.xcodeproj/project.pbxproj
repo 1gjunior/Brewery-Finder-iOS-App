@@ -12,6 +12,24 @@
 		2BD9460928AA914600CFC657 /* BreweryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460828AA914600CFC657 /* BreweryRepository.swift */; };
 		2BD9460B28AA942900CFC657 /* BreweryAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460A28AA942900CFC657 /* BreweryAPIService.swift */; };
 		2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460D28AAB08C00CFC657 /* App+Injection.swift */; };
+		337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */; };
+		337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */; };
+		337D825828AC0B2A00DBAA56 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */; };
+		337D825928AC0B2A00DBAA56 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824928AC0B2A00DBAA56 /* Roboto-MediumItalic.ttf */; };
+		337D825A28AC0B2A00DBAA56 /* Roboto-BoldCondensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824A28AC0B2A00DBAA56 /* Roboto-BoldCondensed.ttf */; };
+		337D825B28AC0B2A00DBAA56 /* Roboto-BoldCondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824B28AC0B2A00DBAA56 /* Roboto-BoldCondensedItalic.ttf */; };
+		337D825C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf */; };
+		337D825D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf */; };
+		337D825E28AC0B2A00DBAA56 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824E28AC0B2A00DBAA56 /* Roboto-BoldItalic.ttf */; };
+		337D825F28AC0B2A00DBAA56 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824F28AC0B2A00DBAA56 /* Roboto-LightItalic.ttf */; };
+		337D826028AC0B2A00DBAA56 /* Roboto-CondensedItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825028AC0B2A00DBAA56 /* Roboto-CondensedItalic.ttf */; };
+		337D826128AC0B2A00DBAA56 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825128AC0B2A00DBAA56 /* Roboto-Italic.ttf */; };
+		337D826228AC0B2A00DBAA56 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825228AC0B2A00DBAA56 /* Roboto-BlackItalic.ttf */; };
+		337D826328AC0B2A00DBAA56 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825328AC0B2A00DBAA56 /* Roboto-Bold.ttf */; };
+		337D826428AC0B2A00DBAA56 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */; };
+		337D826528AC0B2A00DBAA56 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */; };
+		337D826728AC0B4700DBAA56 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D826628AC0B4700DBAA56 /* EmptyState.swift */; };
+		337D826928AC0B4E00DBAA56 /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 337D826828AC0B4E00DBAA56 /* EmptyState.xib */; };
 		59872B154EB0137A0EF37E4F /* libPods-CI&T Brewery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6918BD3608B7B76DA3DA1E50 /* libPods-CI&T Brewery.a */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
@@ -56,6 +74,24 @@
 		2BD9460828AA914600CFC657 /* BreweryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreweryRepository.swift; path = "CI&T Brewery/Service/BreweryRepository.swift"; sourceTree = SOURCE_ROOT; };
 		2BD9460A28AA942900CFC657 /* BreweryAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryAPIService.swift; sourceTree = "<group>"; };
 		2BD9460D28AAB08C00CFC657 /* App+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Injection.swift"; sourceTree = "<group>"; };
+		337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		337D824928AC0B2A00DBAA56 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		337D824A28AC0B2A00DBAA56 /* Roboto-BoldCondensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldCondensed.ttf"; sourceTree = "<group>"; };
+		337D824B28AC0B2A00DBAA56 /* Roboto-BoldCondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldCondensedItalic.ttf"; sourceTree = "<group>"; };
+		337D824C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Condensed.ttf"; sourceTree = "<group>"; };
+		337D824D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		337D824E28AC0B2A00DBAA56 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		337D824F28AC0B2A00DBAA56 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		337D825028AC0B2A00DBAA56 /* Roboto-CondensedItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-CondensedItalic.ttf"; sourceTree = "<group>"; };
+		337D825128AC0B2A00DBAA56 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		337D825228AC0B2A00DBAA56 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		337D825328AC0B2A00DBAA56 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		337D826628AC0B4700DBAA56 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyState.swift; path = "../../../../../ciandt_it-ciandt-bootcamp-mobile-ios-4-efba3f9958ae/CI&T Brewery/CI&T Brewery/Home/View/EmptyState.swift"; sourceTree = "<group>"; };
+		337D826828AC0B4E00DBAA56 /* EmptyState.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyState.xib; sourceTree = "<group>"; };
 		5217E51DBA8A6331E845F43F /* Pods-CI&T Brewery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.debug.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.debug.xcconfig"; sourceTree = "<group>"; };
 		6918BD3608B7B76DA3DA1E50 /* libPods-CI&T Brewery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CI&T Brewery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F9B99FEF74F99FA9ED98AF1 /* Pods-CI&T Brewery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.release.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +182,29 @@
 			path = Injection;
 			sourceTree = "<group>";
 		};
+		337D824528AC0B2A00DBAA56 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */,
+				337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */,
+				337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */,
+				337D824928AC0B2A00DBAA56 /* Roboto-MediumItalic.ttf */,
+				337D824A28AC0B2A00DBAA56 /* Roboto-BoldCondensed.ttf */,
+				337D824B28AC0B2A00DBAA56 /* Roboto-BoldCondensedItalic.ttf */,
+				337D824C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf */,
+				337D824D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf */,
+				337D824E28AC0B2A00DBAA56 /* Roboto-BoldItalic.ttf */,
+				337D824F28AC0B2A00DBAA56 /* Roboto-LightItalic.ttf */,
+				337D825028AC0B2A00DBAA56 /* Roboto-CondensedItalic.ttf */,
+				337D825128AC0B2A00DBAA56 /* Roboto-Italic.ttf */,
+				337D825228AC0B2A00DBAA56 /* Roboto-BlackItalic.ttf */,
+				337D825328AC0B2A00DBAA56 /* Roboto-Bold.ttf */,
+				337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */,
+				337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		B99FDDFD28A58F4D00F5DA30 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +232,7 @@
 			children = (
 				2BD9460C28AAB07800CFC657 /* Injection */,
 				2BD9460328AA8F7C00CFC657 /* Service */,
+				337D824528AC0B2A00DBAA56 /* Fonts */,
 				B99FDE3C28A592F200F5DA30 /* Repository */,
 				B99FDE3928A592C200F5DA30 /* Home */,
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
@@ -227,6 +287,8 @@
 				B99FDE4528AC00BD00F5DA30 /* BreweryListView.swift */,
 				B99FDE4428AC00BD00F5DA30 /* BreweryListTableViewCell.xib */,
 				B99FDE4B28AC00BD00F5DA30 /* BreweryListTableViewCell.swift */,
+				337D826628AC0B4700DBAA56 /* EmptyState.swift */,
+				337D826828AC0B4E00DBAA56 /* EmptyState.xib */,
 				D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */,
 				B99FDE3E28A593E800F5DA30 /* ViewControllers */,
 			);
@@ -373,10 +435,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				337D825D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf in Resources */,
+				337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */,
+				337D826228AC0B2A00DBAA56 /* Roboto-BlackItalic.ttf in Resources */,
+				337D825F28AC0B2A00DBAA56 /* Roboto-LightItalic.ttf in Resources */,
+				337D826928AC0B4E00DBAA56 /* EmptyState.xib in Resources */,
+				337D825828AC0B2A00DBAA56 /* Roboto-Regular.ttf in Resources */,
 				D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */,
+				337D826128AC0B2A00DBAA56 /* Roboto-Italic.ttf in Resources */,
+				337D826528AC0B2A00DBAA56 /* Roboto-Black.ttf in Resources */,
+				337D825E28AC0B2A00DBAA56 /* Roboto-BoldItalic.ttf in Resources */,
+				337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */,
+				337D825928AC0B2A00DBAA56 /* Roboto-MediumItalic.ttf in Resources */,
 				D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */,
 				B99FDE4C28AC00BD00F5DA30 /* BreweryListTableViewCell.xib in Resources */,
 				B99FDE1628A58F4E00F5DA30 /* LaunchScreen.storyboard in Resources */,
+				337D826028AC0B2A00DBAA56 /* Roboto-CondensedItalic.ttf in Resources */,
+				337D825A28AC0B2A00DBAA56 /* Roboto-BoldCondensed.ttf in Resources */,
+				337D826428AC0B2A00DBAA56 /* Roboto-Thin.ttf in Resources */,
+				337D826328AC0B2A00DBAA56 /* Roboto-Bold.ttf in Resources */,
+				337D825B28AC0B2A00DBAA56 /* Roboto-BoldCondensedItalic.ttf in Resources */,
+				337D825C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf in Resources */,
 				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
 				B99FDE5128AC00BD00F5DA30 /* BreweryListView.xib in Resources */,
 			);
@@ -442,6 +521,7 @@
 				B99FDE4328AAC8ED00F5DA30 /* HomeViewModel.swift in Sources */,
 				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
 				2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */,
+				337D826728AC0B4700DBAA56 /* EmptyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

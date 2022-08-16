@@ -13,12 +13,21 @@ class HomeViewController: UIViewController {
     
     @Injected var viewModel: HomeViewModel
     private var cancellables: Set<AnyCancellable> = []
-    var listView: BreweryListView?
     var breweries: [Brewery] = [] {
         didSet {
             self.listView?.tableView.reloadData()
         }
     }
+    
+    private lazy var listView: BreweryListView = {
+        let listView = BreweyListView()
+    }
+    private lazy var emptyStatesView: EmptyState = {
+        let emptyStatesView = EmptyState(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
+        emptyStatesView.translatesAutoresizingMaskIntoConstraints = false
+        return emptyStatesView
+    }()
+>>>>>>> merge_empty_state
 
     init() {
         super.init(nibName: "HomeViewController", bundle: nil)
@@ -32,11 +41,26 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         sinkBreweries()
-        
         listView = BreweryListView()
         view.addSubview(listView!)
-        
         listView?.tableView.dataSource = self
+        setupEmptyState()
+    }
+    
+    func setupEmptyState() {
+        self.view.addSubview(emptyStatesView)
+        constraintEmptyState()
+    }
+    
+    func hideEmptyState() {
+        self.emptyStatesView.removeFromSuperview()
+    }
+    
+    private func constraintEmptyState() {
+        emptyStatesView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
+        emptyStatesView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        emptyStatesView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+>>>>>>> merge_empty_state
     }
     
     private func getBreweriesBy(city: String) {
