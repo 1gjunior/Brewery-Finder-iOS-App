@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B92A11428AC398100E6FB05 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11328AC398100E6FB05 /* EmptyState.swift */; };
 		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
 		2BD9460528AA8FB900CFC657 /* APIManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460428AA8FB900CFC657 /* APIManagerService.swift */; };
 		2BD9460928AA914600CFC657 /* BreweryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460828AA914600CFC657 /* BreweryRepository.swift */; };
@@ -28,7 +29,6 @@
 		337D826328AC0B2A00DBAA56 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825328AC0B2A00DBAA56 /* Roboto-Bold.ttf */; };
 		337D826428AC0B2A00DBAA56 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */; };
 		337D826528AC0B2A00DBAA56 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */; };
-		337D826728AC0B4700DBAA56 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D826628AC0B4700DBAA56 /* EmptyState.swift */; };
 		337D826928AC0B4E00DBAA56 /* EmptyState.xib in Resources */ = {isa = PBXBuildFile; fileRef = 337D826828AC0B4E00DBAA56 /* EmptyState.xib */; };
 		59872B154EB0137A0EF37E4F /* libPods-CI&T Brewery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6918BD3608B7B76DA3DA1E50 /* libPods-CI&T Brewery.a */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
@@ -62,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B92A11328AC398100E6FB05 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BD9460428AA8FB900CFC657 /* APIManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerService.swift; sourceTree = "<group>"; };
 		2BD9460828AA914600CFC657 /* BreweryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreweryRepository.swift; path = "CI&T Brewery/Service/BreweryRepository.swift"; sourceTree = SOURCE_ROOT; };
@@ -83,7 +84,6 @@
 		337D825328AC0B2A00DBAA56 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
-		337D826628AC0B4700DBAA56 /* EmptyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyState.swift; path = "../../../../../ciandt_it-ciandt-bootcamp-mobile-ios-4-efba3f9958ae/CI&T Brewery/CI&T Brewery/Home/View/EmptyState.swift"; sourceTree = "<group>"; };
 		337D826828AC0B4E00DBAA56 /* EmptyState.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyState.xib; sourceTree = "<group>"; };
 		5217E51DBA8A6331E845F43F /* Pods-CI&T Brewery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.debug.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.debug.xcconfig"; sourceTree = "<group>"; };
 		6918BD3608B7B76DA3DA1E50 /* libPods-CI&T Brewery.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CI&T Brewery.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,7 +268,7 @@
 		B99FDE3B28A592D500F5DA30 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				337D826628AC0B4700DBAA56 /* EmptyState.swift */,
+				2B92A11328AC398100E6FB05 /* EmptyState.swift */,
 				337D826828AC0B4E00DBAA56 /* EmptyState.xib */,
 				D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */,
 				B99FDE3E28A593E800F5DA30 /* ViewControllers */,
@@ -485,7 +485,7 @@
 				B99FDE4328AAC8ED00F5DA30 /* HomeViewModel.swift in Sources */,
 				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
 				2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */,
-				337D826728AC0B4700DBAA56 /* EmptyState.swift in Sources */,
+				2B92A11428AC398100E6FB05 /* EmptyState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
