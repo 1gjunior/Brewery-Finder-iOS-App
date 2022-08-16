@@ -12,6 +12,7 @@ import Combine
 class HomeViewController: UIViewController {
     
     @IBOutlet var searchBar: UISearchBar!
+    var currentView: UIView? = nil
     
     @Injected var viewModel: HomeViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -58,15 +59,16 @@ class HomeViewController: UIViewController {
     }
     
     func setupEmptyState() {
+        changingState(view: emptyStatesView)
         self.view.addSubview(emptyStatesView)
         constraintEmptyState()
     }
     
     func setupSucessState() {
-        DispatchQueue.main.async { [weak self] in
-            self?.view.addSubview(self?.listView ?? UIView())
-            self?.constraintListView()
-        }
+        listView.resultsLabel.text = "\(breweries.count) resultados"
+        self.view.addSubview(listView)
+        self.constraintListView()
+        self.changingState(view: listView)
     }
     
     private func constraintListView() {
@@ -77,9 +79,10 @@ class HomeViewController: UIViewController {
         listView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
     
-    func hideEmptyState() {
-        DispatchQueue.main.async { [weak self] in
-            self?.emptyStatesView.removeFromSuperview()
+    private func changingState(view: UIView?) {
+        if view != currentView {
+            currentView?.removeFromSuperview()
+            currentView = view
         }
     }
     
@@ -99,16 +102,36 @@ class HomeViewController: UIViewController {
             case .initial:
                 print("initial")
             case .success(let breweries):
-                self?.hideEmptyState()
-                self?.breweries = breweries
+                self?.sucessState(breweries)
             case .genericError:
-                print("generic")
+                self?.genericErrorState()
             case .loading:
                 print("loading")
             case .emptyError:
-                self?.setupEmptyState()
+                self?.emptyErrorState()
             }
         }.store(in: &cancellables)
+    }
+    
+    private func sucessState(_ breweries: [Brewery]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.breweries = breweries
+        }
+    }
+    
+    private func genericErrorState() {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupEmptyState()
+            self?.emptyStatesView.titleEmptyStateLabel.text = "Nenhum resultado encontrado para sua busca"
+        }
+        print("generic")
+    }
+    
+    private func emptyErrorState() {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupEmptyState()
+            self?.emptyStatesView.titleEmptyStateLabel.text = "Nenhum termo digitado"
+        }
     }
 }
 
@@ -144,7 +167,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreweryListCell", for: indexPath) as? BreweryListTableViewCell else { fatalError("Cannot create a cell") }
         
         let brewery = breweries[indexPath.section]

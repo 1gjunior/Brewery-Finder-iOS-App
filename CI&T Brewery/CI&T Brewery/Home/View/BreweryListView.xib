@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BreweryListView" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="TA4-M9-bb9"/>
+                <outlet property="resultsLabel" destination="8Pj-wN-ZLb" id="P5k-yj-9Xc"/>
                 <outlet property="tableView" destination="lgX-yP-WKw" id="cAH-cQ-d6r"/>
             </connections>
         </placeholder>

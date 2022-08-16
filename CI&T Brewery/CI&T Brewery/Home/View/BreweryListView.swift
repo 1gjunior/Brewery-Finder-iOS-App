@@ -10,6 +10,7 @@ import UIKit
 class BreweryListView: UIView {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var resultsLabel: UILabel!
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
