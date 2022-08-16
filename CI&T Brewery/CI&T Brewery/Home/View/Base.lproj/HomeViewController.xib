@@ -3,8 +3,8 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -57,7 +57,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="Background Home"/>
             <constraints>
                 <constraint firstItem="7rx-8t-Rv6" firstAttribute="top" secondItem="I3U-ej-sAn" secondAttribute="bottom" constant="12" id="3Eg-hu-obN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GdY-2w-Gm2" secondAttribute="trailing" id="3GK-Yu-Jeu"/>
@@ -85,8 +85,8 @@
     <resources>
         <image name="Frame 168" width="400" height="300"/>
         <image name="my_location_24px" width="22" height="22"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Background Home">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

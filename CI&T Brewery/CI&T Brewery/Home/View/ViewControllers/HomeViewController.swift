@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         
         listView.tableView.delegate = self
         listView.tableView.dataSource = self
-        
+    
         listView.tableView.register(UINib(nibName: "BreweryListTableViewCell", bundle: nil), forCellReuseIdentifier: "BreweryListCell")
         return listView
     }()
@@ -71,8 +71,10 @@ class HomeViewController: UIViewController {
     
     private func constraintListView() {
         listView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200).isActive = true
-        listView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        listView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        listView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        listView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        
+        listView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
     
     func hideEmptyState() {
@@ -138,23 +140,21 @@ extension HomeViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = Bundle.main.loadNibNamed("BreweryListCell", owner: self, options: nil)?.first as? BreweryListTableViewCell else { fatalError("Cannot create a cell") }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreweryListCell", for: indexPath) as? BreweryListTableViewCell else { fatalError("Cannot create a cell") }
         
-        let brewery = breweries[indexPath.row]
-        cell.configure(cell)
-        cell.profileLetter.text = String(describing: brewery.name.first)
-        
+        let brewery = breweries[indexPath.section]
+        cell.configure(cell, brewery)
         
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        10
+        breweries.count
     }
 }
 

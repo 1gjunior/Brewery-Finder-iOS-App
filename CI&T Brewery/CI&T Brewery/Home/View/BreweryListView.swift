@@ -25,15 +25,5 @@ class BreweryListView: UIView {
         guard let viewFromXib = Bundle.main.loadNibNamed("BreweryListView", owner: self, options: nil)![0] as? UIView else { return }
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
-        backgroundColor = .red
-        
-        tableView.frame = self.bounds
-        viewFromXib.addSubview(tableView)
-        
-//        Bundle.main.loadNibNamed("BreweryListView", owner: self, options: nil)
-//        addSubview(contentView)
-//
-//        contentView.frame = bounds
-//        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
     }
 }
