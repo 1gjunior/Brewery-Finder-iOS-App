@@ -13,18 +13,30 @@ class HomeViewController: UIViewController {
     
     @Injected var viewModel: HomeViewModel
     private var cancellables: Set<AnyCancellable> = []
+    var listView: BreweryListView?
+    var breweries: [Brewery] = [] {
+        didSet {
+            self.listView?.tableView.reloadData()
+        }
+    }
 
     init() {
         super.init(nibName: "HomeViewController", bundle: nil)
     }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         sinkBreweries()
-        getBreweriesBy(city: "New York")
+        
+        listView = BreweryListView()
+        view.addSubview(listView!)
+        
+        listView?.tableView.dataSource = self
     }
     
     private func getBreweriesBy(city: String) {
@@ -32,11 +44,12 @@ class HomeViewController: UIViewController {
     }
     
     private func sinkBreweries() {
-        viewModel.$state.sink { state in
+        viewModel.$state.sink { [weak self] state in
             switch state {
             case .initial:
                 print("initial")
             case .success(let breweries):
+                self?.breweries = breweries
                 print(breweries)
             case .genericError:
                 print("generic")
@@ -48,6 +61,7 @@ class HomeViewController: UIViewController {
         }.store(in: &cancellables)
     }
 }
+
 extension HomeViewController {
     private func setupNavigationBar() {
         navigationController?.navigationBar.backgroundColor = UIColor(red: 1, green: 0.671, blue: 0, alpha: 1)
@@ -71,5 +85,21 @@ extension HomeViewController {
         let starIcon = UIButton(type: .system)
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        breweries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreweryListCell", for: indexPath) as? BreweryListTableViewCell else { fatalError("Cannot create a cell") }
+        
+        let brewery = breweries[indexPath.row]
+    
+        cell.profileLetter.text = String(describing: brewery.name.first)
+        
+        return cell
     }
 }
