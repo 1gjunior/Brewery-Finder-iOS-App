@@ -30,4 +30,17 @@ class BreweryRepository: BreweryRepositoryProtocol {
             }
         }
     }
+    
+    func getBreweryBy(id: String, completion: @escaping (Result<Brewery, Error>) -> Void) {
+        guard let url = BreweryAPIService.getBreweryURLString(id: id) else { return }
+        
+        apiManager.fetchItems(url: url) { (result: Result<Brewery, Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
