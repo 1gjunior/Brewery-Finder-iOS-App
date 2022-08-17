@@ -66,12 +66,8 @@ class HomeViewController: UIViewController {
         listView.update(breweries, actionForCell: goToDetailWith)
     }
     
-// TODO: - uncomment when DetailViewController is created
     private func goToDetailWith(id: String) {
-        
-//        let detailViewController = DetailViewController(id: id)
         print(id)
-//        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     private func constraintListView() {

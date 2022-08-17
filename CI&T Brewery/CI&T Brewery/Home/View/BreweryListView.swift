@@ -59,8 +59,6 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
        
         guard let action = action else { return }
         action(id)
-        
-        self.tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     public func update(_ breweries: [Brewery], actionForCell: @escaping (_ id: String) -> ()) {
