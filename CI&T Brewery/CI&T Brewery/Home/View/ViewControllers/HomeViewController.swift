@@ -30,10 +30,10 @@ class HomeViewController: UIViewController {
         return listView
     }()
     
-    private lazy var errorStatesView: ErrorState = {
-        let errorStatesView = ErrorState(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
-        errorStatesView.translatesAutoresizingMaskIntoConstraints = false
-        return errorStatesView
+    private lazy var errorStateView: ErrorStateView = {
+        let errorStateView = ErrorStateView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
+        errorStateView.translatesAutoresizingMaskIntoConstraints = false
+        return errorStateView
     }()
 
     init() {
@@ -51,11 +51,11 @@ class HomeViewController: UIViewController {
         searchBar.delegate = self
     }
     
-    func setupErrorState(isEmptySearch: Bool) {
-        changingState(view: errorStatesView)
-        self.view.addSubview(errorStatesView)
-        self.errorStatesView.changeText(isEmptySearch)
-        constraintEmptyState()
+    func setupErrorState(error: EmptyError) {
+        changingState(view: errorStateView)
+        self.view.addSubview(errorStateView)
+        self.errorStateView.changeText(error)
+        constraintErrorState()
     }
     
     func setupSucessState() {
@@ -80,10 +80,10 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func constraintEmptyState() {
-        errorStatesView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
-        errorStatesView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        errorStatesView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+    private func constraintErrorState() {
+        errorStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
+        errorStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        errorStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
     
     private func getBreweriesBy(city: String) {
@@ -115,13 +115,13 @@ class HomeViewController: UIViewController {
     
     private func genericErrorState() {
         DispatchQueue.main.async { [weak self] in
-            self?.setupErrorState(isEmptySearch: false)
+            self?.setupErrorState(error: .result)
         }
     }
     
     private func emptyErrorState() {
         DispatchQueue.main.async { [weak self] in
-            self?.setupErrorState(isEmptySearch: true)
+            self?.setupErrorState(error: .search)
         }
     }
 }

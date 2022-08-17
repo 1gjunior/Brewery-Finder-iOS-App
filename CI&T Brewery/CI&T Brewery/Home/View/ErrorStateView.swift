@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class ErrorState: UIView {
+public class ErrorStateView: UIView {
     
     @IBOutlet weak var titleEmptyStateLabel: UILabel!
     @IBOutlet weak var subtitleEmptyStateLabel: UILabel!
@@ -23,18 +23,25 @@ public class ErrorState: UIView {
     }
     
     public func commonInit() {
-        guard let viewFromXib = Bundle.main.loadNibNamed("ErrorState", owner: self, options: nil)?[0] as? UIView else { return }
+        guard let viewFromXib = Bundle.main.loadNibNamed("ErrorStateView", owner: self, options: nil)?[0] as? UIView else { return }
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
         backgroundColor = .red
     }
     
-    public func changeText(_ isEmptySearch: Bool) {
-        if isEmptySearch {
-            self.titleEmptyStateLabel.text = NSLocalizedString("inputEmptyStateText" , comment: "")
-        } else {
-            self.titleEmptyStateLabel.text = NSLocalizedString("resultEmptyStateText", comment: "")
-        }
+    public func changeText(_ error: EmptyError) {
+        self.titleEmptyStateLabel.text = error.text
     }
 }
 
+public enum EmptyError: String {
+    case search
+    case result
+    
+    var text: String {
+        switch self{
+        case .search: return NSLocalizedString("inputEmptyStateText" , comment: "")
+        case .result: return NSLocalizedString("resultEmptyStateText", comment: "")
+        }
+    }
+}

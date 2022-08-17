@@ -23,7 +23,7 @@ class BreweryListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(_ cell: BreweryListTableViewCell, _ brewery: Brewery) {
+    func configure(_ cell: BreweryListTableViewCell, for brewery: Brewery) {
         cell.contentView.layer.cornerRadius = 30
         cell.profileLetter.layer.masksToBounds = true
         cell.profileLetter.layer.cornerRadius = 22
