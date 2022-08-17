@@ -7,10 +7,11 @@
 
 import UIKit
 
-class BreweryListView: UIView {
-    @IBOutlet var tableView: UITableView!
+class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet private var tableView: UITableView!
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var resultsLabel: UILabel!
+    @IBOutlet private var resultsLabel: UILabel!
+    private var breweries: [Brewery] = []
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,8 +24,39 @@ class BreweryListView: UIView {
     }
     
     private func commonInit() {
-        guard let viewFromXib = Bundle.main.loadNibNamed("BreweryListView", owner: self, options: nil)![0] as? UIView else { return }
+        guard let viewFromXib = Bundle.main.loadNibNamed("BreweryListView", owner: self, options: nil)?[0] as? UIView else { return }
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        tableView.register(UINib(nibName: "BreweryListTableViewCell", bundle: nil), forCellReuseIdentifier: "BreweryListCell")
+    }
+    
+    public func setSearchResultText(_ text: String) {
+        resultsLabel.text = text
+    }
+    
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreweryListCell", for: indexPath) as? BreweryListTableViewCell else { return UITableViewCell() }
+        
+        let brewery = breweries[indexPath.section]
+        cell.configure(cell, brewery)
+        
+        return cell
+    }
+    
+    internal func numberOfSections(in tableView: UITableView) -> Int {
+        breweries.count
+    }
+    
+    public func update(_ breweries: [Brewery]) {
+        self.breweries = breweries
+        self.tableView.reloadData()
     }
 }
+
+

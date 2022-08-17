@@ -20,7 +20,6 @@ class HomeViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.setupSucessState()
-                self.listView.tableView.reloadData()
             }
         }
     }
@@ -28,18 +27,13 @@ class HomeViewController: UIViewController {
     private lazy var listView: BreweryListView = {
         let listView = BreweryListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 800.0))
         listView.translatesAutoresizingMaskIntoConstraints = false
-        
-        listView.tableView.delegate = self
-        listView.tableView.dataSource = self
-    
-        listView.tableView.register(UINib(nibName: "BreweryListTableViewCell", bundle: nil), forCellReuseIdentifier: "BreweryListCell")
         return listView
     }()
     
-    private lazy var emptyStatesView: EmptyState = {
-        let emptyStatesView = EmptyState(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
-        emptyStatesView.translatesAutoresizingMaskIntoConstraints = false
-        return emptyStatesView
+    private lazy var errorStatesView: ErrorState = {
+        let errorStatesView = ErrorState(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
+        errorStatesView.translatesAutoresizingMaskIntoConstraints = false
+        return errorStatesView
     }()
 
     init() {
@@ -55,27 +49,27 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
         sinkBreweries()
         searchBar.delegate = self
-        listView.tableView.register(UINib(nibName: "BreweryListTableViewCell", bundle: nil), forCellReuseIdentifier: "BreweryListCell")
     }
     
-    func setupEmptyState() {
-        changingState(view: emptyStatesView)
-        self.view.addSubview(emptyStatesView)
+    func setupErrorState(isEmptySearch: Bool) {
+        changingState(view: errorStatesView)
+        self.view.addSubview(errorStatesView)
+        self.errorStatesView.changeText(isEmptySearch)
         constraintEmptyState()
     }
     
     func setupSucessState() {
-        listView.resultsLabel.text = "\(breweries.count) resultados"
+        listView.setSearchResultText("\(breweries.count) resultados")
         self.view.addSubview(listView)
         self.constraintListView()
         self.changingState(view: listView)
+        listView.update(breweries)
     }
     
     private func constraintListView() {
         listView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200).isActive = true
         listView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         listView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        
         listView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
     
@@ -87,9 +81,9 @@ class HomeViewController: UIViewController {
     }
     
     private func constraintEmptyState() {
-        emptyStatesView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
-        emptyStatesView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        emptyStatesView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        errorStatesView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
+        errorStatesView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        errorStatesView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
     
     private func getBreweriesBy(city: String) {
@@ -121,16 +115,13 @@ class HomeViewController: UIViewController {
     
     private func genericErrorState() {
         DispatchQueue.main.async { [weak self] in
-            self?.setupEmptyState()
-            self?.emptyStatesView.titleEmptyStateLabel.text = "Nenhum resultado encontrado para sua busca"
+            self?.setupErrorState(isEmptySearch: false)
         }
-        print("generic")
     }
     
     private func emptyErrorState() {
         DispatchQueue.main.async { [weak self] in
-            self?.setupEmptyState()
-            self?.emptyStatesView.titleEmptyStateLabel.text = "Nenhum termo digitado"
+            self?.setupErrorState(isEmptySearch: true)
         }
     }
 }
@@ -158,25 +149,6 @@ extension HomeViewController {
         let starIcon = UIButton(type: .system)
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
-    }
-}
-
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreweryListCell", for: indexPath) as? BreweryListTableViewCell else { fatalError("Cannot create a cell") }
-        
-        let brewery = breweries[indexPath.section]
-        cell.configure(cell, brewery)
-        
-        return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        breweries.count
     }
 }
 
