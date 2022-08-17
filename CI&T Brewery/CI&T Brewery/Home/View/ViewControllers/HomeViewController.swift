@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupSucessState() {
-        listView.setSearchResultText("\(breweries.count) resultados")
+        listView.setSearchResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
         self.view.addSubview(listView)
         self.constraintListView()
         self.changingState(view: listView)
