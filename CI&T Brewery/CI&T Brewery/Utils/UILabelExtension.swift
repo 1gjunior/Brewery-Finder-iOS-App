@@ -8,6 +8,11 @@
 import UIKit
 
 extension UILabel {
+    public func fontRobotoLight14ColorBreweryBlack() {
+        self.font = UIFont(name: "Roboto-Light", size: 14)
+        self.textColor = UIColor(named: "BreweryBlack")
+    }
+    
     public func makeRoundLabel()  {
         self.textColor = UIColor(named: "BreweryYellow")
         self.backgroundColor = UIColor(named: "Brewery Yellow Alpha 16")
@@ -18,7 +23,7 @@ extension UILabel {
         self.isEnabled = true
     }
     
-    func underline() {
+    public func underline() {
         if let textString = self.text {
             let attributedString = NSMutableAttributedString(string: textString)
             attributedString.addAttribute(NSAttributedString.Key.underlineStyle,
