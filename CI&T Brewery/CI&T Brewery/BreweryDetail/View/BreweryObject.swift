@@ -18,6 +18,7 @@ class BreweryObject {
     var website: String
     var average: Double
     var evaluation: String
+    var logo: String
     
     init(brewery: Brewery) {
         self.brewery = brewery
@@ -51,11 +52,13 @@ class BreweryObject {
         var evaluationString = String(brewery.sizeEvaluations)
         if brewery.sizeEvaluations > 1 ||
             brewery.sizeEvaluations == 0 {
-            evaluationString += " avaliações"
+            evaluationString += " " + NSLocalizedString("evaluations", comment: "")
         } else {
-            evaluationString += " avaliação"
+            evaluationString += " " + NSLocalizedString("evaluation", comment: "")
         }
         
         self.evaluation = evaluationString
+        
+        self.logo = String(name[name.startIndex])
     }
 }

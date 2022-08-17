@@ -13,8 +13,8 @@
 		2B58EFAC28AD36880061B631 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0328AD117F0037099C /* Quicksand-Regular.ttf */; };
 		2B58EFAE28AD4E070061B631 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */; };
 		2B58EFB028AD52D60061B631 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFAF28AD52D60061B631 /* StringExtension.swift */; };
+		2B58EFB128AD68FD0061B631 /* BreweryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFB328AD68FD0061B631 /* BreweryDetailView.xib */; };
 		2B92A11A28AC3AAD00E6FB05 /* BreweryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11928AC3AAD00E6FB05 /* BreweryDetailViewController.swift */; };
-		2B92A11E28AC3B1E00E6FB05 /* BreweryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B92A11D28AC3B1E00E6FB05 /* BreweryDetailView.xib */; };
 		2B92A12028AC4E8100E6FB05 /* BreweryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11F28AC4E8100E6FB05 /* BreweryDetailViewModel.swift */; };
 		2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */; };
 		2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A12328AC587000E6FB05 /* BreweryObject.swift */; };
@@ -85,8 +85,9 @@
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 		2B58EFAF28AD52D60061B631 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		2B58EFB428AD69120061B631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BreweryDetailView.xib; sourceTree = "<group>"; };
+		2B58EFB528AD696B0061B631 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/BreweryDetailView.strings"; sourceTree = "<group>"; };
 		2B92A11928AC3AAD00E6FB05 /* BreweryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewController.swift; sourceTree = "<group>"; };
-		2B92A11D28AC3B1E00E6FB05 /* BreweryDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweryDetailView.xib; sourceTree = "<group>"; };
 		2B92A11F28AC4E8100E6FB05 /* BreweryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewModel.swift; sourceTree = "<group>"; };
 		2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailView.swift; sourceTree = "<group>"; };
 		2B92A12328AC587000E6FB05 /* BreweryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryObject.swift; sourceTree = "<group>"; };
@@ -201,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				2B92A11828AC3A8600E6FB05 /* ViewController */,
-				2B92A11D28AC3B1E00E6FB05 /* BreweryDetailView.xib */,
+				2B58EFB328AD68FD0061B631 /* BreweryDetailView.xib */,
 				2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */,
 				2B92A12328AC587000E6FB05 /* BreweryObject.swift */,
 			);
@@ -511,7 +512,7 @@
 				337D825D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf in Resources */,
 				337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */,
 				337D826228AC0B2A00DBAA56 /* Roboto-BlackItalic.ttf in Resources */,
-				2B92A11E28AC3B1E00E6FB05 /* BreweryDetailView.xib in Resources */,
+				2B58EFB128AD68FD0061B631 /* BreweryDetailView.xib in Resources */,
 				2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */,
 				337D825F28AC0B2A00DBAA56 /* Roboto-LightItalic.ttf in Resources */,
 				337D826928AC0B4E00DBAA56 /* ErrorStateView.xib in Resources */,
@@ -645,6 +646,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2B58EFB328AD68FD0061B631 /* BreweryDetailView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B58EFB428AD69120061B631 /* Base */,
+				2B58EFB528AD696B0061B631 /* pt-BR */,
+			);
+			name = BreweryDetailView.xib;
+			sourceTree = "<group>";
+		};
 		B99FDE1428A58F4E00F5DA30 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

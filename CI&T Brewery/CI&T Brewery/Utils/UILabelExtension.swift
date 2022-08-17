@@ -8,8 +8,7 @@
 import UIKit
 
 extension UILabel {
-    public func makeRoundLabel(_ text: String)  {
-        self.text = String(text[text.startIndex])
+    public func makeRoundLabel()  {
         self.textColor = UIColor(named: "BreweryYellow")
         self.backgroundColor = UIColor(named: "Brewery Yellow Alpha 16")
         self.font = UIFont(name: "Roboto-Medium", size: 32)
