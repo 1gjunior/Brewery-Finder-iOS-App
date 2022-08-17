@@ -88,29 +88,38 @@ class BreweryDetailView: UIView {
             addBottomSeparator(uiStackView: mapStackView)
         }
     }
-    @IBOutlet weak var mapText: UILabel! {
+    @IBOutlet weak var mapText: UIButton! {
         didSet {
-            mapText.text = "Ver no mapa"
-            mapText.font = UIFont(name: "Roboto-Medium", size: 14)
-            mapText.textColor = UIColor(named: "BreweryBlack")
-            mapText.underline()
+            mapText.titleLabel?.text = "Ver no mapa"
+            mapText.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
+            mapText.titleLabel?.textColor = UIColor(named: "BreweryBlack")
+            mapText.titleLabel?.underline()
         }
     }
     
     @IBOutlet weak var addPhotoButton: UIButton! {
         didSet {
-//            mapText.text = "Ver no mapa"
-//            mapText.font = UIFont(name: "Roboto-Medium", size: 14)
-//            mapText.textColor = UIColor(named: "BreweryBlack")
-//            mapText.underline()
+            addPhotoButton.titleLabel?.text = "Adicionar Foto"
+            addPhotoButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
+            addPhotoButton.titleLabel?.textColor = UIColor(named: "BreweryBlack")
+            
+            addPhotoButton.layer.borderColor = UIColor(named: "BreweryBlack")?.cgColor
+            addPhotoButton.layer.borderWidth = 1
+            addPhotoButton.layer.cornerRadius = 18
+            
+            addPhotoButton.currentImage?.resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 50, bottom: 10, right: 50))
         }
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
-//            mapText.text = "Ver no mapa"
-//            mapText.font = UIFont(name: "Roboto-Medium", size: 14)
-//            mapText.textColor = UIColor(named: "BreweryBlack")
-//            mapText.underline()
+            evaluateBreweryButton.titleLabel?.text = "Avaliar"
+            evaluateBreweryButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
+            evaluateBreweryButton.titleLabel?.textColor = UIColor(named: "BreweryGold")
+            
+            evaluateBreweryButton.layer.borderColor = UIColor(named: "Brewery Yellow Light")?.cgColor
+            evaluateBreweryButton.layer.borderWidth = 1
+            evaluateBreweryButton.layer.cornerRadius = 18
+            evaluateBreweryButton.layer.backgroundColor = UIColor(named: "Brewery Yellow Light")?.cgColor
         }
     }
     

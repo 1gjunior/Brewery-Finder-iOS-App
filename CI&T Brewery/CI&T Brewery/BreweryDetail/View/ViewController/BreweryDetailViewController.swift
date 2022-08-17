@@ -10,8 +10,6 @@ import UIKit
 
 class BreweryDetailViewController: UIViewController {
     
-//    @IBOutlet weak var breweryDetailView: BreweryDetailView!
-    
     init() {
         super.init(nibName: "BreweryDetailView", bundle: nil)
     }
