@@ -32,6 +32,8 @@
 		33BD22AF28AD5ADE0004FEE4 /* OpenMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */; };
 		33BD22B328AD7C8F0004FEE4 /* SucessStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33BD22B228AD7C8F0004FEE4 /* SucessStateView.xib */; };
 		33BD22B528AD82A30004FEE4 /* FailStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33BD22B428AD82A30004FEE4 /* FailStateView.xib */; };
+		33BD22B728AD86530004FEE4 /* SucessStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22B628AD86530004FEE4 /* SucessStateView.swift */; };
+		33BD22B928AD86D90004FEE4 /* FailStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22B828AD86D90004FEE4 /* FailStateView.swift */; };
 		51C99460A386B1BBBA4874A7 /* libPods-CI&T Brewery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FA51AA12A64144FF91D4B9 /* libPods-CI&T Brewery.a */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
@@ -98,6 +100,8 @@
 		33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMap.swift; sourceTree = "<group>"; };
 		33BD22B228AD7C8F0004FEE4 /* SucessStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SucessStateView.xib; sourceTree = "<group>"; };
 		33BD22B428AD82A30004FEE4 /* FailStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailStateView.xib; sourceTree = "<group>"; };
+		33BD22B628AD86530004FEE4 /* SucessStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessStateView.swift; sourceTree = "<group>"; };
+		33BD22B828AD86D90004FEE4 /* FailStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailStateView.swift; sourceTree = "<group>"; };
 		A3492DB192666BCDAC13E386 /* Pods-CI&T Brewery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.release.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.release.xcconfig"; sourceTree = "<group>"; };
 		B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI&T Brewery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,7 +212,9 @@
 			children = (
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
 				33BD22B228AD7C8F0004FEE4 /* SucessStateView.xib */,
+				33BD22B628AD86530004FEE4 /* SucessStateView.swift */,
 				33BD22B428AD82A30004FEE4 /* FailStateView.xib */,
+				33BD22B828AD86D90004FEE4 /* FailStateView.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -526,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BD22B928AD86D90004FEE4 /* FailStateView.swift in Sources */,
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
 				B99FDE4D28AC00BD00F5DA30 /* BreweryListView.swift in Sources */,
 				B99FDE4E28AC00BD00F5DA30 /* APIManagerService.swift in Sources */,
@@ -542,6 +549,7 @@
 				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
 				2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */,
 				B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */,
+				33BD22B728AD86530004FEE4 /* SucessStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
