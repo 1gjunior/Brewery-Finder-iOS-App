@@ -17,7 +17,7 @@ class BreweryObject {
     var longitude: Double
     var website: String
     var average: Double
-    var evaluation: Double
+    var evaluation: String
     
     init(brewery: Brewery) {
         self.brewery = brewery
@@ -28,7 +28,6 @@ class BreweryObject {
         self.longitude = brewery.longitude ?? 0
         self.website = brewery.website ?? ""
         self.average = brewery.average
-        self.evaluation = brewery.sizeEvaluations        
         
         let arrayAddress = [
             brewery.street,
@@ -48,5 +47,15 @@ class BreweryObject {
         }
         
         self.address = formattedAddress
+        
+        var evaluationString = String(brewery.sizeEvaluations)
+        if brewery.sizeEvaluations > 1 ||
+            brewery.sizeEvaluations == 0 {
+            evaluationString += " avaliações"
+        } else {
+            evaluationString += " avaliação"
+        }
+        
+        self.evaluation = evaluationString
     }
 }
