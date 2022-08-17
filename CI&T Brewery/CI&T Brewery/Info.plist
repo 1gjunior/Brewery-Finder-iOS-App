@@ -6,6 +6,9 @@
 	<array>
 		<string>Roboto-Light</string>
 		<string>Roboto-Medium</string>
+		<string>Quicksand-Bold</string>
+		<string>Quicksand-Regular</string>
+		<string>Quicksand-Medium</string>
 	</array>
 </dict>
 </plist>

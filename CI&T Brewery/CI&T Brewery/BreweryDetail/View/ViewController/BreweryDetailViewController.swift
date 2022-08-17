@@ -10,7 +10,7 @@ import UIKit
 
 class BreweryDetailViewController: UIViewController {
     
-    @IBOutlet weak var breweryDetailView: BreweryDetailView!
+//    @IBOutlet weak var breweryDetailView: BreweryDetailView!
     
     init() {
         super.init(nibName: "BreweryDetailView", bundle: nil)
@@ -19,16 +19,24 @@ class BreweryDetailViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    private lazy var breweryDetailView: BreweryDetailView = {
+        let bdView = BreweryDetailView()
+        bdView.translatesAutoresizingMaskIntoConstraints = false
+        return bdView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         
         view.backgroundColor = .red
     }
-    
-//    private func setViewData(brewery: BreweryObject) {
-//        print(brewery)
-//    }
+        
+    // depois do fetch, chamar este metodo
+    // a classe BreweryObject possui os campos formatados
+    private func setViewData(brewery: BreweryObject) {
+        print(brewery)
+    }
 }
 
 extension BreweryDetailViewController {
