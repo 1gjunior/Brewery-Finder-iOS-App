@@ -10,17 +10,17 @@ import MapKit
 import UIKit
 
 protocol OpenMapDirectionsProtocol {
-  static func present(in viewController: UIViewController, sourceView: UIView, latitude: Double, longitude: Double)
+    static func present(in viewController: UIViewController, sourceView: UIView, latitude: Double, longitude: Double)
 }
 
 class OpenMapDirections: OpenMapDirectionsProtocol{
     
-   static let urlGoogleMaps = "https://www.google.com/maps/search/?api=1&query="
-   static let alertTitle = NSLocalizedString("Open Location", comment: "")
-   static let alertMessage = NSLocalizedString("Choose an app to open direction", comment: "")
-   static let actionTitle = NSLocalizedString("Google Maps", comment: "")
-   static let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
-        
+    private static let urlGoogleMaps = "https://www.google.com/maps/search/?api=1&query="
+    private static let alertTitle = NSLocalizedString("Open Location", comment: "")
+    private static let alertMessage = NSLocalizedString("Choose an app to open direction", comment: "")
+    private static let actionTitle = NSLocalizedString("Google Maps", comment: "")
+    private static let cancelButtonTitle = NSLocalizedString("Cancel", comment: "")
+    
     static func present(in viewController: UIViewController, sourceView: UIView, latitude: Double, longitude: Double) {
         let actionSheet = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { _ in
