@@ -11,12 +11,6 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "SsR-06-6uD"; */
 "SsR-06-6uD.normalTitle" = "Adicionar Foto";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "Vw2-aq-F4g"; */
-"Vw2-aq-F4g.text" = "Label";
-
-/* Class = "UILabel"; text = "618 Fifth Ave, San Diego, CA 92101, Estados Unidos"; ObjectID = "g6d-lu-lfP"; */
-"g6d-lu-lfP.text" = "618 Fifth Ave, San Diego, CA 92101, Estados Unidos";
-
 /* Class = "UILabel"; text = "Detalhes da Cervejaria"; ObjectID = "l0e-9L-wsX"; */
 "l0e-9L-wsX.text" = "Detalhes da Cervejaria";
 
