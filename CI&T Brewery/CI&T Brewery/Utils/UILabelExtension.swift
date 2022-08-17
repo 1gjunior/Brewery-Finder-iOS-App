@@ -13,6 +13,41 @@ extension UILabel {
         self.textColor = UIColor(named: "BreweryBlack")
     }
     
+    public func fontRobotoRegular24ColorBreweryBlack() {
+        self.font = UIFont(name: "Roboto-Regular", size: 24)
+        self.textColor = UIColor(named: "BreweryBlack")
+    }
+    
+    public func fontRobotoMedium14ColorBreweryBlack() {
+        self.font = UIFont(name: "Roboto-Medium", size: 14)
+        self.textColor = UIColor(named: "BreweryBlack")
+    }
+    
+    public func fontRobotoMedium14ColorBreweryGold() {
+        self.font = UIFont(name: "Roboto-Medium", size: 14)
+        self.textColor = UIColor(named: "BreweryGold")
+    }
+    
+    public func fontQuicksandRegular14ColorBreweryBlackLight() {
+        self.font = UIFont(name: "Quicksand-Regular", size: 14)
+        self.textColor = UIColor(named: "BreweryBlackLight")
+    }
+    
+    public func fontQuicksandRegular14ColorBreweryBlack() {
+        self.font = UIFont(name: "Quicksand-Regular", size: 14)
+        self.textColor = UIColor(named: "BreweryBlack")
+    }
+    
+    public func fontQuicksandMedium14ColorBreweryBlack() {
+        self.font = UIFont(name: "Quicksand-Medium", size: 14)
+        self.textColor = UIColor(named: "BreweryBlack")
+    }
+    
+    public func fontQuicksandBold16ColorBreweryBlack() {
+        self.font = UIFont(name: "Quicksand-Bold", size: 16)
+        self.textColor = UIColor(named: "BreweryBlack")
+    }
+    
     public func makeRoundLabel()  {
         self.textColor = UIColor(named: "BreweryYellow")
         self.backgroundColor = UIColor(named: "Brewery Yellow Alpha 16")

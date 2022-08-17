@@ -10,8 +10,7 @@ import UIKit
 class BreweryDetailView: UIView {
     @IBOutlet weak var viewTitle: UILabel! {
         didSet {
-            viewTitle.font = UIFont(name: "Roboto-Regular", size: 24)
-            viewTitle.textColor = UIColor(named: "BreweryBlack")
+            viewTitle.fontRobotoRegular24ColorBreweryBlack()
         }
     }
     
@@ -28,25 +27,22 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var name: UILabel! {
         didSet {
-            name.font = UIFont(name: "Quicksand-Bold", size: 16)
-            name.textColor = UIColor(named: "BreweryBlack")
+            name.fontQuicksandBold16ColorBreweryBlack()
         }
     }
     @IBOutlet weak var type: UILabel! {
         didSet {
-            type.font = UIFont(name: "Quicksand-Regular", size: 14)
-            type.textColor = UIColor(named: "BreweryBlack")
+            type.fontQuicksandRegular14ColorBreweryBlack()
         }
     }
     @IBOutlet weak var evaluation: UILabel! {
         didSet {
-            evaluation.font = UIFont(name: "Quicksand-Regular", size: 14)
-            evaluation.textColor = UIColor(named: "BreweryBlackLight")
+            evaluation.fontQuicksandRegular14ColorBreweryBlackLight()
         }
     }
     @IBOutlet weak var average: UILabel! {
         didSet {
-            average.fontRobotoLight14ColorBreweryBlack()
+            average.fontQuicksandMedium14ColorBreweryBlack()
         }
     }
     
@@ -79,15 +75,14 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var mapText: UIButton! {
         didSet {
-            mapText.titleLabel?.fontRobotoLight14ColorBreweryBlack()
+            mapText.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
             mapText.titleLabel?.underline()
         }
     }
     
     @IBOutlet weak var addPhotoButton: UIButton! {
         didSet {
-            addPhotoButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
-            addPhotoButton.titleLabel?.textColor = UIColor(named: "BreweryBlack")
+            addPhotoButton.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
             
             addPhotoButton.layer.borderColor = UIColor(named: "BreweryBlack")?.cgColor
             addPhotoButton.layer.borderWidth = 1
@@ -98,8 +93,7 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
-            evaluateBreweryButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
-            evaluateBreweryButton.titleLabel?.textColor = UIColor(named: "BreweryGold")
+            evaluateBreweryButton.titleLabel?.fontRobotoMedium14ColorBreweryGold()
             
             evaluateBreweryButton.layer.borderColor = UIColor(named: "Brewery Yellow Light")?.cgColor
             evaluateBreweryButton.layer.borderWidth = 1
