@@ -12,6 +12,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var contentView: UIView!
     @IBOutlet private var resultsLabel: UILabel!
     private var breweries: [Brewery] = []
+    private var action: ((_ id: String) -> ())? 
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,9 +54,17 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         breweries.count
     }
     
-    public func update(_ breweries: [Brewery]) {
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let id = breweries[indexPath.section].id
+       
+        guard let action = action else { return }
+        action(id)
+    }
+    
+    public func update(_ breweries: [Brewery], actionForCell: @escaping (_ id: String) -> ()) {
         self.breweries = breweries
         self.tableView.reloadData()
+        self.action = actionForCell
     }
 }
 

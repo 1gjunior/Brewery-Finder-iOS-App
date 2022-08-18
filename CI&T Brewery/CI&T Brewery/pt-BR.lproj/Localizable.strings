@@ -11,8 +11,15 @@
 "inputEmptyStateText" = "Nenhum termo digitado";
 "resultEmptyStateText" = "Nenhum resultado encontrado para sua busca";
 "resultsText" = "resultados";
+<<<<<<< HEAD
 
 
 /* RatingViewController */
 "ratingTitle" = "Avalie a";
 "emailInvalid" = "Favor informar um e-mail válido";
+=======
+"Open Location" = "Abrir localização";
+"Google Maps" = "Google Maps";
+"Choose an app to open direction" = "Escolher aplicativo para mostrar localização";
+"Cancel" = "Cancelar";
+>>>>>>> master

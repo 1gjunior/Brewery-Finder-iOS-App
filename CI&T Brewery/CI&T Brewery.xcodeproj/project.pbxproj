@@ -32,6 +32,8 @@
 		B93EF75E28AE039800BFA9C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EF75D28AE039800BFA9C6 /* Extensions.swift */; };
 		B99B87DD28AD62DA00BF31A0 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99B87DC28AD62DA00BF31A0 /* RatingViewController.xib */; };
 		B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B87E428AD732800BF31A0 /* RatingViewController.swift */; };
+		33BD22AF28AD5ADE0004FEE4 /* OpenMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */; };
+		51C99460A386B1BBBA4874A7 /* libPods-CI&T Brewery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FA51AA12A64144FF91D4B9 /* libPods-CI&T Brewery.a */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
 		B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */; };
@@ -96,6 +98,7 @@
 		337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		337D826828AC0B4E00DBAA56 /* ErrorStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorStateView.xib; sourceTree = "<group>"; };
+		33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMap.swift; sourceTree = "<group>"; };
 		A3492DB192666BCDAC13E386 /* Pods-CI&T Brewery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.release.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.release.xcconfig"; sourceTree = "<group>"; };
 		B93EF75D28AE039800BFA9C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B99B87DC28AD62DA00BF31A0 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingViewController.xib; path = "CI&T Brewery/Rating/View/RatingViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -254,6 +257,14 @@
 			children = (
 			);
 			path = ViewModel;
+                        sourceTree = "<group>";
+                };
+		33BD22AD28AD5AB20004FEE4 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		B99FDDFD28A58F4D00F5DA30 = {
@@ -286,6 +297,7 @@
 				337D824528AC0B2A00DBAA56 /* Fonts */,
 				B99B87E028AD728D00BF31A0 /* Rating */,
 				B99FDE3C28A592F200F5DA30 /* Repository */,
+				33BD22AD28AD5AB20004FEE4 /* Details */,
 				B99FDE3928A592C200F5DA30 /* Home */,
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
 				2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */,
@@ -592,6 +604,7 @@
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
 				B99FDE5028AC00BD00F5DA30 /* BreweryAPIService.swift in Sources */,
+				33BD22AF28AD5ADE0004FEE4 /* OpenMap.swift in Sources */,
 				B99FDE5228AC00BD00F5DA30 /* BreweryListTableViewCell.swift in Sources */,
 				2BD9460B28AA942900CFC657 /* BreweryAPIService.swift in Sources */,
 				B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */,
