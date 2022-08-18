@@ -35,7 +35,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não foi possivel adicionar sua avaliação. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-BB-gcj">
-                    <rect key="frame" x="20" y="198.5" width="460" height="22.5"/>
+                    <rect key="frame" x="0.0" y="198.5" width="500" height="22.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="19"/>
                     <color key="textColor" name="Fail"/>
                     <nil key="highlightedColor"/>
@@ -53,8 +53,8 @@
                 <constraint firstItem="req-9K-3Qz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Fgy-C9-II4"/>
                 <constraint firstItem="cZ6-BB-gcj" firstAttribute="top" secondItem="req-9K-3Qz" secondAttribute="bottom" constant="20" id="GEP-ur-k9N"/>
                 <constraint firstItem="req-9K-3Qz" firstAttribute="top" secondItem="0d5-Nm-L1n" secondAttribute="bottom" constant="30" id="bNS-VN-Irk"/>
-                <constraint firstItem="cZ6-BB-gcj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="bfG-K7-TeA"/>
-                <constraint firstAttribute="trailing" secondItem="cZ6-BB-gcj" secondAttribute="trailing" constant="20" symbolic="YES" id="eUk-E2-xTV"/>
+                <constraint firstItem="cZ6-BB-gcj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bfG-K7-TeA"/>
+                <constraint firstAttribute="trailing" secondItem="cZ6-BB-gcj" secondAttribute="trailing" id="eUk-E2-xTV"/>
                 <constraint firstItem="WXL-0z-Vpe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uvr-bF-3KR"/>
                 <constraint firstItem="0d5-Nm-L1n" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yiR-NC-bMJ"/>
                 <constraint firstItem="WXL-0z-Vpe" firstAttribute="top" secondItem="cZ6-BB-gcj" secondAttribute="bottom" constant="8" symbolic="YES" id="zcw-Zg-H7h"/>

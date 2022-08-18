@@ -38,8 +38,8 @@ class RatingViewController: UIViewController {
 //        configureCheckbox()
 //        changeSaveButtonColor()
 //        setupTextField()
-        setupSucessStateEvaluation()
-//        setupFailureStateEvaluation()
+//        setupSucessStateEvaluation()
+        setupFailureStateEvaluation()
     }
     
     private func setupTextField() {
