@@ -83,7 +83,7 @@ class BreweryDetailView: UIView {
             ] as [NSAttributedString.Key : Any]
             let attrString = NSMutableAttributedString(string: NSLocalizedString("seeOnMap", comment: ""), attributes:attrs)
             mapText.setAttributedTitle(attrString, for: .normal)
-                      
+                           
             // alinha o texto completamente a esquerda
             mapText.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
 
@@ -112,6 +112,24 @@ class BreweryDetailView: UIView {
         }
     }
         
+    @IBAction func fadeButtonTouchDown(sender: UIButton) {
+        sender.isHighlighted = false
+        UIView.animate(
+            withDuration: 0,
+            delay: 0,
+            options: [.curveLinear,
+                      .allowUserInteraction,
+                      .beginFromCurrentState],
+            animations: {
+            sender.alpha = 0.75
+        }, completion: nil)
+    }
+
+    @IBAction func fadeButtonTouchUpInside(sender: UIButton) {
+        sender.isHighlighted = false
+        sender.alpha = 1
+    }
+    
     private func addBottomSeparator(uiStackView: UIStackView) {
         uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor(named: "BreweryGrayLight")!, thickness: 1.0)
     }

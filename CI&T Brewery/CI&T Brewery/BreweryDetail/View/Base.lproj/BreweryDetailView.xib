@@ -141,8 +141,8 @@
                                                 <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                             </buttonConfiguration>
                                             <connections>
-                                                <action selector="teste:" destination="zx8-Dx-PvW" eventType="touchUpInside" id="2g7-Xl-p6t"/>
-                                                <action selector="teste:" destination="zx8-Dx-PvW" eventType="touchDown" id="iYn-Y4-Tev"/>
+                                                <action selector="fadeButtonTouchDownWithSender:" destination="zx8-Dx-PvW" eventType="touchDown" id="mOw-Ed-r4B"/>
+                                                <action selector="fadeButtonTouchUpInsideSender:" destination="zx8-Dx-PvW" eventType="touchUpInside" id="nTw-v4-PHP"/>
                                             </connections>
                                         </button>
                                     </subviews>
