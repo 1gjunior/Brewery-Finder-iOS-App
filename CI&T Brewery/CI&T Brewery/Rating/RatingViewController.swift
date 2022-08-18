@@ -35,9 +35,11 @@ class RatingViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        configureCheckbox()
-        changeSaveButtonColor()
-        setupTextField()
+//        configureCheckbox()
+//        changeSaveButtonColor()
+//        setupTextField()
+        setupSucessStateEvaluation()
+//        setupFailureStateEvaluation()
     }
     
     private func setupTextField() {
@@ -48,19 +50,53 @@ class RatingViewController: UIViewController {
         textField.leadingViewMode = .always
         textField.leadingView = UIImageView(image: UIImage(named: "inputLeadingLabel"))
         textField.delegate = self
-        view.addSubview(textField)
-        constraintTextField()
+        //view.addSubview(textField)
+        //constraintTextField()
+    }
+    
+    private lazy var sucessStateView: SucessStateView = {
+        let sucessStateView = SucessStateView(frame: CGRect(x: 10, y: 0, width: 380.0, height: view.frame.height))
+        sucessStateView.translatesAutoresizingMaskIntoConstraints = false
+        return sucessStateView
+    }()
+    
+    private lazy var failureStateView: FailureStateView = {
+        let failureStateView = FailureStateView(frame: CGRect(x: 0.0, y: 0.0, width: 500.0, height: 250.0))
+        failureStateView.translatesAutoresizingMaskIntoConstraints = false
+        return failureStateView
+    }()
+    
+    func setupSucessStateEvaluation() {
+        self.view.addSubview(sucessStateView)
+        self.constraintSucessState()
+    }
+    
+    func setupFailureStateEvaluation() {
+        self.view.addSubview(failureStateView)
+        self.constraintFailureState()
+    }
+    
+    private func constraintSucessState() {
+        sucessStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        sucessStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        sucessStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+    }
+    
+    private func constraintFailureState() {
+        failureStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        failureStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        failureStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
     }
     
     private func constraintTextField() {
         textField.translatesAutoresizingMaskIntoConstraints = false
-        
+
         textField.bottomAnchor.constraint(equalTo: checkboxButton.topAnchor, constant: -10).isActive = true
-        
+
         textField.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
     }
-    
+
     @IBAction func onSaveButtonTapped(_ sender: Any) {
         _ = textFieldShouldReturn(textField)
     }

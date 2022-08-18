@@ -21,7 +21,7 @@ public class FailureStateView: UIView {
     }
     
     public func commonInit() {
-        guard let viewFromXib = Bundle.main.loadNibNamed("FailStateView", owner: self, options: nil)?[0] as? UIView else { return }
+        guard let viewFromXib = Bundle.main.loadNibNamed("FailureStateView", owner: self, options: nil)?[0] as? UIView else { return }
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
     }

@@ -29,16 +29,14 @@
 		337D826428AC0B2A00DBAA56 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825428AC0B2A00DBAA56 /* Roboto-Thin.ttf */; };
 		337D826528AC0B2A00DBAA56 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D825528AC0B2A00DBAA56 /* Roboto-Black.ttf */; };
 		337D826928AC0B4E00DBAA56 /* ErrorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 337D826828AC0B4E00DBAA56 /* ErrorStateView.xib */; };
-		B93EF75E28AE039800BFA9C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EF75D28AE039800BFA9C6 /* Extensions.swift */; };
-		B99B87DD28AD62DA00BF31A0 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99B87DC28AD62DA00BF31A0 /* RatingViewController.xib */; };
-		B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B87E428AD732800BF31A0 /* RatingViewController.swift */; };
 		33BD22AF28AD5ADE0004FEE4 /* OpenMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */; };
 		33BD22B328AD7C8F0004FEE4 /* SucessStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33BD22B228AD7C8F0004FEE4 /* SucessStateView.xib */; };
 		33BD22B528AD82A30004FEE4 /* FailureStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33BD22B428AD82A30004FEE4 /* FailureStateView.xib */; };
 		33BD22B728AD86530004FEE4 /* SucessStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22B628AD86530004FEE4 /* SucessStateView.swift */; };
 		33BD22B928AD86D90004FEE4 /* FailureStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22B828AD86D90004FEE4 /* FailureStateView.swift */; };
-		33BD22BB28AD88650004FEE4 /* EvaluationBrewersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BD22BA28AD88650004FEE4 /* EvaluationBrewersViewController.swift */; };
-		51C99460A386B1BBBA4874A7 /* libPods-CI&T Brewery.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FA51AA12A64144FF91D4B9 /* libPods-CI&T Brewery.a */; };
+		B93EF75E28AE039800BFA9C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EF75D28AE039800BFA9C6 /* Extensions.swift */; };
+		B99B87DD28AD62DA00BF31A0 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99B87DC28AD62DA00BF31A0 /* RatingViewController.xib */; };
+		B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B87E428AD732800BF31A0 /* RatingViewController.swift */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
 		B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0D28A58F4D00F5DA30 /* HomeViewController.swift */; };
 		B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */; };
@@ -108,7 +106,6 @@
 		33BD22B428AD82A30004FEE4 /* FailureStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailureStateView.xib; sourceTree = "<group>"; };
 		33BD22B628AD86530004FEE4 /* SucessStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucessStateView.swift; sourceTree = "<group>"; };
 		33BD22B828AD86D90004FEE4 /* FailureStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailureStateView.swift; sourceTree = "<group>"; };
-		33BD22BA28AD88650004FEE4 /* EvaluationBrewersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationBrewersViewController.swift; sourceTree = "<group>"; };
 		A3492DB192666BCDAC13E386 /* Pods-CI&T Brewery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.release.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.release.xcconfig"; sourceTree = "<group>"; };
 		B93EF75D28AE039800BFA9C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B99B87DC28AD62DA00BF31A0 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingViewController.xib; path = "CI&T Brewery/Rating/View/RatingViewController.xib"; sourceTree = SOURCE_ROOT; };
@@ -216,6 +213,18 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		33BD22AD28AD5AB20004FEE4 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
+				33BD22B228AD7C8F0004FEE4 /* SucessStateView.xib */,
+				33BD22B628AD86530004FEE4 /* SucessStateView.swift */,
+				33BD22B428AD82A30004FEE4 /* FailureStateView.xib */,
+				33BD22B828AD86D90004FEE4 /* FailureStateView.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		B99B87D928AD61C000BF31A0 /* ErrorStateView */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,19 +276,6 @@
 			children = (
 			);
 			path = ViewModel;
-                        sourceTree = "<group>";
-                };
-		33BD22AD28AD5AB20004FEE4 /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
-				33BD22B228AD7C8F0004FEE4 /* SucessStateView.xib */,
-				33BD22B628AD86530004FEE4 /* SucessStateView.swift */,
-				33BD22B428AD82A30004FEE4 /* FailureStateView.xib */,
-				33BD22B828AD86D90004FEE4 /* FailureStateView.swift */,
-				33BD22BA28AD88650004FEE4 /* EvaluationBrewersViewController.swift */,
-			);
-			path = Details;
 			sourceTree = "<group>";
 		};
 		B99FDDFD28A58F4D00F5DA30 = {
@@ -612,7 +608,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BD22BB28AD88650004FEE4 /* EvaluationBrewersViewController.swift in Sources */,
 				33BD22B928AD86D90004FEE4 /* FailureStateView.swift in Sources */,
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
 				B99FDE4D28AC00BD00F5DA30 /* BreweryListView.swift in Sources */,
