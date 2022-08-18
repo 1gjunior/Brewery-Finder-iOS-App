@@ -26,8 +26,6 @@ class BreweryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        
-        view.backgroundColor = .red
     }
         
     // depois do fetch, chamar este metodo

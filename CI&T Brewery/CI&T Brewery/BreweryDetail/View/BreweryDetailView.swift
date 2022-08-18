@@ -75,10 +75,7 @@ class BreweryDetailView: UIView {
         }
     }
     @IBOutlet weak var mapText: UIButton! {
-        didSet {
-            mapText.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
-            mapText.titleLabel?.underline()
-            
+        didSet {            
             // alinha o texto completamente a esquerda
             mapText.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
 
@@ -96,14 +93,10 @@ class BreweryDetailView: UIView {
             addPhotoButton.layer.borderColor = UIColor(named: "BreweryBlack")?.cgColor
             addPhotoButton.layer.borderWidth = 1
             addPhotoButton.layer.cornerRadius = 18
-                        
-            addPhotoButton.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
         }
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
-            evaluateBreweryButton.titleLabel?.fontRobotoMedium14ColorBreweryGold()
-            
             evaluateBreweryButton.layer.borderColor = UIColor(named: "Brewery Yellow Light")?.cgColor
             evaluateBreweryButton.layer.borderWidth = 1
             evaluateBreweryButton.layer.cornerRadius = 18
