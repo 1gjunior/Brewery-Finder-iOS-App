@@ -56,6 +56,7 @@ class HomeViewController: UIViewController {
         if let sheet = navigation.sheetPresentationController {
             sheet.detents = [.medium()]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.preferredCornerRadius = 40
         }
         
         present(navigation, animated: true)

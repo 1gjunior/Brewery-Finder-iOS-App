@@ -5,16 +5,17 @@
 //  Created by Pedro Henrique Catanduba de Andrade on 17/08/22.
 //
 
-import Foundation
 import UIKit
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class RatingViewController: UIViewController {
     
     @IBOutlet weak var ratingStarsView: UIView!
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var generalTitle: UILabel!
+    private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 70))
+    
     var brewery: Brewery? = nil {
         didSet {
             setGeneralTitle()
@@ -36,6 +37,26 @@ class RatingViewController: UIViewController {
     override func viewDidLoad() {
         configureCheckbox()
         changeSaveButton()
+        setupTextField()
+    }
+    
+    private func setupTextField() {
+        textField.label.text = "e-mail"
+        textField.placeholder = "e-mail"
+        textField.leadingAssistiveLabel.text = "This is a helper text"
+        textField.sizeToFit()
+        textField.delegate = self
+        view.addSubview(textField)
+        constraintTextField()
+    }
+    
+    private func constraintTextField() {
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        textField.bottomAnchor.constraint(equalTo: checkboxButton.topAnchor, constant: -10).isActive = true
+        
+        textField.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
+        textField.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
     }
     
     @IBAction func onSaveButtonTapped(_ sender: Any) {
@@ -62,4 +83,8 @@ class RatingViewController: UIViewController {
     func setGeneralTitle() {
         generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + (brewery?.name ?? "")
     }
+}
+
+extension RatingViewController: UITextFieldDelegate {
+    
 }

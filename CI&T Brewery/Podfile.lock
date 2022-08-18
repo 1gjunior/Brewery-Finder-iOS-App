@@ -1,4 +1,5 @@
 PODS:
+  - Cosmos (23.0.0)
   - Kingfisher (7.3.2)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
@@ -33,23 +34,26 @@ PODS:
   - Resolver (1.5.0)
 
 DEPENDENCIES:
+  - Cosmos (~> 23.0)
   - Kingfisher (~> 7.0)
   - "MaterialComponents/TextControls+OutlinedTextFields"
   - Resolver
 
 SPEC REPOS:
   trunk:
+    - Cosmos
     - Kingfisher
     - MaterialComponents
     - MDFInternationalization
     - Resolver
 
 SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
 
-PODFILE CHECKSUM: 8afdec2d157ba0f594665ba2a86b25ad31a65d8e
+PODFILE CHECKSUM: 81777e56931732b260a4c25ade027ae382a2f118
 
 COCOAPODS: 1.11.3
