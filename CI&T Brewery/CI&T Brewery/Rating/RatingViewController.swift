@@ -69,7 +69,6 @@ class RatingViewController: UIViewController {
             let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
             
             do {
-                print(fileURL.path)
                 try emailText.write(to: fileURL, atomically: false, encoding: .utf8)
             }
             catch {
