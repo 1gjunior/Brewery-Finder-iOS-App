@@ -55,7 +55,7 @@ class RatingViewController: UIViewController {
     private func constraintTextField() {
         textField.translatesAutoresizingMaskIntoConstraints = false
         
-        textField.bottomAnchor.constraint(equalTo: checkboxButton.topAnchor, constant: -10).isActive = true
+        textField.bottomAnchor.constraint(equalTo: checkboxButton.topAnchor, constant: 0).isActive = true
         
         textField.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true

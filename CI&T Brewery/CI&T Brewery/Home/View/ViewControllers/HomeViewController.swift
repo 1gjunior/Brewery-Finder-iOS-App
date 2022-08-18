@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
     }
     
     private func goToDetailWith(id: String) {
-        print(id)
+        present(BreweryDetailViewController(), animated: true)
     }
     
     private func constraintListView() {
