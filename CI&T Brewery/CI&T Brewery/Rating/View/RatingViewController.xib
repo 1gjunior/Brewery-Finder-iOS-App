@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingViewController" customModule="CI_T_Brewery" customModuleProvider="target">
+            <connections>
+                <outlet property="checkboxButton" destination="ifZ-K4-9LE" id="iEV-zc-kzS"/>
+                <outlet property="generalTitle" destination="Z4I-6x-A0C" id="sCS-iG-rDk"/>
+                <outlet property="ratingStarsView" destination="FRE-Hh-e7u" id="N8C-Hh-z3u"/>
+                <outlet property="saveButton" destination="WoE-as-dzj" id="MLx-Rv-4NZ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="ZUd-E7-f9d"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XD-0f-4du">
+                    <rect key="frame" x="40" y="14" width="334" height="59"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Avalie a cervejaria A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4I-6x-A0C">
+                            <rect key="frame" x="76.5" y="20" width="181" height="24"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="20"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFx-Xh-DZW">
+                            <rect key="frame" x="272" y="19.5" width="62" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="62" id="E8x-kv-ky1"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="multiply" catalog="system">
+                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="dismissRatingView:" destination="-1" eventType="touchUpInside" id="fJY-Wq-rMx"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="hFx-Xh-DZW" firstAttribute="leading" secondItem="Z4I-6x-A0C" secondAttribute="trailing" constant="14.5" id="0hW-CT-5Jy"/>
+                        <constraint firstItem="Z4I-6x-A0C" firstAttribute="top" secondItem="1XD-0f-4du" secondAttribute="top" constant="20" id="B07-4R-swt"/>
+                        <constraint firstItem="hFx-Xh-DZW" firstAttribute="centerY" secondItem="1XD-0f-4du" secondAttribute="centerY" constant="5.5" id="Dbs-Q5-2kD"/>
+                        <constraint firstItem="Z4I-6x-A0C" firstAttribute="centerY" secondItem="1XD-0f-4du" secondAttribute="centerY" constant="2.5" id="Mgc-AT-Alq"/>
+                        <constraint firstItem="Z4I-6x-A0C" firstAttribute="centerX" secondItem="1XD-0f-4du" secondAttribute="centerX" id="eyS-Q4-FNY"/>
+                        <constraint firstAttribute="trailing" secondItem="hFx-Xh-DZW" secondAttribute="trailing" id="mBR-cB-3fd"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vp0-el-PSA">
+                    <rect key="frame" x="56.5" y="699" width="301" height="38"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifZ-K4-9LE">
+                            <rect key="frame" x="0.0" y="0.0" width="51" height="38"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="51" id="QyF-Gx-Cl9"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <buttonConfiguration key="configuration" style="plain" image="Checked">
+                                <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="onCheckboxTapped:" destination="-1" eventType="touchUpInside" id="b4g-2I-SBF"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Lembrar e-mail para futuras avaliações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwY-QR-EMY">
+                            <rect key="frame" x="53" y="0.0" width="248" height="38"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="ifZ-K4-9LE" firstAttribute="leading" secondItem="vp0-el-PSA" secondAttribute="leading" id="1pv-IE-SXm"/>
+                        <constraint firstAttribute="height" constant="38" id="D5s-hY-Cft"/>
+                        <constraint firstItem="OwY-QR-EMY" firstAttribute="top" secondItem="vp0-el-PSA" secondAttribute="top" id="HwK-9V-jzK"/>
+                        <constraint firstAttribute="trailing" secondItem="OwY-QR-EMY" secondAttribute="trailing" id="UsS-pv-LQu"/>
+                        <constraint firstItem="ifZ-K4-9LE" firstAttribute="top" secondItem="vp0-el-PSA" secondAttribute="top" id="as0-gf-MYL"/>
+                        <constraint firstAttribute="bottom" secondItem="OwY-QR-EMY" secondAttribute="bottom" id="jBq-XA-MdT"/>
+                        <constraint firstItem="OwY-QR-EMY" firstAttribute="leading" secondItem="ifZ-K4-9LE" secondAttribute="trailing" constant="2" id="r1J-7O-a6B"/>
+                        <constraint firstAttribute="bottom" secondItem="ifZ-K4-9LE" secondAttribute="bottom" id="t6o-EE-pV5"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoE-as-dzj">
+                    <rect key="frame" x="30" y="757" width="354" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="alI-Xj-CN0"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Salvar" cornerStyle="capsule">
+                        <backgroundConfiguration key="background">
+                            <color key="backgroundColor" name="Background Home"/>
+                            <color key="strokeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </backgroundConfiguration>
+                        <color key="baseForegroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="onSaveButtonTapped:" destination="-1" eventType="touchUpInside" id="C4n-di-VGk"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRE-Hh-e7u" customClass="CosmosView" customModule="Cosmos">
+                    <rect key="frame" x="122" y="81" width="170" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="d8l-PP-Frn"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                            <color key="value" name="Brewery Yellow Light"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                            <color key="value" name="Brewery Yellow Light"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                            <color key="value" name="Brewery Yellow Light"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WoE-as-dzj" secondAttribute="trailing" constant="30" id="2H3-Oj-3Ec"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WoE-as-dzj" secondAttribute="bottom" constant="30" id="KOE-cb-PxX"/>
+                <constraint firstItem="1XD-0f-4du" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="KWR-1T-Mi1"/>
+                <constraint firstItem="FRE-Hh-e7u" firstAttribute="top" secondItem="1XD-0f-4du" secondAttribute="bottom" constant="8" id="S0g-lw-jsa"/>
+                <constraint firstItem="WoE-as-dzj" firstAttribute="top" secondItem="vp0-el-PSA" secondAttribute="bottom" constant="20" id="Soy-ls-5F8"/>
+                <constraint firstItem="WoE-as-dzj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="VtR-8d-mQ5"/>
+                <constraint firstItem="FRE-Hh-e7u" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="YAs-7l-I8B"/>
+                <constraint firstItem="vp0-el-PSA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="a8O-Xs-lew"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="1XD-0f-4du" secondAttribute="top" constant="30" id="hDU-ZN-sGu"/>
+                <constraint firstItem="vp0-el-PSA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FRE-Hh-e7u" secondAttribute="bottom" constant="60" id="ra6-b0-4jy"/>
+            </constraints>
+            <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="85.714285714285708"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="FRE-Hh-e7u">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="Checked" width="24" height="24"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
+        <namedColor name="Background Home">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Brewery Yellow Light">
+            <color red="1" green="0.86699998378753662" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
