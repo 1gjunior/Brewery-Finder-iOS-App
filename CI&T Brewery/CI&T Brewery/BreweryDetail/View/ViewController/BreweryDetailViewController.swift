@@ -41,6 +41,8 @@ class BreweryDetailViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
     }
+    
+    
         
     // depois do fetch, chamar este metodo
     // a classe BreweryObject possui os campos formatados
