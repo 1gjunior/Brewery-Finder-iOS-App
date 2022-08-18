@@ -131,7 +131,7 @@
                                                 <attributedString key="attributedTitle">
                                                     <fragment content="Ver no mapa">
                                                         <attributes>
-                                                            <font key="NSFont" size="13" name="Roboto-Medium"/>
+                                                            <font key="NSFont" metaFont="system"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -169,6 +169,9 @@
                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                                         <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="goToRatingView:" destination="-1" eventType="touchUpInside" id="sJ6-ce-gA4"/>
+                                    </connections>
                                 </button>
                                 <view userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ofQ-s4-R2W" customClass="CosmosView" customModule="Cosmos">
                                     <rect key="frame" x="247" y="50.333333333333329" width="108" height="20"/>

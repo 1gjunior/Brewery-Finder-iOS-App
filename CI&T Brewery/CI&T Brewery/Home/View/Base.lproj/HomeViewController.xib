@@ -86,7 +86,7 @@
         <image name="Frame 168" width="400" height="300"/>
         <image name="my_location_24px" width="22" height="22"/>
         <namedColor name="Background Home">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

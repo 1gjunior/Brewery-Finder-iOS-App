@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         errorStateView.translatesAutoresizingMaskIntoConstraints = false
         return errorStateView
     }()
-
+    
     init() {
         super.init(nibName: "HomeViewController", bundle: nil)
     }
@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
     }
     
     private func goToDetailWith(id: String) {
-        print(id)
+        present(BreweryDetailViewController(), animated: true)
     }
     
     private func constraintListView() {
