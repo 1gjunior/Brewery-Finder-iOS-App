@@ -40,8 +40,8 @@
                     <color key="textColor" name="Fail"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tente mais tarde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXL-0z-Vpe">
-                    <rect key="frame" x="180" y="229" width="140" height="22.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tente mais tarde." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXL-0z-Vpe">
+                    <rect key="frame" x="177.5" y="229" width="145" height="23"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="19"/>
                     <color key="textColor" name="Fail"/>
                     <nil key="highlightedColor"/>

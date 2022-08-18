@@ -10,6 +10,8 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class RatingViewController: UIViewController {
     
+    
+    @IBOutlet weak var checkboxLabel: UILabel!
     @IBOutlet weak var ratingStarsView: UIView!
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -38,8 +40,11 @@ class RatingViewController: UIViewController {
 //        configureCheckbox()
 //        changeSaveButtonColor()
 //        setupTextField()
-//        setupSucessStateEvaluation()
-        setupFailureStateEvaluation()
+        setupSucessStateEvaluation()
+//        setupFailureStateEvaluation()
+        hideElementsRatingView()
+       
+        
     }
     
     private func setupTextField() {
@@ -50,8 +55,8 @@ class RatingViewController: UIViewController {
         textField.leadingViewMode = .always
         textField.leadingView = UIImageView(image: UIImage(named: "inputLeadingLabel"))
         textField.delegate = self
-        //view.addSubview(textField)
-        //constraintTextField()
+        view.addSubview(textField)
+        constraintTextField()
     }
     
     private lazy var sucessStateView: SucessStateView = {
@@ -90,8 +95,7 @@ class RatingViewController: UIViewController {
     
     private func constraintTextField() {
         textField.translatesAutoresizingMaskIntoConstraints = false
-
-        textField.bottomAnchor.constraint(equalTo: checkboxButton.topAnchor, constant: -10).isActive = true
+        textField.bottomAnchor.constraint(equalTo: checkboxButton.topAnchor, constant: 0).isActive = true
 
         textField.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
@@ -129,6 +133,15 @@ class RatingViewController: UIViewController {
         saveButton.isEnabled = state == .valid
         changeSaveButtonColor()
     }
+    
+    func hideElementsRatingView() {
+        checkboxLabel.isHidden = true
+        ratingStarsView.isHidden = true
+        checkboxButton.isHidden = true
+        saveButton.isHidden = true
+        generalTitle.isHidden = true
+        textField.isHidden = true
+    }
 }
 
 extension RatingViewController: UITextFieldDelegate {
@@ -152,9 +165,6 @@ extension RatingViewController: UITextFieldDelegate {
         }
     }
 }
-
-
-
 
 enum EmailState {
     case blank
