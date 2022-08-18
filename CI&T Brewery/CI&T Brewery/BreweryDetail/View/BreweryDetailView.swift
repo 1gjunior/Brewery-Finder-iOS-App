@@ -77,18 +77,36 @@ class BreweryDetailView: UIView {
         didSet {
             mapText.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
             mapText.titleLabel?.underline()
+            
+            // alinha o texto completamente a esquerda
+            mapText.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+
+            NSLayoutConstraint.activate([
+                mapText.titleLabel!.leadingAnchor.constraint(equalTo: mapText.leadingAnchor),
+                mapText.titleLabel!.trailingAnchor.constraint(equalTo: mapText.trailingAnchor),
+                mapText.titleLabel!.topAnchor.constraint(equalTo: mapText.topAnchor),
+                mapText.titleLabel!.bottomAnchor.constraint(equalTo: mapText.bottomAnchor)
+            ])
         }
     }
     
     @IBOutlet weak var addPhotoButton: UIButton! {
         didSet {
-            addPhotoButton.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
-            
             addPhotoButton.layer.borderColor = UIColor(named: "BreweryBlack")?.cgColor
             addPhotoButton.layer.borderWidth = 1
             addPhotoButton.layer.cornerRadius = 18
             
-            addPhotoButton.currentImage?.resizableImage(withCapInsets: UIEdgeInsets(top: 10, left: 50, bottom: 10, right: 50))
+//            addPhotoButton.tintColor = UIColor(named: "BreweryBlack")
+//            addPhotoButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
+            
+            addPhotoButton.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
+            
+//            guard var config = addPhotoButton.configuration else {
+//                return
+//            }
+//            config.buttonSize = .medium
+//            
+//            addPhotoButton.configuration = config
         }
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
