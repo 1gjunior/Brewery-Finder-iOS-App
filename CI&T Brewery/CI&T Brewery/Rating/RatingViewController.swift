@@ -36,15 +36,17 @@ class RatingViewController: UIViewController {
     
     override func viewDidLoad() {
         configureCheckbox()
-        changeSaveButton()
+        changeSaveButtonColor()
         setupTextField()
     }
     
     private func setupTextField() {
         textField.label.text = "e-mail"
         textField.placeholder = "e-mail"
-        textField.leadingAssistiveLabel.text = "This is a helper text"
         textField.sizeToFit()
+        textField.trailingViewMode = .unlessEditing
+        textField.leadingViewMode = .always
+        textField.leadingView = UIImageView(image: UIImage(named: "inputLeadingLabel"))
         textField.delegate = self
         view.addSubview(textField)
         constraintTextField()
@@ -60,7 +62,7 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func onSaveButtonTapped(_ sender: Any) {
-        
+        _ = textFieldShouldReturn(textField)
     }
     
     @IBAction func onCheckboxTapped(_ sender: Any) {
@@ -72,7 +74,7 @@ class RatingViewController: UIViewController {
         checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
     }
     
-    func changeSaveButton() {
+    func changeSaveButtonColor() {
         if saveButton.isEnabled {
             saveButton.configuration?.background.backgroundColor = UIColor(red: 1, green: 0.867, blue: 0.294, alpha: 1)
         } else {
@@ -83,8 +85,67 @@ class RatingViewController: UIViewController {
     func setGeneralTitle() {
         generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + (brewery?.name ?? "")
     }
+    
+    func changeEmailState(_ state: EmailState) {
+        textField.trailingView = state.trailingLabel
+        textField.setOutlineColor(state.outlineColor, for: .normal)
+        textField.leadingAssistiveLabel.text = state.leadingAssistiveLabel
+        saveButton.isEnabled = state == .valid
+        changeSaveButtonColor()
+    }
 }
 
 extension RatingViewController: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.textField.leadingAssistiveLabel.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if (textField.text?.isEmpty ?? true) {
+            changeEmailState(.blank)
+        } else if textField.isEmail() {
+            changeEmailState(.valid)
+        } else {
+            changeEmailState(.invalid)
+        }
+    }
+}
+
+
+
+
+enum EmailState {
+    case blank
+    case invalid
+    case valid
+    
+    var trailingLabel: UIImageView? {
+        switch self {
+            case .blank: return nil
+            case .invalid: return UIImageView(image: UIImage(named: "inputTrailingLabel"))
+            case .valid: return nil
+        }
+    }
+    
+    var outlineColor: UIColor {
+        switch self {
+           case .blank: return UIColor(red: 0.255, green: 0.286, blue: 0.255, alpha: 1)     // BLACK
+           case .invalid: return UIColor(red: 0.729, green: 0.106, blue: 0.106, alpha: 1)   // RED
+           case .valid: return UIColor(red: 0.024, green: 0.427, blue: 0.216, alpha: 1)     // GREEN
+        }
+    }
+    
+    var leadingAssistiveLabel: String {
+        switch self {
+            case .blank: return ""
+            case .invalid: return NSLocalizedString("emailInvalid", comment: "")
+            case .valid: return ""
+        }
+    }
 }

@@ -15,3 +15,4 @@
 
 /* RatingViewController */
 "ratingTitle" = "Avalie a";
+"emailInvalid" = "Favor informar um e-mail válido";
