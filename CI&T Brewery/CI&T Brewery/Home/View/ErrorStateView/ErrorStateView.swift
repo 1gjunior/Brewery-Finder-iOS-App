@@ -26,7 +26,6 @@ public class ErrorStateView: UIView {
         guard let viewFromXib = Bundle.main.loadNibNamed("ErrorStateView", owner: self, options: nil)?[0] as? UIView else { return }
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
-        backgroundColor = .red
     }
     
     public func changeText(_ error: EmptyError) {
