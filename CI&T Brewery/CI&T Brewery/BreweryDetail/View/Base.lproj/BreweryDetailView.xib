@@ -132,7 +132,7 @@
                                                 <attributedString key="attributedTitle">
                                                     <fragment content="Ver no mapa">
                                                         <attributes>
-                                                            <font key="NSFont" size="13" name="Roboto-Medium"/>
+                                                            <font key="NSFont" metaFont="system"/>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -269,6 +269,11 @@
             <point key="canvasLocation" x="332" y="83.208395802098963"/>
         </view>
     </objects>
+    <designables>
+        <designable name="ofQ-s4-R2W">
+            <size key="intrinsicContentSize" width="108" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Frame 168" width="400" height="300"/>
         <image name="icon_maps" width="18" height="18"/>

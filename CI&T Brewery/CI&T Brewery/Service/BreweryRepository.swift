@@ -43,4 +43,20 @@ class BreweryRepository: BreweryRepositoryProtocol {
             }
         }
     }
+    func postBreweryEvaluation(completion: @escaping (Result<sendBreweryEvaluation, Error>) -> Void){
+        guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        apiManager.postItem(request: request) { (result: Result<sendBreweryEvaluation, Error>) in
+            switch result {
+            case .success(let result):
+                completion(.success(result))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

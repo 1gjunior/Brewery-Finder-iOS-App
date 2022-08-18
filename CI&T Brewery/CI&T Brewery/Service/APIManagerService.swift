@@ -10,6 +10,7 @@ import Combine
 
 protocol APIManagerService {
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
+    func postItem <T: Codable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void)
 }
 
 class APIManager: APIManagerService {
@@ -28,5 +29,19 @@ class APIManager: APIManagerService {
             }, receiveValue: { (result) in
                 completion(.success(result))
             }).store(in: &subscribers)
+    }
+    func postItem<T: Codable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
+        URLSession.shared.dataTaskPublisher(for: request)
+            .map{$0.response}
+            .sink(receiveCompletion: { (resultCompletion) in
+                switch resultCompletion {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .finished: break
+                }
+            }, receiveValue: {
+                print("\($0)")
+            })
+            .store(in: &subscribers)
     }
 }

@@ -8,5 +8,20 @@
 import Foundation
 
 class BreweryDetailViewModel {
+    let repository: BreweryRepository
     
+    init(repository: BreweryRepository = BreweryRepository()) {
+        self.repository = repository
+    }
+    
+    func post(){
+        repository.postBreweryEvaluation { response in
+            switch response {
+            case .failure(_):
+                print("error")
+            case .success(_):
+                print("sucesso")
+            }
+        }
+    }
 }
