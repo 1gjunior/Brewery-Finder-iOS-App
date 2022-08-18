@@ -61,7 +61,7 @@ class RatingViewController: UIViewController {
     }()
     
     private lazy var failureStateView: FailureStateView = {
-        let failureStateView = FailureStateView(frame: CGRect(x: 0.0, y: 0.0, width: 500.0, height: 250.0))
+        let failureStateView = FailureStateView(frame: CGRect(x: 0.0, y: 0.0, width: 380.0, height: 250.0))
         failureStateView.translatesAutoresizingMaskIntoConstraints = false
         return failureStateView
     }()
