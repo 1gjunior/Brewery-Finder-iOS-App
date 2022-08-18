@@ -63,7 +63,11 @@ class HomeViewController: UIViewController {
         self.view.addSubview(listView)
         self.constraintListView()
         self.changingState(view: listView)
-        listView.update(breweries)
+        listView.update(breweries, actionForCell: goToDetailWith)
+    }
+    
+    private func goToDetailWith(id: String) {
+        print(id)
     }
     
     private func constraintListView() {

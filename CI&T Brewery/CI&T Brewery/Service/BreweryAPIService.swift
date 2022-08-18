@@ -17,4 +17,10 @@ class BreweryAPIService {
         
         return urlComponents?.url
     }
+    
+    static func getBreweryURLString(id: String) -> URL? {
+        let urlComponents = URLComponents(string: apiBaseURL + "/breweries/" + id)
+        
+        return urlComponents?.url
+    }
 }
