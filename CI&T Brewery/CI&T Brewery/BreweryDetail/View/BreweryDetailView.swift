@@ -13,7 +13,7 @@ class BreweryDetailView: UIView {
             viewTitle.fontRobotoRegular24ColorBreweryBlack()
         }
     }
-    
+        
     @IBOutlet var dataView: UIView! {
         didSet {
             dataView.layer.cornerRadius = 30
@@ -96,18 +96,8 @@ class BreweryDetailView: UIView {
             addPhotoButton.layer.borderColor = UIColor(named: "BreweryBlack")?.cgColor
             addPhotoButton.layer.borderWidth = 1
             addPhotoButton.layer.cornerRadius = 18
-            
-//            addPhotoButton.tintColor = UIColor(named: "BreweryBlack")
-//            addPhotoButton.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 14)
-            
+                        
             addPhotoButton.titleLabel?.fontRobotoMedium14ColorBreweryBlack()
-            
-//            guard var config = addPhotoButton.configuration else {
-//                return
-//            }
-//            config.buttonSize = .medium
-//            
-//            addPhotoButton.configuration = config
         }
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
