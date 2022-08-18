@@ -125,7 +125,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="585-ac-VJF">
-                                            <rect key="frame" x="33" y="5.5" width="262" height="29.5"/>
+                                            <rect key="frame" x="33" y="5" width="262" height="30.5"/>
                                             <color key="tintColor" name="BreweryBlack"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
@@ -138,8 +138,12 @@
                                                 </attributedString>
                                             </state>
                                             <buttonConfiguration key="configuration" style="plain" title="Ver no mapa">
-                                                <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                                                <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="teste:" destination="zx8-Dx-PvW" eventType="touchUpInside" id="2g7-Xl-p6t"/>
+                                                <action selector="teste:" destination="zx8-Dx-PvW" eventType="touchDown" id="iYn-Y4-Tev"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -152,7 +156,7 @@
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                     <state key="normal" title="Adicionar Foto" image="icon_photo_library"/>
                                     <buttonConfiguration key="configuration" style="plain" image="icon_photo_library" title="Adicionar Foto" imagePadding="10" buttonSize="medium">
-                                        <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                     </buttonConfiguration>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJh-5d-mfs">
@@ -164,7 +168,7 @@
                                     </state>
                                     <buttonConfiguration key="configuration" style="plain" image="icon_star_gold" title="Avaliar" imagePadding="10" buttonSize="medium">
                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
-                                        <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
+                                        <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                     </buttonConfiguration>
                                 </button>
                                 <view userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ofQ-s4-R2W" customClass="CosmosView" customModule="Cosmos">

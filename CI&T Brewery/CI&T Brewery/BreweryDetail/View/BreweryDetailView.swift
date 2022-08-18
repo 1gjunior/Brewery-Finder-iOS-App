@@ -75,7 +75,15 @@ class BreweryDetailView: UIView {
         }
     }
     @IBOutlet weak var mapText: UIButton! {
-        didSet {            
+        didSet {
+            let attrs = [
+                NSAttributedString.Key.font: UIFont(name: "Roboto-Medium", size: 14)!,
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                NSAttributedString.Key.foregroundColor: UIColor(named: "BreweryBlack")!
+            ] as [NSAttributedString.Key : Any]
+            let attrString = NSMutableAttributedString(string: NSLocalizedString("seeOnMap", comment: ""), attributes:attrs)
+            mapText.setAttributedTitle(attrString, for: .normal)
+                      
             // alinha o texto completamente a esquerda
             mapText.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
 
@@ -103,7 +111,7 @@ class BreweryDetailView: UIView {
             evaluateBreweryButton.layer.backgroundColor = UIColor(named: "Brewery Yellow Light")?.cgColor
         }
     }
-    
+        
     private func addBottomSeparator(uiStackView: UIStackView) {
         uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor(named: "BreweryGrayLight")!, thickness: 1.0)
     }
