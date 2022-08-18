@@ -1,7 +1,7 @@
 target 'CI&T Brewery' do
-  use_frameworks!
-  
-  pod 'Kingfisher', '~> 7.0'
-  pod 'Resolver'
-  pod 'Cosmos', '~> 23.0'
+    use_frameworks!
+    pod 'MaterialComponents/TextControls+OutlinedTextFields'
+    pod 'Cosmos', '~> 23.0'
+    pod 'Kingfisher', '~> 7.0'
+    pod 'Resolver'
 end

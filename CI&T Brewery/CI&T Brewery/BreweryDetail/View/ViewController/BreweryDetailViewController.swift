@@ -23,6 +23,20 @@ class BreweryDetailViewController: UIViewController {
         return bdView
     }()
     
+    @IBAction func goToRatingView(_ sender: Any) {
+        let ratingViewController = RatingViewController()
+        let navigation = UINavigationController(rootViewController: ratingViewController)
+        navigation.modalPresentationStyle = .pageSheet
+        
+        if let sheet = navigation.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.preferredCornerRadius = 40
+        }
+        
+        present(navigation, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
