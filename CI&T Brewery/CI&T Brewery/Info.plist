@@ -10,6 +10,10 @@
 	<array>
 		<string>Roboto-Light</string>
 		<string>Roboto-Medium</string>
+		<string>Roboto-Regular.ttf</string>
+		<string>Quicksand-Bold.ttf</string>
+		<string>Quicksand-Regular.ttf</string>
+		<string>Quicksand-Medium.ttf</string>
 	</array>
 </dict>
 </plist>

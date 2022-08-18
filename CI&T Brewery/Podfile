@@ -1,4 +1,7 @@
 target 'CI&T Brewery' do
-    pod 'Kingfisher', '~> 7.0'
-    pod 'Resolver'
+  use_frameworks!
+  
+  pod 'Kingfisher', '~> 7.0'
+  pod 'Resolver'
+  pod 'Cosmos', '~> 23.0'
 end
