@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class FailStateView: UIView {
+public class FailureStateView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
