@@ -45,6 +45,7 @@ class BreweryDetailView: UIView {
             average.fontQuicksandMedium14ColorBreweryBlack()
         }
     }
+    @IBOutlet weak var cosmosView: UIView!
     
     @IBOutlet weak var websiteStackView: UIStackView! {
         didSet {

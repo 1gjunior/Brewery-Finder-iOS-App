@@ -48,7 +48,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejaria A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOH-wf-BGZ">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Cervejaria A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOH-wf-BGZ">
                                     <rect key="frame" x="78" y="20" width="87.5" height="19.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <nil key="textColor"/>
@@ -67,7 +67,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXF-IP-h1A">
-                                    <rect key="frame" x="294" y="53" width="21" height="17"/>
+                                    <rect key="frame" x="185" y="53" width="21" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -151,21 +151,48 @@
                                         <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                                     </buttonConfiguration>
                                 </button>
+                                <view userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ofQ-s4-R2W" customClass="CosmosView" customModule="Cosmos">
+                                    <rect key="frame" x="208" y="50.5" width="108" height="20"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" notEnabled="YES"/>
+                                    </accessibility>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                            <color key="value" name="Brewery Yellow Light"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                            <color key="value" name="Brewery Yellow Light"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                            <color key="value" name="Brewery Yellow Light"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="pJh-5d-mfs" firstAttribute="top" secondItem="SsR-06-6uD" secondAttribute="bottom" constant="10" id="7E1-qV-zsc"/>
+                                <constraint firstAttribute="trailing" secondItem="ofQ-s4-R2W" secondAttribute="trailing" constant="19" id="8XM-Yf-qRF"/>
                                 <constraint firstItem="wOH-wf-BGZ" firstAttribute="top" secondItem="Vw2-aq-F4g" secondAttribute="top" id="9B8-VF-QfI"/>
                                 <constraint firstItem="GPJ-4Y-6cx" firstAttribute="bottom" secondItem="Vw2-aq-F4g" secondAttribute="bottom" id="BEQ-Wg-G6l"/>
                                 <constraint firstItem="pJh-5d-mfs" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="BVO-EQ-1HY"/>
                                 <constraint firstItem="SsR-06-6uD" firstAttribute="top" secondItem="Td8-8c-bVL" secondAttribute="bottom" constant="20" id="COr-Rc-zM1"/>
-                                <constraint firstItem="DXF-IP-h1A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GPJ-4Y-6cx" secondAttribute="trailing" constant="5" id="Cwr-gY-yC6"/>
                                 <constraint firstItem="Td8-8c-bVL" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="Djs-OG-YU7"/>
+                                <constraint firstItem="DXF-IP-h1A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GPJ-4Y-6cx" secondAttribute="trailing" constant="5" id="DyU-U4-FMd"/>
                                 <constraint firstAttribute="trailing" secondItem="Q6J-JF-g6b" secondAttribute="trailing" constant="20" symbolic="YES" id="F2U-NH-RAD"/>
                                 <constraint firstAttribute="trailing" secondItem="pJh-5d-mfs" secondAttribute="trailing" constant="20" symbolic="YES" id="FM9-WO-IUD"/>
                                 <constraint firstAttribute="height" constant="350" id="HBF-jN-EqV"/>
+                                <constraint firstItem="ofQ-s4-R2W" firstAttribute="top" secondItem="wrF-Gt-dUI" secondAttribute="bottom" constant="12" id="IZG-bm-Pws"/>
                                 <constraint firstItem="wOH-wf-BGZ" firstAttribute="leading" secondItem="Vw2-aq-F4g" secondAttribute="trailing" constant="8" symbolic="YES" id="NbH-LT-Jia"/>
                                 <constraint firstItem="GPJ-4Y-6cx" firstAttribute="leading" secondItem="Vw2-aq-F4g" secondAttribute="trailing" constant="8" symbolic="YES" id="Nw3-GE-oAy"/>
+                                <constraint firstItem="ofQ-s4-R2W" firstAttribute="leading" secondItem="DXF-IP-h1A" secondAttribute="trailing" constant="2" id="OXB-l9-9Rl"/>
                                 <constraint firstAttribute="trailing" secondItem="wrF-Gt-dUI" secondAttribute="trailing" constant="20" symbolic="YES" id="Q2k-mK-cKA"/>
                                 <constraint firstItem="Vw2-aq-F4g" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="SZv-Tg-Yc2"/>
                                 <constraint firstAttribute="trailing" secondItem="EtA-pf-J44" secondAttribute="trailing" constant="20" symbolic="YES" id="SsB-Rs-tLn"/>
@@ -176,7 +203,6 @@
                                 <constraint firstItem="Q6J-JF-g6b" firstAttribute="top" secondItem="Vw2-aq-F4g" secondAttribute="bottom" constant="30" id="cVR-ra-s45"/>
                                 <constraint firstItem="wrF-Gt-dUI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wOH-wf-BGZ" secondAttribute="trailing" constant="5" id="cWR-RS-MXz"/>
                                 <constraint firstItem="Vw2-aq-F4g" firstAttribute="top" secondItem="EO1-s5-riq" secondAttribute="top" constant="20" id="hD6-2B-smf"/>
-                                <constraint firstAttribute="trailing" secondItem="DXF-IP-h1A" secondAttribute="trailing" constant="20" symbolic="YES" id="ify-2J-Nx1"/>
                                 <constraint firstItem="DXF-IP-h1A" firstAttribute="centerY" secondItem="GPJ-4Y-6cx" secondAttribute="centerY" id="ntW-0d-ZeA"/>
                                 <constraint firstItem="Q6J-JF-g6b" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="p1t-8g-wtb"/>
                                 <constraint firstItem="Td8-8c-bVL" firstAttribute="top" secondItem="EtA-pf-J44" secondAttribute="bottom" constant="10" id="wqU-kc-OJE"/>
@@ -207,6 +233,7 @@
                 <outlet property="address" destination="g6d-lu-lfP" id="ZCo-Ef-fyi"/>
                 <outlet property="addressStackView" destination="EtA-pf-J44" id="845-V8-20T"/>
                 <outlet property="average" destination="DXF-IP-h1A" id="p4u-c3-Jn4"/>
+                <outlet property="cosmosView" destination="ofQ-s4-R2W" id="DaG-ee-1GE"/>
                 <outlet property="dataView" destination="EO1-s5-riq" id="v8N-jP-ACf"/>
                 <outlet property="evaluateBreweryButton" destination="pJh-5d-mfs" id="G5h-sL-8Oa"/>
                 <outlet property="evaluation" destination="wrF-Gt-dUI" id="b9r-dF-8It"/>
@@ -222,6 +249,11 @@
             <point key="canvasLocation" x="332" y="83.208395802098963"/>
         </view>
     </objects>
+    <designables>
+        <designable name="ofQ-s4-R2W">
+            <size key="intrinsicContentSize" width="108" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Frame 168" width="400" height="300"/>
         <image name="icon_maps" width="18" height="18"/>
@@ -229,6 +261,9 @@
         <image name="icon_pin" width="14" height="20"/>
         <image name="icon_star_gold" width="19" height="18"/>
         <image name="icon_world" width="20" height="20"/>
+        <namedColor name="Brewery Yellow Light">
+            <color red="1" green="0.86699998378753662" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="BreweryGold">
             <color red="0.44999998807907104" green="0.37000000476837158" blue="0.10000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
