@@ -49,17 +49,6 @@ class HomeViewController: UIViewController {
         setupNavigationBar()
         sinkBreweries()
         searchBar.delegate = self
-        let ratingViewController = RatingViewController()
-        let navigation = UINavigationController(rootViewController: ratingViewController)
-        navigation.modalPresentationStyle = .pageSheet
-        
-        if let sheet = navigation.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.preferredCornerRadius = 40
-        }
-        
-        present(navigation, animated: true)
     }
     
     func setupErrorState(error: EmptyError) {

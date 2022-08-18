@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; configuration.title = "Ver no mapa"; ObjectID = "585-ac-VJF"; */
+"585-ac-VJF.configuration.title" = "Ver no mapa";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "585-ac-VJF"; */
+"585-ac-VJF.normalTitle" = "Ver no mapa";
+
+/* Class = "UIButton"; configuration.title = "Adicionar Foto"; ObjectID = "SsR-06-6uD"; */
+"SsR-06-6uD.configuration.title" = "Adicionar Foto";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "SsR-06-6uD"; */
+"SsR-06-6uD.normalTitle" = "Adicionar Foto";
+
+/* Class = "UILabel"; text = "Detalhes da Cervejaria"; ObjectID = "l0e-9L-wsX"; */
+"l0e-9L-wsX.text" = "Detalhes da Cervejaria";
+
+/* Class = "UIButton"; configuration.title = "Avaliar"; ObjectID = "pJh-5d-mfs"; */
+"pJh-5d-mfs.configuration.title" = "Avaliar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pJh-5d-mfs"; */
+"pJh-5d-mfs.normalTitle" = "Avaliar";
