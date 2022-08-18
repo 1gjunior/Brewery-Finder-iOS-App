@@ -1,4 +1,6 @@
 target 'CI&T Brewery' do
+    use_frameworks!
+    pod 'MaterialComponents/TextControls+OutlinedTextFields'
     pod 'Kingfisher', '~> 7.0'
     pod 'Resolver'
 end
