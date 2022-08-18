@@ -1,20 +1,24 @@
 PODS:
+  - Cosmos (23.0.0)
   - Kingfisher (7.3.0)
   - Resolver (1.5.0)
 
 DEPENDENCIES:
+  - Cosmos (~> 23.0)
   - Kingfisher (~> 7.0)
   - Resolver
 
 SPEC REPOS:
   trunk:
+    - Cosmos
     - Kingfisher
     - Resolver
 
 SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
 
-PODFILE CHECKSUM: c244c4066a0cd4bc85d91df820cb62a7a2a36726
+PODFILE CHECKSUM: 8a4d4c83e86e183634037b82f1246365d6f81a63
 
 COCOAPODS: 1.11.3
