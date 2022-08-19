@@ -64,7 +64,7 @@ class RatingViewController: UIViewController {
     @IBAction func onSaveButtonTapped(_ sender: Any) {
         let emailText = textField.text ?? ""
         
-        if !emailText.isEmpty &&
+        if emailText.isEmail() &&
            checkboxButton.isSelected {
             let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
             
