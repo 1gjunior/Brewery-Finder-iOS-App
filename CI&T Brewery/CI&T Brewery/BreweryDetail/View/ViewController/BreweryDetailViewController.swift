@@ -8,8 +8,19 @@
 import Foundation
 import UIKit
 
-class BreweryDetailViewController: UIViewController {
+protocol ShowRatedBreweryDelegate {
+    func showView(wasSucess: Bool)
+}
+
+class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, UINavigationControllerDelegate {
     
+    func showView(wasSucess: Bool) {
+        self.wasSucesso = wasSucess
+        print("BreweryDetailViewController: \(self.wasSucesso)")
+    }
+    
+    
+    var wasSucesso: Bool?
     @IBOutlet weak var ratedBreweryView: RatedBreweryView!
     @IBOutlet weak var heightDataView: NSLayoutConstraint!
     @IBOutlet weak var avaliacaoBotao: UIButton! {
@@ -46,6 +57,8 @@ class BreweryDetailViewController: UIViewController {
             sheet.preferredCornerRadius = 40
         }
         
+        ratingViewController.delegate = self
+    
         sucessRatedBrewery()
         present(navigation, animated: true)
     }
@@ -60,6 +73,18 @@ class BreweryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("DETAIL SAIU")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("DETAIL DISAPPEAR")
     }
         
     // depois do fetch, chamar este metodo
@@ -93,3 +118,4 @@ extension BreweryDetailViewController {
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
     }
 }
+

@@ -10,9 +10,12 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import Combine
 import Resolver
 
+
+
 class RatingViewController: UIViewController {
-    
-    
+
+    var delegate: ShowRatedBreweryDelegate?
+    var wasSucess: Bool?
     @IBOutlet weak var checkboxLabel: UILabel!
     @IBOutlet weak var ratingStarsView: UIView!
     @IBOutlet weak var checkboxButton: UIButton!
@@ -30,6 +33,9 @@ class RatingViewController: UIViewController {
     
     
     @IBAction func dismissRatingView(_ sender: Any) {
+        //tratamento para caso ele não digite nada e dê o dismiss
+        delegate?.showView(wasSucess: wasSucess ?? false)
+        print("PRINT WAS SUCESS \(wasSucess!)")
         self.dismiss(animated: true)
     }
     
@@ -45,6 +51,12 @@ class RatingViewController: UIViewController {
         configureCheckbox()
         changeSaveButtonColor()
         setupTextField()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("TELA RATING DESAPARECEU")
+        delegate?.showView(wasSucess: wasSucess ?? false)
     }
     
     private func setupTextField() {
@@ -184,9 +196,11 @@ class RatingViewController: UIViewController {
                 print("initial")
             case .sucess:
                 print("sucess")
+                self!.wasSucess = true
                 self?.sucessStateEvaluation()
             case .error:
                 print("error")
+                self?.wasSucess = false
                 self?.failureStateEvaluation()
             }
         }.store(in: &cancellables)
