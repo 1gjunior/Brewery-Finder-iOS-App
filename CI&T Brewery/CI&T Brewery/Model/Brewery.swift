@@ -51,5 +51,5 @@ struct BreweryEvaluation: Codable {
     let brewery_id: String
     let evaluation_grade: Double
 }
-
+let jsonData = try? JSONEncoder().encode("evaluationDataPlaceholder")
 
