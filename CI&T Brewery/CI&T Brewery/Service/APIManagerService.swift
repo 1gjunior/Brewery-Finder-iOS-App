@@ -10,7 +10,7 @@ import Combine
 
 protocol APIManagerService {
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
-    func postItem <T: Codable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void)
+    func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, Error>) -> Void)
 }
 
 class APIManager: APIManagerService {
@@ -29,7 +29,14 @@ class APIManager: APIManagerService {
                 completion(.success(result))
             }).store(in: &subscribers)
     }
-    func postItem<T: Codable>(request: URLRequest, completion: @escaping (Result<T, Error>) -> Void) {
+    func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, Error>) -> Void) {
+        guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
+
+        let jsonData = try? JSONEncoder().encode(request)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
         URLSession.shared.dataTaskPublisher(for: request)
             .map{$0.response}
             .sink(receiveCompletion: { (resultCompletion) in
@@ -38,8 +45,9 @@ class APIManager: APIManagerService {
                     completion(.failure(error))
                 case .finished: break
                 }
-            }, receiveValue: {
-                print("\($0)")
+            }, receiveValue: { (result) in
+                if let result = result as? R{
+                    completion(.success(result ))} //else {completion (Error)} // criar objeto de erro
             })
             .store(in: &subscribers)
     }

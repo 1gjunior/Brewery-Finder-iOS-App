@@ -48,8 +48,13 @@ struct Brewery: Codable {
 }
 struct BreweryEvaluation: Codable {
     let email: String
-    let brewery_id: String
-    let evaluation_grade: Double
+    let breweryId: String
+    let evaluationGrade: Double
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case email = "email"
+        case breweryId = "brewery_id"
+        case evaluationGrade = "evaluation_grade"
+    }
 }
-let jsonData = try? JSONEncoder().encode("evaluationDataPlaceholder")
-
