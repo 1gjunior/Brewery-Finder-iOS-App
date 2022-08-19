@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import Resolver
 
 class BreweryDetailViewController: UIViewController {
+    
+    @Injected var viewModel: BreweryDetailViewModel
     
     init() {
         super.init(nibName: "BreweryDetailView", bundle: nil)
@@ -32,8 +35,6 @@ class BreweryDetailViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
     }
-    
-    
         
     // depois do fetch, chamar este metodo
     // a classe BreweryObject possui os campos formatados

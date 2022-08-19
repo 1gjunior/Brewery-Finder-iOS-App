@@ -46,3 +46,15 @@ struct Brewery: Codable, Hashable {
         case photos
     }
 }
+struct BreweryEvaluation: Codable {
+    let email: String
+    let breweryId: String
+    let evaluationGrade: Double
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case email = "email"
+        case breweryId = "brewery_id"
+        case evaluationGrade = "evaluation_grade"
+    }
+}

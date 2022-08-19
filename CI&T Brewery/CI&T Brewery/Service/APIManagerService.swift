@@ -10,6 +10,12 @@ import Combine
 
 protocol APIManagerService {
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
+    func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, NetworkError>) -> Void)
+}
+
+enum NetworkError: Error {
+    case responseError
+    case requestError
 }
 
 class APIManager: APIManagerService {
@@ -27,5 +33,30 @@ class APIManager: APIManagerService {
             }, receiveValue: { (result) in
                 completion(.success(result))
             }).store(in: &subscribers)
+    }
+    func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, NetworkError>) -> Void) {
+        guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
+        
+        let jsonData = try? JSONEncoder().encode(request)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        URLSession.shared.dataTaskPublisher(for: request)
+            .map{$0.response}
+            .sink(receiveCompletion: { (resultCompletion) in
+                switch resultCompletion {
+                case .failure:
+                    completion(.failure(.requestError))
+                case .finished: break
+                }
+            }, receiveValue: { (result) in
+                if let result = result as? R{
+                    completion(.success(result ))}
+                else {
+                    completion(.failure(.responseError))
+                }
+            })
+            .store(in: &subscribers)
     }
 }
