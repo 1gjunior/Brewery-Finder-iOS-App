@@ -45,6 +45,20 @@ class BreweryRepository: BreweryRepositoryProtocol {
         }
     }
     
+    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void){
+        
+        apiManager.postItem(request: evaluation) { (result: Result<BreweryEvaluation, NetworkError>) in
+            switch result {
+            case .success(let result):
+                print("repository")
+                completion(.success(result))
+            case .failure(let error):
+                print("fail")
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void) {
         guard let url = BreweryAPIService.getTop10BreweriesURLString() else { return }
         
@@ -58,3 +72,4 @@ class BreweryRepository: BreweryRepositoryProtocol {
         }
     }
 }
+
