@@ -15,7 +15,6 @@ protocol APIManagerService {
 
 class APIManager: APIManagerService {
     private var subscribers = Set<AnyCancellable>()
-    
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         URLSession.shared.dataTaskPublisher(for: url)
             .map{ $0.data }

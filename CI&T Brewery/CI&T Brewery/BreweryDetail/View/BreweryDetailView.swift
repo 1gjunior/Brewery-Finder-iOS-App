@@ -10,7 +10,8 @@ import UIKit
 class BreweryDetailView: UIView {
     @IBOutlet weak var viewTitle: UILabel! {
         didSet {
-            viewTitle.fontRobotoRegular24ColorBreweryBlack()
+            viewTitle.font = UIFont.robotoRegular(ofSize: 24)
+            viewTitle.textColor = UIColor.breweryBlack()
         }
     }
         
@@ -27,22 +28,26 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var name: UILabel! {
         didSet {
-            name.fontQuicksandBold16ColorBreweryBlack()
+            name.font = UIFont.quicksandBold(ofSize: 16)
+            name.textColor = UIColor.breweryBlack()
         }
     }
     @IBOutlet weak var type: UILabel! {
         didSet {
-            type.fontQuicksandRegular14ColorBreweryBlack()
+            type.font = UIFont.quicksandRegular(ofSize: 14)
+            type.textColor = UIColor.breweryBlack()
         }
     }
     @IBOutlet weak var evaluation: UILabel! {
         didSet {
-            evaluation.fontQuicksandRegular14ColorBreweryBlackLight()
+            evaluation.font = UIFont.quicksandRegular(ofSize: 14)
+            evaluation.textColor = UIColor.breweryBlackLight()
         }
     }
     @IBOutlet weak var average: UILabel! {
         didSet {
-            average.fontQuicksandMedium14ColorBreweryBlack()
+            average.font = UIFont.quicksandMedium(ofSize: 14)
+            average.textColor = UIColor.breweryBlack()
         }
     }
     @IBOutlet weak var cosmosView: UIView!
@@ -54,7 +59,8 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var website: UILabel! {
         didSet {
-            website.fontRobotoLight14ColorBreweryBlack()
+            website.font = UIFont.robotoLight(ofSize: 14)
+            website.textColor = UIColor.breweryBlack()
         }
     }
     
@@ -65,7 +71,8 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var address: UILabel! {
         didSet {
-            address.fontRobotoLight14ColorBreweryBlack()
+            address.font = UIFont.robotoLight(ofSize: 14)
+            address.textColor = UIColor.breweryBlack()
         }
     }
     
@@ -75,7 +82,15 @@ class BreweryDetailView: UIView {
         }
     }
     @IBOutlet weak var mapText: UIButton! {
-        didSet {            
+        didSet {
+            let attrs = [
+                NSAttributedString.Key.font: UIFont.robotoMedium(ofSize: 14),
+                NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+                NSAttributedString.Key.foregroundColor: UIColor.breweryBlack()
+            ] as [NSAttributedString.Key : Any]
+            let attrString = NSMutableAttributedString(string: NSLocalizedString("seeOnMap", comment: ""), attributes:attrs)
+            mapText.setAttributedTitle(attrString, for: .normal)
+                           
             // alinha o texto completamente a esquerda
             mapText.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
 
@@ -90,21 +105,39 @@ class BreweryDetailView: UIView {
     
     @IBOutlet weak var addPhotoButton: UIButton! {
         didSet {
-            addPhotoButton.layer.borderColor = UIColor(named: "BreweryBlack")?.cgColor
+            addPhotoButton.layer.borderColor = UIColor.breweryBlack().cgColor
             addPhotoButton.layer.borderWidth = 1
             addPhotoButton.layer.cornerRadius = 18
         }
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
-            evaluateBreweryButton.layer.borderColor = UIColor(named: "Brewery Yellow Light")?.cgColor
+            evaluateBreweryButton.layer.borderColor = UIColor.breweryYellowLight().cgColor
             evaluateBreweryButton.layer.borderWidth = 1
             evaluateBreweryButton.layer.cornerRadius = 18
-            evaluateBreweryButton.layer.backgroundColor = UIColor(named: "Brewery Yellow Light")?.cgColor
+            evaluateBreweryButton.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
         }
+    }
+        
+    @IBAction func fadeButtonTouchDown(sender: UIButton) {
+        sender.isHighlighted = false
+        UIView.animate(
+            withDuration: 0,
+            delay: 0,
+            options: [.curveLinear,
+                      .allowUserInteraction,
+                      .beginFromCurrentState],
+            animations: {
+            sender.alpha = 0.75
+        }, completion: nil)
+    }
+
+    @IBAction func fadeButtonTouchUpInside(sender: UIButton) {
+        sender.isHighlighted = false
+        sender.alpha = 1
     }
     
     private func addBottomSeparator(uiStackView: UIStackView) {
-        uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor(named: "BreweryGrayLight")!, thickness: 1.0)
+        uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0)
     }
 }
