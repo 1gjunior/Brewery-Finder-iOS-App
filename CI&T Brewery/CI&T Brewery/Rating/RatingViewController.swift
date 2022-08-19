@@ -7,6 +7,8 @@
 
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import Combine
+import Resolver
 
 class RatingViewController: UIViewController {
     
@@ -17,6 +19,7 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var generalTitle: UILabel!
     private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 70))
+    private var cancellables: Set<AnyCancellable> = []
     @Injected var viewModel: RatingViewModel
     
     var brewery: Brewery? = nil {
@@ -38,14 +41,10 @@ class RatingViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        //        configureCheckbox()
-        //        changeSaveButtonColor()
-        //        setupTextField()
-        //        setupSucessStateEvaluation()
-        setupFailureStateEvaluation()
-        hideElementsRatingView()
-        
-        
+        configureCheckbox()
+        changeSaveButtonColor()
+        setupTextField()
+        sinkBreweries()
     }
     
     private func setupTextField() {
@@ -73,12 +72,14 @@ class RatingViewController: UIViewController {
     }()
     
     func setupSucessStateEvaluation() {
+        hideElementsRatingView()
         sucessStateView.sucessStateLabel.text = "Sua avaliação foi \n adicionada com sucesso!"
         self.view.addSubview(sucessStateView)
         self.constraintSucessState()
     }
     
     func setupFailureStateEvaluation() {
+        hideElementsRatingView()
         failureStateView.failureStateLabel.text = "Não foi possível adicionar sua avaliação. \n Tente mais tarde."
         self.view.addSubview(failureStateView)
         self.constraintFailureState()
@@ -146,17 +147,29 @@ class RatingViewController: UIViewController {
         textField.isHidden = true
     }
     
-    //chamar no sink
-    private func SucessStateEvaluation() {
+    private func sucessStateEvaluation() {
         DispatchQueue.main.async { [weak self] in
             self?.setupSucessStateEvaluation()
         }
     }
     
-    private func FailureStateEvaluation() {
+    private func failureStateEvaluation() {
         DispatchQueue.main.async { [weak self] in
             self?.setupFailureStateEvaluation()
         }
+    }
+    
+    private func sinkBreweries() {
+        viewModel.$stateRating.sink { [weak self] state in
+            switch state {
+            case .initial:
+                print("initial")
+            case .sucess:
+                self?.sucessStateEvaluation()
+            case .error:
+                self?.failureStateEvaluation()
+            }
+        }.store(in: &cancellables)
     }
     
     private func postEV(){

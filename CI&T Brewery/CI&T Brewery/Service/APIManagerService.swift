@@ -10,9 +10,11 @@ import Combine
 
 protocol APIManagerService {
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
+    func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, Error>) -> Void)
 }
 
 class APIManager: APIManagerService {
+    
     private var subscribers = Set<AnyCancellable>()
     
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
