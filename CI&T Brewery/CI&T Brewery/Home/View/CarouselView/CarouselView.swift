@@ -42,13 +42,21 @@ class CarouselView: UIView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.alwaysBounceVertical = false
+        collectionView.isDirectionalLockEnabled = true
+        collectionView.isScrollEnabled = true
+        collectionView.bounces = false
         return UICollectionViewCompositionalLayout(section: section)
     }
     
     public func configureDataSource(_ breweries: [Brewery]) {
         dataSource = UICollectionViewDiffableDataSource<Section, Brewery>(collectionView: self.collectionView, cellProvider: { collectionView, indexPath, brewery in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath)
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCellView else { return UICollectionViewCell() }
+            
+            cell.layer.cornerRadius = 10
+            cell.configure(brewery)
+            
             return cell
         })
         

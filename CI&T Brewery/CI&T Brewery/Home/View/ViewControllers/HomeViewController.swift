@@ -63,17 +63,24 @@ class HomeViewController: UIViewController {
     
     func setupErrorState(error: EmptyError) {
         changingState(view: errorStateView)
-        self.view.addSubview(errorStateView)
-        self.errorStateView.changeText(error)
+        view.addSubview(errorStateView)
+        errorStateView.changeText(error)
         constraintErrorState()
     }
     
     func setupSucessState() {
         listView.setSearchResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
-        self.view.addSubview(listView)
-        self.constraintListView()
-        self.changingState(view: listView)
+        view.addSubview(listView)
+        constraintListView()
+        changingState(view: listView)
         listView.update(breweries, actionForCell: goToDetailWith)
+    }
+    
+    func setupTop10SucessState(_ breweries: [Brewery]) {
+        view.addSubview(carouselView)
+        constraintCarouselView()
+        carouselView.configureDataSource(breweries)
+        changingState(view: carouselView)
     }
     
     private func goToDetailWith(id: String) {
@@ -150,12 +157,6 @@ class HomeViewController: UIViewController {
         }.store(in: &cancellables)
     }
     
-    private func top10BreweriesSucessState(_ breweries: [Brewery]) {
-        DispatchQueue.main.async {
-
-        }
-    }
-    
     private func sucessState(_ breweries: [Brewery]) {
         DispatchQueue.main.async { [weak self] in
             self?.breweries = breweries
@@ -164,9 +165,7 @@ class HomeViewController: UIViewController {
     
     private func sucessStateTop10(_ breweries: [Brewery]) {
         DispatchQueue.main.async { [weak self] in
-            self?.view.addSubview(self?.carouselView ?? UIView())
-            self?.constraintCarouselView()
-            self?.carouselView.configureDataSource(breweries)
+            self?.setupTop10SucessState(breweries)
         }
     }
     

@@ -48,6 +48,7 @@
 		B93EF76628AFB99E00BFA9C6 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B93EF76528AFB99D00BFA9C6 /* CarouselView.xib */; };
 		B93EF76828AFBEE900BFA9C6 /* CarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B93EF76728AFBEE900BFA9C6 /* CarouselCell.xib */; };
 		B93EF76A28AFC30100BFA9C6 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EF76928AFC30100BFA9C6 /* CarouselView.swift */; };
+		B93EF76C28B0118C00BFA9C6 /* CarouselCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EF76B28B0118C00BFA9C6 /* CarouselCellView.swift */; };
 		B99B87DD28AD62DA00BF31A0 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99B87DC28AD62DA00BF31A0 /* RatingViewController.xib */; };
 		B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99B87E428AD732800BF31A0 /* RatingViewController.swift */; };
 		B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */; };
@@ -132,6 +133,7 @@
 		B93EF76528AFB99D00BFA9C6 /* CarouselView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
 		B93EF76728AFBEE900BFA9C6 /* CarouselCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselCell.xib; sourceTree = "<group>"; };
 		B93EF76928AFC30100BFA9C6 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		B93EF76B28B0118C00BFA9C6 /* CarouselCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCellView.swift; sourceTree = "<group>"; };
 		B99B87DC28AD62DA00BF31A0 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingViewController.xib; path = "CI&T Brewery/Rating/View/RatingViewController.xib"; sourceTree = SOURCE_ROOT; };
 		B99B87E428AD732800BF31A0 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		B99FDE0628A58F4D00F5DA30 /* CI&T Brewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CI&T Brewery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,6 +306,7 @@
 				B93EF76528AFB99D00BFA9C6 /* CarouselView.xib */,
 				B93EF76728AFBEE900BFA9C6 /* CarouselCell.xib */,
 				B93EF76928AFC30100BFA9C6 /* CarouselView.swift */,
+				B93EF76B28B0118C00BFA9C6 /* CarouselCellView.swift */,
 			);
 			path = CarouselView;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
+				B93EF76C28B0118C00BFA9C6 /* CarouselCellView.swift in Sources */,
 				2BD6CECB28AEAD1400B729C4 /* UIFontExtension.swift in Sources */,
 				B99FDE5028AC00BD00F5DA30 /* BreweryAPIService.swift in Sources */,
 				2BD6CECD28AEAED900B729C4 /* UIColorExtension.swift in Sources */,
