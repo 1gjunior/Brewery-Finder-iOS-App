@@ -7,39 +7,55 @@
 
 import Foundation
 import UIKit
+import Combine
 import Resolver
 
 class BreweryDetailViewController: UIViewController {
     
     @Injected var viewModel: BreweryDetailViewModel
+    private var cancellables: Set<AnyCancellable> = []
+    let id: String
     
-    init() {
+    init(id: String) {
+        self.id = id
         super.init(nibName: "BreweryDetailView", bundle: nil)
     }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var breweryDetailView: BreweryDetailView = {
-        let bdView = BreweryDetailView()
-        bdView.translatesAutoresizingMaskIntoConstraints = false
-        return bdView
-    }()
-    
     @IBAction func goToRatingView(_ sender: Any) {
-        let ratingViewController = RatingViewController()
+        let ratingViewController = RatingViewController(id: id)
            present(ratingViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        getBreweryBy(id: id)
+        sinkBrewery()
     }
-        
-    // depois do fetch, chamar este metodo
-    // a classe BreweryObject possui os campos formatados
-    private func setViewData(brewery: BreweryObject) {
-        print(brewery)
+    
+    private func sinkBrewery() {
+        viewModel.$state.sink { [weak self] state in
+            switch state {
+            case .success(let brewery):
+                self?.successState(brewery)
+            case .none: break
+            }
+        }.store(in: &cancellables)
+    }
+    
+    private func successState(_ brewery: BreweryObject) {
+        DispatchQueue.main.async { [weak self] in
+            guard let view = self?.view as? BreweryDetailView else { return }
+            view.configure(brewery)
+        }
+    }
+    
+    private func getBreweryBy(id: String) {
+        viewModel.fetchBreweryBy(id: id)
     }
 }
 

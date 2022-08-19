@@ -49,7 +49,7 @@ class BreweryObject {
         
         self.address = formattedAddress
         
-        var evaluationString = String(brewery.sizeEvaluations)
+        var evaluationString = String(format: "%.f", brewery.sizeEvaluations)
         if brewery.sizeEvaluations > 1 ||
             brewery.sizeEvaluations == 0 {
             evaluationString += " " + NSLocalizedString("evaluations", comment: "")
