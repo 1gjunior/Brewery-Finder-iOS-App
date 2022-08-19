@@ -8,6 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import Resolver
+import Combine
 
 class RatingViewController: UIViewController {
     
@@ -24,6 +25,7 @@ class RatingViewController: UIViewController {
     }
     
     @Injected private var ratingViewModel: RatingViewModel
+    private var cancellables: Set<AnyCancellable> = []
     
     @IBAction func dismissRatingView(_ sender: Any) {
         self.dismiss(animated: true)
@@ -39,10 +41,11 @@ class RatingViewController: UIViewController {
     
     override func viewDidLoad() {
         configureCheckbox()
-        changeSaveButtonColor()
         setupTextField()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        sinkEmailState()
     }
     
     deinit {
@@ -108,34 +111,51 @@ class RatingViewController: UIViewController {
         checkboxButton.setImage(UIImage(named: "Unchecked"), for: .normal)
         checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
         checkboxButton.setImage(UIImage(named: "CheckboxDisabled"), for: .disabled)
-        disableCheckbox()
+        
+        ratingViewModel.isEmailValid(emailText: "")
     }
-    
-    func changeSaveButtonColor() {
-        if saveButton.isEnabled {
-            saveButton.configuration?.background.backgroundColor = UIColor(red: 1, green: 0.867, blue: 0.294, alpha: 1)
-        } else {
-            saveButton.configuration?.background.backgroundColor = UIColor(red: 0.949, green: 0.949, blue: 0.969, alpha: 1)
-        }
-    }
-    
+        
     func setGeneralTitle() {
         generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + (brewery?.name ?? "")
     }
     
-    func changeEmailState(_ state: EmailState) {
-        textField.trailingView = state.trailingLabel
-        textField.setOutlineColor(state.outlineColor, for: .normal)
-        textField.leadingAssistiveLabel.text = state.leadingAssistiveLabel
-        saveButton.isEnabled = state == .valid
-        changeSaveButtonColor()
+    private func sinkEmailState() {
+        ratingViewModel.$emailState.sink { [weak self] state in
+            switch state {
+            case .blank:
+                self?.blankFields()
+            case .valid:
+                self?.enabledFields()
+            case .invalid:
+                self?.disabledFields()
+            }
+        }.store(in: &cancellables)
     }
-    
-    func enableCheckbox() {
+        
+    private func enabledFields() {
+        textField.trailingView = nil
+        textField.setOutlineColor(UIColor.outlineGreen(), for: .normal)
+        textField.leadingAssistiveLabel.text = ""
+        saveButton.isEnabled = true
+        saveButton.configuration?.background.backgroundColor = UIColor.breweryYellowLight()
         checkboxButton.isEnabled = true
     }
     
-    func disableCheckbox() {
+    private func blankFields() {
+        textField.trailingView = nil
+        textField.setOutlineColor(UIColor.outlineBlack(), for: .normal)
+        textField.leadingAssistiveLabel.text = ""
+        saveButton.isEnabled = false
+        saveButton.configuration?.background.backgroundColor = UIColor.grayLighter()
+        checkboxButton.isEnabled = false
+    }
+    
+    private func disabledFields() {
+        textField.trailingView = UIImageView(image: UIImage(named: "inputTrailingLabel"))
+        textField.setOutlineColor(UIColor.outlineRed(), for: .normal)
+        textField.leadingAssistiveLabel.text = NSLocalizedString("emailInvalid", comment: "")
+        saveButton.isEnabled = false
+        saveButton.configuration?.background.backgroundColor = UIColor.grayLighter()
         checkboxButton.isEnabled = false
     }
 }
@@ -152,45 +172,6 @@ extension RatingViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if (textField.text?.isEmpty ?? true) {
-            changeEmailState(.blank)
-            disableCheckbox()
-        } else if textField.isEmail() {
-            changeEmailState(.valid)
-            enableCheckbox()
-        } else {
-            changeEmailState(.invalid)
-            disableCheckbox()
-        }
-    }
-}
-
-enum EmailState {
-    case blank
-    case invalid
-    case valid
-    
-    var trailingLabel: UIImageView? {
-        switch self {
-            case .blank: return nil
-            case .invalid: return UIImageView(image: UIImage(named: "inputTrailingLabel"))
-            case .valid: return nil
-        }
-    }
-    
-    var outlineColor: UIColor {
-        switch self {
-           case .blank: return UIColor(red: 0.255, green: 0.286, blue: 0.255, alpha: 1)     // BLACK
-           case .invalid: return UIColor(red: 0.729, green: 0.106, blue: 0.106, alpha: 1)   // RED
-           case .valid: return UIColor(red: 0.024, green: 0.427, blue: 0.216, alpha: 1)     // GREEN
-        }
-    }
-    
-    var leadingAssistiveLabel: String {
-        switch self {
-            case .blank: return ""
-            case .invalid: return NSLocalizedString("emailInvalid", comment: "")
-            case .valid: return ""
-        }
+        ratingViewModel.isEmailValid(emailText: textField.text!)
     }
 }
