@@ -17,6 +17,7 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var generalTitle: UILabel!
     private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 70))
+    @Injected var viewModel: RatingViewModel
     
     var brewery: Brewery? = nil {
         didSet {

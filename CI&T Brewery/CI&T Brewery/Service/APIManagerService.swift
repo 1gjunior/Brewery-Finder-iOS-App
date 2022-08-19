@@ -31,12 +31,24 @@ class APIManager: APIManagerService {
     }
     
     func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, Error>) -> Void) {
-            guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
-    //        let error: Error
-            let jsonData = try? JSONEncoder().encode(request)
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = jsonData
-            URLSession.share
+        guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
+        //        let error: Error
+        let jsonData = try? JSONEncoder().encode(request)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        URLSession.shared.dataTaskPublisher(for: request)
+            .map{$0.response}
+            .sink(receiveCompletion: { (resultCompletion) in
+                switch resultCompletion {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .finished: break
+                }
+            }, receiveValue: {
+                print("\($0)")
+            })
+            .store(in: &subscribers)
+    }
 }
