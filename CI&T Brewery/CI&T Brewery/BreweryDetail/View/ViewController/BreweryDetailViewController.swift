@@ -10,6 +10,17 @@ import UIKit
 
 class BreweryDetailViewController: UIViewController {
     
+    @IBOutlet weak var ratedBreweryView: RatedBreweryView!
+    @IBOutlet weak var heightDataView: NSLayoutConstraint!
+    @IBOutlet weak var avaliacaoBotao: UIButton! {
+        didSet {
+            avaliacaoBotao!.layer.borderColor = UIColor.breweryYellowLight().cgColor
+            avaliacaoBotao!.layer.borderWidth = 1
+            avaliacaoBotao!.layer.cornerRadius = 18
+            avaliacaoBotao!.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
+        }
+    }
+    
     init() {
         super.init(nibName: "BreweryDetailView", bundle: nil)
     }
@@ -23,23 +34,48 @@ class BreweryDetailViewController: UIViewController {
         return bdView
     }()
     
+   
     @IBAction func goToRatingView(_ sender: Any) {
         let ratingViewController = RatingViewController()
         let navigation = UINavigationController(rootViewController: ratingViewController)
         navigation.modalPresentationStyle = .pageSheet
-        
+
         if let sheet = navigation.sheetPresentationController {
             sheet.detents = [.medium()]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.preferredCornerRadius = 40
         }
+        avaliacaoBotao.isHidden = true
+        let antigaAltura = heightDataView.constant
+        print("ANTIGA ALTURA \(antigaAltura)")
+        heightDataView.constant = heightDataView.constant + 50
+//        let novaAltura =  heightDataView.constant
+//        print("NOVA ALTURA \(novaAltura)")
+        ratedBreweryView.isHidden = false
         
         present(navigation, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        avaliacaoBotao.isHidden = true
+        breweryDetailView.evaluateBreweryButton?.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        avaliacaoBotao.isHidden = true
+        //breweryDetailView.evaluateBreweryButton?.isHidden = true
+    }
+    
+    func hideButton() {
+       // breweryDetailView.evaluateBreweryButton?.isHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        ratedBreweryView.ratedBreweryLabel.text = "Você já avaliou essa \ncervejaria"
     }
         
     // depois do fetch, chamar este metodo

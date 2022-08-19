@@ -37,13 +37,13 @@ class RatingViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-//        configureCheckbox()
-//        changeSaveButtonColor()
-//        setupTextField()
+        //        configureCheckbox()
+        //        changeSaveButtonColor()
+        //        setupTextField()
         setupSucessStateEvaluation()
-//        setupFailureStateEvaluation()
+        //        setupFailureStateEvaluation()
         hideElementsRatingView()
-       
+        
         
     }
     
@@ -96,11 +96,11 @@ class RatingViewController: UIViewController {
     private func constraintTextField() {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.bottomAnchor.constraint(equalTo: checkboxButton.topAnchor, constant: 0).isActive = true
-
+        
         textField.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
         textField.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
     }
-
+    
     @IBAction func onSaveButtonTapped(_ sender: Any) {
         _ = textFieldShouldReturn(textField)
     }
@@ -142,6 +142,19 @@ class RatingViewController: UIViewController {
         generalTitle.isHidden = true
         textField.isHidden = true
     }
+    
+    //chamar no sink
+    private func SucessStateEvaluation() {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupSucessStateEvaluation()
+        }
+    }
+    
+    private func FailureStateEvaluation() {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupFailureStateEvaluation()
+        }
+    }
 }
 
 extension RatingViewController: UITextFieldDelegate {
@@ -173,25 +186,26 @@ enum EmailState {
     
     var trailingLabel: UIImageView? {
         switch self {
-            case .blank: return nil
-            case .invalid: return UIImageView(image: UIImage(named: "inputTrailingLabel"))
-            case .valid: return nil
+        case .blank: return nil
+        case .invalid: return UIImageView(image: UIImage(named: "inputTrailingLabel"))
+        case .valid: return nil
         }
     }
     
     var outlineColor: UIColor {
         switch self {
-           case .blank: return UIColor(red: 0.255, green: 0.286, blue: 0.255, alpha: 1)     // BLACK
-           case .invalid: return UIColor(red: 0.729, green: 0.106, blue: 0.106, alpha: 1)   // RED
-           case .valid: return UIColor(red: 0.024, green: 0.427, blue: 0.216, alpha: 1)     // GREEN
+        case .blank: return UIColor(red: 0.255, green: 0.286, blue: 0.255, alpha: 1)     // BLACK
+        case .invalid: return UIColor(red: 0.729, green: 0.106, blue: 0.106, alpha: 1)   // RED
+        case .valid: return UIColor(red: 0.024, green: 0.427, blue: 0.216, alpha: 1)     // GREEN
         }
     }
     
     var leadingAssistiveLabel: String {
         switch self {
-            case .blank: return ""
-            case .invalid: return NSLocalizedString("emailInvalid", comment: "")
-            case .valid: return ""
+        case .blank: return ""
+        case .invalid: return NSLocalizedString("emailInvalid", comment: "")
+        case .valid: return ""
         }
     }
 }
+

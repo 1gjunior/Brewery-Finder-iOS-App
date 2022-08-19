@@ -112,10 +112,10 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
-            evaluateBreweryButton.layer.borderColor = UIColor.breweryYellowLight().cgColor
-            evaluateBreweryButton.layer.borderWidth = 1
-            evaluateBreweryButton.layer.cornerRadius = 18
-            evaluateBreweryButton.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
+            evaluateBreweryButton!.layer.borderColor = UIColor.breweryYellowLight().cgColor
+            evaluateBreweryButton!.layer.borderWidth = 1
+            evaluateBreweryButton!.layer.cornerRadius = 18
+            evaluateBreweryButton!.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
         }
     }
         

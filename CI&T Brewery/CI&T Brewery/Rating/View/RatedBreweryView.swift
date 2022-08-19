@@ -10,6 +10,8 @@ import UIKit
 
 public class RatedBreweryView: UIView {
     
+    @IBOutlet weak var ratedBreweryLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

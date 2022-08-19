@@ -43,6 +43,7 @@
 		33DD4E2E28AEC1A60077D800 /* BreweryDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DD4E2D28AEC1A60077D800 /* BreweryDetailView.xib */; };
 		33DD4E3028AECCF80077D800 /* RatedBreweryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33DD4E2F28AECCF80077D800 /* RatedBreweryView.xib */; };
 		33DD4E3228AED46D0077D800 /* RatedBreweryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD4E3128AED46D0077D800 /* RatedBreweryView.swift */; };
+		33DD4E3428AEDA680077D800 /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DD4E3328AEDA680077D800 /* RatingViewModel.swift */; };
 		AFEA879A62761B993E50D17E /* Pods_CI_T_Brewery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41AE76C9AD1C7C0C2F627E0 /* Pods_CI_T_Brewery.framework */; };
 		B93EF75E28AE039800BFA9C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EF75D28AE039800BFA9C6 /* Extensions.swift */; };
 		B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93EF76028AE8D0100BFA9C6 /* FailureStateView.swift */; };
@@ -124,6 +125,7 @@
 		33DD4E2D28AEC1A60077D800 /* BreweryDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreweryDetailView.xib; sourceTree = "<group>"; };
 		33DD4E2F28AECCF80077D800 /* RatedBreweryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatedBreweryView.xib; sourceTree = "<group>"; };
 		33DD4E3128AED46D0077D800 /* RatedBreweryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweryView.swift; sourceTree = "<group>"; };
+		33DD4E3328AEDA680077D800 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatingViewModel.swift; path = "CI&T Brewery/Rating/View/RatingViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		49094571AD87ED0514619389 /* Pods-CI&T Brewery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.debug.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.debug.xcconfig"; sourceTree = "<group>"; };
 		91378E3B21169E401BFDC185 /* Pods-CI&T Brewery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.release.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.release.xcconfig"; sourceTree = "<group>"; };
 		B93EF75D28AE039800BFA9C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		B99B87E228AD72A800BF31A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				33DD4E3328AEDA680077D800 /* RatingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */,
 				B99FDE4D28AC00BD00F5DA30 /* BreweryListView.swift in Sources */,
+				33DD4E3428AEDA680077D800 /* RatingViewModel.swift in Sources */,
 				B99FDE4E28AC00BD00F5DA30 /* APIManagerService.swift in Sources */,
 				B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */,
 				B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */,

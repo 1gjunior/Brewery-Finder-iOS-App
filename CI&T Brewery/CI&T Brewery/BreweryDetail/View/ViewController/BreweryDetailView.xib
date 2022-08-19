@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BreweryDetailViewController" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
+                <outlet property="avaliacaoBotao" destination="pJh-5d-mfs" id="CQq-PI-MJn"/>
+                <outlet property="heightDataView" destination="HBF-jN-EqV" id="JVA-4U-VeH"/>
+                <outlet property="ratedBreweryView" destination="Khw-dU-78O" id="92Z-v7-qIU"/>
                 <outlet property="view" destination="zx8-Dx-PvW" id="EHK-Wa-XDl"/>
             </connections>
         </placeholder>
@@ -124,7 +127,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="585-ac-VJF">
-                                            <rect key="frame" x="33" y="4.9999999999999982" width="301" height="30.333333333333329"/>
+                                            <rect key="frame" x="33" y="4.6666666666666305" width="301" height="30.666666666666671"/>
                                             <color key="tintColor" name="BreweryBlack"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                             <state key="normal">
@@ -201,12 +204,16 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khw-dU-78O" customClass="RatedBreweryView" customModule="CI_T_Brewery" customModuleProvider="target">
+                                    <rect key="frame" x="20" y="297" width="334" height="53"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="pJh-5d-mfs" firstAttribute="top" secondItem="SsR-06-6uD" secondAttribute="bottom" constant="10" id="7E1-qV-zsc"/>
                                 <constraint firstAttribute="trailing" secondItem="ofQ-s4-R2W" secondAttribute="trailing" constant="19" id="8XM-Yf-qRF"/>
                                 <constraint firstItem="wOH-wf-BGZ" firstAttribute="top" secondItem="Vw2-aq-F4g" secondAttribute="top" id="9B8-VF-QfI"/>
+                                <constraint firstAttribute="trailing" secondItem="Khw-dU-78O" secondAttribute="trailing" constant="20" symbolic="YES" id="9NB-FW-cRC"/>
                                 <constraint firstItem="GPJ-4Y-6cx" firstAttribute="bottom" secondItem="Vw2-aq-F4g" secondAttribute="bottom" id="BEQ-Wg-G6l"/>
                                 <constraint firstItem="pJh-5d-mfs" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="BVO-EQ-1HY"/>
                                 <constraint firstItem="SsR-06-6uD" firstAttribute="top" secondItem="Td8-8c-bVL" secondAttribute="bottom" constant="20" id="COr-Rc-zM1"/>
@@ -220,6 +227,9 @@
                                 <constraint firstItem="GPJ-4Y-6cx" firstAttribute="leading" secondItem="Vw2-aq-F4g" secondAttribute="trailing" constant="8" symbolic="YES" id="Nw3-GE-oAy"/>
                                 <constraint firstItem="ofQ-s4-R2W" firstAttribute="leading" secondItem="DXF-IP-h1A" secondAttribute="trailing" constant="2" id="OXB-l9-9Rl"/>
                                 <constraint firstAttribute="trailing" secondItem="wrF-Gt-dUI" secondAttribute="trailing" constant="20" symbolic="YES" id="Q2k-mK-cKA"/>
+                                <constraint firstAttribute="bottom" secondItem="Khw-dU-78O" secondAttribute="bottom" id="QPY-sM-crI"/>
+                                <constraint firstItem="pJh-5d-mfs" firstAttribute="top" secondItem="SsR-06-6uD" secondAttribute="bottom" constant="10" id="Ral-HN-InK"/>
+                                <constraint firstItem="Khw-dU-78O" firstAttribute="top" secondItem="SsR-06-6uD" secondAttribute="bottom" constant="10" id="SE1-yO-b08"/>
                                 <constraint firstItem="Vw2-aq-F4g" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="SZv-Tg-Yc2"/>
                                 <constraint firstAttribute="trailing" secondItem="EtA-pf-J44" secondAttribute="trailing" constant="20" symbolic="YES" id="SsB-Rs-tLn"/>
                                 <constraint firstItem="SsR-06-6uD" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="YZ3-DV-Tsa"/>
@@ -228,6 +238,7 @@
                                 <constraint firstAttribute="trailing" secondItem="SsR-06-6uD" secondAttribute="trailing" constant="20" symbolic="YES" id="bEv-db-qYP"/>
                                 <constraint firstItem="Q6J-JF-g6b" firstAttribute="top" secondItem="Vw2-aq-F4g" secondAttribute="bottom" constant="30" id="cVR-ra-s45"/>
                                 <constraint firstItem="wrF-Gt-dUI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wOH-wf-BGZ" secondAttribute="trailing" constant="5" id="cWR-RS-MXz"/>
+                                <constraint firstItem="Khw-dU-78O" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="dTo-lY-tsr"/>
                                 <constraint firstItem="Vw2-aq-F4g" firstAttribute="top" secondItem="EO1-s5-riq" secondAttribute="top" constant="20" id="hD6-2B-smf"/>
                                 <constraint firstItem="DXF-IP-h1A" firstAttribute="centerY" secondItem="GPJ-4Y-6cx" secondAttribute="centerY" id="ntW-0d-ZeA"/>
                                 <constraint firstItem="Q6J-JF-g6b" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="p1t-8g-wtb"/>
@@ -267,7 +278,6 @@
                 <outlet property="average" destination="DXF-IP-h1A" id="p4u-c3-Jn4"/>
                 <outlet property="cosmosView" destination="ofQ-s4-R2W" id="DaG-ee-1GE"/>
                 <outlet property="dataView" destination="EO1-s5-riq" id="v8N-jP-ACf"/>
-                <outlet property="evaluateBreweryButton" destination="pJh-5d-mfs" id="G5h-sL-8Oa"/>
                 <outlet property="evaluation" destination="wrF-Gt-dUI" id="b9r-dF-8It"/>
                 <outlet property="logo" destination="Vw2-aq-F4g" id="9F6-2k-DvK"/>
                 <outlet property="mapStackView" destination="Td8-8c-bVL" id="pOG-kJ-ldp"/>
@@ -278,7 +288,7 @@
                 <outlet property="website" destination="OHS-aq-gmf" id="fPd-dW-IRa"/>
                 <outlet property="websiteStackView" destination="Q6J-JF-g6b" id="l7g-hX-qqn"/>
             </connections>
-            <point key="canvasLocation" x="332" y="83.208395802098963"/>
+            <point key="canvasLocation" x="331.8840579710145" y="83.152173913043484"/>
         </view>
     </objects>
     <designables>
