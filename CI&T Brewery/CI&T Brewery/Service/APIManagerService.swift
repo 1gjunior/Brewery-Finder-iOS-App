@@ -14,6 +14,7 @@ protocol APIManagerService {
 
 class APIManager: APIManagerService {
     private var subscribers = Set<AnyCancellable>()
+    
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         URLSession.shared.dataTaskPublisher(for: url)
             .map{ $0.data }
@@ -28,4 +29,14 @@ class APIManager: APIManagerService {
                 completion(.success(result))
             }).store(in: &subscribers)
     }
+    
+    func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, Error>) -> Void) {
+            guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
+    //        let error: Error
+            let jsonData = try? JSONEncoder().encode(request)
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            URLSession.share
 }

@@ -40,8 +40,8 @@ class RatingViewController: UIViewController {
         //        configureCheckbox()
         //        changeSaveButtonColor()
         //        setupTextField()
-//        setupSucessStateEvaluation()
-                setupFailureStateEvaluation()
+        //        setupSucessStateEvaluation()
+        setupFailureStateEvaluation()
         hideElementsRatingView()
         
         
@@ -156,6 +156,10 @@ class RatingViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.setupFailureStateEvaluation()
         }
+    }
+    
+    private func postEV(){
+        viewModel.post()
     }
 }
 
