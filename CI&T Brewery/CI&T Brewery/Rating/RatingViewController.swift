@@ -16,6 +16,7 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var generalTitle: UILabel!
     private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 70))
     
+    var id: String = ""
     var brewery: Brewery? = nil {
         didSet {
             setGeneralTitle()
