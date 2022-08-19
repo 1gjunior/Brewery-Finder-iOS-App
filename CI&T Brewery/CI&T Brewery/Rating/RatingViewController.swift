@@ -50,6 +50,7 @@ class RatingViewController: UIViewController {
         textField.delegate = self
         view.addSubview(textField)
         constraintTextField()
+        self.view.subviews.first?.layer.cornerRadius = 20
     }
     
     private func constraintTextField() {

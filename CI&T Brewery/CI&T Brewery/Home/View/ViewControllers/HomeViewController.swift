@@ -36,6 +36,12 @@ class HomeViewController: UIViewController {
         return errorStateView
     }()
     
+    private lazy var carouselView: CarouselView = {
+        let carouselView = CarouselView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
+        carouselView.translatesAutoresizingMaskIntoConstraints = false
+        return carouselView
+    }()
+    
     init() {
         super.init(nibName: "HomeViewController", bundle: nil)
     }
@@ -77,6 +83,14 @@ class HomeViewController: UIViewController {
         listView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
     
+    private func constraintCarouselView() {
+        carouselView.translatesAutoresizingMaskIntoConstraints = false
+        carouselView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200).isActive = true
+        carouselView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        carouselView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
+        carouselView.heightAnchor.constraint(equalToConstant: 600).isActive = true
+    }
+    
     private func changingState(view: UIView?) {
         if view != currentView {
             currentView?.removeFromSuperview()
@@ -109,6 +123,14 @@ class HomeViewController: UIViewController {
                 self?.emptyErrorState()
             }
         }.store(in: &cancellables)
+    }
+    
+    private func initialState(_ breweries: [Brewery]) {
+        DispatchQueue.main.async {
+            self.view.addSubview(self.carouselView)
+            self.constraintCarouselView()
+            self.carouselView.configureDataSource(breweries)
+        }
     }
     
     private func sucessState(_ breweries: [Brewery]) {
