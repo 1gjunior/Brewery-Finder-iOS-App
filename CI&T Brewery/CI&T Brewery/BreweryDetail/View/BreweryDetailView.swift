@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class BreweryDetailView: UIView {
     @IBOutlet weak var viewTitle: UILabel! {
@@ -50,7 +51,7 @@ class BreweryDetailView: UIView {
             average.textColor = UIColor.breweryBlack()
         }
     }
-    @IBOutlet weak var cosmosView: UIView!
+    @IBOutlet weak var cosmosView: CosmosView!
     
     @IBOutlet weak var websiteStackView: UIStackView! {
         didSet {
@@ -139,5 +140,16 @@ class BreweryDetailView: UIView {
     
     private func addBottomSeparator(uiStackView: UIStackView) {
         uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0)
+    }
+    
+    func configure(_ brewery: BreweryObject) {
+        name.text = brewery.name
+        logo.text = brewery.logo
+        type.text = brewery.type
+        evaluation.text = String(brewery.evaluation)
+        average.text = String(brewery.average)
+        website.text = brewery.website
+        address.text = brewery.address
+        cosmosView.rating = brewery.average
     }
 }
