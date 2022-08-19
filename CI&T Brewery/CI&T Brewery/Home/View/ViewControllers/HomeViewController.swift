@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private var top10Breweries: [Brewery] = []
+    
     private lazy var listView: BreweryListView = {
         let listView = BreweryListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 800.0))
         listView.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +50,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         sinkBreweries()
+        sinkTop10Breweries()
         searchBar.delegate = self
+        getTop10Breweries()
     }
     
     func setupErrorState(error: EmptyError) {
@@ -96,6 +100,10 @@ class HomeViewController: UIViewController {
         viewModel.fetchBreweriesBy(city: city)
     }
     
+    private func getTop10Breweries() {
+        viewModel.fetchTop10Breweries()
+    }
+    
     private func sinkBreweries() {
         viewModel.$state.sink { [weak self] state in
             switch state {
@@ -113,9 +121,33 @@ class HomeViewController: UIViewController {
         }.store(in: &cancellables)
     }
     
+    private func sinkTop10Breweries() {
+        viewModel.$top10BreweriesState.sink { [weak self] state in
+            switch state {
+            case .initial:
+                print("initial")
+            case .success(let breweries):
+                self?.sucessStateTop10(breweries)
+                print(breweries)
+            case .genericError:
+                print("generic error")
+            case .loading:
+                print("loading")
+            case .emptyError:
+                print("empty error")
+            }
+        }.store(in: &cancellables)
+    }
+    
     private func sucessState(_ breweries: [Brewery]) {
         DispatchQueue.main.async { [weak self] in
             self?.breweries = breweries
+        }
+    }
+    
+    private func sucessStateTop10(_ breweries: [Brewery]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.top10Breweries = breweries
         }
     }
     

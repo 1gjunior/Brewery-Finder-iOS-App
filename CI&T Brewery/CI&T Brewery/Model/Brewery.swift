@@ -24,7 +24,7 @@ struct Brewery: Codable {
     let phone: String?
     let average: Double
     let sizeEvaluations: Double
-    let photos: [String]?
+    let photos: [String?]?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -44,5 +44,17 @@ struct Brewery: Codable {
         case average
         case sizeEvaluations = "size_evaluations"
         case photos
+    }
+}
+struct BreweryEvaluation: Codable {
+    let email: String
+    let breweryId: String
+    let evaluationGrade: Double
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case email = "email"
+        case breweryId = "brewery_id"
+        case evaluationGrade = "evaluation_grade"
     }
 }
