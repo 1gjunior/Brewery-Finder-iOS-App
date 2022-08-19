@@ -24,7 +24,7 @@ struct Brewery: Codable {
     let phone: String?
     let average: Double
     let sizeEvaluations: Double
-    let photos: [String]?
+    let photos: [String?]
     
     enum CodingKeys: String, CodingKey {
         case id
