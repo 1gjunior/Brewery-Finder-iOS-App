@@ -16,7 +16,7 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var generalTitle: UILabel!
     private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 70))
     
-    var id: String = ""
+    let id: String
     var brewery: Brewery? = nil {
         didSet {
             setGeneralTitle()
@@ -27,12 +27,13 @@ class RatingViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    init() {
+    init(id: String) {
+        self.id = id
         super.init(nibName: "RatingViewController", bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

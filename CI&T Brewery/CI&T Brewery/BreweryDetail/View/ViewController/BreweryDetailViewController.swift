@@ -14,18 +14,19 @@ class BreweryDetailViewController: UIViewController {
     
     @Injected var viewModel: BreweryDetailViewModel
     private var cancellables: Set<AnyCancellable> = []
-    var id: String = ""
+    let id: String
     
-    init() {
+    init(id: String) {
+        self.id = id
         super.init(nibName: "BreweryDetailView", bundle: nil)
     }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     @IBAction func goToRatingView(_ sender: Any) {
-        let ratingViewController = RatingViewController()
-        ratingViewController.id = id
+        let ratingViewController = RatingViewController(id: id)
         let navigation = UINavigationController(rootViewController: ratingViewController)
         navigation.modalPresentationStyle = .pageSheet
         

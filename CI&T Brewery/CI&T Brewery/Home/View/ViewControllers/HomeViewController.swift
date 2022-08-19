@@ -71,8 +71,7 @@ class HomeViewController: UIViewController {
     }
     
     private func goToDetailWith(id: String) {
-        let breweryDetailViewController = BreweryDetailViewController()
-        breweryDetailViewController.id = id
+        let breweryDetailViewController = BreweryDetailViewController(id: id)
         present(breweryDetailViewController, animated: true)
     }
     
