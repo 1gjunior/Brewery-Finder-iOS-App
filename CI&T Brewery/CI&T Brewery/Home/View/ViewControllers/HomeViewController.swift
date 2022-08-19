@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
         }
     }
     
+    private var top10Breweries: [Brewery] = []
+    
     private lazy var listView: BreweryListView = {
         let listView = BreweryListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 800.0))
         listView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +36,12 @@ class HomeViewController: UIViewController {
         let errorStateView = ErrorStateView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         errorStateView.translatesAutoresizingMaskIntoConstraints = false
         return errorStateView
+    }()
+    
+    private lazy var carouselView: CarouselView = {
+        let carouselView = CarouselView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
+        carouselView.translatesAutoresizingMaskIntoConstraints = false
+        return carouselView
     }()
     
     init() {
@@ -48,22 +56,31 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         sinkBreweries()
+        sinkTop10Breweries()
         searchBar.delegate = self
+        getTop10Breweries()
     }
     
     func setupErrorState(error: EmptyError) {
         changingState(view: errorStateView)
-        self.view.addSubview(errorStateView)
-        self.errorStateView.changeText(error)
+        view.addSubview(errorStateView)
+        errorStateView.changeText(error)
         constraintErrorState()
     }
     
     func setupSucessState() {
         listView.setSearchResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
-        self.view.addSubview(listView)
-        self.constraintListView()
-        self.changingState(view: listView)
+        view.addSubview(listView)
+        constraintListView()
+        changingState(view: listView)
         listView.update(breweries, actionForCell: goToDetailWith)
+    }
+    
+    func setupTop10SucessState(_ breweries: [Brewery]) {
+        view.addSubview(carouselView)
+        constraintCarouselView()
+        carouselView.configureDataSource(breweries)
+        changingState(view: carouselView)
     }
     
     private func goToDetailWith(id: String) {
@@ -75,6 +92,14 @@ class HomeViewController: UIViewController {
         listView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         listView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         listView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    private func constraintCarouselView() {
+        carouselView.translatesAutoresizingMaskIntoConstraints = false
+        carouselView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200).isActive = true
+        carouselView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        carouselView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
+        carouselView.heightAnchor.constraint(equalToConstant: 600).isActive = true
     }
     
     private func changingState(view: UIView?) {
@@ -94,6 +119,10 @@ class HomeViewController: UIViewController {
         viewModel.fetchBreweriesBy(city: city)
     }
     
+    private func getTop10Breweries() {
+        viewModel.fetchTop10Breweries()
+    }
+    
     private func sinkBreweries() {
         viewModel.$state.sink { [weak self] state in
             switch state {
@@ -111,9 +140,32 @@ class HomeViewController: UIViewController {
         }.store(in: &cancellables)
     }
     
+    private func sinkTop10Breweries() {
+        viewModel.$top10BreweriesState.sink { [weak self] state in
+            switch state {
+            case .initial:
+                print("initial")
+            case .success(let breweries):
+                self?.sucessStateTop10(breweries)
+            case .genericError:
+                print("generic error")
+            case .loading:
+                print("loading")
+            case .emptyError:
+                print("empty error")
+            }
+        }.store(in: &cancellables)
+    }
+    
     private func sucessState(_ breweries: [Brewery]) {
         DispatchQueue.main.async { [weak self] in
             self?.breweries = breweries
+        }
+    }
+    
+    private func sucessStateTop10(_ breweries: [Brewery]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupTop10SucessState(breweries)
         }
     }
     
