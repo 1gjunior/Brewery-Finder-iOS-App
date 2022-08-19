@@ -17,8 +17,10 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     func showView(wasSucess: Bool) {
         self.wasSucesso = wasSucess
         print("BreweryDetailViewController: \(self.wasSucesso)")
+        if self.wasSucesso == true {
+            sucessRatedBrewery()
+        }
     }
-    
     
     var wasSucesso: Bool?
     @IBOutlet weak var ratedBreweryView: RatedBreweryView!
@@ -58,8 +60,6 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         }
         
         ratingViewController.delegate = self
-    
-        sucessRatedBrewery()
         present(navigation, animated: true)
     }
     
@@ -73,8 +73,6 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -33,9 +33,8 @@ class RatingViewController: UIViewController {
     
     
     @IBAction func dismissRatingView(_ sender: Any) {
-        //tratamento para caso ele não digite nada e dê o dismiss
         delegate?.showView(wasSucess: wasSucess ?? false)
-        print("PRINT WAS SUCESS \(wasSucess!)")
+        //print("PRINT WAS SUCESS \(wasSucess!)")
         self.dismiss(animated: true)
     }
     
