@@ -17,10 +17,11 @@ enum HomeViewModelState {
 }
 
 class HomeViewModel {
-    let repository: BreweryRepository
+    let repository: BreweryRepositoryProtocol
     @Published private(set) var state: HomeViewModelState = .initial
+    @Published private(set) var top10BreweriesState: HomeViewModelState = .initial
     
-    init(repository: BreweryRepository = BreweryRepository()) {
+    init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
     }
     
@@ -38,6 +39,19 @@ class HomeViewModel {
             }
         } else {
             state = .emptyError
+        }
+    }
+    
+    func fetchTop10Breweries() {
+        top10BreweriesState = .loading
+        
+        repository.getTop10Breweries { [weak self] result in
+            switch result {
+            case .failure(_):
+                self?.top10BreweriesState = .genericError
+            case .success(let breweriesResponse):
+                self?.top10BreweriesState = .success(breweries: breweriesResponse)
+            }            
         }
     }
 }
