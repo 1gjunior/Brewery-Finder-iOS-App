@@ -7,8 +7,14 @@
 
 import Foundation
 import UIKit
+import Combine
+import Resolver
 
 class BreweryDetailViewController: UIViewController {
+    
+    @Injected var viewModel: BreweryDetailViewModel
+    private var cancellables: Set<AnyCancellable> = []
+    var id: String = ""
     
     init() {
         super.init(nibName: "BreweryDetailView", bundle: nil)
@@ -17,14 +23,9 @@ class BreweryDetailViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    private lazy var breweryDetailView: BreweryDetailView = {
-        let bdView = BreweryDetailView()
-        bdView.translatesAutoresizingMaskIntoConstraints = false
-        return bdView
-    }()
-    
     @IBAction func goToRatingView(_ sender: Any) {
         let ratingViewController = RatingViewController()
+        ratingViewController.id = id
         let navigation = UINavigationController(rootViewController: ratingViewController)
         navigation.modalPresentationStyle = .pageSheet
         
@@ -40,14 +41,33 @@ class BreweryDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        getBreweryBy(id: id)
+        sinkBrewery()
     }
     
+    private func sinkBrewery() {
+        viewModel.$state.sink { [weak self] state in
+            switch state {
+            case .initial:
+                print("initial brewery")
+            case .success(let brewery):
+                self?.successState(brewery)
+            case .genericError:
+                print("error brewery")
+            default: break
+            }
+        }.store(in: &cancellables)
+    }
     
-        
-    // depois do fetch, chamar este metodo
-    // a classe BreweryObject possui os campos formatados
-    private func setViewData(brewery: BreweryObject) {
-        print(brewery)
+    private func successState(_ brewery: BreweryObject) {
+        DispatchQueue.main.async { [weak self] in
+            guard let view = self?.view as? BreweryDetailView else { return }
+            view.configure(brewery)
+        }
+    }
+    
+    private func getBreweryBy(id: String) {
+        viewModel.fetchBreweryBy(id: id)
     }
 }
 
