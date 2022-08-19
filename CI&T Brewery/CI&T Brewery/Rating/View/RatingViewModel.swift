@@ -22,11 +22,11 @@ class RatingViewModel {
         self.repository = repository
     }
     
-    func post(){
-        repository.postBreweryEvaluation(evaluation: uploadBreweryEvaluation) {[weak self] response in
+    func post(evaluation: BreweryEvaluation){
+        repository.postBreweryEvaluation(evaluation: evaluation) {[weak self] response in
             switch response {
             case .failure(_):
-                print("error")
+                print("ERRO RATING VIEW MODEL")
                 self?.stateRating = .error
             case .success(_):
                 print("foi")
@@ -35,6 +35,14 @@ class RatingViewModel {
         }
     }
     
-    let uploadBreweryEvaluation = BreweryEvaluation(email: "c3510201@mail.com", breweryId: "1st-republic-brewing-co-essex-junction", evaluationGrade: 1)
+    public func saveUserEmailInFileStorage(emailText: String) {
+        let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        do {
+            try emailText.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch {
+            print("Error writing")
+        }
+    }
 }
 

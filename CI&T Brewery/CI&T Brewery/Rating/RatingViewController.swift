@@ -20,13 +20,14 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var generalTitle: UILabel!
     private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 70))
     private var cancellables: Set<AnyCancellable> = []
-    @Injected var viewModel: RatingViewModel
+    @Injected private var viewModel: RatingViewModel
     
     var brewery: Brewery? = nil {
         didSet {
             setGeneralTitle()
         }
     }
+    
     
     @IBAction func dismissRatingView(_ sender: Any) {
         self.dismiss(animated: true)
@@ -44,7 +45,6 @@ class RatingViewController: UIViewController {
         configureCheckbox()
         changeSaveButtonColor()
         setupTextField()
-        sinkBreweries()
     }
     
     private func setupTextField() {
@@ -107,15 +107,32 @@ class RatingViewController: UIViewController {
     
     @IBAction func onSaveButtonTapped(_ sender: Any) {
         _ = textFieldShouldReturn(textField)
+        guard let emailText = textField.text else {
+            return
+        }
+        
+        if checkboxButton.isSelected {
+            saveUserEmailInFileStorage(emailText: emailText)
+        }
+        
+        let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: "1st-republic-brewing-co-essex-junction", evaluationGrade: 1)
+        viewModel.post(evaluation: uploadBreweryEvaluation)
+        sinkBreweries()
     }
     
     @IBAction func onCheckboxTapped(_ sender: Any) {
         checkboxButton.isSelected.toggle()
     }
     
+    private func saveUserEmailInFileStorage(emailText: String) {
+        viewModel.saveUserEmailInFileStorage(emailText: emailText)
+    }
+    
     func configureCheckbox() {
         checkboxButton.setImage(UIImage(named: "Unchecked"), for: .normal)
         checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
+        checkboxButton.setImage(UIImage(named: "CheckboxDisabled"), for: .disabled)
+        disableCheckbox()
     }
     
     func changeSaveButtonColor() {
@@ -160,20 +177,27 @@ class RatingViewController: UIViewController {
     }
     
     private func sinkBreweries() {
-        viewModel.$stateRating.sink { [weak self] state in
-            switch state {
+        viewModel.$stateRating.sink { [weak self] stateRating in
+            print("\(stateRating)")
+            switch stateRating {
             case .initial:
                 print("initial")
             case .sucess:
+                print("sucess")
                 self?.sucessStateEvaluation()
             case .error:
+                print("error")
                 self?.failureStateEvaluation()
             }
         }.store(in: &cancellables)
     }
+        
+    func enableCheckbox() {
+        checkboxButton.isEnabled = true
+    }
     
-    private func postEV(){
-        viewModel.post()
+    func disableCheckbox() {
+        checkboxButton.isEnabled = false
     }
 }
 
@@ -191,10 +215,13 @@ extension RatingViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text?.isEmpty ?? true) {
             changeEmailState(.blank)
+            disableCheckbox()
         } else if textField.isEmail() {
             changeEmailState(.valid)
+            enableCheckbox()
         } else {
             changeEmailState(.invalid)
+            disableCheckbox()
         }
     }
 }

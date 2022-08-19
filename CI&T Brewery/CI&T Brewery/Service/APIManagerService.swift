@@ -8,9 +8,14 @@
 import Foundation
 import Combine
 
+enum NetworkError: Error {
+    case responseError
+    case requestError
+}
+
 protocol APIManagerService {
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
-    func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, Error>) -> Void)
+    func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, NetworkError>) -> Void)
 }
 
 class APIManager: APIManagerService {
@@ -32,9 +37,9 @@ class APIManager: APIManagerService {
             }).store(in: &subscribers)
     }
     
-    func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, Error>) -> Void) {
+    func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, NetworkError>) -> Void) {
         guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
-        //        let error: Error
+        
         let jsonData = try? JSONEncoder().encode(request)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -44,12 +49,19 @@ class APIManager: APIManagerService {
             .map{$0.response}
             .sink(receiveCompletion: { (resultCompletion) in
                 switch resultCompletion {
-                case .failure(let error):
-                    completion(.failure(error))
+                case .failure:
+                    completion(.failure(.requestError))
                 case .finished: break
                 }
-            }, receiveValue: {
-                print("\($0)")
+            }, receiveValue: {(result) in
+                print("RESULT \(result)")
+                if let result = result as? R{
+                    print("RESULT API MANAGER\(result)")
+                    completion(.success(result ))}
+                else {
+                    print("ERROR NO API MANAGER\(result)")
+                    completion(.failure(.responseError))
+                }
             })
             .store(in: &subscribers)
     }

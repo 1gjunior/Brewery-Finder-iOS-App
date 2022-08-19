@@ -45,14 +45,15 @@ class BreweryRepository: BreweryRepositoryProtocol {
         }
     }
     
-    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, Error>) -> Void){
-        apiManager.postItem(request: evaluation) { (result: Result<BreweryEvaluation, Error>) in
+    
+    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void){
+        apiManager.postItem(request: evaluation) { (result: Result<BreweryEvaluation, NetworkError>) in
             switch result {
             case .success(let result):
                 print("repository")
                 completion(.success(result))
             case .failure(let error):
-                print("fail")
+                print("ERROR REPOSITORY")
                 completion(.failure(error))
             }
         }
