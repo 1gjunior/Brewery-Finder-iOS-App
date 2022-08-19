@@ -48,13 +48,9 @@ class BreweryDetailViewController: UIViewController {
     private func sinkBrewery() {
         viewModel.$state.sink { [weak self] state in
             switch state {
-            case .initial:
-                print("initial brewery")
             case .success(let brewery):
                 self?.successState(brewery)
-            case .genericError:
-                print("error brewery")
-            default: break
+            case .none: break
             }
         }.store(in: &cancellables)
     }
