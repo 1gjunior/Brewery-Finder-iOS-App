@@ -164,7 +164,7 @@ class HomeViewController: UIViewController {
     
     private func sucessStateTop10(_ breweries: [Brewery]) {
         DispatchQueue.main.async { [weak self] in
-            self?.view.addSubview(self.carouselView)
+            self?.view.addSubview(self?.carouselView ?? UIView())
             self?.constraintCarouselView()
             self?.carouselView.configureDataSource(breweries)
         }
