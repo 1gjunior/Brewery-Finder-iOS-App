@@ -40,8 +40,8 @@ class RatingViewController: UIViewController {
         //        configureCheckbox()
         //        changeSaveButtonColor()
         //        setupTextField()
-        setupSucessStateEvaluation()
-        //        setupFailureStateEvaluation()
+//        setupSucessStateEvaluation()
+                setupFailureStateEvaluation()
         hideElementsRatingView()
         
         
@@ -72,11 +72,13 @@ class RatingViewController: UIViewController {
     }()
     
     func setupSucessStateEvaluation() {
+        sucessStateView.sucessStateLabel.text = "Sua avaliação foi \n adicionada com sucesso!"
         self.view.addSubview(sucessStateView)
         self.constraintSucessState()
     }
     
     func setupFailureStateEvaluation() {
+        failureStateView.failureStateLabel.text = "Não foi possível adicionar sua avaliação. \n Tente mais tarde."
         self.view.addSubview(failureStateView)
         self.constraintFailureState()
     }

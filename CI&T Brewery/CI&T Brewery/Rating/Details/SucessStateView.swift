@@ -10,6 +10,8 @@ import UIKit
 
 public class SucessStateView: UIView {
     
+    @IBOutlet weak var sucessStateLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
