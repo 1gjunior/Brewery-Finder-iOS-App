@@ -45,37 +45,21 @@ class BreweryDetailViewController: UIViewController {
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.preferredCornerRadius = 40
         }
-        avaliacaoBotao.isHidden = true
-        let antigaAltura = heightDataView.constant
-        print("ANTIGA ALTURA \(antigaAltura)")
-        heightDataView.constant = heightDataView.constant + 50
-//        let novaAltura =  heightDataView.constant
-//        print("NOVA ALTURA \(novaAltura)")
-        ratedBreweryView.isHidden = false
         
+        sucessRatedBrewery()
         present(navigation, animated: true)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        avaliacaoBotao.isHidden = true
-        breweryDetailView.evaluateBreweryButton?.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-//        avaliacaoBotao.isHidden = true
-        //breweryDetailView.evaluateBreweryButton?.isHidden = true
-    }
-    
-    func hideButton() {
-       // breweryDetailView.evaluateBreweryButton?.isHidden = true
+    private func sucessRatedBrewery() {
+        avaliacaoBotao.isHidden = true
+        heightDataView.constant = heightDataView.constant + 50
+        ratedBreweryView.isHidden = false
+        ratedBreweryView.ratedBreweryLabel.text = "Você já avaliou essa \ncervejaria"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        ratedBreweryView.ratedBreweryLabel.text = "Você já avaliou essa \ncervejaria"
     }
         
     // depois do fetch, chamar este metodo
