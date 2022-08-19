@@ -7,6 +7,7 @@
 
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
+import Resolver
 
 class RatingViewController: UIViewController {
     
@@ -21,6 +22,8 @@ class RatingViewController: UIViewController {
             setGeneralTitle()
         }
     }
+    
+    @Injected private var ratingViewModel: RatingViewModel
     
     @IBAction func dismissRatingView(_ sender: Any) {
         self.dismiss(animated: true)
@@ -62,19 +65,11 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func onSaveButtonTapped(_ sender: Any) {
-        let emailText = textField.text ?? ""
-        
-        if emailText.isEmail() &&
-           checkboxButton.isSelected {
-            let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
-            
-            do {
-                try emailText.write(to: fileURL, atomically: false, encoding: .utf8)
-            }
-            catch {
-                print("Error writing")
-            }
+        _ = textFieldShouldReturn(textField)
+        guard let emailText = textField.text else {
+            return
         }
+        ratingViewModel.saveUserEmailInFileStorage(emailText: emailText)
     }
     
     @IBAction func onCheckboxTapped(_ sender: Any) {
@@ -84,6 +79,8 @@ class RatingViewController: UIViewController {
     func configureCheckbox() {
         checkboxButton.setImage(UIImage(named: "Unchecked"), for: .normal)
         checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
+        checkboxButton.setImage(UIImage(named: "CheckboxDisabled"), for: .disabled)
+        disableCheckbox()
     }
     
     func changeSaveButtonColor() {
@@ -105,6 +102,14 @@ class RatingViewController: UIViewController {
         saveButton.isEnabled = state == .valid
         changeSaveButtonColor()
     }
+    
+    func enableCheckbox() {
+        checkboxButton.isEnabled = true
+    }
+    
+    func disableCheckbox() {
+        checkboxButton.isEnabled = false
+    }
 }
 
 extension RatingViewController: UITextFieldDelegate {
@@ -121,16 +126,16 @@ extension RatingViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.text?.isEmpty ?? true) {
             changeEmailState(.blank)
+            disableCheckbox()
         } else if textField.isEmail() {
             changeEmailState(.valid)
+            enableCheckbox()
         } else {
             changeEmailState(.invalid)
+            disableCheckbox()
         }
     }
 }
-
-
-
 
 enum EmailState {
     case blank
