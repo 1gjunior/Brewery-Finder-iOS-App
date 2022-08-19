@@ -46,11 +46,10 @@ struct Brewery: Codable {
         case photos
     }
 }
-struct sendBreweryEvaluation: Codable {
+struct BreweryEvaluation: Codable {
     let email: String
     let brewery_id: String
     let evaluation_grade: Double
 }
-private let uploadBreweryEvaluation = sendBreweryEvaluation(email: "abva350@mail.com", brewery_id: "1st-republic-brewing-co-essex-junction", evaluation_grade: 1)
-let jsonData = try? JSONEncoder().encode(uploadBreweryEvaluation)
+
 
