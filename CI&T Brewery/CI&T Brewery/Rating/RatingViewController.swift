@@ -69,11 +69,18 @@ class RatingViewController: UIViewController {
         guard let emailText = textField.text else {
             return
         }
-        ratingViewModel.saveUserEmailInFileStorage(emailText: emailText)
+        
+        if checkboxButton.isSelected {
+            saveUserEmailInFileStorage(emailText: emailText)
+        }
     }
     
     @IBAction func onCheckboxTapped(_ sender: Any) {
         checkboxButton.isSelected.toggle()
+    }
+    
+    private func saveUserEmailInFileStorage(emailText: String) {
+        ratingViewModel.saveUserEmailInFileStorage(emailText: emailText)
     }
     
     func configureCheckbox() {
