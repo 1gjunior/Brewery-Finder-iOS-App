@@ -185,7 +185,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func setupNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 1, green: 0.671, blue: 0, alpha: 1)
+        navigationController?.navigationBar.backgroundColor = UIColor.yellowDark()
         navigationController?.navigationBar.isTranslucent = false
         setupNavigationBarItems()
     }

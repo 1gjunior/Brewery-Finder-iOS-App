@@ -9,8 +9,8 @@ import UIKit
 
 extension UILabel {
     public func makeRoundLabel()  {
-        self.textColor = UIColor(named: "BreweryYellow")
-        self.backgroundColor = UIColor(named: "Brewery Yellow Alpha 16")
+        self.textColor = UIColor.breweryYellow()
+        self.backgroundColor = UIColor.breweryYellowAlpha16()
         self.font = UIFont(name: "Roboto-Medium", size: 32)
         self.textAlignment = .center
         self.layer.masksToBounds = true
