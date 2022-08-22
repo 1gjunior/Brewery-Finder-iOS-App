@@ -9,21 +9,21 @@ import UIKit
 
 extension CALayer {
     
-    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat, xConstraints: Double, yContraints: Double) {
         let border = CALayer()
         
         switch edge {
         case UIRectEdge.top:
-            border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
+            border.frame = CGRect(x: 0, y: 0, width: frame.width - xConstraints, height: thickness)
             
         case UIRectEdge.bottom:
-            border.frame = CGRect(x:0, y: frame.height - thickness, width: frame.width, height:thickness)
+            border.frame = CGRect(x:0, y: frame.height - thickness, width: frame.width - xConstraints, height:thickness)
             
         case UIRectEdge.left:
-            border.frame = CGRect(x:0, y:0, width: thickness, height: frame.height)
+            border.frame = CGRect(x:0, y:0, width: thickness, height: frame.height - yContraints)
             
         case UIRectEdge.right:
-            border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+            border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height - yContraints)
             
         default: do {}
         }
