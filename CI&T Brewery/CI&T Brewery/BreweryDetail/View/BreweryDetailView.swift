@@ -139,7 +139,7 @@ class BreweryDetailView: UIView {
     }
     
     private func addBottomSeparator(uiStackView: UIStackView) {
-        uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0, xConstraints: 40, yContraints: 0)
+        uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0)
     }
     
     func configure(_ brewery: BreweryObject) {
