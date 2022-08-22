@@ -79,7 +79,7 @@ class HomeViewController: UIViewController {
     func setupTop10SucessState(_ breweries: [Brewery]) {
         view.addSubview(carouselView)
         constraintCarouselView()
-        carouselView.configureDataSource(breweries)
+        carouselView.configureDataSource(breweries, action: goToDetailWith)
         changingState(view: carouselView)
     }
     

@@ -15,6 +15,7 @@ class CarouselCellView: UICollectionViewCell {
     @IBOutlet weak var averageRating: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    var brewery: Brewery? = nil
     
     public func configure(_ brewery: Brewery) {
         self.type.text = brewery.type
@@ -23,5 +24,6 @@ class CarouselCellView: UICollectionViewCell {
         if let urlImage = brewery.photos?.first {
             self.imageView.kf.setImage(with: URL(string: urlImage ?? ""))
         }
+        self.brewery = brewery
     }
 }
