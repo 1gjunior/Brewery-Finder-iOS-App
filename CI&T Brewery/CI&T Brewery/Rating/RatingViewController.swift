@@ -49,11 +49,6 @@ class RatingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ brewery: BreweryObject, id: String) {
-        generalTitle.text = brewery.name
-        self.id = id
-    }
-    
     override func viewDidLoad() {
         configureCheckbox()
         setupTextField()
@@ -156,6 +151,7 @@ class RatingViewController: UIViewController {
         }
         
         let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: id ?? "", evaluationGrade: 1)
+        print("IDD \(id!)")
         viewModel.post(evaluation: uploadBreweryEvaluation)
         sinkBreweries()
     }
@@ -177,7 +173,7 @@ class RatingViewController: UIViewController {
     }
         
     func setGeneralTitle() {
-        generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + (breweryObject?.name ?? "")
+        generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + " " + (breweryObject?.name ?? "")
     }
     
     private func sinkEmailState() {

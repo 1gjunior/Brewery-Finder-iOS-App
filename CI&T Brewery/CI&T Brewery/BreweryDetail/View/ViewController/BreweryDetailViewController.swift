@@ -65,7 +65,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     
     private func sucessRatedBrewery() {
         avaliacaoBotao.isHidden = true
-        heightDataView.constant = heightDataView.constant + 20
+        heightDataView.constant = heightDataView.constant + 40
         ratedBreweryView.isHidden = false
         ratedBreweryView.ratedBreweryLabel.text = "Você já avaliou essa \ncervejaria"
     }
