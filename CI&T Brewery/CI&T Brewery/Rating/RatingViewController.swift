@@ -174,6 +174,9 @@ extension RatingViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        ratingViewModel.isEmailValid(emailText: textField.text!)
+        guard let emailText = textField.text else {
+            return
+        }
+        ratingViewModel.isEmailValid(emailText: emailText)
     }
 }
