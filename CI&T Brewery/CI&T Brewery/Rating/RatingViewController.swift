@@ -26,7 +26,7 @@ class RatingViewController: UIViewController {
     private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 70))
     private var cancellables: Set<AnyCancellable> = []
     @Injected private var viewModel: RatingViewModel
-    
+    var id: String?
     let breweryObject: BreweryObject?
     var brewery: Brewery? = nil {
         didSet {
@@ -39,8 +39,9 @@ class RatingViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    init(breweryObject: BreweryObject) {
+    init(breweryObject: BreweryObject, id: String) {
         self.breweryObject = breweryObject
+        self.id = id
         super.init(nibName: "RatingViewController", bundle: nil)
     }
     
@@ -48,8 +49,9 @@ class RatingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ brewery: BreweryObject) {
+    func configure(_ brewery: BreweryObject, id: String) {
         generalTitle.text = brewery.name
+        self.id = id
     }
     
     override func viewDidLoad() {
@@ -153,7 +155,7 @@ class RatingViewController: UIViewController {
             saveUserEmailInFileStorage(emailText: emailText)
         }
         
-        let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: "1st-republic-brewing-co-essex-junction", evaluationGrade: 1)
+        let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: id ?? "", evaluationGrade: 1)
         viewModel.post(evaluation: uploadBreweryEvaluation)
         sinkBreweries()
     }

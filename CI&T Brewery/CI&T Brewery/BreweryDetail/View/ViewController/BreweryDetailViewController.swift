@@ -53,7 +53,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     
     @IBAction func goToRatingView(_ sender: Any) {
         //fazer um guard let aqui!!
-        let ratingViewController = RatingViewController(breweryObject: brewery!)
+        let ratingViewController = RatingViewController(breweryObject: brewery!, id: id)
         ratingViewController.delegate = self
         present(ratingViewController, animated: true, completion: nil)
     }
