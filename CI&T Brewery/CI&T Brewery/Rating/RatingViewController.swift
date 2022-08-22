@@ -34,7 +34,6 @@ class RatingViewController: UIViewController {
     
     @IBAction func dismissRatingView(_ sender: Any) {
         delegate?.showView(wasSucess: wasSucess ?? false)
-        //print("PRINT WAS SUCESS \(wasSucess!)")
         self.dismiss(animated: true)
     }
     
@@ -54,8 +53,6 @@ class RatingViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("TELA RATING DESAPARECEU")
-       // delegate?.showView(wasSucess: wasSucess ?? false)
     }
     
     private func setupTextField() {

@@ -16,7 +16,6 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     
     func showView(wasSucess: Bool) {
         self.wasSucesso = wasSucess
-        print("BreweryDetailViewController: \(self.wasSucesso)")
         if self.wasSucesso == true {
             sucessRatedBrewery()
         }
