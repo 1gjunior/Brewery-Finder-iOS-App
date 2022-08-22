@@ -156,7 +156,7 @@ class BreweryDetailView: UIView {
         if (brewery.latitute == 0 && brewery.longitude == 0) {
             mapStackView.isHidden = true
             addPhotoButton.topAnchor.constraint(equalTo: addressStackView.bottomAnchor, constant: 15).isActive = true
-            dataView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+            dataView.heightAnchor.constraint(equalToConstant: 320).isActive = true
         }
     }
 }
