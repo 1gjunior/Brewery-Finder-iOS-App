@@ -17,6 +17,10 @@ struct AppColorName {
     static let breweryGold = "BreweryGold"
     static let breweryGrayLight = "BreweryGrayLight"
     static let breweryYellow = "BreweryYellow"
+    static let grayLighter = "GrayLighter"
+    static let outlineGreen = "OutlineGreen"
+    static let outlineBlack = "OutlineBlack"
+    static let outlineRed = "OutlineRed"
 }
 
 extension UIColor {
@@ -28,4 +32,8 @@ extension UIColor {
     class func breweryGold() -> UIColor { UIColor(named: AppColorName.breweryGold)! }
     class func breweryGrayLight() -> UIColor { UIColor(named: AppColorName.breweryGrayLight)! }
     class func breweryYellow() -> UIColor { UIColor(named: AppColorName.breweryYellow)! }
+    class func grayLighter() -> UIColor { UIColor(named: AppColorName.grayLighter)! }
+    class func outlineGreen() -> UIColor { UIColor(named: AppColorName.outlineGreen)! }
+    class func outlineBlack() -> UIColor { UIColor(named: AppColorName.outlineBlack)! }
+    class func outlineRed() -> UIColor { UIColor(named: AppColorName.outlineRed)! }
 }
