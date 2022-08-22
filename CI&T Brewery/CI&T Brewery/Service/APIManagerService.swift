@@ -46,22 +46,16 @@ class APIManager: APIManagerService {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         URLSession.shared.dataTaskPublisher(for: request)
-            .map{$0.response}
+            .map{$0.data}
+            .decode(type: R.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { (resultCompletion) in
                 switch resultCompletion {
                 case .failure:
                     completion(.failure(.requestError))
                 case .finished: break
                 }
-            }, receiveValue: {(result) in
-                print("RESULT \(result)")
-                if let result = result as? R{
-                    print("RESULT API MANAGER\(result)")
-                    completion(.success(result ))}
-                else {
-                    print("ERROR NO API MANAGER\(result)")
-                    completion(.failure(.responseError))
-                }
+            }, receiveValue: { (result) in
+                completion(.success(result))
             })
             .store(in: &subscribers)
     }

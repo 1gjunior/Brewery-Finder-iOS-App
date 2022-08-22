@@ -46,14 +46,14 @@ class BreweryRepository: BreweryRepositoryProtocol {
     }
     
     
-    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void){
-        apiManager.postItem(request: evaluation) { (result: Result<BreweryEvaluation, NetworkError>) in
+    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void){
+        apiManager.postItem(request: evaluation) { (result: Result<ApiEvaluationResponse, NetworkError>) in
             switch result {
-            case .success(let result):
-                print("repository")
-                completion(.success(result))
+            case .success(let data):
+                print("repository bom")
+                completion(.success(data))
             case .failure(let error):
-                print("ERROR REPOSITORY")
+                print("repository ruim")
                 completion(.failure(error))
             }
         }

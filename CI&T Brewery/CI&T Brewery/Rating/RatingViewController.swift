@@ -55,7 +55,7 @@ class RatingViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("TELA RATING DESAPARECEU")
-        delegate?.showView(wasSucess: wasSucess ?? false)
+       // delegate?.showView(wasSucess: wasSucess ?? false)
     }
     
     private func setupTextField() {

@@ -59,3 +59,9 @@ struct BreweryEvaluation: Codable {
         case evaluationGrade = "evaluation_grade"
     }
 }
+
+struct ApiEvaluationResponse: Codable {
+    let email: String
+    let breweryId: String
+    let evaluationGrade: Double
+}
