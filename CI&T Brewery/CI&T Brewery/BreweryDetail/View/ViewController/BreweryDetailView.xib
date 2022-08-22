@@ -292,6 +292,11 @@
             <point key="canvasLocation" x="331.8840579710145" y="83.152173913043484"/>
         </view>
     </objects>
+    <designables>
+        <designable name="ofQ-s4-R2W">
+            <size key="intrinsicContentSize" width="108" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Frame 168" width="400" height="300"/>
         <image name="icon_maps" width="18" height="18"/>

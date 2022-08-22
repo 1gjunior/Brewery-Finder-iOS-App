@@ -27,7 +27,7 @@ class RatingViewController: UIViewController {
     private var cancellables: Set<AnyCancellable> = []
     @Injected private var viewModel: RatingViewModel
     
-    let id: String
+    let breweryObject: BreweryObject?
     var brewery: Brewery? = nil {
         didSet {
             setGeneralTitle()
@@ -39,13 +39,17 @@ class RatingViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    init(id: String) {
-        self.id = id
+    init(breweryObject: BreweryObject) {
+        self.breweryObject = breweryObject
         super.init(nibName: "RatingViewController", bundle: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(_ brewery: BreweryObject) {
+        generalTitle.text = brewery.name
     }
     
     override func viewDidLoad() {
@@ -55,6 +59,7 @@ class RatingViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         sinkEmailState()
+        setGeneralTitle()
     }
     
     deinit {
@@ -170,7 +175,7 @@ class RatingViewController: UIViewController {
     }
         
     func setGeneralTitle() {
-        generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + (brewery?.name ?? "")
+        generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + (breweryObject?.name ?? "")
     }
     
     private func sinkEmailState() {
