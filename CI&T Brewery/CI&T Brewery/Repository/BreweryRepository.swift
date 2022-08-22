@@ -9,7 +9,7 @@ import Foundation
 
 protocol BreweryRepositoryProtocol {
     func getBreweriesBy(city by_city: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
-    //func postBreweryEvaluation(request: String, completion: @escaping (R))
+    func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void)
 }
 
 class BreweryRepository: BreweryRepositoryProtocol {
@@ -45,7 +45,6 @@ class BreweryRepository: BreweryRepositoryProtocol {
         }
     }
     
-    
     func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void){
         apiManager.postItem(request: evaluation) { (result: Result<ApiEvaluationResponse, NetworkError>) in
             switch result {
@@ -58,4 +57,19 @@ class BreweryRepository: BreweryRepositoryProtocol {
             }
         }
     }
+    
+    func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void) {
+        guard let url = BreweryAPIService.getTop10BreweriesURLString() else { return }
+        
+        apiManager.fetchItems(url: url) { (result: Result<[Brewery], Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+
+                completion(.failure(error))
+            }
+        }
+    }
 }
+

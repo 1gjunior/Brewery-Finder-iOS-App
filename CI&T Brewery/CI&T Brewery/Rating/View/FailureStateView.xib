@@ -15,7 +15,11 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FailureStateView" customModule="CI_T_Brewery" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FailureStateView" customModule="CI_T_Brewery" customModuleProvider="target">
+            <connections>
+                <outlet property="failureStateLabel" destination="cZ6-BB-gcj" id="8OI-xS-cO4"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
@@ -34,14 +38,8 @@
                         <constraint firstAttribute="width" constant="100" id="dnf-W1-LYv"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não foi possivel adicionar sua avaliação. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-BB-gcj">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não foi possivel adicionar sua avaliação. Tente mais tarde. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZ6-BB-gcj">
                     <rect key="frame" x="0.0" y="198.5" width="500" height="22.5"/>
-                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="19"/>
-                    <color key="textColor" name="Fail"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tente mais tarde" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXL-0z-Vpe">
-                    <rect key="frame" x="180" y="229" width="140" height="22.5"/>
                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="19"/>
                     <color key="textColor" name="Fail"/>
                     <nil key="highlightedColor"/>
@@ -55,9 +53,7 @@
                 <constraint firstItem="req-9K-3Qz" firstAttribute="top" secondItem="0d5-Nm-L1n" secondAttribute="bottom" constant="30" id="bNS-VN-Irk"/>
                 <constraint firstItem="cZ6-BB-gcj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bfG-K7-TeA"/>
                 <constraint firstAttribute="trailing" secondItem="cZ6-BB-gcj" secondAttribute="trailing" id="eUk-E2-xTV"/>
-                <constraint firstItem="WXL-0z-Vpe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uvr-bF-3KR"/>
                 <constraint firstItem="0d5-Nm-L1n" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yiR-NC-bMJ"/>
-                <constraint firstItem="WXL-0z-Vpe" firstAttribute="top" secondItem="cZ6-BB-gcj" secondAttribute="bottom" constant="8" symbolic="YES" id="zcw-Zg-H7h"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="132" y="73"/>

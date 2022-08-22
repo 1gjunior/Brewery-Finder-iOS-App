@@ -37,6 +37,7 @@ class APIManager: APIManagerService {
             }).store(in: &subscribers)
     }
     
+    
     func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, NetworkError>) -> Void) {
         guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
         

@@ -7,12 +7,16 @@
 
 import Foundation
 import UIKit
+import Combine
+import Resolver
 
-protocol ShowRatedBreweryDelegate {
+protocol ShowRatedBreweryDelegate: AnyObject {
     func showView(wasSucess: Bool)
 }
 
 class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, UINavigationControllerDelegate {
+    
+    private var brewery: BreweryObject?
     
     func showView(wasSucess: Bool) {
         self.wasSucesso = wasSucess
@@ -33,33 +37,29 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         }
     }
     
-    init() {
+    @Injected var viewModel: BreweryDetailViewModel
+    private var cancellables: Set<AnyCancellable> = []
+    let id: String
+    
+    init(id: String) {
+        self.id = id
         super.init(nibName: "BreweryDetailView", bundle: nil)
     }
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var breweryDetailView: BreweryDetailView = {
-        let bdView = BreweryDetailView()
-        bdView.translatesAutoresizingMaskIntoConstraints = false
-        return bdView
-    }()
     
-   
     @IBAction func goToRatingView(_ sender: Any) {
-        let ratingViewController = RatingViewController()
-        let navigation = UINavigationController(rootViewController: ratingViewController)
-        navigation.modalPresentationStyle = .pageSheet
-
-        if let sheet = navigation.sheetPresentationController {
-            sheet.detents = [.medium()]
-            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-            sheet.preferredCornerRadius = 40
-        }
-        
+        let ratingViewController = RatingViewController(id: id)
         ratingViewController.delegate = self
-        present(navigation, animated: true)
+        present(ratingViewController, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func openMapButton(_ sender: Any) {
+        OpenMapDirections.present(in: self, sourceView: view, latitude: brewery?.latitute ?? 0, longitude: brewery?.longitude ?? 0)
     }
     
     private func sucessRatedBrewery() {
@@ -72,22 +72,30 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        getBreweryBy(id: id)
+        sinkBrewery()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("DETAIL SAIU")
+    private func sinkBrewery() {
+        viewModel.$state.sink { [weak self] state in
+            switch state {
+            case .success(let brewery):
+                self?.successState(brewery)
+            case .none: break
+            }
+        }.store(in: &cancellables)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("DETAIL DISAPPEAR")
+    private func successState(_ brewery: BreweryObject) {
+        DispatchQueue.main.async { [weak self] in
+            guard let view = self?.view as? BreweryDetailView else { return }
+            self?.brewery = brewery
+            view.configure(brewery)
+        }
     }
-        
-    // depois do fetch, chamar este metodo
-    // a classe BreweryObject possui os campos formatados
-    private func setViewData(brewery: BreweryObject) {
-        print(brewery)
+    
+    private func getBreweryBy(id: String) {
+        viewModel.fetchBreweryBy(id: id)
     }
 }
 

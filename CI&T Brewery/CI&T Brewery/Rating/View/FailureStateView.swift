@@ -10,6 +10,8 @@ import UIKit
 
 public class FailureStateView: UIView {
     
+    @IBOutlet weak var failureStateLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

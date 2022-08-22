@@ -9,12 +9,14 @@ import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import Combine
 import Resolver
-
+import Combine
 
 
 class RatingViewController: UIViewController {
 
-    var delegate: ShowRatedBreweryDelegate?
+    
+    @IBOutlet weak var ratingView: UIView!
+    weak var delegate: ShowRatedBreweryDelegate?
     var wasSucess: Bool?
     @IBOutlet weak var checkboxLabel: UILabel!
     @IBOutlet weak var ratingStarsView: UIView!
@@ -25,30 +27,52 @@ class RatingViewController: UIViewController {
     private var cancellables: Set<AnyCancellable> = []
     @Injected private var viewModel: RatingViewModel
     
+    let id: String
     var brewery: Brewery? = nil {
         didSet {
             setGeneralTitle()
         }
     }
     
-    
     @IBAction func dismissRatingView(_ sender: Any) {
         delegate?.showView(wasSucess: wasSucess ?? false)
         self.dismiss(animated: true)
     }
     
-    init() {
+    init(id: String) {
+        self.id = id
         super.init(nibName: "RatingViewController", bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         configureCheckbox()
-        changeSaveButtonColor()
         setupTextField()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        sinkEmailState()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height - 100
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -65,6 +89,7 @@ class RatingViewController: UIViewController {
         textField.delegate = self
         view.addSubview(textField)
         constraintTextField()
+        self.view.subviews.first?.layer.cornerRadius = 20
     }
     
     private lazy var sucessStateView: SucessStateView = {
@@ -94,15 +119,15 @@ class RatingViewController: UIViewController {
     }
     
     private func constraintSucessState() {
-        sucessStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        sucessStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        sucessStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        sucessStateView.topAnchor.constraint(equalTo: self.ratingView.topAnchor, constant: 70).isActive = true
+        sucessStateView.leadingAnchor.constraint(equalTo: self.ratingView.leadingAnchor, constant: 0).isActive = true
+        sucessStateView.trailingAnchor.constraint(equalTo: self.ratingView.trailingAnchor, constant: 0).isActive = true
     }
     
     private func constraintFailureState() {
-        failureStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        failureStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        failureStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        failureStateView.topAnchor.constraint(equalTo: self.ratingView.topAnchor, constant: 70).isActive = true
+        failureStateView.leadingAnchor.constraint(equalTo: self.ratingView.leadingAnchor, constant: 0).isActive = true
+        failureStateView.trailingAnchor.constraint(equalTo: self.ratingView.trailingAnchor, constant: 0).isActive = true
     }
     
     private func constraintTextField() {
@@ -140,27 +165,25 @@ class RatingViewController: UIViewController {
         checkboxButton.setImage(UIImage(named: "Unchecked"), for: .normal)
         checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
         checkboxButton.setImage(UIImage(named: "CheckboxDisabled"), for: .disabled)
-        disableCheckbox()
+        
+        viewModel.isEmailValid(emailText: "")
     }
-    
-    func changeSaveButtonColor() {
-        if saveButton.isEnabled {
-            saveButton.configuration?.background.backgroundColor = UIColor(red: 1, green: 0.867, blue: 0.294, alpha: 1)
-        } else {
-            saveButton.configuration?.background.backgroundColor = UIColor(red: 0.949, green: 0.949, blue: 0.969, alpha: 1)
-        }
-    }
-    
+        
     func setGeneralTitle() {
         generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + (brewery?.name ?? "")
     }
     
-    func changeEmailState(_ state: EmailState) {
-        textField.trailingView = state.trailingLabel
-        textField.setOutlineColor(state.outlineColor, for: .normal)
-        textField.leadingAssistiveLabel.text = state.leadingAssistiveLabel
-        saveButton.isEnabled = state == .valid
-        changeSaveButtonColor()
+    private func sinkEmailState() {
+        viewModel.$emailState.sink { [weak self] state in
+            switch state {
+            case .blank:
+                self?.blankFields()
+            case .valid:
+                self?.enabledFields()
+            case .invalid:
+                self?.disabledFields()
+            }
+        }.store(in: &cancellables)
     }
     
     func hideElementsRatingView() {
@@ -202,11 +225,31 @@ class RatingViewController: UIViewController {
         }.store(in: &cancellables)
     }
         
-    func enableCheckbox() {
+        
+    private func enabledFields() {
+        textField.trailingView = nil
+        textField.setOutlineColor(UIColor.outlineGreen(), for: .normal)
+        textField.leadingAssistiveLabel.text = ""
+        saveButton.isEnabled = true
+        saveButton.configuration?.background.backgroundColor = UIColor.breweryYellowLight()
         checkboxButton.isEnabled = true
     }
     
-    func disableCheckbox() {
+    private func blankFields() {
+        textField.trailingView = nil
+        textField.setOutlineColor(UIColor.outlineBlack(), for: .normal)
+        textField.leadingAssistiveLabel.text = ""
+        saveButton.isEnabled = false
+        saveButton.configuration?.background.backgroundColor = UIColor.grayLighter()
+        checkboxButton.isEnabled = false
+    }
+    
+    private func disabledFields() {
+        textField.trailingView = UIImageView(image: UIImage(named: "inputTrailingLabel"))
+        textField.setOutlineColor(UIColor.outlineRed(), for: .normal)
+        textField.leadingAssistiveLabel.text = NSLocalizedString("emailInvalid", comment: "")
+        saveButton.isEnabled = false
+        saveButton.configuration?.background.backgroundColor = UIColor.grayLighter()
         checkboxButton.isEnabled = false
     }
 }
@@ -223,46 +266,10 @@ extension RatingViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if (textField.text?.isEmpty ?? true) {
-            changeEmailState(.blank)
-            disableCheckbox()
-        } else if textField.isEmail() {
-            changeEmailState(.valid)
-            enableCheckbox()
-        } else {
-            changeEmailState(.invalid)
-            disableCheckbox()
+        guard let emailText = textField.text else {
+            return
         }
-    }
-}
-
-enum EmailState {
-    case blank
-    case invalid
-    case valid
-    
-    var trailingLabel: UIImageView? {
-        switch self {
-        case .blank: return nil
-        case .invalid: return UIImageView(image: UIImage(named: "inputTrailingLabel"))
-        case .valid: return nil
-        }
-    }
-    
-    var outlineColor: UIColor {
-        switch self {
-        case .blank: return UIColor(red: 0.255, green: 0.286, blue: 0.255, alpha: 1)     // BLACK
-        case .invalid: return UIColor(red: 0.729, green: 0.106, blue: 0.106, alpha: 1)   // RED
-        case .valid: return UIColor(red: 0.024, green: 0.427, blue: 0.216, alpha: 1)     // GREEN
-        }
-    }
-    
-    var leadingAssistiveLabel: String {
-        switch self {
-        case .blank: return ""
-        case .invalid: return NSLocalizedString("emailInvalid", comment: "")
-        case .valid: return ""
-        }
+        viewModel.isEmailValid(emailText: emailText)
     }
 }
 

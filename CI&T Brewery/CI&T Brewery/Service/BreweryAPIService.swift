@@ -29,4 +29,9 @@ class BreweryAPIService {
         
         return urlComponents?.url
     }
+    
+    static func getTop10BreweriesURLString() -> URL? {
+        let urlComponents = URLComponents(string: apiBaseURL + "/breweries/topTen")
+        return urlComponents?.url
+    }
 }
