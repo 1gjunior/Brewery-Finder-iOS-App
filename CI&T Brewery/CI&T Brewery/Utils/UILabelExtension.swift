@@ -11,7 +11,7 @@ extension UILabel {
     public func makeRoundLabel()  {
         self.textColor = UIColor.breweryYellow()
         self.backgroundColor = UIColor.breweryYellowAlpha16()
-        self.font = UIFont(name: "Roboto-Medium", size: 32)
+        self.font = UIFont.robotoMedium(ofSize: 32)
         self.textAlignment = .center
         self.layer.masksToBounds = true
         self.layer.cornerRadius = (self.frame.width / 2)
