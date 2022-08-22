@@ -10,16 +10,17 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import Combine
 import Resolver
 import Combine
+import Cosmos
 
 
 class RatingViewController: UIViewController {
-
+    
     
     @IBOutlet weak var ratingView: UIView!
     weak var delegate: ShowRatedBreweryDelegate?
     var wasSucess: Bool?
     @IBOutlet weak var checkboxLabel: UILabel!
-    @IBOutlet weak var ratingStarsView: UIView!
+    @IBOutlet weak var ratingStarsView: CosmosView!
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var generalTitle: UILabel!
@@ -27,6 +28,7 @@ class RatingViewController: UIViewController {
     private var cancellables: Set<AnyCancellable> = []
     @Injected private var viewModel: RatingViewModel
     var id: String?
+    var ratingStars: Double?
     let breweryObject: BreweryObject?
     var brewery: Brewery? = nil {
         didSet {
@@ -62,7 +64,7 @@ class RatingViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
@@ -70,7 +72,7 @@ class RatingViewController: UIViewController {
             }
         }
     }
-
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
@@ -150,8 +152,8 @@ class RatingViewController: UIViewController {
             saveUserEmailInFileStorage(emailText: emailText)
         }
         
-        let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: id ?? "", evaluationGrade: 1)
-        print("IDD \(id!)")
+        ratingStars = ratingStarsView.rating
+        let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: id ?? "", evaluationGrade: self.ratingStars!)
         viewModel.post(evaluation: uploadBreweryEvaluation)
         sinkBreweries()
     }
@@ -171,7 +173,7 @@ class RatingViewController: UIViewController {
         
         viewModel.isEmailValid(emailText: "")
     }
-        
+    
     func setGeneralTitle() {
         generalTitle.text = NSLocalizedString("ratingTitle", comment: "") + " " + (breweryObject?.name ?? "")
     }
@@ -227,8 +229,8 @@ class RatingViewController: UIViewController {
             }
         }.store(in: &cancellables)
     }
-        
-        
+    
+    
     private func enabledFields() {
         textField.trailingView = nil
         textField.setOutlineColor(UIColor.outlineGreen(), for: .normal)
