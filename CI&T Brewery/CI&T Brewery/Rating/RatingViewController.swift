@@ -220,7 +220,7 @@ class RatingViewController: UIViewController {
                 print("initial")
             case .sucess:
                 print("sucess")
-                self!.wasSucess = true
+                self?.wasSucess = true
                 self?.sucessStateEvaluation()
             case .error:
                 print("error")

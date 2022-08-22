@@ -30,4 +30,11 @@ class BreweryDetailViewModel {
             }
         }
     }
+    
+    func checkMapData(brewery: BreweryObject) -> Bool {
+        if (brewery.latitute == 0 && brewery.longitude == 0) {
+           return false
+        }
+        return false
+    }
 }

@@ -17,7 +17,7 @@ protocol ShowRatedBreweryDelegate: AnyObject {
 class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, UINavigationControllerDelegate {
     
     private var brewery: BreweryObject?
-    
+    private var breweryDetailView: BreweryDetailView?
     func showView(wasSucess: Bool) {
         self.wasSucesso = wasSucess
         if self.wasSucesso == true {
@@ -30,10 +30,10 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     @IBOutlet weak var heightDataView: NSLayoutConstraint!
     @IBOutlet weak var avaliacaoBotao: UIButton! {
         didSet {
-            avaliacaoBotao!.layer.borderColor = UIColor.breweryYellowLight().cgColor
-            avaliacaoBotao!.layer.borderWidth = 1
-            avaliacaoBotao!.layer.cornerRadius = 18
-            avaliacaoBotao!.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
+            avaliacaoBotao?.layer.borderColor = UIColor.breweryYellowLight().cgColor
+            avaliacaoBotao?.layer.borderWidth = 1
+            avaliacaoBotao?.layer.cornerRadius = 18
+            avaliacaoBotao?.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
         }
     }
     
