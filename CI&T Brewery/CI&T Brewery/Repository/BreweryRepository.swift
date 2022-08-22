@@ -9,6 +9,8 @@ import Foundation
 
 protocol BreweryRepositoryProtocol {
     func getBreweriesBy(city by_city: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
+    func getBreweryBy(id: String, completion: @escaping (Result<Brewery, Error>) -> Void)
+    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void)
     func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void)
 }
 
@@ -45,7 +47,7 @@ class BreweryRepository: BreweryRepositoryProtocol {
         }
     }
     
-    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void){
+    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void) {
         
         apiManager.postItem(request: evaluation) { (result: Result<BreweryEvaluation, NetworkError>) in
             switch result {
