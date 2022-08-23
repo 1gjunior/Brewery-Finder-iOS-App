@@ -11,7 +11,15 @@ import Combine
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var searchBar: UISearchBar!{
+        didSet{
+            searchBar.searchTextField.layer.cornerRadius = 20
+            searchBar.searchTextField.layer.masksToBounds = true
+            searchBar.placeholder = NSLocalizedString("Busque por local", comment: "")
+            searchBar.searchTextField.backgroundColor = UIColor.BreweryYellowPale()
+            searchBar.searchTextField.font = UIFont.robotoRegular(ofSize: 14)
+        }
+    }
     var currentView: UIView? = nil
     
     @Injected var viewModel: HomeViewModel
@@ -59,6 +67,7 @@ class HomeViewController: UIViewController {
         sinkTop10Breweries()
         searchBar.delegate = self
         getTop10Breweries()
+        hideKeyboard()
     }
     
     func setupErrorState(error: EmptyError) {
@@ -185,7 +194,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func setupNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 1, green: 0.671, blue: 0, alpha: 1)
+        navigationController?.navigationBar.backgroundColor = UIColor.yellowDark()
         navigationController?.navigationBar.isTranslucent = false
         setupNavigationBarItems()
     }
@@ -213,5 +222,20 @@ extension HomeViewController {
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.getBreweriesBy(city: searchBar.text ?? "")
+        searchBar.resignFirstResponder()
     }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        if searchBar.selectedScopeButtonIndex == 1{
+        self.getBreweriesBy(city: searchBar.text ?? "")}
+    }
+        func hideKeyboard() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
+        }
+        
+        @objc
+        func dismissKeyboard() {
+            view.endEditing(true)
+        }
 }

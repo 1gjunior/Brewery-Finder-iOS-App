@@ -44,7 +44,7 @@ class BreweryObject {
                 continue
             }
             
-            formattedAddress += ", " + validItem
+            formattedAddress += (formattedAddress != "" ? ", " : "") + validItem
         }
         
         self.address = formattedAddress
