@@ -64,6 +64,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     }
     
     private func sucessRatedBrewery() {
+        getBreweryBy(id: id)
         avaliacaoBotao.isHidden = true
         heightDataView.constant = heightDataView.constant + 40
         ratedBreweryView.isHidden = false
