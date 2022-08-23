@@ -110,14 +110,16 @@ class RatingViewController: UIViewController {
     
     func setupSucessStateEvaluation() {
         hideElementsRatingView()
-        sucessStateView.sucessStateLabel.text = "Sua avaliação foi \n adicionada com sucesso!"
+        let sucessLabel = NSLocalizedString("Sua avaliação foi \n adicionada com sucesso!", comment: "")
+        sucessStateView.sucessStateLabel.text = sucessLabel
         self.view.addSubview(sucessStateView)
         self.constraintSucessState()
     }
     
     func setupFailureStateEvaluation() {
         hideElementsRatingView()
-        failureStateView.failureStateLabel.text = "Não foi possível adicionar sua avaliação. \n Tente mais tarde."
+        let failureLabel = NSLocalizedString("Não foi possível adicionar sua avaliação. \n Tente mais tarde.", comment: "")
+        failureStateView.failureStateLabel.text = failureLabel
         self.view.addSubview(failureStateView)
         self.constraintFailureState()
     }
