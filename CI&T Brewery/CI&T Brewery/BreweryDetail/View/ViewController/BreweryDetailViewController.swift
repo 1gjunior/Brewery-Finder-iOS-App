@@ -15,11 +15,7 @@ class BreweryDetailViewController: UIViewController {
     @Injected var viewModel: BreweryDetailViewModel
     private var cancellables: Set<AnyCancellable> = []
     let id: String
-    
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//         return .lightContent
-//    }
-    
+        
     init(id: String) {
         self.id = id
         super.init(nibName: "BreweryDetailView", bundle: nil)
