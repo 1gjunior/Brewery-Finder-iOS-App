@@ -11,6 +11,8 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet var contentView: UIView!
     @IBOutlet private var resultsLabel: UILabel!
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var sortLabel: UILabel!
     private var breweries: [Brewery] = []
     private var action: ((_ id: String) -> ())? 
     
