@@ -85,7 +85,7 @@ class HomeViewController: UIViewController {
     
     private func goToDetailWith(id: String) {
         let breweryDetailViewController = BreweryDetailViewController(id: id)
-        present(breweryDetailViewController, animated: true)
+        self.navigationController?.pushViewController(breweryDetailViewController, animated: true)
     }
     
     private func constraintListView() {

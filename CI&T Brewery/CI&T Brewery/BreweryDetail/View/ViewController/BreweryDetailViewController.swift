@@ -16,6 +16,10 @@ class BreweryDetailViewController: UIViewController {
     private var cancellables: Set<AnyCancellable> = []
     let id: String
     
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//         return .lightContent
+//    }
+    
     init(id: String) {
         self.id = id
         super.init(nibName: "BreweryDetailView", bundle: nil)
@@ -73,13 +77,17 @@ extension BreweryDetailViewController {
         let logoIcon = UIButton(type: .system)
         logoIcon.setImage(UIImage(named: "icon_back"), for: .normal)
         logoIcon.tintColor = .black
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(customView: logoIcon)
+        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.tintColor = .black
     }
     private func setupRightNavigationBar() {
         let favoriteIcon = UIButton(type: .system)
         favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        let starIcon = UIButton(type: .system)
-        starIcon.setImage(UIImage(named: "icon_share")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
+        let shareIcon = UIButton(type: .system)
+        shareIcon.setImage(UIImage(named: "icon_share")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        shareIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: shareIcon)]
     }
 }
