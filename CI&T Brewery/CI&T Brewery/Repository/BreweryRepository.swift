@@ -74,7 +74,6 @@ class BreweryRepository: BreweryRepositoryProtocol {
     
     func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
         guard let url = BreweryAPIService.getRatedBrewerisByEmail(email: email) else { return }
-        print("URL GET RATED \(url)")
         apiManager.fetchItems(url: url) { (result: Result<[Brewery], Error>) in
             switch result {
             case .success(let data):

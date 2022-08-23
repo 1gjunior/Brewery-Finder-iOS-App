@@ -52,7 +52,6 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     
     
     @IBAction func goToRatingView(_ sender: Any) {
-        //fazer um guard let aqui!!
         let ratingViewController = RatingViewController(breweryObject: brewery!, id: id)
         ratingViewController.delegate = self
         present(ratingViewController, animated: true, completion: nil)
@@ -76,8 +75,8 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         setupNavigationBar()
         getBreweryBy(id: id)
         sinkBrewery()
-        sinkRatedBreweryBy()
-        getRatedBreweriesBy(id: id)
+        sinkRatedBrewery()
+        getRatedBreweries(id: id)
     }
     
     private func sinkBrewery() {
@@ -90,7 +89,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         }.store(in: &cancellables)
     }
     
-    private func sinkRatedBreweryBy() {
+    private func sinkRatedBrewery() {
         viewModel.$stateRatedBrewery.sink { [weak self] state in
             switch state {
             case .evaluated:
@@ -117,7 +116,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         }
     }
     
-    private func getRatedBreweriesBy(id: String) {
+    private func getRatedBreweries(id: String) {
         viewModel.fetchRatedBreweryBy(id: id)
     }
     

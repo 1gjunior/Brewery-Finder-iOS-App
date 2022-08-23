@@ -7,10 +7,11 @@
 
 import UIKit
 import Cosmos
+import Resolver
 
 class BreweryDetailView: UIView {
     
-    private var breweryDetailViewModel: BreweryDetailViewModel? = BreweryDetailViewModel()
+    @Injected private var breweryDetailViewModel: BreweryDetailViewModel
     
     @IBOutlet weak var viewTitle: UILabel! {
         didSet {
@@ -154,7 +155,7 @@ class BreweryDetailView: UIView {
         website.text = brewery.website
         address.text = brewery.address
         cosmosView.rating = brewery.average
-        if !(breweryDetailViewModel?.checkMapData(brewery: brewery) ?? false) {
+        if !(breweryDetailViewModel.checkMapData(brewery: brewery)) {
             mapStackView.isHidden = true
             addPhotoButton.topAnchor.constraint(equalTo: addressStackView.bottomAnchor, constant: 15).isActive = true
             dataView.heightAnchor.constraint(equalToConstant: 320).isActive = true

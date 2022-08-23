@@ -30,7 +30,7 @@
 
 /* RatingViewController */
 
-"Sua avaliação foi \n adicionada com sucesso!" = "Sua avaliação foi \n adicionada com sucesso!";
-"Não foi possível adicionar sua avaliação. \n Tente mais tarde." =  "Não foi possível adicionar sua avaliação. \n Tente mais tarde.";
+"EvaluationAddSucess" = "Sua avaliação foi \n adicionada com sucesso!";
+"EvaluationAddFailure" =  "Não foi possível adicionar sua avaliação. \n Tente mais tarde.";
 
 

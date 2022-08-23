@@ -56,14 +56,8 @@ class BreweryDetailViewModel {
         }
     }
     
-    //conferir se o id da cervejaria passado como parâmetro foi avaliado pelo email
     func isBreweryEvaluated(breweryResponse: [Brewery], id: String) -> Bool {
-        for brewery in breweryResponse {
-            if (brewery.id == id) {
-                return true
-            }
-        }
-        return false
+        breweryResponse.filter {$0.id == id}.count > 0
     }
     
     func checkMapData(brewery: BreweryObject) -> Bool {
