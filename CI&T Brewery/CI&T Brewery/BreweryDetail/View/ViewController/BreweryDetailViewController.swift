@@ -24,7 +24,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
             sucessRatedBrewery()
         }
     }
-    
+    var lastEmail: String?
     var wasSucesso: Bool?
     @IBOutlet weak var ratedBreweryView: RatedBreweryView!
     @IBOutlet weak var heightDataView: NSLayoutConstraint!
@@ -76,6 +76,8 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         setupNavigationBar()
         getBreweryBy(id: id)
         sinkBrewery()
+        sinkRatedBreweryBy()
+        getRatedBreweriesBy(id: id)
     }
     
     private func sinkBrewery() {
@@ -88,12 +90,35 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         }.store(in: &cancellables)
     }
     
+    private func sinkRatedBreweryBy() {
+        viewModel.$stateRatedBrewery.sink { [weak self] state in
+            switch state {
+            case .evaluated:
+                self?.successStateRated()
+            case .noEvaluated:
+                print("não avaliada")
+            case .none:
+                break
+            }
+        }.store(in: &cancellables)
+    }
+    
     private func successState(_ brewery: BreweryObject) {
         DispatchQueue.main.async { [weak self] in
             guard let view = self?.view as? BreweryDetailView else { return }
             self?.brewery = brewery
             view.configure(brewery)
         }
+    }
+    
+    private func successStateRated() {
+        DispatchQueue.main.async {[weak self] in
+            self?.sucessRatedBrewery()
+        }
+    }
+    
+    private func getRatedBreweriesBy(id: String) {
+        viewModel.fetchRatedBreweryBy(id: id)
     }
     
     private func getBreweryBy(id: String) {
