@@ -48,7 +48,7 @@ class BreweryDetailViewModel {
                     self.stateRatedBrewery = .evaluated
                 }
                 else {
-                    self.stateRatedBrewery = .noEvxaluated
+                    self.stateRatedBrewery = .noEvaluated
                 }
                 case .failure(let error):
                 print("ERROR GET RATED BREWERIS \(error)")
