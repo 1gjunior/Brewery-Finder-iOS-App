@@ -48,7 +48,7 @@ class BreweryDetailViewModel {
                     self.stateRatedBrewery = .evaluated
                 }
                 else {
-                    self.stateRatedBrewery = .noEvaluated
+                    self.stateRatedBrewery = .noEvxaluated
                 }
                 case .failure(let error):
                 print("ERROR GET RATED BREWERIS \(error)")
@@ -60,7 +60,7 @@ class BreweryDetailViewModel {
         breweryResponse.filter {$0.id == id}.count > 0
     }
     
-    func checkMapData(brewery: BreweryObject) -> Bool {
+    func isCoordinationAvailable(brewery: BreweryObject) -> Bool {
         if (brewery.latitute == 0 && brewery.longitude == 0) {
            return false
         }

@@ -20,7 +20,6 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     private var brewery: BreweryObject?
     private var breweryDetailView: BreweryDetailView?
     var lastEmail: String?
-    var wasSucesso: Bool?
     @IBOutlet weak var ratedBreweryView: RatedBreweryView!
     @IBOutlet weak var heightDataView: NSLayoutConstraint!
     @IBOutlet weak var avaliacaoBotao: UIButton! {
@@ -54,7 +53,8 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     
     
     @IBAction func openMapButton(_ sender: Any) {
-        OpenMapDirections.present(in: self, sourceView: view, latitude: brewery?.latitute ?? 0, longitude: brewery?.longitude ?? 0)
+        guard let brewery = brewery else {return}
+        OpenMapDirections.present(in: self, sourceView: view, latitude: brewery.latitute, longitude: brewery.longitude)
     }
     
     private func sucessRatedBrewery() {
