@@ -18,11 +18,11 @@ enum EvaluationState {
 
 
 class BreweryDetailViewModel {
-    let repository: BreweryRepository
+    let repository: BreweryRepositoryProtocol
     @Published private(set) var state: BreweryDetailViewModelState?
     @Published private(set) var stateRatedBrewery: EvaluationState?
 
-    init(repository: BreweryRepository = BreweryRepository()) {
+    init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
     }
 

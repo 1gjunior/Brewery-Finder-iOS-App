@@ -9,20 +9,21 @@ import UIKit
 import Resolver
 import Combine
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CarouselViewDelegate {
     
-    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var searchBar: UISearchBar!{
+        didSet{
+            searchBar.searchTextField.layer.cornerRadius = 20
+            searchBar.searchTextField.layer.masksToBounds = true
+            searchBar.placeholder = NSLocalizedString("Busque por local", comment: "")
+            searchBar.searchTextField.backgroundColor = UIColor.BreweryYellowPale()
+            searchBar.searchTextField.font = UIFont.robotoRegular(ofSize: 14)
+        }
+    }
     var currentView: UIView? = nil
     
     @Injected var viewModel: HomeViewModel
     private var cancellables: Set<AnyCancellable> = []
-    var breweries: [Brewery] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.setupSucessState()
-            }
-        }
-    }
     
     private var top10Breweries: [Brewery] = []
     
@@ -41,6 +42,7 @@ class HomeViewController: UIViewController {
     private lazy var carouselView: CarouselView = {
         let carouselView = CarouselView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         carouselView.translatesAutoresizingMaskIntoConstraints = false
+        carouselView.delegate = self
         return carouselView
     }()
     
@@ -59,6 +61,7 @@ class HomeViewController: UIViewController {
         sinkTop10Breweries()
         searchBar.delegate = self
         getTop10Breweries()
+        hideKeyboard()
     }
     
     func setupErrorState(error: EmptyError) {
@@ -68,7 +71,7 @@ class HomeViewController: UIViewController {
         constraintErrorState()
     }
     
-    func setupSucessState() {
+    func setupSucessState(_ breweries: [Brewery]) {
         listView.setSearchResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
         view.addSubview(listView)
         constraintListView()
@@ -79,14 +82,14 @@ class HomeViewController: UIViewController {
     func setupTop10SucessState(_ breweries: [Brewery]) {
         view.addSubview(carouselView)
         constraintCarouselView()
-        carouselView.configureDataSource(breweries)
         changingState(view: carouselView)
+        carouselView.breweries = breweries
     }
     
-    private func goToDetailWith(id: String) {
+    internal func goToDetailWith(id: String) {
         let breweryDetailViewController = BreweryDetailViewController(id: id)
         //breweryDetailViewController.dismissAction = getBreweriesBy(city: viewModel.lastCity)
-        present(breweryDetailViewController, animated: true)
+        self.navigationController?.pushViewController(breweryDetailViewController, animated: true)
     }
     
     private func constraintListView() {
@@ -162,7 +165,7 @@ class HomeViewController: UIViewController {
     
     private func sucessState(_ breweries: [Brewery]) {
         DispatchQueue.main.async { [weak self] in
-            self?.breweries = breweries
+            self?.setupSucessState(breweries)
         }
     }
     
@@ -187,7 +190,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func setupNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 1, green: 0.671, blue: 0, alpha: 1)
+        navigationController?.navigationBar.backgroundColor = UIColor.yellowDark()
         navigationController?.navigationBar.isTranslucent = false
         setupNavigationBarItems()
     }
@@ -207,6 +210,7 @@ extension HomeViewController {
         favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         let starIcon = UIButton(type: .system)
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
     }
 }
@@ -214,5 +218,20 @@ extension HomeViewController {
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.getBreweriesBy(city: searchBar.text ?? "")
+        searchBar.resignFirstResponder()
     }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        if searchBar.selectedScopeButtonIndex == 1{
+        self.getBreweriesBy(city: searchBar.text ?? "")}
+    }
+        func hideKeyboard() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
+        }
+        
+        @objc
+        func dismissKeyboard() {
+            view.endEditing(true)
+        }
 }
