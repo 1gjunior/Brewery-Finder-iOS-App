@@ -64,6 +64,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         hideKeyboard()
     }
     
+    
     func setupErrorState(error: EmptyError) {
         changingState(view: errorStateView)
         view.addSubview(errorStateView)
@@ -88,8 +89,12 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     internal func goToDetailWith(id: String) {
         let breweryDetailViewController = BreweryDetailViewController(id: id)
-        //breweryDetailViewController.dismissAction = getBreweriesBy(city: viewModel.lastCity)
+        breweryDetailViewController.dismissAction = updateBrewery
         self.navigationController?.pushViewController(breweryDetailViewController, animated: true)
+    }
+    
+    private func updateBrewery() {
+        getBreweriesBy(city: viewModel.lastCity ?? "")
     }
     
     private func constraintListView() {

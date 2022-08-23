@@ -16,7 +16,7 @@ protocol ShowRatedBreweryDelegate: AnyObject {
 
 class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, UINavigationControllerDelegate {
     
-    var dismissAction: ((String) -> ())?
+    var dismissAction: (() -> ())?
     private var brewery: BreweryObject?
     private var breweryDetailView: BreweryDetailView?
     var lastEmail: String?
@@ -82,6 +82,8 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        guard let dismissAction = dismissAction else {return}
+        dismissAction()
     }
     
     private func sinkBrewery() {
