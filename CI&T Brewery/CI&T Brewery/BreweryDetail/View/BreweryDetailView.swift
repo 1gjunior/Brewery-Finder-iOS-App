@@ -154,7 +154,7 @@ class BreweryDetailView: UIView {
         website.text = brewery.website
         address.text = brewery.address
         cosmosView.rating = brewery.average
-        if !breweryDetailViewModel!.checkMapData(brewery: brewery) {
+        if !(breweryDetailViewModel?.checkMapData(brewery: brewery) ?? false) {
             mapStackView.isHidden = true
             addPhotoButton.topAnchor.constraint(equalTo: addressStackView.bottomAnchor, constant: 15).isActive = true
             dataView.heightAnchor.constraint(equalToConstant: 320).isActive = true

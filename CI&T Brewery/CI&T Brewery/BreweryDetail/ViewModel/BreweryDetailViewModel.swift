@@ -35,6 +35,6 @@ class BreweryDetailViewModel {
         if (brewery.latitute == 0 && brewery.longitude == 0) {
            return false
         }
-        return false
+        return true
     }
 }
