@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
         window?.makeKeyAndVisible()
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = UIColor.yellowDark()
+        let proxy = UINavigationBar.appearance()
+        proxy.standardAppearance = appearance
+        proxy.scrollEdgeAppearance = appearance
+        
         return true
     }
 }

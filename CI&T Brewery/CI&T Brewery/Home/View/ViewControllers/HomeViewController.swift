@@ -88,7 +88,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     internal func goToDetailWith(id: String) {
         let breweryDetailViewController = BreweryDetailViewController(id: id)
-        present(breweryDetailViewController, animated: true)
+        self.navigationController?.pushViewController(breweryDetailViewController, animated: true)
     }
     
     private func constraintListView() {
@@ -208,6 +208,7 @@ extension HomeViewController {
         favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         let starIcon = UIButton(type: .system)
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
     }
 }
