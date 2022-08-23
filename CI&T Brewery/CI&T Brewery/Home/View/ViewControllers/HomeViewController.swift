@@ -85,6 +85,7 @@ class HomeViewController: UIViewController {
     
     private func goToDetailWith(id: String) {
         let breweryDetailViewController = BreweryDetailViewController(id: id)
+        //breweryDetailViewController.dismissAction = getBreweriesBy(city: viewModel.lastCity)
         present(breweryDetailViewController, animated: true)
     }
     
@@ -117,6 +118,7 @@ class HomeViewController: UIViewController {
     }
     
     private func getBreweriesBy(city: String) {
+        viewModel.lastCity = city
         viewModel.fetchBreweriesBy(city: city)
     }
     

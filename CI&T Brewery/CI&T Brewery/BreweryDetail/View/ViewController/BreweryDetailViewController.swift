@@ -11,19 +11,14 @@ import Combine
 import Resolver
 
 protocol ShowRatedBreweryDelegate: AnyObject {
-    func showView(wasSucess: Bool)
+    func getRatedBreweries(id: String)
 }
 
 class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, UINavigationControllerDelegate {
     
+    var dismissAction: ((String) -> ())?
     private var brewery: BreweryObject?
     private var breweryDetailView: BreweryDetailView?
-    func showView(wasSucess: Bool) {
-        self.wasSucesso = wasSucess
-        if self.wasSucesso == true {
-            sucessRatedBrewery()
-        }
-    }
     var lastEmail: String?
     var wasSucesso: Bool?
     @IBOutlet weak var ratedBreweryView: RatedBreweryView!
@@ -76,7 +71,17 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         getBreweryBy(id: id)
         sinkBrewery()
         sinkRatedBrewery()
+        //getRatedBreweries(id: id)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("WILL APPEAR")
         getRatedBreweries(id: id)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     private func sinkBrewery() {
@@ -89,7 +94,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         }.store(in: &cancellables)
     }
     
-    private func sinkRatedBrewery() {
+    public func sinkRatedBrewery() {
         viewModel.$stateRatedBrewery.sink { [weak self] state in
             switch state {
             case .evaluated:
@@ -116,7 +121,7 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         }
     }
     
-    private func getRatedBreweries(id: String) {
+    internal func getRatedBreweries(id: String) {
         viewModel.fetchRatedBreweryBy(id: id)
     }
     

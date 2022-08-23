@@ -37,7 +37,7 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func dismissRatingView(_ sender: Any) {
-        delegate?.showView(wasSucess: wasSucess ?? false)
+        delegate?.getRatedBreweries(id: id ?? "")
         self.dismiss(animated: true)
     }
     
