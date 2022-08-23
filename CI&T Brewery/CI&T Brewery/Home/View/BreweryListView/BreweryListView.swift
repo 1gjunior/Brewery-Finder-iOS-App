@@ -16,6 +16,9 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     private var breweries: [Brewery] = []
     private var action: ((_ id: String) -> ())? 
     
+    @IBAction func goToSortView(_ sender: UIButton) {
+    }
+    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

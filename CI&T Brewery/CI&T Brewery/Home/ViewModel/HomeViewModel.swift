@@ -17,6 +17,8 @@ enum HomeViewModelState {
 }
 
 class HomeViewModel {
+    
+    var breweries: [Brewery]?
     let repository: BreweryRepositoryProtocol
     @Published private(set) var state: HomeViewModelState = .initial
     @Published private(set) var top10BreweriesState: HomeViewModelState = .initial
@@ -53,5 +55,9 @@ class HomeViewModel {
                 self?.top10BreweriesState = .success(breweries: breweriesResponse)
             }            
         }
+    }
+    func sortingBreweries(){
+      let sortByName = breweries?.sorted(by: {$0.name < $1.name})
+      let sortByRating = breweries?.sorted(by: {$0.average < $1.average})
     }
 }

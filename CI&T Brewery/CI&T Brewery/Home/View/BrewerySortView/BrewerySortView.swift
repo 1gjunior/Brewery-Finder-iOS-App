@@ -43,6 +43,23 @@ public class SortView: UIView{
             ratingLabel.text = NSLocalizedString("Nota (menor para maior)", comment: "")
         }
     }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    public func commonInit() {
+        guard let viewFromXib = Bundle.main.loadNibNamed("BrewerySortView", owner: self, options: nil)?[0] as? UIView else { return }
+        viewFromXib.frame = self.bounds
+        addSubview(viewFromXib)
+    }
+    
     private func addBottomSeparator(uiStackView: UIStackView) {
         uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0)
     }
