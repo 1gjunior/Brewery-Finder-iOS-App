@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.breweryYellow()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = UIColor.yellowDark()
         let proxy = UINavigationBar.appearance()
         proxy.standardAppearance = appearance
         proxy.scrollEdgeAppearance = appearance
