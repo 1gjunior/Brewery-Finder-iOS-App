@@ -13,7 +13,7 @@ enum RatingViewModelState {
     case error
 }
 
-enum EmailState {
+enum FieldsState {
     case blank
     case invalid
     case valid
@@ -23,7 +23,7 @@ class RatingViewModel {
     
     let repository: BreweryRepository
     @Published private(set) var stateRating: RatingViewModelState = .initial
-    @Published private(set) var emailState: EmailState = .blank
+    @Published private(set) var fieldsState: FieldsState = .blank
     
     init(repository: BreweryRepository = BreweryRepository()) {
         self.repository = repository
@@ -52,13 +52,13 @@ class RatingViewModel {
         }
     }
     
-    public func isEmailValid(emailText: String) {
-        if (emailText.isEmpty) {
-            emailState = .blank
-        } else if emailText.isEmail() {
-            emailState = .valid
+    public func fieldsValidation(emailText: String, rating: Double) {
+        if !emailText.isEmpty && !emailText.isEmail() {
+            fieldsState = .invalid
+        } else if emailText.isEmail() && rating > 0 {
+            fieldsState = .valid
         } else {
-            emailState = .invalid
+            fieldsState = .blank
         }
     }
 }

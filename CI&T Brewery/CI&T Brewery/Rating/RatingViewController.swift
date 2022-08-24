@@ -12,17 +12,16 @@ import Resolver
 import Combine
 import Cosmos
 
-
 class RatingViewController: UIViewController {
     
     var dismissActionBreweryDetail: (() -> ())?
     @IBOutlet weak var ratingView: UIView!
-    var wasSucess: Bool?
     @IBOutlet weak var checkboxLabel: UILabel!
     @IBOutlet weak var ratingStarsView: CosmosView! {
         didSet {
             ratingStarsView.rating = 0
             ratingStarsView.settings.fillMode = .full
+            ratingStarsView.didTouchCosmos = self.validaCosmosView
         }
     }
     @IBOutlet weak var checkboxButton: UIButton!
@@ -177,12 +176,16 @@ class RatingViewController: UIViewController {
         viewModel.saveUserEmailInFileStorage(emailText: emailText)
     }
     
+    private func validaCosmosView(_ double: Double) {
+        guard let emailText = textField.text else { return }
+        viewModel.fieldsValidation(emailText: emailText, rating: ratingStarsView.rating)
+    }
+    
     func configureCheckbox() {
         checkboxButton.setImage(UIImage(named: "Unchecked"), for: .normal)
         checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
         checkboxButton.setImage(UIImage(named: "CheckboxDisabled"), for: .disabled)
-        
-        viewModel.isEmailValid(emailText: "")
+        viewModel.fieldsValidation(emailText: "", rating: 0)
     }
     
     func setGeneralTitle() {
@@ -190,7 +193,7 @@ class RatingViewController: UIViewController {
     }
     
     private func sinkEmailState() {
-        viewModel.$emailState.sink { [weak self] state in
+        viewModel.$fieldsState.sink { [weak self] state in
             switch state {
             case .blank:
                 self?.blankFields()
@@ -231,11 +234,9 @@ class RatingViewController: UIViewController {
                 print("initial")
             case .sucess:
                 print("sucess")
-                self?.wasSucess = true
                 self?.sucessStateEvaluation()
             case .error:
                 print("error")
-                self?.wasSucess = false
                 self?.failureStateEvaluation()
             }
         }.store(in: &cancellables)
@@ -285,7 +286,7 @@ extension RatingViewController: UITextFieldDelegate {
         guard let emailText = textField.text else {
             return
         }
-        viewModel.isEmailValid(emailText: emailText)
+        viewModel.fieldsValidation(emailText: emailText, rating: ratingStarsView.rating)
     }
 }
 
