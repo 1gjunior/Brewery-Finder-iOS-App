@@ -38,7 +38,7 @@ class BreweryDetailViewModel {
         }
     }
     
-    func fetchRatedBreweryBy(id: String) {
+    func checkRatingByBrewery(id: String) {
         let email = getLastEmail()
         repository.getRatedBreweries(email: email) { [weak self] result in
             guard let self = self  else {return}
@@ -57,7 +57,7 @@ class BreweryDetailViewModel {
     }
     
     func isBreweryEvaluated(breweryResponse: [Brewery], id: String) -> Bool {
-        breweryResponse.filter {$0.id == id}.count > 0
+        breweryResponse.contains(where: {$0.id == id })
     }
     
     func isCoordinationAvailable(brewery: BreweryObject) -> Bool {

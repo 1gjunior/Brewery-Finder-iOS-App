@@ -11,7 +11,7 @@ import Combine
 import Resolver
 
 
-class BreweryDetailViewController: UIViewController, UINavigationControllerDelegate {
+class BreweryDetailViewController: UIViewController {
     
     var dismissAction: (() -> ())?
     private var brewery: BreweryObject?
@@ -100,9 +100,9 @@ class BreweryDetailViewController: UIViewController, UINavigationControllerDeleg
         viewModel.$stateRatedBrewery.sink { [weak self] state in
             switch state {
             case .evaluated:
-                self?.successStateRated()
+                self?.showAlreadyRatedView()
             case .noEvaluated:
-                self?.failureStateRated()
+                self?.showRatingButton()
             case .none:
                 break
             }
@@ -117,20 +117,20 @@ class BreweryDetailViewController: UIViewController, UINavigationControllerDeleg
         }
     }
     
-    private func successStateRated() {
+    private func showAlreadyRatedView() {
         DispatchQueue.main.async {[weak self] in
             self?.sucessRatedBrewery()
         }
     }
     
-    private func failureStateRated() {
+    private func showRatingButton() {
         DispatchQueue.main.async {[weak self] in
             self?.avaliacaoBotao.isHidden = false
         }
     }
     
     internal func getRatedBreweries(id: String) {
-        viewModel.fetchRatedBreweryBy(id: id)
+        viewModel.checkRatingByBrewery(id: id)
     }
     
     private func getBreweryBy(id: String) {
