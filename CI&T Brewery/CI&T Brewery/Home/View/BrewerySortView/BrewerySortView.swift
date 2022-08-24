@@ -8,11 +8,21 @@
 import Foundation
 import UIKit
 
+public enum SortType{
+    case sortedName
+    case sortedRating
+}
+
+public protocol SortViewDelegate: AnyObject{
+    
+    func didSorted(type: SortType)
+}
+
 public class SortView: UIView{
     
     var byNameButtonSelected = false
     var byRatingButtonSelected = false
-    
+    public weak var delegate: SortViewDelegate?
     @IBOutlet weak var titleLabel: UILabel!{
         didSet {
             titleLabel.font = UIFont.robotoRegular(ofSize: 16)
@@ -20,11 +30,12 @@ public class SortView: UIView{
             titleLabel.text = NSLocalizedString("Ordenar por", comment: "")
         }
     }
-    @IBOutlet weak var sortByName: UIStackView!{
-        didSet {
-            addBottomSeparator(uiStackView: sortByName)
-        }
-    }
+    @IBOutlet weak var sortByName: UIStackView!
+//    {
+//        didSet {
+//            addBottomSeparator(uiStackView: sortByName)
+//        }
+//    }
     @IBOutlet weak var byNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!{
         didSet {
@@ -60,13 +71,14 @@ public class SortView: UIView{
         addSubview(viewFromXib)
     }
     
-    private func addBottomSeparator(uiStackView: UIStackView) {
-        uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0)
-    }
+//    private func addBottomSeparator(uiStackView: UIStackView) {
+//        uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0)
+//    }
     
     @IBAction func isByNameButtonSelected(_ sender: Any) {
         if byNameButtonSelected == false {
             byNameButtonSelected = true
+            delegate?.didSorted(type: .sortedName)
             customizeNameButtonSelected()
             customizeRatingButtonNoSelected()
         }
@@ -78,6 +90,7 @@ public class SortView: UIView{
     @IBAction func isByRatingButtonSelected(_ sender: Any) {
         if byRatingButtonSelected == false {
             byRatingButtonSelected = true
+            delegate?.didSorted(type: .sortedRating)
             customizeRatingButtonSelected()
             customizeNameButtonNoSelected()
         }
@@ -99,7 +112,6 @@ public class SortView: UIView{
     func customizeRatingButtonNoSelected(){
         byRatingButton.setImage(UIImage(named: "RadioDisabled"), for: .normal)
     }
-    
 }
 
 

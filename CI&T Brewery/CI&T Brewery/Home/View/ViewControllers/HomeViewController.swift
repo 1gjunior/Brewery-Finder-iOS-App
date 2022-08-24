@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
     private lazy var listView: BreweryListView = {
         let listView = BreweryListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 800.0))
         listView.translatesAutoresizingMaskIntoConstraints = false
+        listView.delegate = self
         return listView
     }()
     
@@ -237,4 +238,18 @@ extension HomeViewController: UISearchBarDelegate {
         func dismissKeyboard() {
             view.endEditing(true)
         }
+}
+
+extension HomeViewController: BreweryListViewDelegate{
+    
+    func didSorted(type: SortType) {
+        switch type{
+        case .sortedName:
+            viewModel.sortedBreweries = .sortedName
+        case .sortedRating:
+            viewModel.sortedBreweries = .sortedRating
+        }
+    }
+    
+    
 }

@@ -7,6 +7,11 @@
 
 import UIKit
 
+public protocol BreweryListViewDelegate: AnyObject{
+    
+    func didSorted(type: SortType)
+}
+
 class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet var contentView: UIView!
@@ -17,18 +22,20 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     private var action: ((_ id: String) -> ())?
     
     private lazy var sortView: SortView = {
-        let sortView = SortView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: 0.0))
+        let sortView = SortView()
         sortView.translatesAutoresizingMaskIntoConstraints = false
+        sortView.delegate = self
         return sortView
     }()
     
+    weak var delegate: BreweryListViewDelegate?
+    
     private func constraintSortView() {
         sortView.translatesAutoresizingMaskIntoConstraints = false
-        sortView.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor, constant: 400).isActive = true
         sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        sortView.heightAnchor.constraint(equalToConstant: 100).isActive = false
+        sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
 
@@ -90,4 +97,12 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView.reloadData()
         self.action = actionForCell
     }
+}
+
+extension BreweryListView: SortViewDelegate {
+    
+    func didSorted(type: SortType) {
+        delegate?.didSorted(type: type)
+    }
+    
 }

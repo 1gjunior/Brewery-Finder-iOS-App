@@ -503,8 +503,8 @@
 		D2AF0AD128B51CDB00EAF89B /* BrewerySortView */ = {
 			isa = PBXGroup;
 			children = (
-				D2AF0AD228B51D0300EAF89B /* BrewerySortView.xib */,
 				D2AF0AD428B51D3500EAF89B /* BrewerySortView.swift */,
+				D2AF0AD228B51D0300EAF89B /* BrewerySortView.xib */,
 			);
 			path = BrewerySortView;
 			sourceTree = "<group>";
