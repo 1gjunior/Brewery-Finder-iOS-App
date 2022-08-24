@@ -16,12 +16,12 @@
 		2B92A12028AC4E8100E6FB05 /* BreweryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11F28AC4E8100E6FB05 /* BreweryDetailViewModel.swift */; };
 		2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */; };
 		2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A12328AC587000E6FB05 /* BreweryObject.swift */; };
+		2BCFD90828B6682800F3DFA9 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BCFD90728B6682800F3DFA9 /* RatingViewController.xib */; };
 		2BD6CECB28AEAD1400B729C4 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6CECA28AEAD1400B729C4 /* UIFontExtension.swift */; };
 		2BD6CECD28AEAED900B729C4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6CECC28AEAED900B729C4 /* UIColorExtension.swift */; };
 		2BD6CECF28AEFB3000B729C4 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6CECE28AEFB3000B729C4 /* FileManagerExtension.swift */; };
 		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
 		2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460D28AAB08C00CFC657 /* App+Injection.swift */; };
-		336DB66428B65FDA00614046 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 336DB66328B65FDA00614046 /* RatingViewController.xib */; };
 		337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */; };
 		337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */; };
 		337D825828AC0B2A00DBAA56 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */; };
@@ -103,12 +103,12 @@
 		2B92A12328AC587000E6FB05 /* BreweryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryObject.swift; sourceTree = "<group>"; };
 		2BCB6A0228AD11780037099C /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
 		2BCB6A0328AD117F0037099C /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		2BCFD90728B6682800F3DFA9 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
 		2BD6CECA28AEAD1400B729C4 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		2BD6CECC28AEAED900B729C4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		2BD6CECE28AEFB3000B729C4 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BD9460D28AAB08C00CFC657 /* App+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Injection.swift"; sourceTree = "<group>"; };
-		336DB66328B65FDA00614046 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RatingViewController.xib; path = ../../../../../RatingViewController.xib; sourceTree = "<group>"; };
 		337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -349,7 +349,7 @@
 		B99B87E128AD72A000BF31A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				336DB66328B65FDA00614046 /* RatingViewController.xib */,
+				2BCFD90728B6682800F3DFA9 /* RatingViewController.xib */,
 				33BD22B228AD7C8F0004FEE4 /* SucessStateView.xib */,
 				33BD22B628AD86530004FEE4 /* SucessStateView.swift */,
 				B93EF76128AE8D0100BFA9C6 /* FailureStateView.xib */,
@@ -600,7 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				337D825D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf in Resources */,
-				336DB66428B65FDA00614046 /* RatingViewController.xib in Resources */,
+				2BCFD90828B6682800F3DFA9 /* RatingViewController.xib in Resources */,
 				B93EF76328AE8D0200BFA9C6 /* FailureStateView.xib in Resources */,
 				33DD4E2E28AEC1A60077D800 /* BreweryDetailView.xib in Resources */,
 				337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */,
