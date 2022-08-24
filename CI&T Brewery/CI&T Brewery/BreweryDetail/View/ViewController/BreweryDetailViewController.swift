@@ -102,7 +102,7 @@ class BreweryDetailViewController: UIViewController, UINavigationControllerDeleg
             case .evaluated:
                 self?.successStateRated()
             case .noEvaluated:
-                print("não avaliada")
+                self?.failureStateRated()
             case .none:
                 break
             }
@@ -120,6 +120,12 @@ class BreweryDetailViewController: UIViewController, UINavigationControllerDeleg
     private func successStateRated() {
         DispatchQueue.main.async {[weak self] in
             self?.sucessRatedBrewery()
+        }
+    }
+    
+    private func failureStateRated() {
+        DispatchQueue.main.async {[weak self] in
+            self?.avaliacaoBotao.isHidden = false
         }
     }
     
