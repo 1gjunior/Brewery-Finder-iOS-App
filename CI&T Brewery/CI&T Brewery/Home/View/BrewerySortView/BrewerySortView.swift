@@ -23,6 +23,7 @@ public class SortView: UIView{
     var byNameButtonSelected = false
     var byRatingButtonSelected = false
     public weak var delegate: SortViewDelegate?
+    @IBOutlet weak var view: UIView!
     @IBOutlet weak var titleLabel: UILabel!{
         didSet {
             titleLabel.font = UIFont.robotoRegular(ofSize: 16)
@@ -31,11 +32,6 @@ public class SortView: UIView{
         }
     }
     @IBOutlet weak var sortByName: UIStackView!
-//    {
-//        didSet {
-//            addBottomSeparator(uiStackView: sortByName)
-//        }
-//    }
     @IBOutlet weak var byNameButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!{
         didSet {
@@ -71,10 +67,6 @@ public class SortView: UIView{
         addSubview(viewFromXib)
     }
     
-//    private func addBottomSeparator(uiStackView: UIStackView) {
-//        uiStackView.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.breweryGrayLight(), thickness: 1.0)
-//    }
-    
     @IBAction func isByNameButtonSelected(_ sender: Any) {
         if byNameButtonSelected == false {
             byNameButtonSelected = true
@@ -86,6 +78,7 @@ public class SortView: UIView{
             byNameButtonSelected = false
             customizeNameButtonNoSelected()
         }
+        view.isHidden = true
     }
     @IBAction func isByRatingButtonSelected(_ sender: Any) {
         if byRatingButtonSelected == false {
@@ -98,6 +91,7 @@ public class SortView: UIView{
             byRatingButtonSelected = false
             customizeRatingButtonNoSelected()
         }
+        view.isHidden = true
     }
     
     func customizeNameButtonSelected(){

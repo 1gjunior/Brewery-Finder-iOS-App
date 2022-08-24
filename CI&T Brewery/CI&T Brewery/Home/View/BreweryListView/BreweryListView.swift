@@ -40,6 +40,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     
 
     @IBAction func goToSortView(_ sender: Any) {
+        sortView.view.isHidden = false
         contentView.addSubview(sortView)
         constraintSortView()
     }

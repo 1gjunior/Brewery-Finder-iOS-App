@@ -64,7 +64,7 @@ class HomeViewModel {
         case .sortedName:
          return  brewries.sorted(by: {$0.name < $1.name})
         case .sortedRating:
-         return  brewries.sorted(by: {$0.average > $1.average})
+         return  brewries.sorted(by: {$0.average < $1.average})
         }
     }
     

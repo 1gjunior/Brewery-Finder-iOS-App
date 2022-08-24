@@ -16,6 +16,7 @@
                 <outlet property="sortByName" destination="Wtr-PG-ryW" id="JLr-5R-by2"/>
                 <outlet property="sortByRating" destination="bym-JP-qRO" id="h8b-YX-dld"/>
                 <outlet property="titleLabel" destination="ImH-PM-UbK" id="Onh-VW-cBY"/>
+                <outlet property="view" destination="iN0-l3-epB" id="eda-2Q-kCk"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
