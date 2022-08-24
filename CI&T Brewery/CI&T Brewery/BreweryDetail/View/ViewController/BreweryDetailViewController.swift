@@ -10,11 +10,8 @@ import UIKit
 import Combine
 import Resolver
 
-protocol ShowRatedBreweryDelegate: AnyObject {
-    func getRatedBreweries(id: String)
-}
 
-class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, UINavigationControllerDelegate {
+class BreweryDetailViewController: UIViewController, UINavigationControllerDelegate {
     
     var dismissAction: (() -> ())?
     private var brewery: BreweryObject?
@@ -47,8 +44,12 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
     
     @IBAction func goToRatingView(_ sender: Any) {
         let ratingViewController = RatingViewController(breweryObject: brewery!, id: id)
-        ratingViewController.delegate = self
+        ratingViewController.dismissActionBreweryDetail =  updateRatedBrewery
         present(ratingViewController, animated: true, completion: nil)
+    }
+    
+    private func updateRatedBrewery() {
+        getRatedBreweries(id: id)
     }
     
     
@@ -71,12 +72,10 @@ class BreweryDetailViewController: UIViewController, ShowRatedBreweryDelegate, U
         getBreweryBy(id: id)
         sinkBrewery()
         sinkRatedBrewery()
-        //getRatedBreweries(id: id)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("WILL APPEAR")
         getRatedBreweries(id: id)
     }
     

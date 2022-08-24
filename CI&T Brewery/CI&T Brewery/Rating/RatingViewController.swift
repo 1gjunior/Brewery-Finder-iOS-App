@@ -15,9 +15,8 @@ import Cosmos
 
 class RatingViewController: UIViewController {
     
-    
+    var dismissActionBreweryDetail: (() -> ())?
     @IBOutlet weak var ratingView: UIView!
-    weak var delegate: ShowRatedBreweryDelegate?
     var wasSucess: Bool?
     @IBOutlet weak var checkboxLabel: UILabel!
     @IBOutlet weak var ratingStarsView: CosmosView!
@@ -37,7 +36,6 @@ class RatingViewController: UIViewController {
     }
     
     @IBAction func dismissRatingView(_ sender: Any) {
-        delegate?.getRatedBreweries(id: id ?? "")
         self.dismiss(animated: true)
     }
     
@@ -59,6 +57,12 @@ class RatingViewController: UIViewController {
         
         sinkEmailState()
         setGeneralTitle()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let dismissActionBreweryDetail = dismissActionBreweryDetail else {return}
+        dismissActionBreweryDetail()
     }
     
     deinit {
