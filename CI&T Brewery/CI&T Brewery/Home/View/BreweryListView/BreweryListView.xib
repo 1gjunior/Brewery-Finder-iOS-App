@@ -42,7 +42,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="filter_list_24px"/>
                     <connections>
-                        <action selector="a:" destination="-1" eventType="touchUpInside" id="ztp-20-46i"/>
+                        <action selector="goToSortView:" destination="-1" eventType="touchUpInside" id="fSc-8W-0ZX"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordenar por: Nota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kav-Cg-XiF">

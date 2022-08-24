@@ -23,15 +23,15 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ordenar por" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImH-PM-UbK">
-                    <rect key="frame" x="154" y="23" width="93" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordenar por" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImH-PM-UbK">
+                    <rect key="frame" x="154" y="23" width="93" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wtr-PG-ryW">
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" id="Wtr-PG-ryW">
                     <rect key="frame" x="33" y="60" width="334" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN1-D7-7Jn">
                             <rect key="frame" x="0.0" y="19" width="20" height="2"/>
@@ -42,7 +42,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="RadioDisabled"/>
                             <connections>
-                                <action selector="byNameButtonClicked:" destination="-1" eventType="touchUpInside" id="nXV-QA-suk"/>
+                                <action selector="isByNameButtonSelected:" destination="-1" eventType="touchUpInside" id="7KL-38-vlf"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWU-Jq-6NO">
@@ -57,8 +57,9 @@
                         <constraint firstAttribute="height" constant="40" id="2Lm-nX-DGd"/>
                     </constraints>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bym-JP-qRO">
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" id="bym-JP-qRO">
                     <rect key="frame" x="33" y="100" width="334" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-B2-LZq">
                             <rect key="frame" x="0.0" y="19" width="20" height="2"/>
@@ -69,7 +70,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="RadioDisabled"/>
                             <connections>
-                                <action selector="byRatingButtonClicked:" destination="-1" eventType="touchUpInside" id="mFb-sV-Rh5"/>
+                                <action selector="isByRatingButtonSelected:" destination="-1" eventType="touchUpInside" id="Cah-VZ-TxU"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SD-uk-iKk">
@@ -89,15 +90,18 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="ImH-PM-UbK" secondAttribute="trailing" constant="153" id="133-WE-SRn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bym-JP-qRO" secondAttribute="trailing" constant="33" id="2L1-ay-Gk6"/>
+                <constraint firstItem="ImH-PM-UbK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="154" id="Dsf-tN-A4w"/>
                 <constraint firstItem="Wtr-PG-ryW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="33" id="Edc-dN-lSI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bym-JP-qRO" secondAttribute="bottom" constant="10" id="XLy-iA-fNv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Wtr-PG-ryW" secondAttribute="trailing" constant="33" id="hj3-jB-b32"/>
                 <constraint firstItem="Wtr-PG-ryW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="t1M-eI-a2d"/>
                 <constraint firstItem="bym-JP-qRO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="33" id="ttk-AY-Iz3"/>
+                <constraint firstItem="ImH-PM-UbK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="ycH-Hq-T1o"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-349" y="41"/>
+            <point key="canvasLocation" x="-262" y="42"/>
         </view>
     </objects>
     <resources>

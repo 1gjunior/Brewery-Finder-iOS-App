@@ -68,6 +68,7 @@ public class SortView: UIView{
         if byNameButtonSelected == false {
             byNameButtonSelected = true
             customizeNameButtonSelected()
+            customizeRatingButtonNoSelected()
         }
         else {
             byNameButtonSelected = false
@@ -78,6 +79,7 @@ public class SortView: UIView{
         if byRatingButtonSelected == false {
             byRatingButtonSelected = true
             customizeRatingButtonSelected()
+            customizeNameButtonNoSelected()
         }
         else {
             byRatingButtonSelected = false

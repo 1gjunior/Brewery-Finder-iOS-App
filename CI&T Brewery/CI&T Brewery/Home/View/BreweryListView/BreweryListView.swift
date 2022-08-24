@@ -14,10 +14,29 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var sortLabel: UILabel!
     private var breweries: [Brewery] = []
-    private var action: ((_ id: String) -> ())? 
+    private var action: ((_ id: String) -> ())?
     
-    @IBAction func goToSortView(_ sender: UIButton) {
+    private lazy var sortView: SortView = {
+        let sortView = SortView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: 0.0))
+        sortView.translatesAutoresizingMaskIntoConstraints = false
+        return sortView
+    }()
+    
+    private func constraintSortView() {
+        sortView.translatesAutoresizingMaskIntoConstraints = false
+        sortView.topAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.topAnchor, constant: 400).isActive = true
+        sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        sortView.heightAnchor.constraint(equalToConstant: 100).isActive = false
     }
+    
+
+    @IBAction func goToSortView(_ sender: Any) {
+        contentView.addSubview(sortView)
+        constraintSortView()
+    }
+    
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,5 +91,3 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.action = actionForCell
     }
 }
-
-
