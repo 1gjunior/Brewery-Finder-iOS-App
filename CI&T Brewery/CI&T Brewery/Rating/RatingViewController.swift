@@ -9,10 +9,17 @@ import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import Resolver
 import Combine
+import Cosmos
 
 class RatingViewController: UIViewController {
     
-    @IBOutlet weak var ratingStarsView: UIView!
+    @IBOutlet weak var ratingStarsView: CosmosView! {
+        didSet {
+            ratingStarsView.rating = 0
+            ratingStarsView.settings.fillMode = .full
+            ratingStarsView.didTouchCosmos = self.validaCosmosView
+        }
+    }
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var generalTitle: UILabel!
@@ -109,12 +116,17 @@ class RatingViewController: UIViewController {
         ratingViewModel.saveUserEmailInFileStorage(emailText: emailText)
     }
     
+    private func validaCosmosView(_ double: Double) {
+        guard let emailText = textField.text else { return }
+        ratingViewModel.fieldsValidation(emailText: emailText, rating: ratingStarsView.rating)
+    }
+    
     func configureCheckbox() {
         checkboxButton.setImage(UIImage(named: "Unchecked"), for: .normal)
         checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
         checkboxButton.setImage(UIImage(named: "CheckboxDisabled"), for: .disabled)
         
-        ratingViewModel.isEmailValid(emailText: "")
+        ratingViewModel.fieldsValidation(emailText: "", rating: 0)
     }
         
     func setGeneralTitle() {
@@ -122,7 +134,7 @@ class RatingViewController: UIViewController {
     }
     
     private func sinkEmailState() {
-        ratingViewModel.$emailState.sink { [weak self] state in
+        ratingViewModel.$fieldsState.sink { [weak self] state in
             switch state {
             case .blank:
                 self?.blankFields()
@@ -177,6 +189,6 @@ extension RatingViewController: UITextFieldDelegate {
         guard let emailText = textField.text else {
             return
         }
-        ratingViewModel.isEmailValid(emailText: emailText)
+        ratingViewModel.fieldsValidation(emailText: emailText, rating: ratingStarsView.rating)
     }
 }
