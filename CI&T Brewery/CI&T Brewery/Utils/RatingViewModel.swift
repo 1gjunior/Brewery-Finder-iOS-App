@@ -7,14 +7,14 @@
 
 import Foundation
 
-enum EmailState {
+enum FieldsState {
     case blank
     case invalid
     case valid
 }
 
 class RatingViewModel {
-    @Published private(set) var emailState: EmailState = .blank
+    @Published private(set) var fieldsState: FieldsState = .blank
     
     public func saveUserEmailInFileStorage(emailText: String) {
         let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
@@ -26,13 +26,13 @@ class RatingViewModel {
         }
     }
     
-    public func isEmailValid(emailText: String) {
-        if (emailText.isEmpty) {
-            emailState = .blank
-        } else if emailText.isEmail() {
-            emailState = .valid
+    public func fieldsValidation(emailText: String, rating: Double) {
+        if !emailText.isEmpty && !emailText.isEmail() {
+            fieldsState = .invalid
+        } else if emailText.isEmail() && rating > 0 {
+            fieldsState = .valid
         } else {
-            emailState = .invalid
+            fieldsState = .blank
         }
     }
 }
