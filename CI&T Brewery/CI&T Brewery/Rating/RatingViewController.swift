@@ -19,7 +19,12 @@ class RatingViewController: UIViewController {
     @IBOutlet weak var ratingView: UIView!
     var wasSucess: Bool?
     @IBOutlet weak var checkboxLabel: UILabel!
-    @IBOutlet weak var ratingStarsView: CosmosView!
+    @IBOutlet weak var ratingStarsView: CosmosView! {
+        didSet {
+            ratingStarsView.rating = 0
+            ratingStarsView.settings.fillMode = .full
+        }
+    }
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var generalTitle: UILabel!
