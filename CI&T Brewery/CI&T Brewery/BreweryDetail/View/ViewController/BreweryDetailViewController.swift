@@ -43,7 +43,8 @@ class BreweryDetailViewController: UIViewController, UINavigationControllerDeleg
     
     
     @IBAction func goToRatingView(_ sender: Any) {
-        let ratingViewController = RatingViewController(breweryObject: brewery!, id: id)
+        guard let brewery = brewery else {return}
+        let ratingViewController = RatingViewController(breweryObject: brewery, id: id)
         ratingViewController.dismissActionBreweryDetail =  updateRatedBrewery
         present(ratingViewController, animated: true, completion: nil)
     }

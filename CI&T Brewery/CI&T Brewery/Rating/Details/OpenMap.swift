@@ -25,7 +25,8 @@ class OpenMapDirections: OpenMapDirectionsProtocol{
         let actionSheet = UIAlertController(title: alertTitle , message: alertMessage, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: actionTitle, style: .default, handler: { _ in
             let url = URL(string: urlGoogleMaps + "\(latitude),\(longitude)")
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+            guard let url = url else {return}
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }))
         actionSheet.addAction(UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: nil))
         viewController.present(actionSheet, animated: true, completion: nil)
