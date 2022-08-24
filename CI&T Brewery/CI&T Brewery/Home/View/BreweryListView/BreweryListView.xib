@@ -11,6 +11,8 @@
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="TA4-M9-bb9"/>
                 <outlet property="resultsLabel" destination="8Pj-wN-ZLb" id="P5k-yj-9Xc"/>
+                <outlet property="sortButton" destination="mn1-Q6-NJJ" id="1Yr-hP-cwj"/>
+                <outlet property="sortLabel" destination="kav-Cg-XiF" id="YLZ-7n-M6N"/>
                 <outlet property="tableView" destination="lgX-yP-WKw" id="cAH-cQ-d6r"/>
             </connections>
         </placeholder>
@@ -32,26 +34,49 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lgX-yP-WKw">
-                    <rect key="frame" x="0.0" y="98" width="478" height="402"/>
+                    <rect key="frame" x="0.0" y="118" width="478" height="382"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mn1-Q6-NJJ">
+                    <rect key="frame" x="420" y="99" width="42" height="26"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="filter_list_24px"/>
+                    <connections>
+                        <action selector="goToSortView:" destination="-1" eventType="touchUpInside" id="fSc-8W-0ZX"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordenar por: Nota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kav-Cg-XiF">
+                    <rect key="frame" x="16" y="99" width="115.5" height="26"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mn1-Q6-NJJ" secondAttribute="trailing" constant="16" id="DCX-Qk-rCS"/>
                 <constraint firstItem="dqQ-Qs-4op" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="RIm-EZ-Dln"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mn1-Q6-NJJ" secondAttribute="trailing" constant="16" id="UOS-cV-3Jq"/>
+                <constraint firstItem="kav-Cg-XiF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="cr4-nc-CV1"/>
                 <constraint firstItem="8Pj-wN-ZLb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="d90-zT-jaf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lgX-yP-WKw" secondAttribute="trailing" id="g07-iG-Kgr"/>
+                <constraint firstItem="kav-Cg-XiF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="55" id="ghZ-8g-KVP"/>
+                <constraint firstItem="mn1-Q6-NJJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="55" id="i9L-3t-tHz"/>
                 <constraint firstItem="8Pj-wN-ZLb" firstAttribute="top" secondItem="dqQ-Qs-4op" secondAttribute="bottom" constant="5" id="jgR-Gw-t5f"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8Pj-wN-ZLb" secondAttribute="trailing" constant="16" id="krG-pV-5GH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dqQ-Qs-4op" secondAttribute="trailing" constant="16" id="lFg-sO-ycC"/>
+                <constraint firstItem="kav-Cg-XiF" firstAttribute="centerY" secondItem="mn1-Q6-NJJ" secondAttribute="centerY" id="mIo-cj-pq6"/>
                 <constraint firstItem="dqQ-Qs-4op" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="rqV-eR-Di6"/>
                 <constraint firstItem="lgX-yP-WKw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ryC-J4-CG5"/>
-                <constraint firstItem="lgX-yP-WKw" firstAttribute="top" secondItem="8Pj-wN-ZLb" secondAttribute="bottom" constant="5" id="yIf-ZP-ui1"/>
+                <constraint firstItem="lgX-yP-WKw" firstAttribute="top" secondItem="8Pj-wN-ZLb" secondAttribute="bottom" constant="25" id="yIf-ZP-ui1"/>
                 <constraint firstItem="lgX-yP-WKw" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="yVx-8d-odS"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="178.2608695652174" y="253.125"/>
+            <point key="canvasLocation" x="252" y="228"/>
         </view>
     </objects>
+    <resources>
+        <image name="filter_list_24px" width="18" height="12"/>
+    </resources>
 </document>

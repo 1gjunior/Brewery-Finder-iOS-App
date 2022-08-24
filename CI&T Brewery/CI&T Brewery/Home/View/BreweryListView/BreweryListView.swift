@@ -7,12 +7,44 @@
 
 import UIKit
 
+public protocol BreweryListViewDelegate: AnyObject{
+    
+    func didSorted(type: SortType)
+}
+
 class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet var contentView: UIView!
     @IBOutlet private var resultsLabel: UILabel!
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var sortLabel: UILabel!
     private var breweries: [Brewery] = []
-    private var action: ((_ id: String) -> ())? 
+    private var action: ((_ id: String) -> ())?
+    
+    private lazy var sortView: SortView = {
+        let sortView = SortView()
+        sortView.translatesAutoresizingMaskIntoConstraints = false
+        sortView.delegate = self
+        return sortView
+    }()
+    
+    weak var delegate: BreweryListViewDelegate?
+    
+    private func constraintSortView() {
+        sortView.translatesAutoresizingMaskIntoConstraints = false
+        sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
+
+    @IBAction func goToSortView(_ sender: Any) {
+        sortView.view.isHidden = false
+        contentView.addSubview(sortView)
+        constraintSortView()
+    }
+    
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,4 +100,10 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
+extension BreweryListView: SortViewDelegate {
+    
+    func didSorted(type: SortType) {
+        delegate?.didSorted(type: type)
+    }
+    
+}
