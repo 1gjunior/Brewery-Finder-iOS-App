@@ -65,6 +65,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         hideKeyboard()
     }
     
+    
     func setupErrorState(error: EmptyError) {
         changingState(view: errorStateView)
         view.addSubview(errorStateView)
@@ -89,7 +90,12 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     internal func goToDetailWith(id: String) {
         let breweryDetailViewController = BreweryDetailViewController(id: id)
+        breweryDetailViewController.dismissAction = updateBrewery
         self.navigationController?.pushViewController(breweryDetailViewController, animated: true)
+    }
+    
+    private func updateBrewery() {
+        getBreweriesBy(city: searchBar.text ?? "")
     }
     
     private func constraintListView() {
@@ -216,12 +222,12 @@ extension HomeViewController {
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.getBreweriesBy(city: searchBar.text ?? "")
+        self.updateBrewery()
         searchBar.resignFirstResponder()
     }
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         if searchBar.selectedScopeButtonIndex == 1{
-        self.getBreweriesBy(city: searchBar.text ?? "")}
+            self.updateBrewery()}
     }
         func hideKeyboard() {
             let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))

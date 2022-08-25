@@ -8,18 +8,20 @@
 import Foundation
 import Combine
 
-protocol APIManagerService {
-    func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
-    func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, NetworkError>) -> Void)
-}
-
 enum NetworkError: Error {
     case responseError
     case requestError
 }
 
+protocol APIManagerService {
+    func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
+    func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, NetworkError>) -> Void)
+}
+
 class APIManager: APIManagerService {
+    
     private var subscribers = Set<AnyCancellable>()
+    
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void) {
         URLSession.shared.dataTaskPublisher(for: url)
             .map{ $0.data }
@@ -34,6 +36,8 @@ class APIManager: APIManagerService {
                 completion(.success(result))
             }).store(in: &subscribers)
     }
+    
+    
     func postItem<T: Codable, R: Decodable>(request: T, completion: @escaping (Result<R, NetworkError>) -> Void) {
         guard let url = BreweryAPIService.postBreweryEvaluationURLString() else { return }
         
@@ -43,7 +47,8 @@ class APIManager: APIManagerService {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = jsonData
         URLSession.shared.dataTaskPublisher(for: request)
-            .map{$0.response}
+            .map{$0.data}
+            .decode(type: R.self, decoder: JSONDecoder())
             .sink(receiveCompletion: { (resultCompletion) in
                 switch resultCompletion {
                 case .failure:
@@ -51,11 +56,7 @@ class APIManager: APIManagerService {
                 case .finished: break
                 }
             }, receiveValue: { (result) in
-                if let result = result as? R{
-                    completion(.success(result ))}
-                else {
-                    completion(.failure(.responseError))
-                }
+                completion(.success(result))
             })
             .store(in: &subscribers)
     }

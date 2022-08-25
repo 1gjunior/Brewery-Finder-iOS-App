@@ -46,6 +46,7 @@ struct Brewery: Codable, Hashable {
         case photos
     }
 }
+
 struct BreweryEvaluation: Codable {
     let email: String
     let breweryId: String
@@ -57,4 +58,10 @@ struct BreweryEvaluation: Codable {
         case breweryId = "brewery_id"
         case evaluationGrade = "evaluation_grade"
     }
+}
+
+struct ApiEvaluationResponse: Codable {
+    let email: String
+    let breweryId: String
+    let evaluationGrade: Double
 }

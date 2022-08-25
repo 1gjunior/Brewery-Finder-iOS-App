@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FailureStateView" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
-                <outlet property="failureStateLabel" destination="cZ6-BB-gcj" id="L5Q-Gw-IVk"/>
+                <outlet property="failureStateLabel" destination="cZ6-BB-gcj" id="8OI-xS-cO4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

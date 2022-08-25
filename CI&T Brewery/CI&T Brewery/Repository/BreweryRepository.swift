@@ -10,8 +10,9 @@ import Foundation
 protocol BreweryRepositoryProtocol {
     func getBreweriesBy(city by_city: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
     func getBreweryBy(id: String, completion: @escaping (Result<Brewery, Error>) -> Void)
-    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void)
+    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void)
     func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void)
+    func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
 }
 
 class BreweryRepository: BreweryRepositoryProtocol {
@@ -47,15 +48,13 @@ class BreweryRepository: BreweryRepositoryProtocol {
         }
     }
     
-    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<BreweryEvaluation, NetworkError>) -> Void) {
+    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void) {
         
-        apiManager.postItem(request: evaluation) { (result: Result<BreweryEvaluation, NetworkError>) in
+        apiManager.postItem(request: evaluation) { (result: Result<ApiEvaluationResponse, NetworkError>) in
             switch result {
-            case .success(let result):
-                print("repository")
-                completion(.success(result))
+            case .success(let data):
+                completion(.success(data))
             case .failure(let error):
-                print("fail")
                 completion(.failure(error))
             }
         }
@@ -69,9 +68,24 @@ class BreweryRepository: BreweryRepositoryProtocol {
             case .success(let data):
                 completion(.success(data))
             case .failure(let error):
+
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
+        guard let url = BreweryAPIService.getRatedBrewerisByEmail(email: email) else { return }
+        apiManager.fetchItems(url: url) { (result: Result<[Brewery], Error>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+
+                completion(.failure(error))
+            }
+        }
+
     }
 }
 

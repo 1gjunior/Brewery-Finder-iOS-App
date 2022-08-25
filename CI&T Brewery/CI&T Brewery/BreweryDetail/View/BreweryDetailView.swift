@@ -7,15 +7,19 @@
 
 import UIKit
 import Cosmos
+import Resolver
 
 class BreweryDetailView: UIView {
+    
+    @Injected private var breweryDetailViewModel: BreweryDetailViewModel
+    
     @IBOutlet weak var viewTitle: UILabel! {
         didSet {
             viewTitle.font = UIFont.robotoRegular(ofSize: 24)
             viewTitle.textColor = UIColor.breweryBlack()
         }
     }
-        
+    
     @IBOutlet var dataView: UIView! {
         didSet {
             dataView.layer.cornerRadius = 30
@@ -74,6 +78,7 @@ class BreweryDetailView: UIView {
         didSet {
             address.font = UIFont.robotoLight(ofSize: 14)
             address.textColor = UIColor.breweryBlack()
+            
         }
     }
     
@@ -91,10 +96,9 @@ class BreweryDetailView: UIView {
             ] as [NSAttributedString.Key : Any]
             let attrString = NSMutableAttributedString(string: NSLocalizedString("seeOnMap", comment: ""), attributes:attrs)
             mapText.setAttributedTitle(attrString, for: .normal)
-                           
             // alinha o texto completamente a esquerda
             mapText.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
-
+            
             NSLayoutConstraint.activate([
                 mapText.titleLabel!.leadingAnchor.constraint(equalTo: mapText.leadingAnchor),
                 mapText.titleLabel!.trailingAnchor.constraint(equalTo: mapText.trailingAnchor),
@@ -113,13 +117,13 @@ class BreweryDetailView: UIView {
     }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
-            evaluateBreweryButton.layer.borderColor = UIColor.breweryYellowLight().cgColor
-            evaluateBreweryButton.layer.borderWidth = 1
-            evaluateBreweryButton.layer.cornerRadius = 18
-            evaluateBreweryButton.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
+            evaluateBreweryButton?.layer.borderColor = UIColor.breweryYellowLight().cgColor
+            evaluateBreweryButton?.layer.borderWidth = 1
+            evaluateBreweryButton?.layer.cornerRadius = 18
+            evaluateBreweryButton?.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
         }
     }
-        
+    
     @IBAction func fadeButtonTouchDown(sender: UIButton) {
         sender.isHighlighted = false
         UIView.animate(
@@ -129,10 +133,10 @@ class BreweryDetailView: UIView {
                       .allowUserInteraction,
                       .beginFromCurrentState],
             animations: {
-            sender.alpha = 0.75
-        }, completion: nil)
+                sender.alpha = 0.75
+            }, completion: nil)
     }
-
+    
     @IBAction func fadeButtonTouchUpInside(sender: UIButton) {
         sender.isHighlighted = false
         sender.alpha = 1
@@ -151,5 +155,10 @@ class BreweryDetailView: UIView {
         website.text = brewery.website
         address.text = brewery.address
         cosmosView.rating = brewery.average
+        if !(breweryDetailViewModel.isCoordinationAvailable(brewery: brewery)) {
+            mapStackView.isHidden = true
+            addPhotoButton.topAnchor.constraint(equalTo: addressStackView.bottomAnchor, constant: 15).isActive = true
+            dataView.heightAnchor.constraint(equalToConstant: 320).isActive = true
+        }
     }
 }

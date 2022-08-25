@@ -29,7 +29,17 @@
 "Cancel" = "Cancelar";
 "seeOnMap" = "Ver no mapa";
 
+/* RatingViewController */
+
+"EvaluationAddSucess" = "Sua avaliação foi \n adicionada com sucesso!";
+"EvaluationAddFailure" =  "Não foi possível adicionar sua avaliação. \n Tente mais tarde.";
+
 /* BrewerySortView */
 "Ordenar por" = "Ordenar por";
 "Nome (A a Z)" = "Nome (A a Z)";
 "Nota (menor para maior)" = "Nota (menor para maior)";
+
+
+/*BreweryDetailViewController*/
+"ratedBrewery" = "Você já avaliou essa \ncervejaria";
+

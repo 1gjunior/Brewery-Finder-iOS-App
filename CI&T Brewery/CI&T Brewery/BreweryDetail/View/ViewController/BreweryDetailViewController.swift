@@ -10,7 +10,23 @@ import UIKit
 import Combine
 import Resolver
 
+
 class BreweryDetailViewController: UIViewController {
+    
+    var dismissAction: (() -> ())?
+    private var brewery: BreweryObject?
+    private var breweryDetailView: BreweryDetailView?
+    var lastEmail: String?
+    @IBOutlet weak var ratedBreweryView: RatedBreweryView!
+    @IBOutlet weak var heightDataView: NSLayoutConstraint!
+    @IBOutlet weak var avaliacaoBotao: UIButton! {
+        didSet {
+            avaliacaoBotao?.layer.borderColor = UIColor.breweryYellowLight().cgColor
+            avaliacaoBotao?.layer.borderWidth = 1
+            avaliacaoBotao?.layer.cornerRadius = 18
+            avaliacaoBotao?.layer.backgroundColor = UIColor.breweryYellowLight().cgColor
+        }
+    }
     
     @Injected var viewModel: BreweryDetailViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -25,9 +41,34 @@ class BreweryDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     @IBAction func goToRatingView(_ sender: Any) {
-        let ratingViewController = RatingViewController(id: id)
-           present(ratingViewController, animated: true, completion: nil)
+        guard let brewery = brewery else {return}
+        let ratingViewController = RatingViewController(breweryObject: brewery, id: id)
+        ratingViewController.dismissActionBreweryDetail =  updateRatedBrewery
+        present(ratingViewController, animated: true, completion: nil)
+    }
+    
+    private func updateRatedBrewery() {
+        getRatedBreweries(id: id)
+    }
+    
+    
+    @IBAction func openMapButton(_ sender: Any) {
+        guard let brewery = brewery,
+        let breweryLatitude = brewery.latitute,
+        let breweryLongitude = brewery.longitude
+        else {return}
+        OpenMapDirections.present(in: self, sourceView: view, latitude: breweryLatitude, longitude: breweryLongitude)
+    }
+    
+    private func sucessRatedBrewery() {
+        getBreweryBy(id: id)
+        avaliacaoBotao.isHidden = true
+        heightDataView.constant = heightDataView.constant + 40
+        ratedBreweryView.isHidden = false
+        let sucessTitle = NSLocalizedString("ratedBrewery", comment: "")
+        ratedBreweryView.ratedBreweryLabel.text = sucessTitle
     }
     
     override func viewDidLoad() {
@@ -35,6 +76,18 @@ class BreweryDetailViewController: UIViewController {
         setupNavigationBar()
         getBreweryBy(id: id)
         sinkBrewery()
+        sinkRatedBrewery()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getRatedBreweries(id: id)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let dismissAction = dismissAction else {return}
+        dismissAction()
     }
     
     private func sinkBrewery() {
@@ -47,11 +100,41 @@ class BreweryDetailViewController: UIViewController {
         }.store(in: &cancellables)
     }
     
+    public func sinkRatedBrewery() {
+        viewModel.$stateRatedBrewery.sink { [weak self] state in
+            switch state {
+            case .evaluated:
+                self?.showAlreadyRatedView()
+            case .noEvaluated:
+                self?.showRatingButton()
+            case .none:
+                break
+            }
+        }.store(in: &cancellables)
+    }
+    
     private func successState(_ brewery: BreweryObject) {
         DispatchQueue.main.async { [weak self] in
             guard let view = self?.view as? BreweryDetailView else { return }
+            self?.brewery = brewery
             view.configure(brewery)
         }
+    }
+    
+    private func showAlreadyRatedView() {
+        DispatchQueue.main.async {[weak self] in
+            self?.sucessRatedBrewery()
+        }
+    }
+    
+    private func showRatingButton() {
+        DispatchQueue.main.async {[weak self] in
+            self?.avaliacaoBotao.isHidden = false
+        }
+    }
+    
+    internal func getRatedBreweries(id: String) {
+        viewModel.checkRatingByBrewery(id: id)
     }
     
     private func getBreweryBy(id: String) {
@@ -87,3 +170,4 @@ extension BreweryDetailViewController {
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: shareIcon)]
     }
 }
+

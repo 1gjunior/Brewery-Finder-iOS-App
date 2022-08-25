@@ -1,16 +1,16 @@
 //
-//  SucessStateView.swift
+//  RatedBreweryView.swift
 //  CI&T Brewery
 //
-//  Created by Pamella Victoria Soares Lima on 17/08/22.
+//  Created by Pamella Victoria Soares Lima on 18/08/22.
 //
 
 import Foundation
 import UIKit
 
-public class SucessStateView: UIView {
+public class RatedBreweryView: UIView {
     
-    @IBOutlet weak var sucessStateLabel: UILabel!
+    @IBOutlet weak var ratedBreweryLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,8 +23,9 @@ public class SucessStateView: UIView {
     }
     
     public func commonInit() {
-        guard let viewFromXib = Bundle.main.loadNibNamed("SucessStateView", owner: self, options: nil)?[0] as? UIView else { return }
+        guard let viewFromXib = Bundle.main.loadNibNamed("RatedBreweryView", owner: self, options: nil)?[0] as? UIView else { return }
         viewFromXib.frame = self.bounds
         addSubview(viewFromXib)
     }
+    
 }

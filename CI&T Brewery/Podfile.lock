@@ -35,7 +35,7 @@ PODS:
 
 DEPENDENCIES:
   - Cosmos (~> 23.0)
-  - Kingfisher (~> 7.0)
+  - Kingfisher (~> 7.3.2)
   - "MaterialComponents/TextControls+OutlinedTextFields"
   - Resolver
 
@@ -54,6 +54,6 @@ SPEC CHECKSUMS:
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
 
-PODFILE CHECKSUM: 81777e56931732b260a4c25ade027ae382a2f118
+PODFILE CHECKSUM: 40e1cc1698dc24d1e5dfac44f8d4c6fefb686f2e
 
 COCOAPODS: 1.11.3
