@@ -53,10 +53,8 @@ class BreweryRepository: BreweryRepositoryProtocol {
         apiManager.postItem(request: evaluation) { (result: Result<ApiEvaluationResponse, NetworkError>) in
             switch result {
             case .success(let data):
-                print("repository bom")
                 completion(.success(data))
             case .failure(let error):
-                print("repository ruim")
                 completion(.failure(error))
             }
         }

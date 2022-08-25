@@ -61,6 +61,7 @@ class RatingViewController: UIViewController {
         
         sinkEmailState()
         setGeneralTitle()
+        observeRating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,10 +86,6 @@ class RatingViewController: UIViewController {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
     }
     
     private func setupTextField() {
@@ -163,9 +160,9 @@ class RatingViewController: UIViewController {
         }
         
         ratingStars = ratingStarsView.rating
-        let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: id ?? "", evaluationGrade: self.ratingStars!)
+        guard let id = id else {return}
+        let uploadBreweryEvaluation: BreweryEvaluation = .init(email: emailText, breweryId: id, evaluationGrade: self.ratingStars!)
         viewModel.post(evaluation: uploadBreweryEvaluation)
-        sinkBreweries()
     }
     
     @IBAction func onCheckboxTapped(_ sender: Any) {
@@ -226,7 +223,7 @@ class RatingViewController: UIViewController {
         }
     }
     
-    private func sinkBreweries() {
+    private func observeRating() {
         viewModel.$stateRating.sink { [weak self] stateRating in
             print("\(stateRating)")
             switch stateRating {
