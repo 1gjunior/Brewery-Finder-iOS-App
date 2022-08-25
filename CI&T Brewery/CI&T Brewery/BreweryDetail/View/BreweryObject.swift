@@ -13,8 +13,8 @@ class BreweryObject {
     var name: String
     var type: String
     var address: String
-    var latitute: Double
-    var longitude: Double
+    var latitute: Double?
+    var longitude: Double?
     var website: String
     var average: Double
     var evaluation: String
@@ -25,8 +25,8 @@ class BreweryObject {
         
         self.name = brewery.name
         self.type = brewery.type
-        self.latitute = brewery.latitude ?? 0
-        self.longitude = brewery.longitude ?? 0
+        self.latitute = brewery.latitude
+        self.longitude = brewery.longitude
         self.website = brewery.website ?? ""
         self.average = brewery.average
         

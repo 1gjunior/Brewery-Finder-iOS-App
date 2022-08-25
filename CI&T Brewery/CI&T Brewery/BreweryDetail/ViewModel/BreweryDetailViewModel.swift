@@ -61,7 +61,7 @@ class BreweryDetailViewModel {
         breweryResponse.contains(where: {$0.id == id })
     }
     
-    func isCoordinationAvailable(brewery: BreweryObject) -> Bool {brewery.latitute != 0 && brewery.longitude != 0}
+    func isCoordinationAvailable(brewery: BreweryObject) -> Bool {brewery.latitute != nil && brewery.longitude != nil}
     
     public func getLastEmail() -> String? {
         var lastEmail: String?

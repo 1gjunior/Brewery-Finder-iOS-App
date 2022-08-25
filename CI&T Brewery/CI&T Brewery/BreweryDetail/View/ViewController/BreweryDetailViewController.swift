@@ -55,8 +55,11 @@ class BreweryDetailViewController: UIViewController {
     
     
     @IBAction func openMapButton(_ sender: Any) {
-        guard let brewery = brewery else {return}
-        OpenMapDirections.present(in: self, sourceView: view, latitude: brewery.latitute, longitude: brewery.longitude)
+        guard let brewery = brewery,
+        let breweryLatitude = brewery.latitute,
+        let breweryLongitude = brewery.longitude
+        else {return}
+        OpenMapDirections.present(in: self, sourceView: view, latitude: breweryLatitude, longitude: breweryLongitude)
     }
     
     private func sucessRatedBrewery() {
