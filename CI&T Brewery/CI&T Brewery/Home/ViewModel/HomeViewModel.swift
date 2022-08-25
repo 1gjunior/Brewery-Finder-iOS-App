@@ -16,10 +16,26 @@ enum HomeViewModelState {
     case genericError
 }
 
+enum SortedBreweries{
+    case sortedName
+    case sortedRating
+}
+
 class HomeViewModel {
+    
     let repository: BreweryRepositoryProtocol
     @Published private(set) var state: HomeViewModelState = .initial
     @Published private(set) var top10BreweriesState: HomeViewModelState = .initial
+    public var sortedBreweries: SortedBreweries = .sortedName {
+       willSet(newType){
+            switch state{
+            case .success(let breweries):
+                state = .success(breweries: breweriesSorted(brewries: breweries, type: newType ))
+            default:
+                break
+            }
+        }
+    }
     
     init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
@@ -30,15 +46,25 @@ class HomeViewModel {
             state = .loading
             
             repository.getBreweriesBy(city: city) {[weak self] result in
+                guard let self = self else {return}
                 switch result {
                 case .failure(_):
-                    self?.state = .genericError
+                    self.state = .genericError
                 case .success(let breweriesResponse):
-                    self?.state = .success(breweries: breweriesResponse)
+                    self.state = .success(breweries: self.breweriesSorted(brewries: breweriesResponse, type: self.sortedBreweries))
                 }
             }
         } else {
             state = .emptyError
+        }
+    }
+    
+    func breweriesSorted(brewries:[Brewery], type: SortedBreweries) -> [Brewery]{
+        switch type  {
+        case .sortedName:
+         return  brewries.sorted(by: {$0.name < $1.name})
+        case .sortedRating:
+         return  brewries.sorted(by: {$0.average < $1.average})
         }
     }
     
