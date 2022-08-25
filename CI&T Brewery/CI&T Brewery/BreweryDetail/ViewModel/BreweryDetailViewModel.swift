@@ -61,29 +61,18 @@ class BreweryDetailViewModel {
         breweryResponse.contains(where: {$0.id == id })
     }
     
-    func isCoordinationAvailable(brewery: BreweryObject) -> Bool {
-        if (brewery.latitute == 0 && brewery.longitude == 0) {
-           return false
-        }
-        return true
-    }
+    func isCoordinationAvailable(brewery: BreweryObject) -> Bool {brewery.latitute != 0 && brewery.longitude != 0}
     
     public func getLastEmail() -> String? {
         var lastEmail: String?
         let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
         do {
             lastEmail = try String(contentsOf: fileURL, encoding: .utf8)
+            print("lastEmail \(lastEmail ?? "")")
         }
         catch {
-            print("Error")
-        }
-        
-        guard let lastEmail = lastEmail else {
             return nil
         }
-        
-        print("lastEmail \(lastEmail)")
-
         return lastEmail
     }
 }
