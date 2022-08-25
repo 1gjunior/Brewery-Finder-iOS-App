@@ -17,7 +17,6 @@ enum HomeViewModelState {
 }
 
 class HomeViewModel {
-    var lastCity: String?
     let repository: BreweryRepositoryProtocol
     @Published private(set) var state: HomeViewModelState = .initial
     @Published private(set) var top10BreweriesState: HomeViewModelState = .initial

@@ -94,7 +94,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     }
     
     private func updateBrewery() {
-        getBreweriesBy(city: viewModel.lastCity ?? "")
+        getBreweriesBy(city: searchBar.text ?? "")
     }
     
     private func constraintListView() {
@@ -126,7 +126,6 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     }
     
     private func getBreweriesBy(city: String) {
-        viewModel.lastCity = city
         viewModel.fetchBreweriesBy(city: city)
     }
     
@@ -222,12 +221,12 @@ extension HomeViewController {
 
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.getBreweriesBy(city: searchBar.text ?? "")
+        self.updateBrewery()
         searchBar.resignFirstResponder()
     }
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         if searchBar.selectedScopeButtonIndex == 1{
-        self.getBreweriesBy(city: searchBar.text ?? "")}
+            self.updateBrewery()}
     }
         func hideKeyboard() {
             let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
