@@ -40,6 +40,7 @@ class BreweryDetailViewModel {
     
     func checkRatingByBrewery(id: String) {
         let email = getLastEmail()
+        guard let email = email else {return}
         repository.getRatedBreweries(email: email) { [weak self] result in
             guard let self = self  else {return}
             switch result {
@@ -67,16 +68,22 @@ class BreweryDetailViewModel {
         return true
     }
     
-    public func getLastEmail() -> String {
-        var lastEmail = ""
+    public func getLastEmail() -> String? {
+        var lastEmail: String?
         let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
         do {
             lastEmail = try String(contentsOf: fileURL, encoding: .utf8)
-            print("último email salvo \(lastEmail)")
         }
         catch {
             print("Error")
         }
+        
+        guard let lastEmail = lastEmail else {
+            return nil
+        }
+        
+        print("lastEmail \(lastEmail)")
+
         return lastEmail
     }
 }
