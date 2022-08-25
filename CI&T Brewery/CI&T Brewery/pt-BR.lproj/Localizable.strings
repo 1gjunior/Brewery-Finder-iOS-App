@@ -39,3 +39,7 @@
 "Nome (A a Z)" = "Nome (A a Z)";
 "Nota (menor para maior)" = "Nota (menor para maior)";
 
+
+/*BreweryDetailViewController*/
+"ratedBrewery" = "Você já avaliou essa \ncervejaria";
+

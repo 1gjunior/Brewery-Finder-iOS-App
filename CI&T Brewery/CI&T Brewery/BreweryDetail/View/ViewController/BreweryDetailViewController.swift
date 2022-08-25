@@ -64,7 +64,8 @@ class BreweryDetailViewController: UIViewController {
         avaliacaoBotao.isHidden = true
         heightDataView.constant = heightDataView.constant + 40
         ratedBreweryView.isHidden = false
-        ratedBreweryView.ratedBreweryLabel.text = "Você já avaliou essa \ncervejaria"
+        let sucessTitle = NSLocalizedString("ratedBrewery", comment: "")
+        ratedBreweryView.ratedBreweryLabel.text = sucessTitle
     }
     
     override func viewDidLoad() {
