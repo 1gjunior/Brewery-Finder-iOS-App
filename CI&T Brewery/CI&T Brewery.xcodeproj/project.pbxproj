@@ -12,6 +12,12 @@
 		2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */; };
 		2B58EFAC28AD36880061B631 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0328AD117F0037099C /* Quicksand-Regular.ttf */; };
 		2B58EFAE28AD4E070061B631 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */; };
+		2B5FA5FA28CFBAF40056DE0E /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA5F928CFBAF40056DE0E /* FavoriteViewModel.swift */; };
+		2B5FA5FC28CFBB140056DE0E /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA5FB28CFBB140056DE0E /* FavoriteViewController.swift */; };
+		2B5FA60028CFBB590056DE0E /* FavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5FA5FF28CFBB590056DE0E /* FavoriteView.xib */; };
+		2B5FA60228CFBBB90056DE0E /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60128CFBBB90056DE0E /* FavoriteView.swift */; };
+		2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */; };
+		2B5FA60A28CFD24F0056DE0E /* BreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */; };
 		2B92A11A28AC3AAD00E6FB05 /* BreweryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11928AC3AAD00E6FB05 /* BreweryDetailViewController.swift */; };
 		2B92A12028AC4E8100E6FB05 /* BreweryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11F28AC4E8100E6FB05 /* BreweryDetailViewModel.swift */; };
 		2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */; };
@@ -99,6 +105,12 @@
 		2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		2B5FA5F928CFBAF40056DE0E /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		2B5FA5FB28CFBB140056DE0E /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		2B5FA5FF28CFBB590056DE0E /* FavoriteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteView.xib; sourceTree = "<group>"; };
+		2B5FA60128CFBBB90056DE0E /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryTableViewCell.swift; sourceTree = "<group>"; };
+		2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweryTableViewCell.xib; sourceTree = "<group>"; };
 		2B92A11928AC3AAD00E6FB05 /* BreweryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewController.swift; sourceTree = "<group>"; };
 		2B92A11F28AC4E8100E6FB05 /* BreweryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewModel.swift; sourceTree = "<group>"; };
 		2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailView.swift; sourceTree = "<group>"; };
@@ -221,6 +233,43 @@
 				2BD6CECE28AEFB3000B729C4 /* FileManagerExtension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2B5FA5F628CFBACA0056DE0E /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				2B5FA5F828CFBADC0056DE0E /* View */,
+				2B5FA5F728CFBAD60056DE0E /* ViewModel */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		2B5FA5F728CFBAD60056DE0E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B5FA5F928CFBAF40056DE0E /* FavoriteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B5FA5F828CFBADC0056DE0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B5FA60428CFD0620056DE0E /* BreweryTableViewCell */,
+				2B5FA5FB28CFBB140056DE0E /* FavoriteViewController.swift */,
+				2B5FA5FF28CFBB590056DE0E /* FavoriteView.xib */,
+				2B5FA60128CFBBB90056DE0E /* FavoriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B5FA60428CFD0620056DE0E /* BreweryTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */,
+				2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */,
+			);
+			path = BreweryTableViewCell;
 			sourceTree = "<group>";
 		};
 		2B92A11528AC3A0B00E6FB05 /* BreweryDetail */ = {
@@ -397,6 +446,7 @@
 		B99FDE0828A58F4D00F5DA30 /* CI&T Brewery */ = {
 			isa = PBXGroup;
 			children = (
+				2B5FA5F628CFBACA0056DE0E /* Favorite */,
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
 				B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */,
 				2B92A11528AC3A0B00E6FB05 /* BreweryDetail */,
@@ -629,6 +679,7 @@
 				337D826528AC0B2A00DBAA56 /* Roboto-Black.ttf in Resources */,
 				2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */,
 				337D825E28AC0B2A00DBAA56 /* Roboto-BoldItalic.ttf in Resources */,
+				2B5FA60A28CFD24F0056DE0E /* BreweryTableViewCell.xib in Resources */,
 				337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */,
 				337D825928AC0B2A00DBAA56 /* Roboto-MediumItalic.ttf in Resources */,
 				D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */,
@@ -639,6 +690,7 @@
 				337D825A28AC0B2A00DBAA56 /* Roboto-BoldCondensed.ttf in Resources */,
 				B93EF76628AFB99E00BFA9C6 /* CarouselView.xib in Resources */,
 				337D826428AC0B2A00DBAA56 /* Roboto-Thin.ttf in Resources */,
+				2B5FA60028CFBB590056DE0E /* FavoriteView.xib in Resources */,
 				337D826328AC0B2A00DBAA56 /* Roboto-Bold.ttf in Resources */,
 				337D825B28AC0B2A00DBAA56 /* Roboto-BoldCondensedItalic.ttf in Resources */,
 				337D825C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf in Resources */,
@@ -714,6 +766,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
+				2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */,
 				2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */,
@@ -723,7 +776,6 @@
 				D2AF0AD528B51D3500EAF89B /* BrewerySortView.swift in Sources */,
 				B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */,
 				B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */,
-				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
 				2BD6CECF28AEFB3000B729C4 /* FileManagerExtension.swift in Sources */,
 				B93EF76C28B0118C00BFA9C6 /* CarouselCellView.swift in Sources */,
@@ -732,10 +784,12 @@
 				33DD4E3228AED46D0077D800 /* RatedBreweryView.swift in Sources */,
 				2BD6CECD28AEAED900B729C4 /* UIColorExtension.swift in Sources */,
 				B93EF76A28AFC30100BFA9C6 /* CarouselView.swift in Sources */,
+				2B5FA60228CFBBB90056DE0E /* FavoriteView.swift in Sources */,
 				33BD22AF28AD5ADE0004FEE4 /* OpenMap.swift in Sources */,
 				B99FDE5228AC00BD00F5DA30 /* BreweryListTableViewCell.swift in Sources */,
 				2B58EFAE28AD4E070061B631 /* CALayerExtension.swift in Sources */,
 				2B92A11A28AC3AAD00E6FB05 /* BreweryDetailViewController.swift in Sources */,
+				2B5FA5FC28CFBB140056DE0E /* FavoriteViewController.swift in Sources */,
 				2B92A12028AC4E8100E6FB05 /* BreweryDetailViewModel.swift in Sources */,
 				B99FDE0A28A58F4D00F5DA30 /* AppDelegate.swift in Sources */,
 				B99FDE4328AAC8ED00F5DA30 /* HomeViewModel.swift in Sources */,
@@ -744,6 +798,7 @@
 				2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */,
 				2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */,
 				B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */,
+				2B5FA5FA28CFBAF40056DE0E /* FavoriteViewModel.swift in Sources */,
 				33BD22B728AD86530004FEE4 /* SucessStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

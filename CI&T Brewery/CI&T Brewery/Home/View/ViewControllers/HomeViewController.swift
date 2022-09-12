@@ -199,24 +199,38 @@ extension HomeViewController {
         navigationController?.navigationBar.isTranslucent = false
         setupNavigationBarItems()
     }
+    
     private func setupNavigationBarItems() {
         navigationItem.title = "CI&T Brewery"
         setupLeftNavigationBar()
         setupRightNavigationBar()
     }
+    
     private func setupLeftNavigationBar() {
         let logoIcon = UIButton(type: .system)
         logoIcon.setImage(UIImage(named: "icon"), for: .normal)
         logoIcon.tintColor = .black
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
     }
+    
     private func setupRightNavigationBar() {
         let favoriteIcon = UIButton(type: .system)
         favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        favoriteIcon.addTarget(self, action: #selector(didTapFavoriteButton), for: UIControl.Event.touchUpInside)
+        
         let starIcon = UIButton(type: .system)
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(customView: favoriteIcon),
+            UIBarButtonItem(customView: starIcon)
+        ]
+    }
+    
+    @objc private func didTapFavoriteButton() {
+        let favoriteVC = FavoriteViewController()
+        self.navigationController?.pushViewController(favoriteVC, animated: true)
     }
 }
 
