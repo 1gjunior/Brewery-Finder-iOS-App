@@ -21,6 +21,12 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 168" translatesAutoresizingMaskIntoConstraints="NO" id="oae-7X-6hm">
                     <rect key="frame" x="0.0" y="-106" width="320" height="300"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suas Cervejarias Favoritas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahW-nu-oyv">
+                    <rect key="frame" x="16" y="19" width="271" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdY-2w-Gm2">
                     <rect key="frame" x="0.0" y="244" width="320" height="324"/>
                 </view>
@@ -31,7 +37,9 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GdY-2w-Gm2" secondAttribute="trailing" id="3GK-Yu-Jeu"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="leading" secondItem="oae-7X-6hm" secondAttribute="leading" id="AtK-zJ-xpB"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="244" id="LLo-Dc-sIL"/>
+                <constraint firstItem="ahW-nu-oyv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="LMC-Gc-EZu"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GdY-2w-Gm2" secondAttribute="bottom" id="MuU-wd-wcR"/>
+                <constraint firstItem="ahW-nu-oyv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="19" id="UWe-F1-OMz"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="trailing" secondItem="oae-7X-6hm" secondAttribute="trailing" id="c64-Iz-agH"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fkK-FP-ObU"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="top" secondItem="oae-7X-6hm" secondAttribute="bottom" constant="50" id="ylf-7v-04F"/>
