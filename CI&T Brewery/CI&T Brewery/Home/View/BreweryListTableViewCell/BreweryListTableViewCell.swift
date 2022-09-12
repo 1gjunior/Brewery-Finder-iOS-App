@@ -13,6 +13,7 @@ class BreweryListTableViewCell: UITableViewCell {
     @IBOutlet var average: UILabel!
     var id: String? = nil
     var buttonState: ButtonState = .unselected
+    var onFavorite: ((String) -> ())? = nil
     
     func configure(_ cell: BreweryListTableViewCell, for brewery: Brewery) {
         cell.contentView.layer.cornerRadius = 30
@@ -26,8 +27,9 @@ class BreweryListTableViewCell: UITableViewCell {
         id = brewery.id
     }
     
-    //TODO: INTEGRATION WITH CORE DATA
     @IBAction func favorite(_ sender: UIButton) {
+        guard let id = id else { return }
+        
         if buttonState == .unselected {
             buttonState = .selected
         } else {
@@ -36,6 +38,10 @@ class BreweryListTableViewCell: UITableViewCell {
         
         sender.setImage(buttonState.image, for: .normal)
         sender.tintColor = buttonState.color
+        
+        if let action = onFavorite {
+            action(id)
+        }
     }
     
     enum ButtonState {

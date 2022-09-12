@@ -80,4 +80,9 @@ class HomeViewModel {
             }            
         }
     }
+    
+    //TODO: INTEGRATION WITH CORE DATA
+    func favoriteBrewery(id: String) {
+        print(id)
+    }
 }

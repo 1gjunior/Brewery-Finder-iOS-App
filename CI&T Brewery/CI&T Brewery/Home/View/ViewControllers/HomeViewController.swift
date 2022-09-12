@@ -78,7 +78,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         view.addSubview(listView)
         constraintListView()
         changingState(view: listView)
-        listView.update(breweries, actionForCell: goToDetailWith)
+        let actions = BreweryCellActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteBrewery)
+        listView.update(breweries, actions: actions)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {
@@ -222,6 +223,7 @@ extension HomeViewController {
         favoriteIcon.addGestureRecognizer(gesture)
     }
     
+    //TODO: PRESENT A VIEW
     @objc func goToFavorites() {
         print("to do")
     }
@@ -258,6 +260,4 @@ extension HomeViewController: BreweryListViewDelegate{
             viewModel.sortedBreweries = .sortedRating
         }
     }
-    
-    
 }
