@@ -78,8 +78,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         view.addSubview(listView)
         constraintListView()
         changingState(view: listView)
-        let actions = BreweryCellActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteBrewery)
-        listView.update(breweries, actions: actions)
+        listView.update(breweries)
+        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteBrewery)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {

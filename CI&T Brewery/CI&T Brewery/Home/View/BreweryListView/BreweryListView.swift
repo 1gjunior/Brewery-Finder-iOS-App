@@ -95,11 +95,14 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         action(id)
     }
     
-    public func update(_ breweries: [Brewery], actions: BreweryCellActionsProtocol) {
+    public func update(_ breweries: [Brewery]) {
         self.breweries = breweries
         self.tableView.reloadData()
-        self.action = actions.onSelect
-        self.onFavorite = actions.onFavorite
+    }
+    
+    public func setActions(onSelect: @escaping ((String) -> ()), onFavorite: @escaping ((String) -> ())) {
+        self.action = onSelect
+        self.onFavorite = onFavorite
     }
 }
 
