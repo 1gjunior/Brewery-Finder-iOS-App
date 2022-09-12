@@ -217,6 +217,13 @@ extension HomeViewController {
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(goToFavorites))
+        favoriteIcon.addGestureRecognizer(gesture)
+    }
+    
+    @objc func goToFavorites() {
+        print("to do")
     }
 }
 
