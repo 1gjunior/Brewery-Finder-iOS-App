@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CI_T_Brewery" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="xGp-Dm-Fte"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFit" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 168" translatesAutoresizingMaskIntoConstraints="NO" id="oae-7X-6hm">
+                    <rect key="frame" x="0.0" y="-106" width="320" height="300"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdY-2w-Gm2">
+                    <rect key="frame" x="0.0" y="244" width="320" height="324"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="Background Home"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GdY-2w-Gm2" secondAttribute="trailing" id="3GK-Yu-Jeu"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="leading" secondItem="oae-7X-6hm" secondAttribute="leading" id="AtK-zJ-xpB"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="244" id="LLo-Dc-sIL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GdY-2w-Gm2" secondAttribute="bottom" id="MuU-wd-wcR"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="trailing" secondItem="oae-7X-6hm" secondAttribute="trailing" id="c64-Iz-agH"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fkK-FP-ObU"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="top" secondItem="oae-7X-6hm" secondAttribute="bottom" constant="50" id="ylf-7v-04F"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="zf2-Lv-BBr"/>
+            </constraints>
+            <point key="canvasLocation" x="290.625" y="146.83098591549296"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Frame 168" width="400" height="300"/>
+        <namedColor name="Background Home">
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

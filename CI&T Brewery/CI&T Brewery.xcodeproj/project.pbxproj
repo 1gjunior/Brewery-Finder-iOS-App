@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29C5AD7228CFDCDD00DBA97E /* FavoriteBreweriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C5AD7128CFDCDD00DBA97E /* FavoriteBreweriesViewController.xib */; };
 		2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */; };
 		2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0228AD11780037099C /* Quicksand-Bold.ttf */; };
 		2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */; };
@@ -96,6 +97,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29C5AD7128CFDCDD00DBA97E /* FavoriteBreweriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteBreweriesViewController.xib; sourceTree = "<group>"; };
 		2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -208,6 +210,22 @@
 				91378E3B21169E401BFDC185 /* Pods-CI&T Brewery.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		29C5AD6D28CFDA3B00DBA97E /* FavoriteBreweries */ = {
+			isa = PBXGroup;
+			children = (
+				29C5AD6E28CFDA4500DBA97E /* View */,
+			);
+			path = FavoriteBreweries;
+			sourceTree = "<group>";
+		};
+		29C5AD6E28CFDA4500DBA97E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				29C5AD7128CFDCDD00DBA97E /* FavoriteBreweriesViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
@@ -400,6 +418,7 @@
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
 				B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */,
 				2B92A11528AC3A0B00E6FB05 /* BreweryDetail */,
+				29C5AD6D28CFDA3B00DBA97E /* FavoriteBreweries */,
 				337D824528AC0B2A00DBAA56 /* Fonts */,
 				B99FDE3928A592C200F5DA30 /* Home */,
 				B99FDE1728A58F4E00F5DA30 /* Info.plist */,
@@ -644,6 +663,7 @@
 				337D825C28AC0B2A00DBAA56 /* Roboto-Condensed.ttf in Resources */,
 				D2AF0AD328B51D0300EAF89B /* BrewerySortView.xib in Resources */,
 				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
+				29C5AD7228CFDCDD00DBA97E /* FavoriteBreweriesViewController.xib in Resources */,
 				2B58EFAC28AD36880061B631 /* Quicksand-Regular.ttf in Resources */,
 				B99FDE5128AC00BD00F5DA30 /* BreweryListView.xib in Resources */,
 				B93EF76828AFBEE900BFA9C6 /* CarouselCell.xib in Resources */,
