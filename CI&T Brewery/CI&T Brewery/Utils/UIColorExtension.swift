@@ -40,4 +40,23 @@ extension UIColor {
     class func outlineRed() -> UIColor { UIColor(named: AppColorName.outlineRed)! }
     class func yellowDark() -> UIColor { UIColor(named: AppColorName.yellowDark)! }
     class func BreweryYellowPale() -> UIColor { UIColor(named: AppColorName.BreweryYellowPale)! }
+    class func favoriteRedColor () -> UIColor { UIColor(rgb: "#FF1744" ) }
+    
+    convenience init(rgb: String, alpha: CGFloat = 1.0) {
+        var string = rgb.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if (string.hasPrefix("#")) {
+            string.remove(at: string.startIndex)
+        }
+
+        var rgbValue: UInt64 = 0
+        Scanner(string: string).scanHexInt64(&rgbValue)
+        
+        self.init(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
+    }
 }
