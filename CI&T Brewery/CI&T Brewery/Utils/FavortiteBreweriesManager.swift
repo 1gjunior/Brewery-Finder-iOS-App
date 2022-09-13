@@ -8,7 +8,12 @@
 import Foundation
 import CoreData
 
-class FavortiteBreweriesManager {
+protocol FavortiteBreweriesManagerProtocol {
+	func loadFavortiteBreweries(with context: NSManagedObjectContext)
+	func deleteFavortiteBreweries(index: Int, context: NSManagedObjectContext)
+}
+
+class FavortiteBreweriesManager: FavortiteBreweriesManagerProtocol {
 	static let shared = FavortiteBreweriesManager()
 	var favortiteBreweries: [FavortiteBreweries] = []
 	
