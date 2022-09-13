@@ -144,7 +144,7 @@
 		33DD4E2D28AEC1A60077D800 /* BreweryDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BreweryDetailView.xib; sourceTree = "<group>"; };
 		33DD4E2F28AECCF80077D800 /* RatedBreweryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatedBreweryView.xib; sourceTree = "<group>"; };
 		33DD4E3128AED46D0077D800 /* RatedBreweryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweryView.swift; sourceTree = "<group>"; };
-		33DD4E3328AEDA680077D800 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatingViewModel.swift; path = "CI&T Brewery/Rating/View/RatingViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		33DD4E3328AEDA680077D800 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RatingViewModel.swift; path = "CI&T Brewery/Rating/ViewModel/RatingViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		49094571AD87ED0514619389 /* Pods-CI&T Brewery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.debug.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.debug.xcconfig"; sourceTree = "<group>"; };
 		91378E3B21169E401BFDC185 /* Pods-CI&T Brewery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CI&T Brewery.release.xcconfig"; path = "Target Support Files/Pods-CI&T Brewery/Pods-CI&T Brewery.release.xcconfig"; sourceTree = "<group>"; };
 		B93EF75D28AE039800BFA9C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -260,6 +260,14 @@
 			isa = PBXGroup;
 			children = (
 				29C5AD7C28CFE97B00DBA97E /* FavoriteBreweriesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		29F3C33728D0C7A50067D1EF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				33DD4E3328AEDA680077D800 /* RatingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -396,8 +404,8 @@
 		B99B87E028AD728D00BF31A0 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
+				29F3C33728D0C7A50067D1EF /* ViewModel */,
 				B93EF75D28AE039800BFA9C6 /* Extensions.swift */,
-				B99B87E228AD72A800BF31A0 /* ViewModel */,
 				B99B87E128AD72A000BF31A0 /* View */,
 				B99B87E428AD732800BF31A0 /* RatingViewController.swift */,
 			);
@@ -416,14 +424,6 @@
 				33DD4E3128AED46D0077D800 /* RatedBreweryView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B99B87E228AD72A800BF31A0 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				33DD4E3328AEDA680077D800 /* RatingViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B99FDDFD28A58F4D00F5DA30 = {
