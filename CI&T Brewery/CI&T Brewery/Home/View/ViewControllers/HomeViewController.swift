@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
             searchBar.searchTextField.font = UIFont.robotoRegular(ofSize: 14)
         }
     }
-    var currentView: UIView? = nil
+    private var currentView: UIView? = nil
     
     @Injected var viewModel: HomeViewModel
     private var cancellables: Set<AnyCancellable> = []

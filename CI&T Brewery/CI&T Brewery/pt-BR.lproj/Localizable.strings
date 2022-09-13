@@ -45,3 +45,7 @@
 /* FavoriteView */
 "favoriteNavigationTitle" = "Suas Cervejarias Favoritas";
 "favoriteViewTitle" = "Aqui estão suas Cervejarias!";
+
+/* FavoriteBreweriesView */
+"emptyStateTitle" = "Nenhuma Cervejaria Favorita";
+"emptyStateText" = "Você não possui nenhuma cervejaria marcada como favorita. Suas cervejarias favoritas aparecerão aqui.";

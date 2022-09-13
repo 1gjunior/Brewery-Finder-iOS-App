@@ -8,6 +8,18 @@
 import UIKit
 
 class EmptyStateView: UIView {
+    @IBOutlet var emptyStateTitleLabel: UILabel! {
+        didSet {
+            emptyStateTitleLabel.text = NSLocalizedString("emptyStateTitle", comment: "")
+        }
+    }
+
+    @IBOutlet var emptyStateTextLabel: UILabel! {
+        didSet {
+            emptyStateTextLabel.text = NSLocalizedString("emptyStateText", comment: "")
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
