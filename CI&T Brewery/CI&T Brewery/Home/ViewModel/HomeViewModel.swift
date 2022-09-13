@@ -81,8 +81,12 @@ class HomeViewModel {
         }
     }
     
-    //TODO: INTEGRATION WITH CORE DATA
-    func favoriteBrewery(id: String) {
-        print(id)
+    func favoriteBrewery(brewery: Brewery) {
+        let manager = FavoriteBreweriesManager.shared
+        if let id = manager.favoriteBreweries[brewery.id]?.id {
+            manager.deleteFavoriteBreweries(id: id, context: manager.getContext())
+        } else {
+            manager.saveFavoriteBrewery(brewery: brewery)
+        }
     }
 }

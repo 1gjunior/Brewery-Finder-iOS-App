@@ -20,7 +20,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var sortLabel: UILabel!
     private var breweries: [Brewery] = []
     private var action: ((_ id: String) -> ())?
-    private var onFavorite: ((String) -> ())?
+    private var onFavorite: ((Brewery) -> ())?
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
@@ -100,7 +100,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView.reloadData()
     }
     
-    public func setActions(onSelect: @escaping ((String) -> ()), onFavorite: @escaping ((String) -> ())) {
+    public func setActions(onSelect: @escaping ((String) -> ()), onFavorite: @escaping ((Brewery) -> ())) {
         self.action = onSelect
         self.onFavorite = onFavorite
     }
