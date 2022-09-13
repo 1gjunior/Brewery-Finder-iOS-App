@@ -43,3 +43,6 @@
 /*BreweryDetailViewController*/
 "ratedBrewery" = "Você já avaliou essa \ncervejaria";
 
+/* RatedBreweriesView */
+"ratedNavigationTitle" = "Cervejarias que você avaliou";
+"ratedFillEmailTitle" = "Por favor, informe Seu e-mail para consultar as cervejarias avaliadas.";
