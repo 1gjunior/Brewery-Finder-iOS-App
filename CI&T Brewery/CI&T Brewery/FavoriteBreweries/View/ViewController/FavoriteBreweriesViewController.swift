@@ -11,6 +11,7 @@ import UIKit
 
 class FavoriteBreweriesViewController: UIViewController {
     private var currentView: UIView?
+    private var favoriteManager = FavoriteBreweriesManager.shared
 
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -63,6 +64,11 @@ class FavoriteBreweriesViewController: UIViewController {
             currentView?.removeFromSuperview()
             currentView = view
         }
+    }
+    
+    func loadFavorite(){
+        favoriteManager.loadFavoriteBreweries(with: context)
+        breweryList.tableView.reloadData()
     }
     
     private func constrainBreweryList() {
