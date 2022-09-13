@@ -12,13 +12,12 @@ import Resolver
 class RatedBreweriesViewController: UIViewController {
     @Injected var viewModel: RatedBreweriesViewModel
     
-    //    private lazy var breweryList: FavoriteListView = {
-    //        let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
-    //        breweryList.translatesAutoresizingMaskIntoConstraints = false
-    //
-    //        return breweryList
-    //
-    //    }()
+    private lazy var fillEmailView: FillEmailView = {
+        let fillEmailView = FillEmailView(frame: CGRect())
+        fillEmailView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return fillEmailView
+    }()
     
     init() {
         super.init(nibName: "RatedBreweriesViewController", bundle: nil)
@@ -30,11 +29,24 @@ class RatedBreweriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupFillEmailView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+    }
+    
+    private func setupFillEmailView()  {
+        view.addSubview(fillEmailView)
+        constrainFillEmailView()
+    }
+    
+    private func constrainFillEmailView() {
+        fillEmailView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        fillEmailView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        fillEmailView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        fillEmailView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
 }
 

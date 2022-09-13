@@ -6,6 +6,9 @@
   
 */
 
+/* Geral */
+"buttonConfirm" = "Confirmar";
+
 /* HomeViewController */
 "CI&T Brewery" = "CI&T Brewery";
 "inputEmptyStateText" = "Nenhum termo digitado";
@@ -45,6 +48,7 @@
 /* RatedBreweriesView */
 "ratedNavigationTitle" = "Cervejarias que você avaliou";
 "ratedFillEmailTitle" = "Por favor, informe Seu e-mail para consultar as cervejarias avaliadas.";
+"ratedFillEmailCheckboxText" = "Lembrar e-mail para futuras avaliações";
 
 /* FavoriteView */
 "favoriteNavigationTitle" = "Suas Cervejarias Favoritas";
