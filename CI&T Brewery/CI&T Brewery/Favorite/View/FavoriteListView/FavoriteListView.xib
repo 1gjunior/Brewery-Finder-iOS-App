@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteListView" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="XlU-5h-EFC"/>
                 <outlet property="filterText" destination="JIf-p3-tTc" id="P8Y-mK-9pU"/>
                 <outlet property="resultsCount" destination="smR-rF-Q7u" id="B4Q-il-bWl"/>
                 <outlet property="tableView" destination="iuH-S4-KmX" id="GvC-Jg-B9F"/>
@@ -47,6 +48,9 @@
                             <rect key="frame" x="340" y="0.0" width="42" height="26"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="filter_list_24px"/>
+                            <connections>
+                                <action selector="openSortView:" destination="-1" eventType="touchUpInside" id="mQA-DW-FIA"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

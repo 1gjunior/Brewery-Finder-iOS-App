@@ -8,28 +8,20 @@
 import Foundation
 import UIKit
 
-class FavoriteListView: UIView, UITableViewDelegate, UITableViewDataSource {
+public protocol FavoriteListViewDelegate: AnyObject{
+    func didSorted(type: SortType)
+}
+
+class FavoriteListView: UIView {
     private var breweries: [Brewery] = []
+    private weak var delegate: FavoriteListViewDelegate?
     
-    @IBOutlet weak var viewTitle: UILabel! {
-        didSet {
-            viewTitle.font = UIFont.robotoRegular(ofSize: 18)
-            viewTitle.textColor = UIColor.breweryBlack()
-        }
-    }
-    @IBOutlet weak var resultsCount: UILabel! {
-        didSet {
-            resultsCount.font = UIFont.robotoLight(ofSize: 18)
-            resultsCount.textColor = UIColor.breweryBlack()
-        }
-    }
-    @IBOutlet weak var filterText: UILabel! {
-        didSet {
-            filterText.font = UIFont.robotoLight(ofSize: 14)
-            filterText.textColor = UIColor.breweryBlack()
-        }
-    }
-    @IBOutlet weak var tableView: UITableView!
+    private lazy var sortView: SortView = {
+        let sortView = SortView()
+        sortView.translatesAutoresizingMaskIntoConstraints = false
+        sortView.delegate = self
+        return sortView
+    }()
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +42,44 @@ class FavoriteListView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView.dataSource = self
         tableView.register(UINib(nibName: "BreweryTableViewCell", bundle: nil), forCellReuseIdentifier: "BreweryTableViewCell")
     }
+    
+    @IBOutlet var contentView: UIView!
+    @IBOutlet weak var viewTitle: UILabel! {
+        didSet {
+            viewTitle.font = UIFont.robotoRegular(ofSize: 18)
+            viewTitle.textColor = UIColor.breweryBlack()
+        }
+    }
+    @IBOutlet weak var resultsCount: UILabel! {
+        didSet {
+            resultsCount.font = UIFont.robotoLight(ofSize: 18)
+            resultsCount.textColor = UIColor.breweryBlack()
+        }
+    }
+    @IBOutlet weak var filterText: UILabel! {
+        didSet {
+            filterText.font = UIFont.robotoLight(ofSize: 14)
+            filterText.textColor = UIColor.breweryBlack()
+        }
+    }
+    @IBOutlet weak var tableView: UITableView!
         
+    @IBAction func openSortView(_ sender: Any) {
+        sortView.view.isHidden = false
+        contentView.addSubview(sortView)
+        constrainSortView()
+    }
+    
+    private func constrainSortView() {
+        sortView.translatesAutoresizingMaskIntoConstraints = false
+        sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+}
+
+extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -77,5 +106,11 @@ class FavoriteListView: UIView, UITableViewDelegate, UITableViewDataSource {
     public func update(_ breweries: [Brewery]) {
         self.breweries = breweries
         self.tableView.reloadData()
+    }
+}
+
+extension FavoriteListView: SortViewDelegate {
+    func didSorted(type: SortType) {
+        delegate?.didSorted(type: type)
     }
 }

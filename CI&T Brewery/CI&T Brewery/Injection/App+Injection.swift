@@ -19,7 +19,8 @@ extension Resolver: ResolverRegistering {
         
         // MARK: - ViewModels
         register { HomeViewModel() }
-        register { BreweryDetailViewModel()}
+        register { BreweryDetailViewModel() }
         register { RatingViewModel() }
+        register { FavoriteViewModel() }
     }
 }

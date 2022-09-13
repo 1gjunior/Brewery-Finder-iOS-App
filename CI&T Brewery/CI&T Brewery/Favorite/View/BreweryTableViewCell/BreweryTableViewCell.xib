@@ -56,8 +56,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5S-DP-gwv">
-                        <rect key="frame" x="379.5" y="17.5" width="45.5" height="31"/>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5S-DP-gwv">
+                        <rect key="frame" x="369.5" y="17.5" width="45.5" height="31"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
@@ -79,7 +79,7 @@
                     <constraint firstItem="EJd-Mg-7XI" firstAttribute="leading" secondItem="VO9-ne-qmW" secondAttribute="leading" id="kSM-8C-npy"/>
                     <constraint firstItem="w3w-sO-yaT" firstAttribute="leading" secondItem="VO9-ne-qmW" secondAttribute="trailing" constant="2" id="mq6-gG-xYi"/>
                     <constraint firstItem="4K8-ZO-TtM" firstAttribute="leading" secondItem="7Ah-Mt-zMx" secondAttribute="trailing" constant="4" id="yca-xq-JlI"/>
-                    <constraint firstAttribute="trailing" secondItem="r5S-DP-gwv" secondAttribute="trailing" id="zfv-5L-nIl"/>
+                    <constraint firstAttribute="trailing" secondItem="r5S-DP-gwv" secondAttribute="trailing" constant="10" id="zfv-5L-nIl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="53N-1p-1uZ"/>

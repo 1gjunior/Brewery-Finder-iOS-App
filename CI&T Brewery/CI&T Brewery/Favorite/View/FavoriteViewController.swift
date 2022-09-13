@@ -7,12 +7,15 @@
 
 import Foundation
 import UIKit
+import Resolver
 
 class FavoriteViewController: UIViewController {
+    @Injected var viewModel: FavoriteViewModel
+    
     var breweries: [Brewery] = [
         Brewery(
             id: "alphabet-city-brewing-co-new-york",
-            name: "Alphabet City Brewing Co",
+            name: "Blphabet City Brewing Co",
             type: "contract",
             street: "96 Avenue C Frnt 4",
             address2: nil,
@@ -80,5 +83,16 @@ class FavoriteViewController: UIViewController {
         breweryList.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         breweryList.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         breweryList.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
+}
+
+extension FavoriteViewController: FavoriteListViewDelegate {
+    func didSorted(type: SortType) {
+        switch type {
+        case .sortedName:
+            viewModel.sortedBreweries = .sortedName
+        case .sortedRating:
+            viewModel.sortedBreweries = .sortedRating
+        }
     }
 }
