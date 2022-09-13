@@ -46,6 +46,7 @@ class FavoriteListView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var viewTitle: UILabel! {
         didSet {
+            viewTitle.text = NSLocalizedString("favoriteViewTitle", comment: "")
             viewTitle.font = UIFont.robotoRegular(ofSize: 18)
             viewTitle.textColor = UIColor.breweryBlack()
         }

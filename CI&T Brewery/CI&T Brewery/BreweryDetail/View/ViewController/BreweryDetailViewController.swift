@@ -73,7 +73,6 @@ class BreweryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         getBreweryBy(id: id)
         sinkBrewery()
         sinkRatedBrewery()
@@ -81,6 +80,7 @@ class BreweryDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupNavigationBar()
         getRatedBreweries(id: id)
     }
     

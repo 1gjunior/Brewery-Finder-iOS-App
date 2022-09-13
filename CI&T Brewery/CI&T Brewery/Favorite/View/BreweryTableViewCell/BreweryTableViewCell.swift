@@ -21,7 +21,7 @@ class BreweryTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var name: UILabel! {
-        didSet {
+        didSet {            
             name.font = UIFont.robotoRegular(ofSize: 16)
             name.textColor = UIColor.breweryBlack()
         }

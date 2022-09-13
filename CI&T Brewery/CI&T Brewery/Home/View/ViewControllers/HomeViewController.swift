@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+//        setupNavigationBar()
         sinkBreweries()
         sinkTop10Breweries()
         searchBar.delegate = self
@@ -65,6 +65,10 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         hideKeyboard()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
     
     func setupErrorState(error: EmptyError) {
         changingState(view: errorStateView)

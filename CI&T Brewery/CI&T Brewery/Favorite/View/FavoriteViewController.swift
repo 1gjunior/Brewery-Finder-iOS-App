@@ -72,6 +72,11 @@ class FavoriteViewController: UIViewController {
         setupSuccessState(breweries)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
     private func setupSuccessState(_ breweries: [Brewery])  {
         view.addSubview(breweryList)
         constrainBreweryList()
@@ -94,5 +99,18 @@ extension FavoriteViewController: FavoriteListViewDelegate {
         case .sortedRating:
             viewModel.sortedBreweries = .sortedRating
         }
+    }
+}
+
+extension FavoriteViewController {
+    private func setupNavigationBar() {
+        let lbNavTitle = UILabel(frame: CGRect(x: 0, y: 40, width: 320, height: 40))
+        lbNavTitle.textAlignment = .left
+        lbNavTitle.text = NSLocalizedString("favoriteNavigationTitle", comment: "")
+        lbNavTitle.textColor = .breweryBlack()
+        lbNavTitle.font = UIFont.robotoRegular(ofSize: 22)
+        
+        self.navigationItem.titleView = lbNavTitle
+        self.navigationController?.navigationBar.tintColor = .black
     }
 }
