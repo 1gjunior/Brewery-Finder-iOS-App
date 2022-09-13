@@ -10,7 +10,7 @@ import Resolver
 import UIKit
 
 class FavoriteBreweriesViewController: UIViewController {
-    var currentView: UIView?
+    private var currentView: UIView?
 
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -22,7 +22,7 @@ class FavoriteBreweriesViewController: UIViewController {
     }()
 
     init() {
-        super.init(nibName: "FavoriteBreweriesViewController", bundle: nil)
+        super.init(nibName: "FavoriteBreweriesView", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
