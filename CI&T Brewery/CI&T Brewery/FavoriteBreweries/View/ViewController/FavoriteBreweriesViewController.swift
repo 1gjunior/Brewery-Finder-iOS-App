@@ -15,7 +15,6 @@ class FavoriteBreweriesViewController: UIViewController {
 
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
-
     private lazy var breweryList: FavoriteListView = {
         let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         breweryList.translatesAutoresizingMaskIntoConstraints = false
@@ -47,10 +46,10 @@ class FavoriteBreweriesViewController: UIViewController {
         setupNavigationBar()
     }
     
-    private func setupSuccessState(_ breweries: [Brewery])  {
+    private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
         view.addSubview(breweryList)
         constrainBreweryList()
-        breweryList.update(breweries)
+        breweryList.update(favoriteManager.favoriteBreweries)
     }
 
     func setupEmptyState() {

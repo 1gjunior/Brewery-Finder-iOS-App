@@ -13,7 +13,7 @@ public protocol FavoriteListViewDelegate: AnyObject{
 }
 
 class FavoriteListView: UIView {
-    private var breweries: [Brewery] = []
+    private var breweries: [FavoriteBreweries] = []
     private weak var delegate: FavoriteListViewDelegate?
     
     private lazy var sortView: SortView = {
@@ -104,7 +104,7 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    public func update(_ breweries: [Brewery]) {
+    public func update(_ breweries: [FavoriteBreweries]) {
         self.breweries = breweries
         self.tableView.reloadData()
     }

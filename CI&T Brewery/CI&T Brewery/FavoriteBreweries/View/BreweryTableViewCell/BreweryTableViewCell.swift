@@ -39,9 +39,11 @@ class BreweryTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(_ cell: BreweryTableViewCell, for brewery: Brewery) {
-        letterImage.text = String(brewery.name[brewery.name.startIndex])
+    func configure(_ cell: BreweryTableViewCell, for brewery: FavoriteBreweries) {
+        //let firstLetter = brewery.name!.prefix(1).lowercased()
+       // letterImage.text = String(brewery.name![brewery.name!.startIndex])
+        letterImage.text = brewery.name!.prefix(1).lowercased()
         name.text = brewery.name
-        average.text = String(format: "%.f", brewery.average)
+        average.text = String(format: "%.f", brewery.evaluation )
     }
 }
