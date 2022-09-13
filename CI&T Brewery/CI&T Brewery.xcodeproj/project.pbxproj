@@ -74,7 +74,7 @@
 		B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE5528AC10E600F5DA30 /* ErrorStateView.swift */; };
 		D22C936D28CFB5F100C64EA7 /* CITModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D22C936B28CFB5F100C64EA7 /* CITModel.xcdatamodeld */; };
 		D22C936F28CFB86300C64EA7 /* ViewCont+CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C936E28CFB86300C64EA7 /* ViewCont+CoreDataExtension.swift */; };
-		D22C937128CFB9D500C64EA7 /* FavortiteBreweriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C937028CFB9D500C64EA7 /* FavortiteBreweriesManager.swift */; };
+		D22C937128CFB9D500C64EA7 /* FavoriteBreweriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */; };
 		D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */; };
 		D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */; };
 		D2AF0AD328B51D0300EAF89B /* BrewerySortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AF0AD228B51D0300EAF89B /* BrewerySortView.xib */; };
@@ -171,7 +171,7 @@
 		B99FDE5528AC10E600F5DA30 /* ErrorStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
 		D22C936C28CFB5F100C64EA7 /* CITModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CITModel.xcdatamodel; sourceTree = "<group>"; };
 		D22C936E28CFB86300C64EA7 /* ViewCont+CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewCont+CoreDataExtension.swift"; sourceTree = "<group>"; };
-		D22C937028CFB9D500C64EA7 /* FavortiteBreweriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavortiteBreweriesManager.swift; sourceTree = "<group>"; };
+		D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManager.swift; sourceTree = "<group>"; };
 		D2AD32E928ABD9C200CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2AD32ED28ABDB8E00CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2AD32F328ABDD9D00CABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeViewController.xib; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				2BD6CECC28AEAED900B729C4 /* UIColorExtension.swift */,
 				2BD6CECE28AEFB3000B729C4 /* FileManagerExtension.swift */,
 				D22C936E28CFB86300C64EA7 /* ViewCont+CoreDataExtension.swift */,
-				D22C937028CFB9D500C64EA7 /* FavortiteBreweriesManager.swift */,
+				D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -753,7 +753,7 @@
 				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
 				B93EF75E28AE039800BFA9C6 /* Extensions.swift in Sources */,
 				2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */,
-				D22C937128CFB9D500C64EA7 /* FavortiteBreweriesManager.swift in Sources */,
+				D22C937128CFB9D500C64EA7 /* FavoriteBreweriesManager.swift in Sources */,
 				2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */,
 				B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */,
 				33BD22B728AD86530004FEE4 /* SucessStateView.swift in Sources */,
