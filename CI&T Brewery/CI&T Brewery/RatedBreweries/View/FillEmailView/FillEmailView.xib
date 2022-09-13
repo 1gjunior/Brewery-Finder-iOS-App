@@ -11,18 +11,54 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3u-Tn-OnU">
-                    <rect key="frame" x="20" y="76" width="0.0" height="0.0"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor, informe Seu e-mail para consultar as cervejarias avaliadas." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3u-Tn-OnU">
+                    <rect key="frame" x="16" y="59" width="382" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3zQ-pK-J3f">
+                    <rect key="frame" x="16" y="220" width="382" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5k-9E-f9v">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="N5k-9E-f9v" secondAttribute="height" multiplier="1:1" id="NpL-Ab-cpq"/>
+                                <constraint firstAttribute="width" constant="50" id="ge2-bL-krd"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lembrar e-mail para futuras avaliações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4di-XJ-frd">
+                            <rect key="frame" x="58" y="0.0" width="324" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPG-nD-WUL">
+                    <rect key="frame" x="16" y="290" width="382" height="31"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Confirmar"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="G3u-Tn-OnU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="08W-FF-8tm"/>
+                <constraint firstItem="G3u-Tn-OnU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="E6G-Ho-r6u"/>
+                <constraint firstAttribute="trailing" secondItem="G3u-Tn-OnU" secondAttribute="trailing" constant="16" id="ROb-ef-Id1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sPG-nD-WUL" secondAttribute="trailing" constant="16" id="UF5-FH-zjL"/>
+                <constraint firstItem="sPG-nD-WUL" firstAttribute="top" secondItem="3zQ-pK-J3f" secondAttribute="bottom" constant="20" id="Wts-2Z-1PR"/>
+                <constraint firstItem="3zQ-pK-J3f" firstAttribute="top" secondItem="G3u-Tn-OnU" secondAttribute="bottom" constant="120" id="YFb-hP-d5N"/>
+                <constraint firstItem="3zQ-pK-J3f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="jKg-kE-tpa"/>
+                <constraint firstItem="sPG-nD-WUL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="w6k-c4-6LZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3zQ-pK-J3f" secondAttribute="trailing" constant="16" id="xVg-cc-gyY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="132" y="85"/>
         </view>
     </objects>
