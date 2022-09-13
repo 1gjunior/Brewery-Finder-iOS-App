@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
             searchBar.searchTextField.font = UIFont.robotoRegular(ofSize: 14)
         }
     }
-    var currentView: UIView? = nil
+    private var currentView: UIView? = nil
     
     @Injected var viewModel: HomeViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -57,7 +57,6 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         sinkBreweries()
         sinkTop10Breweries()
         searchBar.delegate = self
@@ -65,6 +64,10 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         hideKeyboard()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
     
     func setupErrorState(error: EmptyError) {
         changingState(view: errorStateView)
@@ -200,25 +203,30 @@ extension HomeViewController {
         navigationController?.navigationBar.isTranslucent = false
         setupNavigationBarItems()
     }
+    
     private func setupNavigationBarItems() {
         navigationItem.title = "CI&T Brewery"
         setupLeftNavigationBar()
         setupRightNavigationBar()
     }
+    
     private func setupLeftNavigationBar() {
         let logoIcon = UIButton(type: .system)
         logoIcon.setImage(UIImage(named: "icon"), for: .normal)
         logoIcon.tintColor = .black
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
     }
+    
     private func setupRightNavigationBar() {
         let favoriteIcon = UIButton(type: .system)
         favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        favoriteIcon.addTarget(self, action: #selector(didTapFavoriteButton), for: UIControl.Event.touchUpInside)
+        
         let starIcon = UIButton(type: .system)
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         starIcon.addTarget(self, action: #selector(didTapRatingButton), for: UIControl.Event.touchUpInside)
-                
+        
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(customView: favoriteIcon),
             UIBarButtonItem(customView: starIcon)
@@ -228,6 +236,11 @@ extension HomeViewController {
     @objc private func didTapRatingButton() {
         let ratedVC = RatedBreweriesViewController()
         self.navigationController?.pushViewController(ratedVC, animated: true)
+    }
+    
+    @objc private func didTapFavoriteButton() {
+        let favoriteVC = FavoriteBreweriesViewController()
+        self.navigationController?.pushViewController(favoriteVC, animated: true)
     }
 }
 
@@ -240,16 +253,16 @@ extension HomeViewController: UISearchBarDelegate {
         if searchBar.selectedScopeButtonIndex == 1{
             self.updateBrewery()}
     }
-        func hideKeyboard() {
-            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-            tap.cancelsTouchesInView = false
-            view.addGestureRecognizer(tap)
-        }
-        
-        @objc
-        func dismissKeyboard() {
-            view.endEditing(true)
-        }
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 extension HomeViewController: BreweryListViewDelegate{

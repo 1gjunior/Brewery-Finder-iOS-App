@@ -39,10 +39,17 @@
 "Nome (A a Z)" = "Nome (A a Z)";
 "Nota (menor para maior)" = "Nota (menor para maior)";
 
-
 /*BreweryDetailViewController*/
 "ratedBrewery" = "Você já avaliou essa \ncervejaria";
 
 /* RatedBreweriesView */
 "ratedNavigationTitle" = "Cervejarias que você avaliou";
 "ratedFillEmailTitle" = "Por favor, informe Seu e-mail para consultar as cervejarias avaliadas.";
+
+/* FavoriteView */
+"favoriteNavigationTitle" = "Suas Cervejarias Favoritas";
+"favoriteViewTitle" = "Aqui estão suas Cervejarias!";
+
+/* FavoriteBreweriesView */
+"emptyStateTitle" = "Nenhuma Cervejaria Favorita";
+"emptyStateText" = "Você não possui nenhuma cervejaria marcada como favorita. Suas cervejarias favoritas aparecerão aqui.";

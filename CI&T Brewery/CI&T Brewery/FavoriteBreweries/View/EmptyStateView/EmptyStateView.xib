@@ -14,7 +14,12 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyState" customModule="CI_T_Brewery" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyState" customModule="CI_T_Brewery" customModuleProvider="target">
+            <connections>
+                <outlet property="emptyStateTextLabel" destination="la5-Oo-Xkk" id="Qqe-j1-h9h"/>
+                <outlet property="emptyStateTitleLabel" destination="LPK-Cx-Vc4" id="4bc-F5-rjf"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleAspectFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>

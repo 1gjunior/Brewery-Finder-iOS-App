@@ -10,11 +10,17 @@ import Resolver
 import UIKit
 
 class FavoriteBreweriesViewController: UIViewController {
-    var currentView: UIView?
+    private var currentView: UIView?
 
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
 
+    private lazy var breweryList: FavoriteListView = {
+        let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
+        breweryList.translatesAutoresizingMaskIntoConstraints = false
+        return breweryList
+    }()
+    
     private lazy var emptyStateView: EmptyStateView = {
         let emptyStateView = EmptyStateView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +28,7 @@ class FavoriteBreweriesViewController: UIViewController {
     }()
 
     init() {
-        super.init(nibName: "FavoriteBreweriesViewController", bundle: nil)
+        super.init(nibName: "FavoriteBreweriesView", bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,11 +40,22 @@ class FavoriteBreweriesViewController: UIViewController {
         setupNavigationBar()
         sinkBreweries()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
+    private func setupSuccessState(_ breweries: [Brewery])  {
+        view.addSubview(breweryList)
+        constrainBreweryList()
+        breweryList.update(breweries)
+    }
 
     func setupEmptyState() {
         changingState(view: emptyStateView)
         view.addSubview(emptyStateView)
-        constraintEmptyState()
+        constrainEmptyState()
     }
 
     private func changingState(view: UIView?) {
@@ -47,8 +64,15 @@ class FavoriteBreweriesViewController: UIViewController {
             currentView = view
         }
     }
+    
+    private func constrainBreweryList() {
+        breweryList.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        breweryList.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        breweryList.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        breweryList.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
 
-    private func constraintEmptyState() {
+    private func constrainEmptyState() {
         emptyStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 300).isActive = true
         emptyStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         emptyStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
@@ -59,8 +83,14 @@ class FavoriteBreweriesViewController: UIViewController {
             switch state {
             case .initial:
                 print("initial")
-            case .empty:
+            case .emptyError:
                 self?.emptyState()
+            case .loading:
+                print("loading")
+            case .success(breweries: let breweries):
+                print(breweries)
+            case .genericError:
+                print("generic")
             }
         }.store(in: &cancellables)
     }
@@ -72,24 +102,26 @@ class FavoriteBreweriesViewController: UIViewController {
     }
 }
 
+extension FavoriteBreweriesViewController: FavoriteListViewDelegate {
+    func didSorted(type: SortType) {
+        switch type {
+        case .sortedName:
+            viewModel.sortedBreweries = .sortedName
+        case .sortedRating:
+            viewModel.sortedBreweries = .sortedRating
+        }
+    }
+}
+
 extension FavoriteBreweriesViewController {
     private func setupNavigationBar() {
-        navigationController?.navigationBar.backgroundColor = UIColor.yellowDark()
-        navigationController?.navigationBar.isTranslucent = false
-        setupNavigationBarItems()
-    }
-
-    private func setupNavigationBarItems() {
-        setupLeftNavigationBar()
-    }
-
-    private func setupLeftNavigationBar() {
-        let logoIcon = UIButton(type: .system)
-        logoIcon.setImage(UIImage(named: "icon_back"), for: .normal)
-        logoIcon.tintColor = .black
-
-        navigationItem.backBarButtonItem = UIBarButtonItem(customView: logoIcon)
-        navigationController?.navigationBar.topItem?.title = ""
-        navigationController?.navigationBar.tintColor = .black
+        let lbNavTitle = UILabel(frame: CGRect(x: 0, y: 40, width: 320, height: 40))
+        lbNavTitle.textAlignment = .left
+        lbNavTitle.text = NSLocalizedString("favoriteNavigationTitle", comment: "")
+        lbNavTitle.textColor = .breweryBlack()
+        lbNavTitle.font = UIFont.robotoRegular(ofSize: 22)
+        
+        self.navigationItem.titleView = lbNavTitle
+        self.navigationController?.navigationBar.tintColor = .black
     }
 }
