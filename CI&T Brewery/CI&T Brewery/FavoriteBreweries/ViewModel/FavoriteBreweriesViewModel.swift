@@ -1,14 +1,14 @@
 //
-//  FavoriteViewModel.swift
+//  FavoriteBreweriesViewModel.swift
 //  CI&T Brewery
 //
-//  Created by Rafaela Cristina Souza dos Santos on 12/09/22.
+//  Created by Gilberto Junior on 12/09/22.
 //
 
-import Foundation
 import Combine
+import Foundation
 
-enum FavoriteViewModelState {
+enum FavoriteBreweriesViewModelState {
     case initial
     case loading
     case success(breweries: [Brewery])
@@ -21,8 +21,8 @@ enum SortedFavoriteBreweries {
     case sortedRating
 }
 
-class FavoriteViewModel {
-    @Published private(set) var state: FavoriteViewModelState = .initial
+class FavoriteBreweriesViewModel {
+    @Published private(set) var state: FavoriteBreweriesViewModelState = .initial
     
     public var sortedBreweries: SortedBreweries = .sortedName {
        willSet(newType) {
@@ -44,4 +44,3 @@ class FavoriteViewModel {
         }
     }
 }
-

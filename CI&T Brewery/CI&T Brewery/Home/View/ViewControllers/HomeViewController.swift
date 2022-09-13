@@ -57,7 +57,6 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setupNavigationBar()
         sinkBreweries()
         sinkTop10Breweries()
         searchBar.delegate = self
@@ -82,7 +81,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         view.addSubview(listView)
         constraintListView()
         changingState(view: listView)
-        listView.update(breweries, actionForCell: goToDetailWith)
+        listView.update(breweries)
+        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteBrewery)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {
@@ -233,7 +233,7 @@ extension HomeViewController {
     }
     
     @objc private func didTapFavoriteButton() {
-        let favoriteVC = FavoriteViewController()
+        let favoriteVC = FavoriteBreweriesViewController()
         self.navigationController?.pushViewController(favoriteVC, animated: true)
     }
 }
@@ -269,6 +269,4 @@ extension HomeViewController: BreweryListViewDelegate{
             viewModel.sortedBreweries = .sortedRating
         }
     }
-    
-    
 }
