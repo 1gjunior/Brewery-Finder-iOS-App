@@ -14,5 +14,5 @@ enum FavoriteBreweriesViewModelState {
 }
 
 class FavoriteBreweriesViewModel {
-    @Published private(set) var state: FavoriteBreweriesViewModelState = .initial
+    @Published private(set) var state: FavoriteBreweriesViewModelState = .empty
 }
