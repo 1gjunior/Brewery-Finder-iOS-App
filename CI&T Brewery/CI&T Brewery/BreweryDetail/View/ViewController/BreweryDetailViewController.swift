@@ -153,11 +153,6 @@ extension BreweryDetailViewController {
         setupRightNavigationBar()
     }
     private func setupLeftNavigationBar() {
-        let logoIcon = UIButton(type: .system)
-        logoIcon.setImage(UIImage(named: "icon_back"), for: .normal)
-        logoIcon.tintColor = .black
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(customView: logoIcon)
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
     }
