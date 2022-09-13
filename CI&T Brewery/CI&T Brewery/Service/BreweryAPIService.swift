@@ -37,7 +37,7 @@ class BreweryAPIService {
     
     static func getRatedBrewerisByEmail(email: String) -> URL? {
         let encoded = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        var urlComponents = URLComponents(string: apiBaseURL + "/breweries/myEvaluations/" + encoded)
+        let urlComponents = URLComponents(string: apiBaseURL + "/breweries/myEvaluations/" + encoded)
         return urlComponents?.url
     }
 }
