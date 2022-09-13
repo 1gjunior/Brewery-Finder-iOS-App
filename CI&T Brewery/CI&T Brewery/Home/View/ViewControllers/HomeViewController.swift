@@ -78,7 +78,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         view.addSubview(listView)
         constraintListView()
         changingState(view: listView)
-        listView.update(breweries, actionForCell: goToDetailWith)
+        listView.update(breweries)
+        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteBrewery)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {
@@ -217,6 +218,14 @@ extension HomeViewController {
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: starIcon)]
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(goToFavorites))
+        favoriteIcon.addGestureRecognizer(gesture)
+    }
+    
+    //TODO: PRESENT A VIEW
+    @objc func goToFavorites() {
+        print("to do")
     }
 }
 
@@ -251,6 +260,4 @@ extension HomeViewController: BreweryListViewDelegate{
             viewModel.sortedBreweries = .sortedRating
         }
     }
-    
-    
 }

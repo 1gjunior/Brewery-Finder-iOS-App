@@ -812,7 +812,9 @@
 				2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */,
 				B93EF75E28AE039800BFA9C6 /* Extensions.swift in Sources */,
 				2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */,
+
 				D22C937128CFB9D500C64EA7 /* FavoriteBreweriesManager.swift in Sources */,
+
 				29C5AD7528CFDE4A00DBA97E /* FavoriteBreweriesViewController.swift in Sources */,
 				2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */,
 				B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */,

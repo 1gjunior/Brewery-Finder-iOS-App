@@ -21,5 +21,6 @@ extension Resolver: ResolverRegistering {
         register { HomeViewModel() }
         register { BreweryDetailViewModel()}
         register { RatingViewModel() }
+        register { FavoriteBreweriesViewModel() }
     }
 }
