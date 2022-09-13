@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BreweryTableViewCell: UITableViewCell {    
+class BreweryTableViewCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView! {
         didSet {
             mainView.layer.cornerRadius = 30

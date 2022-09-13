@@ -86,11 +86,11 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        breweries.count
+       breweries.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        1
+         1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,6 +105,7 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func update(_ breweries: [FavoriteBreweries]) {
+        
         self.breweries = breweries
         self.tableView.reloadData()
     }

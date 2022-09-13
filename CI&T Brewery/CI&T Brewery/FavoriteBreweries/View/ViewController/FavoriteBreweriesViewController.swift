@@ -38,6 +38,7 @@ class FavoriteBreweriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        getFavoriteBrewery()
         sinkBreweries()
     }
     
@@ -52,7 +53,7 @@ class FavoriteBreweriesViewController: UIViewController {
         breweryList.update(favoriteManager.favoriteBreweries)
     }
 
-    func setupEmptyState() {
+    private func setupEmptyState() {
         changingState(view: emptyStateView)
         view.addSubview(emptyStateView)
         constrainEmptyState()
@@ -104,6 +105,10 @@ class FavoriteBreweriesViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.setupEmptyState()
         }
+    }
+    
+    private func getFavoriteBrewery() {
+        viewModel.fetchFavoriteBrewery()
     }
 }
 
