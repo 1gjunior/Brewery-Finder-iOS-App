@@ -20,6 +20,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var sortLabel: UILabel!
     private var breweries: [Brewery] = []
     private var action: ((_ id: String) -> ())?
+    private var onFavorite: ((String) -> ())?
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
@@ -78,6 +79,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         let brewery = breweries[indexPath.section]
         cell.configure(cell, for: brewery)
+        cell.onFavorite = onFavorite
         
         return cell
     }
@@ -93,10 +95,14 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         action(id)
     }
     
-    public func update(_ breweries: [Brewery], actionForCell: @escaping (_ id: String) -> ()) {
+    public func update(_ breweries: [Brewery]) {
         self.breweries = breweries
         self.tableView.reloadData()
-        self.action = actionForCell
+    }
+    
+    public func setActions(onSelect: @escaping ((String) -> ()), onFavorite: @escaping ((String) -> ())) {
+        self.action = onSelect
+        self.onFavorite = onFavorite
     }
 }
 
@@ -105,5 +111,4 @@ extension BreweryListView: SortViewDelegate {
     func didSorted(type: SortType) {
         delegate?.didSorted(type: type)
     }
-    
 }

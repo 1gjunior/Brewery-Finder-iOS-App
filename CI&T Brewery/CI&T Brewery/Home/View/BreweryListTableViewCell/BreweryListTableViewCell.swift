@@ -11,7 +11,10 @@ class BreweryListTableViewCell: UITableViewCell {
     @IBOutlet var profileLetter: UILabel!
     @IBOutlet var name: UILabel!
     @IBOutlet var average: UILabel!
-
+    var id: String? = nil
+    var buttonState: ButtonState = .unselected
+    var onFavorite: ((String) -> ())? = nil
+    
     func configure(_ cell: BreweryListTableViewCell, for brewery: Brewery) {
         cell.contentView.layer.cornerRadius = 30
         cell.profileLetter.layer.masksToBounds = true
@@ -21,5 +24,42 @@ class BreweryListTableViewCell: UITableViewCell {
         profileLetter.text = "\(brewery.name.first ?? "A")"
         name.text = brewery.name
         average.text = "\(brewery.average)"
+        id = brewery.id
+    }
+    
+    @IBAction func favorite(_ sender: UIButton) {
+        guard let id = id else { return }
+        
+        if buttonState == .unselected {
+            buttonState = .selected
+        } else {
+            buttonState = .unselected
+        }
+        
+        sender.setImage(buttonState.image, for: .normal)
+        sender.tintColor = buttonState.color
+        
+        if let action = onFavorite {
+            action(id)
+        }
+    }
+    
+    enum ButtonState {
+        case selected
+        case unselected
+        
+        var color: UIColor {
+            switch self {
+            case .selected: return .favoriteRedColor()
+            case .unselected: return .label
+            }
+        }
+        
+        var image: UIImage? {
+            switch self {
+            case .selected: return UIImage(systemName: "heart.fill")
+            case .unselected: return UIImage(systemName: "heart")
+            }
+        }
     }
 }

@@ -73,7 +73,6 @@ class BreweryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         getBreweryBy(id: id)
         sinkBrewery()
         sinkRatedBrewery()
@@ -81,6 +80,7 @@ class BreweryDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupNavigationBar()
         getRatedBreweries(id: id)
     }
     
@@ -153,11 +153,6 @@ extension BreweryDetailViewController {
         setupRightNavigationBar()
     }
     private func setupLeftNavigationBar() {
-        let logoIcon = UIButton(type: .system)
-        logoIcon.setImage(UIImage(named: "icon_back"), for: .normal)
-        logoIcon.tintColor = .black
-        
-        navigationItem.backBarButtonItem = UIBarButtonItem(customView: logoIcon)
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
     }

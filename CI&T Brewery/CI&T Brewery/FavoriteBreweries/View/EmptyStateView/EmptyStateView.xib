@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyState" customModule="CI_T_Brewery" customModuleProvider="target">
+            <connections>
+                <outlet property="emptyStateTextLabel" destination="la5-Oo-Xkk" id="Qqe-j1-h9h"/>
+                <outlet property="emptyStateTitleLabel" destination="LPK-Cx-Vc4" id="4bc-F5-rjf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhuma cervejaria favorita" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-Cx-Vc4">
+                    <rect key="frame" x="30" y="15" width="354" height="23.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Você não possui nenhuma cervejaria marcada como favorita. Suas cervejarias favoritas aparecerão aqui." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la5-Oo-Xkk">
+                    <rect key="frame" x="20" y="53.5" width="374" height="37.5"/>
+                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="la5-Oo-Xkk" secondAttribute="trailing" constant="20" id="1jA-Jo-wxN"/>
+                <constraint firstAttribute="trailing" secondItem="LPK-Cx-Vc4" secondAttribute="trailing" constant="30" id="97K-IY-Esf"/>
+                <constraint firstItem="la5-Oo-Xkk" firstAttribute="top" secondItem="LPK-Cx-Vc4" secondAttribute="bottom" constant="15" id="DMY-D0-vBU"/>
+                <constraint firstItem="LPK-Cx-Vc4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="aCU-67-ucN"/>
+                <constraint firstItem="LPK-Cx-Vc4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="sXV-CM-aUt"/>
+                <constraint firstItem="la5-Oo-Xkk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="uCv-xc-nH6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
+        </view>
+    </objects>
+</document>
