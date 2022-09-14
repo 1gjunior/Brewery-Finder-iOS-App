@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Resolver
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class FillEmailView: UIView {
-    private lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
+    @Injected private var viewModel: RatedBreweriesViewModel
+    lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
     
     @IBOutlet var view: UIView!    
     @IBOutlet weak var viewTitle: UILabel! {
@@ -40,7 +42,8 @@ class FillEmailView: UIView {
     }
     @IBOutlet weak var confirmButton: UIButton! {
         didSet {
-            confirmButton.titleLabel?.text = NSLocalizedString("buttonConfirm", comment: "")
+            confirmButton.setTitle(NSLocalizedString("buttonConfirm", comment: ""), for: .normal)
+            confirmButton.setTitleColor(UIColor.breweryGold(), for: .normal)
             confirmButton.titleLabel?.font = UIFont.robotoRegular(ofSize: 14)
             confirmButton.isEnabled = false
         }
@@ -73,23 +76,45 @@ class FillEmailView: UIView {
         textField.trailingViewMode = .unlessEditing
         textField.leadingViewMode = .always
         textField.leadingView = UIImageView(image: UIImage(named: "inputLeadingLabel"))
-
+        
         view.addSubview(textField)
         constrainTextField()
     }
     
     private func constrainTextField() {
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.bottomAnchor.constraint(equalTo: checkboxStackView.topAnchor, constant: -15).isActive = true
+        textField.bottomAnchor.constraint(equalTo: checkboxStackView.topAnchor, constant: -5).isActive = true
         
         textField.leadingAnchor.constraint(equalTo: checkboxStackView.leadingAnchor, constant: 0).isActive = true
         textField.trailingAnchor.constraint(equalTo: checkboxStackView.trailingAnchor, constant: 0).isActive = true
     }
+}
+
+extension FillEmailView {
+    func enabledFields() {
+        textField.trailingView = nil
+        textField.setOutlineColor(UIColor.outlineGreen(), for: .normal)
+        textField.leadingAssistiveLabel.text = ""
+        confirmButton.isEnabled = true
+        confirmButton.configuration?.background.backgroundColor = UIColor.breweryYellowLight()
+        checkbox.isEnabled = true
+    }
     
-//    func configureCheckbox() {
-//        checkboxButton.setImage(UIImage(named: "Unchecked"), for: .normal)
-//        checkboxButton.setImage(UIImage(named: "Checked"), for: .selected)
-//        checkboxButton.setImage(UIImage(named: "CheckboxDisabled"), for: .disabled)
-//        viewModel.fieldsValidation(emailText: "", rating: 0)
-//    }
+    func blankFields() {
+        textField.trailingView = nil
+        textField.setOutlineColor(UIColor.outlineBlack(), for: .normal)
+        textField.leadingAssistiveLabel.text = ""
+        confirmButton.isEnabled = false
+        confirmButton.configuration?.background.backgroundColor = UIColor.grayLighter()
+        checkbox.isEnabled = false
+    }
+    
+    func disabledFields() {
+        textField.trailingView = UIImageView(image: UIImage(named: "inputTrailingLabel"))
+        textField.setOutlineColor(UIColor.outlineRed(), for: .normal)
+        textField.leadingAssistiveLabel.text = NSLocalizedString("emailInvalid", comment: "")
+        confirmButton.isEnabled = false
+        confirmButton.configuration?.background.backgroundColor = UIColor.grayLighter()
+        checkbox.isEnabled = false
+    }
 }

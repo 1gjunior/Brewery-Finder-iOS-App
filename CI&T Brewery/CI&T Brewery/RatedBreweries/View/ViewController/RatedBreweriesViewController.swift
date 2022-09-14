@@ -8,13 +8,16 @@
 import Foundation
 import UIKit
 import Resolver
+import Combine
 
 class RatedBreweriesViewController: UIViewController {
     @Injected var viewModel: RatedBreweriesViewModel
+    private var cancellables: Set<AnyCancellable> = []
     
     private lazy var fillEmailView: FillEmailView = {
         let fillEmailView = FillEmailView(frame: CGRect())
         fillEmailView.translatesAutoresizingMaskIntoConstraints = false
+        fillEmailView.textField.delegate = self
         
         return fillEmailView
     }()
@@ -30,11 +33,25 @@ class RatedBreweriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupFillEmailView()
+        sinkEmailState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+    }
+    
+    private func sinkEmailState() {
+        viewModel.$fieldsState.sink { [weak self] state in
+            switch state {
+            case .blank:
+                self?.fillEmailView.blankFields()
+            case .valid:
+                self?.fillEmailView.enabledFields()
+            case .invalid:
+                self?.fillEmailView.disabledFields()
+            }
+        }.store(in: &cancellables)
     }
     
     private func setupFillEmailView()  {
@@ -60,5 +77,23 @@ extension RatedBreweriesViewController {
         
         self.navigationItem.titleView = lbNavTitle
         self.navigationController?.navigationBar.tintColor = .black
+    }
+}
+
+extension RatedBreweriesViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        fillEmailView.textField.leadingAssistiveLabel.text = ""
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        fillEmailView.textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let emailText = textField.text else {
+            return
+        }
+        viewModel.fieldsValidation(emailText: emailText)
     }
 }

@@ -29,7 +29,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3zQ-pK-J3f">
-                    <rect key="frame" x="16" y="265" width="382" height="50"/>
+                    <rect key="frame" x="16" y="270" width="382" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N5k-9E-f9v">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -49,7 +49,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPG-nD-WUL">
-                    <rect key="frame" x="16" y="335" width="382" height="55"/>
+                    <rect key="frame" x="16" y="340" width="382" height="55"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="pOS-5X-34E"/>
@@ -71,7 +71,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="G3u-Tn-OnU" secondAttribute="trailing" constant="80" id="ROb-ef-Id1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sPG-nD-WUL" secondAttribute="trailing" constant="16" id="UF5-FH-zjL"/>
                 <constraint firstItem="sPG-nD-WUL" firstAttribute="top" secondItem="3zQ-pK-J3f" secondAttribute="bottom" constant="20" id="Wts-2Z-1PR"/>
-                <constraint firstItem="3zQ-pK-J3f" firstAttribute="top" secondItem="G3u-Tn-OnU" secondAttribute="bottom" constant="140" id="YFb-hP-d5N"/>
+                <constraint firstItem="3zQ-pK-J3f" firstAttribute="top" secondItem="G3u-Tn-OnU" secondAttribute="bottom" constant="145" id="YFb-hP-d5N"/>
                 <constraint firstItem="3zQ-pK-J3f" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="jKg-kE-tpa"/>
                 <constraint firstItem="sPG-nD-WUL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="w6k-c4-6LZ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3zQ-pK-J3f" secondAttribute="trailing" constant="16" id="xVg-cc-gyY"/>
