@@ -72,6 +72,11 @@ class FillEmailView: UIView {
     @IBAction func didTapCheckbox(_ sender: Any) {
         checkbox.isSelected.toggle()
     }
+        
+    @IBAction func didTapSaveButton(_ sender: Any) {
+        guard let emailText = textField.text else { return }
+        viewModel.fetchRatedBreweries(email: emailText)
+    }
     
     private func setupTextField() {
         textField.label.text = "e-mail"

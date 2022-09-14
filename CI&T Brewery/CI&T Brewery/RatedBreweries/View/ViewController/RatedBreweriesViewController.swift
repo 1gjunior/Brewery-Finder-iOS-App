@@ -22,6 +22,13 @@ class RatedBreweriesViewController: UIViewController {
         return fillEmailView
     }()
     
+    private lazy var emptyStateView: RatedBreweryEmptyStateView = {
+        let emptyStateView = RatedBreweryEmptyStateView(frame: CGRect())
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false        
+        
+        return emptyStateView
+    }()
+    
     init() {
         super.init(nibName: "RatedBreweriesViewController", bundle: nil)
     }
@@ -34,12 +41,13 @@ class RatedBreweriesViewController: UIViewController {
         super.viewDidLoad()
         setupFillEmailView()
         sinkEmailState()
+        sinkRatedBreweriesState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
-    }
+    }    
     
     private func sinkEmailState() {
         viewModel.$fieldsState.sink { [weak self] state in
@@ -54,6 +62,42 @@ class RatedBreweriesViewController: UIViewController {
         }.store(in: &cancellables)
     }
     
+    private func sinkRatedBreweriesState() {
+        viewModel.$state.sink { [weak self] state in
+            switch state {
+            case .initial:
+                print("initial2")
+            case .loading:
+                print("loading2")
+            case .success(let breweries):
+                print(breweries)
+            case .emptyError:
+                print("sinkRatedBreweriesState")
+                self?.emptyErrorState()
+            }
+        }.store(in: &cancellables)
+    }
+    
+    private func emptyErrorState() {
+        print("chamando aqui")
+        DispatchQueue.main.async { [weak self] in
+            print("chamando aqui 2")
+            self?.setupEmptyErrorState()
+        }
+    }
+    
+    func setupEmptyErrorState() {
+        view.addSubview(emptyStateView)
+        constrainEmptyErrorState()
+    }
+    
+    private func constrainEmptyErrorState() {
+        emptyStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        emptyStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        emptyStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        emptyStateView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
+        
     private func setupFillEmailView()  {
         view.addSubview(fillEmailView)
         constrainFillEmailView()
