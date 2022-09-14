@@ -7,6 +7,7 @@
 
 import Foundation
 import Resolver
+import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 class FillEmailView: UIView {
@@ -75,6 +76,7 @@ class FillEmailView: UIView {
         
     @IBAction func didTapSaveButton(_ sender: Any) {
         guard let emailText = textField.text else { return }
+        print("didTapSaveButton")
         viewModel.fetchRatedBreweries(email: emailText)
     }
     

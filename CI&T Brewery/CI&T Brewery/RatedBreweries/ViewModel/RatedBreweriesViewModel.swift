@@ -32,7 +32,7 @@ class RatedBreweriesViewModel {
     
     func fetchRatedBreweries(email: String) {
         state = .loading
-        print(state)
+        print("RatedBreweriesViewModel \(state)")
 //        repository.getRatedBreweries { [weak self] result in
 //            switch result {
 //            case .failure(_):

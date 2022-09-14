@@ -27,8 +27,8 @@ class RatedBreweryEmptyStateView: UIView {
         commonInit()
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
         commonInit()
     }
     
