@@ -14,9 +14,46 @@ protocol FavoriteBreweriesUseCaseProtocol {
 
 class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
     let manager: FavoriteBreweriesManagerProtocol
+    let repository: BreweryRepositoryProtocol
     
-    init(manager: FavoriteBreweriesManagerProtocol) {
+    init(manager: FavoriteBreweriesManagerProtocol, repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.manager = manager
+        self.repository = repository
+    }
+    
+    func fetchBreweriesBy(city: String, type: SortedBreweries, completion: @escaping ((HomeViewModelState) -> ())) {
+        if !city.isEmpty {
+            repository.getBreweriesBy(city: city) { result in
+                switch result {
+                case .failure(_):
+                    completion(.genericError)
+                case .success(let breweriesResponse):
+                    completion(.success(breweries: self.breweriesSorted(breweries: breweriesResponse, type: type)))
+                }
+            }
+        } else {
+           completion(.emptyError)
+        }
+    }
+    
+    func fetchTop10Breweries(completion: @escaping ((HomeViewModelState) -> ())) {
+        repository.getTop10Breweries { result in
+            switch result {
+            case .failure(_):
+                completion(.genericError)
+            case .success(let breweriesResponse):
+                completion(.success(breweries: breweriesResponse))
+            }
+        }
+    }
+    
+    func breweriesSorted(breweries:[Brewery], type: SortedBreweries) -> [Brewery]{
+        switch type  {
+        case .sortedName:
+         return  breweries.sorted(by: {$0.name < $1.name})
+        case .sortedRating:
+         return  breweries.sorted(by: {$0.average < $1.average})
+        }
     }
     
     func handleFavoriteBrewery(_ brewery: Brewery) {

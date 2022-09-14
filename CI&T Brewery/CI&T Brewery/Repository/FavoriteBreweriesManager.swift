@@ -21,10 +21,11 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
     
     let context: NSManagedObjectContext
     let entity: NSEntityDescription?
+    let entityKey: String = "FavoriteBreweries"
     
     init(context: NSManagedObjectContext) {
         self.context = context
-        self.entity = NSEntityDescription.entity(forEntityName: "FavoriteBreweries", in: context)
+        self.entity = NSEntityDescription.entity(forEntityName: entityKey, in: context)
     }
     
     func getBrewery(id: String) -> FavoriteBreweries? {
