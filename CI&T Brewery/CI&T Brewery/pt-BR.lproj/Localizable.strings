@@ -57,3 +57,8 @@
 /* FavoriteBreweriesView */
 "emptyStateTitle" = "Nenhuma Cervejaria Favorita";
 "emptyStateText" = "Você não possui nenhuma cervejaria marcada como favorita. Suas cervejarias favoritas aparecerão aqui.";
+
+/* RatedListView */
+
+"ratedViewTitle" = "Aqui estão suas Avaliações!";
+"lbFilterText" = "Ordenar por: ";
