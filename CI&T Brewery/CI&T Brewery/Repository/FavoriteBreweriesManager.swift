@@ -28,6 +28,13 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
         self.entity = NSEntityDescription.entity(forEntityName: entityKey, in: context)
     }
     
+    enum Keys: String {
+        case id
+        case name
+        case evaluation
+        case type
+    }
+    
     func getBrewery(id: String) -> FavoriteBreweries? {
         return favoriteBreweries[id]
     }
