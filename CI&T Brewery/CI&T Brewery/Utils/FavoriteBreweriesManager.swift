@@ -16,7 +16,7 @@ protocol FavoriteBreweriesManagerProtocol {
 
 class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
 	static let shared = FavoriteBreweriesManager()
-    var favoriteBreweries: [String : FavoriteBreweries] = [:]
+    private var favoriteBreweries: [String : FavoriteBreweries] = [:]
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     private init() {
