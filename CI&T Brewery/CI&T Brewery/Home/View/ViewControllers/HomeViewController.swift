@@ -62,6 +62,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         searchBar.delegate = self
         getTop10Breweries()
         hideKeyboard()
+        
+        viewModel.loadFavoriteBreweries()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +84,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         constraintListView()
         changingState(view: listView)
         listView.update(breweries)
-        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteBrewery)
+        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteButtonTapped)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {
@@ -225,11 +227,17 @@ extension HomeViewController {
         let starIcon = UIButton(type: .system)
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
+        starIcon.addTarget(self, action: #selector(didTapRatingButton), for: UIControl.Event.touchUpInside)
         
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(customView: favoriteIcon),
             UIBarButtonItem(customView: starIcon)
         ]
+    }
+    
+    @objc private func didTapRatingButton() {
+        let ratedVC = RatedBreweriesViewController()
+        self.navigationController?.pushViewController(ratedVC, animated: true)
     }
     
     @objc private func didTapFavoriteButton() {
@@ -247,16 +255,16 @@ extension HomeViewController: UISearchBarDelegate {
         if searchBar.selectedScopeButtonIndex == 1{
             self.updateBrewery()}
     }
-        func hideKeyboard() {
-            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-            tap.cancelsTouchesInView = false
-            view.addGestureRecognizer(tap)
-        }
-        
-        @objc
-        func dismissKeyboard() {
-            view.endEditing(true)
-        }
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 extension HomeViewController: BreweryListViewDelegate{

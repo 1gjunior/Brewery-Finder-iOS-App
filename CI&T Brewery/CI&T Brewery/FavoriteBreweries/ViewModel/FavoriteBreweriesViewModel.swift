@@ -51,6 +51,7 @@ class FavoriteBreweriesViewModel {
         let allBrewries = favoriteManager.getAllBreweries()
         if allBrewries.count > 0 {
             state = .success(breweries: allBrewries)
+            print(allBrewries)
         }
         else {
             state = .emptyError

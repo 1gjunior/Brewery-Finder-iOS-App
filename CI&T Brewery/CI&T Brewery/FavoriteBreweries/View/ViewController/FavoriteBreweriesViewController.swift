@@ -13,7 +13,6 @@ class FavoriteBreweriesViewController: UIViewController {
     private var currentView: UIView?
    @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     private var favoriteBreweries: [FavoriteBreweries] = []
-
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
     private lazy var breweryList: FavoriteListView = {
@@ -51,6 +50,7 @@ class FavoriteBreweriesViewController: UIViewController {
     private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
         view.addSubview(breweryList)
         constrainBreweryList()
+        favoriteBreweries = breweries
         breweryList.update(favoriteBreweries)
     }
 
@@ -96,7 +96,7 @@ class FavoriteBreweriesViewController: UIViewController {
                 print("loading")
             case .success(breweries: let breweries):
                 self?.favoriteBreweriesList(breweries)
-                print(breweries)
+                print("breweries favorites \(breweries)")
             case .genericError:
                 print("generic")
             }

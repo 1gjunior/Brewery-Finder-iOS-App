@@ -11,7 +11,6 @@ import CoreData
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
-        let coreDataService = CoreDataService()
         
         defaultScope = .graph
         
@@ -21,10 +20,13 @@ extension Resolver: ResolverRegistering {
         register { BreweryRepository(apiManager: resolve()) as BreweryRepositoryProtocol }
         
         // MARK: - ViewModels
-        register { HomeViewModel() }
+        register { HomeViewModel(useCase: resolve()) }
         register { BreweryDetailViewModel() }
         register { RatingViewModel() }
         register { FavoriteBreweriesViewModel() }
+        let coreDataService = CoreDataService()
         register { FavoriteBreweriesManager(context: coreDataService.mainContext) as FavoriteBreweriesManagerProtocol}.scope(.application)
+        register { FavoriteBreweriesUseCase(manager: resolve()) }
+        register { RatedBreweriesViewModel() }
     }
 }
