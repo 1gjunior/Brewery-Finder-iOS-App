@@ -7,9 +7,12 @@
 
 import Foundation
 import Resolver
+import CoreData
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
+        let coreDataService = CoreDataService()
+        
         defaultScope = .graph
         
         register { APIManager() as APIManagerService }
@@ -22,5 +25,6 @@ extension Resolver: ResolverRegistering {
         register { BreweryDetailViewModel() }
         register { RatingViewModel() }
         register { FavoriteBreweriesViewModel() }
+        register { FavoriteBreweriesManager(context: coreDataService.mainContext) as FavoriteBreweriesManagerProtocol}.scope(.application)
     }
 }

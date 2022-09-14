@@ -11,7 +11,8 @@ import UIKit
 
 class FavoriteBreweriesViewController: UIViewController {
     private var currentView: UIView?
-    private var favoriteManager = FavoriteBreweriesManager.shared
+   @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
+    private var favoriteBreweries: [FavoriteBreweries] = []
 
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -50,7 +51,7 @@ class FavoriteBreweriesViewController: UIViewController {
     private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
         view.addSubview(breweryList)
         constrainBreweryList()
-        breweryList.update(favoriteManager.favoriteBreweries)
+        breweryList.update(favoriteBreweries)
     }
 
     private func setupEmptyState() {
@@ -67,7 +68,7 @@ class FavoriteBreweriesViewController: UIViewController {
     }
     
     func loadFavorite(){
-        favoriteManager.loadFavoriteBreweries(with: context)
+        favoriteManager.loadFavoriteBreweries()
         breweryList.tableView.reloadData()
     }
     
@@ -94,6 +95,7 @@ class FavoriteBreweriesViewController: UIViewController {
             case .loading:
                 print("loading")
             case .success(breweries: let breweries):
+                self?.favoriteBreweriesList(breweries)
                 print(breweries)
             case .genericError:
                 print("generic")
@@ -104,6 +106,12 @@ class FavoriteBreweriesViewController: UIViewController {
     private func emptyState() {
         DispatchQueue.main.async { [weak self] in
             self?.setupEmptyState()
+        }
+    }
+    
+    private func favoriteBreweriesList(_ breweries: [FavoriteBreweries]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupSuccessState(breweries)
         }
     }
     

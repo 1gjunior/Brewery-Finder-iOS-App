@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import Resolver
 
 enum FavoriteBreweriesViewModelState {
     case initial
@@ -24,7 +25,7 @@ enum SortedFavoriteBreweries {
 class FavoriteBreweriesViewModel {
     
     @Published private(set) var state: FavoriteBreweriesViewModelState = .initial
-    private var favoriteManager = FavoriteBreweriesManager.shared
+    @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     
     public var sortedBreweries: SortedBreweries = .sortedName {
         willSet(newType) {
@@ -47,9 +48,9 @@ class FavoriteBreweriesViewModel {
     }
     
     func fetchFavoriteBrewery() {
-        if favoriteManager.favoriteBreweries.count > 0 {
-            state = .success(breweries: favoriteManager.favoriteBreweries)
-            
+        let allBrewries = favoriteManager.getAllBreweries()
+        if allBrewries.count > 0 {
+            state = .success(breweries: allBrewries)
         }
         else {
             state = .emptyError
