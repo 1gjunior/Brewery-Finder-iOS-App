@@ -62,6 +62,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         searchBar.delegate = self
         getTop10Breweries()
         hideKeyboard()
+        
+        viewModel.loadFavoriteBreweries()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +84,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         constraintListView()
         changingState(view: listView)
         listView.update(breweries)
-        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteBrewery)
+        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteButtonTapped)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {
