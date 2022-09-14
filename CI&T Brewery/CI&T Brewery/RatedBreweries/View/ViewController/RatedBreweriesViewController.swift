@@ -21,7 +21,14 @@ class RatedBreweriesViewController: UIViewController {
         
         return fillEmailView
     }()
-    
+	
+	private lazy var sucessView: RatedListView = {
+		let sucessView = RatedListView(frame: CGRect())
+		sucessView.translatesAutoresizingMaskIntoConstraints = false
+		return sucessView
+	} ()
+	
+
     init() {
         super.init(nibName: "RatedBreweriesViewController", bundle: nil)
     }
@@ -40,6 +47,12 @@ class RatedBreweriesViewController: UIViewController {
         super.viewWillAppear(animated)
         setupNavigationBar()
     }
+	
+	func setupSucessState (_ breweries: [Brewery]){
+		sucessView.setRatedResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
+		view.addSubview(sucessView)
+		constraintSucessView()
+	}
     
     private func sinkEmailState() {
         viewModel.$fieldsState.sink { [weak self] state in
@@ -65,6 +78,19 @@ class RatedBreweriesViewController: UIViewController {
         fillEmailView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         fillEmailView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
+	
+	private func constraintSucessView() {
+		sucessView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+		sucessView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+		sucessView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+		sucessView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+	}
+	
+	private func sucessState(_ breweries: [Brewery]) {
+		DispatchQueue.main.async { [weak self] in
+			self?.setupSucessState(breweries)
+		}
+	}
 }
 
 extension RatedBreweriesViewController {

@@ -47,7 +47,7 @@ class RatedListView: UIView{
 	
 	@IBOutlet weak var lbTitle: UILabel!{
 		didSet{
-			lbTitle.text = NSLocalizedString("ratedViewTitle", comment: "") // setar em localizable
+			lbTitle.text = NSLocalizedString("ratedViewTitle", comment: "")
 			lbTitle.font = UIFont.robotoRegular(ofSize: 18)
 			lbTitle.textColor = UIColor.breweryBlack()
 		}
@@ -61,6 +61,7 @@ class RatedListView: UIView{
 	}
 	@IBOutlet weak var lbFilterText: UILabel!{
 		didSet{
+			lbFilterText.text = NSLocalizedString("lbFilterText", comment: "")
 			lbFilterText.font = UIFont.robotoLight(ofSize: 14)
 			lbFilterText.textColor = UIColor.breweryBlack()
 		}
@@ -69,6 +70,19 @@ class RatedListView: UIView{
 	
 	
 	@IBAction func openSortView(_ sender: UIButton) {
+		sortView.view.isHidden = false
+		contentView.addSubview(sortView)
+		constraintSortView()
+	}
+	private func constraintSortView() {
+		 sortView.translatesAutoresizingMaskIntoConstraints = false
+		 sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+		 sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+		 sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+		 sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+	}
+	public func setRatedResultText(_ text: String) {
+		lbResult.text = text
 	}
 }
 
