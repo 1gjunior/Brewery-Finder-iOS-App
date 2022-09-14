@@ -9,8 +9,8 @@ import Foundation
 import CoreData
 
 protocol FavoriteBreweriesManagerProtocol {
-	func loadFavoriteBreweries() -> [FavoriteBreweries]?
-	func deleteFavoriteBreweries(id: String)
+    func loadFavoriteBreweries() -> [FavoriteBreweries]?
+    func deleteFavoriteBreweries(id: String)
     func saveFavoriteBrewery(brewery: Brewery)
     func getAllBreweries() -> [FavoriteBreweries]
     func getBrewery(id: String) -> FavoriteBreweries?
@@ -67,10 +67,10 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
         guard let entity = entity else { return }
 
         let newFavoriteBrewery = NSManagedObject(entity: entity, insertInto: context)
-        newFavoriteBrewery.setValue(brewery.id, forKey: "id")
-        newFavoriteBrewery.setValue(brewery.name, forKey: "name")
-        newFavoriteBrewery.setValue(brewery.sizeEvaluations, forKey: "evaluation")
-        newFavoriteBrewery.setValue(brewery.type, forKey: "type")
+        newFavoriteBrewery.setValue(brewery.id, forKey: Keys.id)
+        newFavoriteBrewery.setValue(brewery.name, forKey: Keys.name)
+        newFavoriteBrewery.setValue(brewery.sizeEvaluations, forKey: Keys.evaluation)
+        newFavoriteBrewery.setValue(brewery.type, forKey: Keys.type)
         
         guard let newBrewery = newFavoriteBrewery as? FavoriteBreweries else { return }
         
