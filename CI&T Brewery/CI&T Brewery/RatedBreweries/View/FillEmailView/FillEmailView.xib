@@ -60,7 +60,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button" cornerStyle="capsule">
                         <backgroundConfiguration key="background">
-                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.10037544705220405" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.10037544705220405" colorSpace="custom" customColorSpace="sRGB"/>
                         </backgroundConfiguration>
                         <color key="baseForegroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     </buttonConfiguration>

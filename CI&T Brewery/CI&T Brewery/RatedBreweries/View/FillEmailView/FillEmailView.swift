@@ -10,9 +10,14 @@ import Resolver
 import UIKit
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
+public protocol SubmitEmailDelegate {
+    func submitEmail(email: String)
+}
+
 class FillEmailView: UIView {
     @Injected private var viewModel: RatedBreweriesViewModel
     lazy var textField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
+    public var delegate: SubmitEmailDelegate?
     
     @IBOutlet var view: UIView!    
     @IBOutlet weak var viewTitle: UILabel! {
@@ -64,7 +69,6 @@ class FillEmailView: UIView {
         guard let viewFromXib = Bundle.main.loadNibNamed("FillEmailView", owner: self, options: nil)?[0] as? UIView else { return }
         viewFromXib.frame = self.bounds
         viewFromXib.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        viewFromXib.translatesAutoresizingMaskIntoConstraints = true
         addSubview(viewFromXib)
         
         setupTextField()
@@ -76,8 +80,7 @@ class FillEmailView: UIView {
         
     @IBAction func didTapSaveButton(_ sender: Any) {
         guard let emailText = textField.text else { return }
-        print("didTapSaveButton")
-        viewModel.fetchRatedBreweries(email: emailText)
+        delegate?.submitEmail(email: emailText)
     }
     
     private func setupTextField() {

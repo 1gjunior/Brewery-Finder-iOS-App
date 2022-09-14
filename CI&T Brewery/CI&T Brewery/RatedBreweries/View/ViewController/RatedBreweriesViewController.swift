@@ -13,11 +13,13 @@ import Combine
 class RatedBreweriesViewController: UIViewController {
     @Injected var viewModel: RatedBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
+    private var currentView: UIView!
     
     private lazy var fillEmailView: FillEmailView = {
         let fillEmailView = FillEmailView(frame: CGRect())
         fillEmailView.translatesAutoresizingMaskIntoConstraints = false
         fillEmailView.textField.delegate = self
+        fillEmailView.delegate = self
         
         return fillEmailView
     }()
@@ -66,39 +68,38 @@ class RatedBreweriesViewController: UIViewController {
         viewModel.$state.sink { [weak self] state in
             switch state {
             case .initial:
-                print("initial2")
+                print("initial")
             case .loading:
-                print("loading2")
+                print("loading")
             case .success(let breweries):
                 print(breweries)
             case .emptyError:
-                print("sinkRatedBreweriesState")
                 self?.emptyErrorState()
             }
         }.store(in: &cancellables)
     }
     
     private func emptyErrorState() {
-        print("chamando aqui")
         DispatchQueue.main.async { [weak self] in
-            print("chamando aqui 2")
             self?.setupEmptyErrorState()
         }
     }
     
     func setupEmptyErrorState() {
+        changingState(emptyStateView)
         view.addSubview(emptyStateView)
         constrainEmptyErrorState()
     }
     
     private func constrainEmptyErrorState() {
-        emptyStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        emptyStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor, constant: -100).isActive = true
         emptyStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         emptyStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         emptyStateView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
         
     private func setupFillEmailView()  {
+        currentView = fillEmailView
         view.addSubview(fillEmailView)
         constrainFillEmailView()
     }
@@ -108,6 +109,13 @@ class RatedBreweriesViewController: UIViewController {
         fillEmailView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         fillEmailView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         fillEmailView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    private func changingState(_ view: UIView?) {
+        if view != currentView {
+            currentView?.removeFromSuperview()
+            currentView = view
+        }
     }
 }
 
@@ -139,5 +147,11 @@ extension RatedBreweriesViewController: UITextFieldDelegate {
             return
         }
         viewModel.fieldsValidation(emailText: emailText)
+    }
+}
+
+extension RatedBreweriesViewController: SubmitEmailDelegate {
+    func submitEmail(email: String) {
+        viewModel.fetchRatedBreweries(email: email)
     }
 }
