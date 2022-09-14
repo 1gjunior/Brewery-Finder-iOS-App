@@ -78,6 +78,10 @@ class FavoriteListView: UIView {
         sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
+    
+    public func setSearchResultFavoriteText(_ text: String) {
+        resultsCount.text = text
+    }
 }
 
 extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {

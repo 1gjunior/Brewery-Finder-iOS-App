@@ -48,6 +48,7 @@ class FavoriteBreweriesViewController: UIViewController {
     }
     
     private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
+        breweryList.setSearchResultFavoriteText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
         view.addSubview(breweryList)
         constrainBreweryList()
         favoriteBreweries = breweries
