@@ -40,10 +40,9 @@ class BreweryTableViewCell: UITableViewCell {
     }
     
     func configure(_ cell: BreweryTableViewCell, for brewery: FavoriteBreweries) {
-        //let firstLetter = brewery.name!.prefix(1).lowercased()
-       // letterImage.text = String(brewery.name![brewery.name!.startIndex])
-        letterImage.text = brewery.name!.prefix(1).lowercased()
+        letterImage.text = brewery.name!.prefix(1).uppercased()
         name.text = brewery.name
-        average.text = String(format: "%.f", brewery.evaluation )
+        average.text = "\(brewery.evaluation)"
+        type.text = brewery.type
     }
 }
