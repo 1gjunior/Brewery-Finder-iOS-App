@@ -21,6 +21,11 @@
 		2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */; };
 		2B5FA60A28CFD24F0056DE0E /* BreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */; };
 		2B5FA60F28CFDCF60056DE0E /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60E28CFDCF60056DE0E /* FavoriteListView.swift */; };
+		2B7E5CEB28D0F23000F69F81 /* RatedBreweriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */; };
+		2B7E5CEE28D0F25C00F69F81 /* RatedBreweriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E5CED28D0F25C00F69F81 /* RatedBreweriesViewController.swift */; };
+		2B7E5CF028D0F27300F69F81 /* RatedBreweriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7E5CEF28D0F27300F69F81 /* RatedBreweriesViewController.xib */; };
+		2B7E5CF328D0F7F100F69F81 /* FillEmailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7E5CF228D0F7F100F69F81 /* FillEmailView.xib */; };
+		2B7E5CF528D0F7FD00F69F81 /* FillEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E5CF428D0F7FD00F69F81 /* FillEmailView.swift */; };
 		2B92A11A28AC3AAD00E6FB05 /* BreweryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11928AC3AAD00E6FB05 /* BreweryDetailViewController.swift */; };
 		2B92A12028AC4E8100E6FB05 /* BreweryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A11F28AC4E8100E6FB05 /* BreweryDetailViewModel.swift */; };
 		2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */; };
@@ -121,6 +126,11 @@
 		2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryTableViewCell.swift; sourceTree = "<group>"; };
 		2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweryTableViewCell.xib; sourceTree = "<group>"; };
 		2B5FA60E28CFDCF60056DE0E /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
+		2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweriesViewModel.swift; sourceTree = "<group>"; };
+		2B7E5CED28D0F25C00F69F81 /* RatedBreweriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweriesViewController.swift; sourceTree = "<group>"; };
+		2B7E5CEF28D0F27300F69F81 /* RatedBreweriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatedBreweriesViewController.xib; sourceTree = "<group>"; };
+		2B7E5CF228D0F7F100F69F81 /* FillEmailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FillEmailView.xib; sourceTree = "<group>"; };
+		2B7E5CF428D0F7FD00F69F81 /* FillEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillEmailView.swift; sourceTree = "<group>"; };
 		2B92A11928AC3AAD00E6FB05 /* BreweryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewController.swift; sourceTree = "<group>"; };
 		2B92A11F28AC4E8100E6FB05 /* BreweryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewModel.swift; sourceTree = "<group>"; };
 		2B92A12128AC51CD00E6FB05 /* BreweryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailView.swift; sourceTree = "<group>"; };
@@ -322,6 +332,50 @@
 			path = FavoriteListView;
 			sourceTree = "<group>";
 		};
+		2B7E5CE728D0F1F000F69F81 /* RatedBreweries */ = {
+			isa = PBXGroup;
+			children = (
+				2B7E5CE928D0F20600F69F81 /* View */,
+				2B7E5CE828D0F1FD00F69F81 /* ViewModel */,
+			);
+			path = RatedBreweries;
+			sourceTree = "<group>";
+		};
+		2B7E5CE828D0F1FD00F69F81 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2B7E5CE928D0F20600F69F81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B7E5CF128D0F7D500F69F81 /* FillEmailView */,
+				2B7E5CEC28D0F23D00F69F81 /* ViewController */,
+				2B7E5CEF28D0F27300F69F81 /* RatedBreweriesViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B7E5CEC28D0F23D00F69F81 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2B7E5CED28D0F25C00F69F81 /* RatedBreweriesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2B7E5CF128D0F7D500F69F81 /* FillEmailView */ = {
+			isa = PBXGroup;
+			children = (
+				2B7E5CF228D0F7F100F69F81 /* FillEmailView.xib */,
+				2B7E5CF428D0F7FD00F69F81 /* FillEmailView.swift */,
+			);
+			path = FillEmailView;
+			sourceTree = "<group>";
+		};
 		2B92A11528AC3A0B00E6FB05 /* BreweryDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +543,7 @@
 		B99FDE0828A58F4D00F5DA30 /* CI&T Brewery */ = {
 			isa = PBXGroup;
 			children = (
+				2B7E5CE728D0F1F000F69F81 /* RatedBreweries */,
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
 				B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */,
 				2B92A11528AC3A0B00E6FB05 /* BreweryDetail */,
@@ -720,6 +775,8 @@
 				2BCFD90828B6682800F3DFA9 /* RatingViewController.xib in Resources */,
 				B93EF76328AE8D0200BFA9C6 /* FailureStateView.xib in Resources */,
 				33DD4E2E28AEC1A60077D800 /* BreweryDetailView.xib in Resources */,
+				2B7E5CF328D0F7F100F69F81 /* FillEmailView.xib in Resources */,
+				2B7E5CF028D0F27300F69F81 /* RatedBreweriesViewController.xib in Resources */,
 				337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */,
 				337D826228AC0B2A00DBAA56 /* Roboto-BlackItalic.ttf in Resources */,
 				2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */,
@@ -820,6 +877,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7E5CEB28D0F23000F69F81 /* RatedBreweriesViewModel.swift in Sources */,
+				2B7E5CEE28D0F25C00F69F81 /* RatedBreweriesViewController.swift in Sources */,
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
 				B975F97F28D219770020C1E1 /* CoreDataService.swift in Sources */,
 				B9BF804528D2254D00278012 /* FavoriteBreweriesUseCase.swift in Sources */,
@@ -833,6 +892,8 @@
 				D2AF0AD528B51D3500EAF89B /* BrewerySortView.swift in Sources */,
 				B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */,
 				B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */,
+				2B7E5CF528D0F7FD00F69F81 /* FillEmailView.swift in Sources */,
+				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
 				2BD6CECF28AEFB3000B729C4 /* FileManagerExtension.swift in Sources */,
 				B93EF76C28B0118C00BFA9C6 /* CarouselCellView.swift in Sources */,
