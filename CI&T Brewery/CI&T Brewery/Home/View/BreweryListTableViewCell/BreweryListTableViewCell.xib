@@ -112,6 +112,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="average" destination="37s-29-cjh" id="fDq-wM-ebF"/>
+                <outlet property="favoriteButton" destination="wPu-cX-Exq" id="d0T-no-Ofu"/>
                 <outlet property="name" destination="giw-cS-cmu" id="l9d-le-OU2"/>
                 <outlet property="profileLetter" destination="CYr-iH-4fp" id="kZV-5a-bF4"/>
             </connections>
