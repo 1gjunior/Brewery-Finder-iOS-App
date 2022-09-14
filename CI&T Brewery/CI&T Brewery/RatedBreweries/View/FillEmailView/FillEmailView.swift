@@ -69,6 +69,10 @@ class FillEmailView: UIView {
         setupTextField()
     }
     
+    @IBAction func didTapCheckbox(_ sender: Any) {
+        checkbox.isSelected.toggle()
+    }
+    
     private func setupTextField() {
         textField.label.text = "e-mail"
         textField.placeholder = "e-mail"
