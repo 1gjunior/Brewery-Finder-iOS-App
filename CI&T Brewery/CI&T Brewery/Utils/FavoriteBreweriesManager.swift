@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreData
-import UIKit
 
 protocol FavoriteBreweriesManagerProtocol {
 	func loadFavoriteBreweries() -> [FavoriteBreweries]?
@@ -21,9 +20,11 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
     private var favoriteBreweries: [String : FavoriteBreweries] = [:]
     
     let context: NSManagedObjectContext
+    let entity: NSEntityDescription?
     
     init(context: NSManagedObjectContext) {
         self.context = context
+        self.entity = NSEntityDescription.entity(forEntityName: "FavoriteBreweries", in: context)
     }
     
     func getBrewery(id: String) -> FavoriteBreweries? {
@@ -62,7 +63,8 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
     }
     
     func saveFavoriteBrewery(brewery: Brewery) {
-        guard let entity = NSEntityDescription.entity(forEntityName: "FavoriteBreweries", in: context) else { return }
+        guard let entity = entity else { return }
+
         let newFavoriteBrewery = NSManagedObject(entity: entity, insertInto: context)
         newFavoriteBrewery.setValue(brewery.id, forKey: "id")
         newFavoriteBrewery.setValue(brewery.name, forKey: "name")
