@@ -18,9 +18,11 @@ extension Resolver: ResolverRegistering {
         register { BreweryRepository(apiManager: resolve()) as BreweryRepositoryProtocol }
         
         // MARK: - ViewModels
-        register { HomeViewModel() }
+        register { HomeViewModel(manager: resolve()) }
         register { BreweryDetailViewModel() }
         register { RatingViewModel() }
         register { FavoriteBreweriesViewModel() }
+        let coreDataService = CoreDataService()
+        register { FavoriteBreweriesManager(context: coreDataService.mainContext) as FavoriteBreweriesManagerProtocol}.scope(.application)
     }
 }

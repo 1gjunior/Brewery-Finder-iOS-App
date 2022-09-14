@@ -22,7 +22,7 @@ enum SortedBreweries{
 }
 
 class HomeViewModel {
-    
+    let manager: FavoriteBreweriesManagerProtocol
     let repository: BreweryRepositoryProtocol
     @Published private(set) var state: HomeViewModelState = .initial
     @Published private(set) var top10BreweriesState: HomeViewModelState = .initial
@@ -37,8 +37,9 @@ class HomeViewModel {
         }
     }
     
-    init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
+    init(repository: BreweryRepositoryProtocol = BreweryRepository(), manager: FavoriteBreweriesManagerProtocol) {
         self.repository = repository
+        self.manager = manager
     }
     
     func fetchBreweriesBy(city: String) {        
@@ -82,11 +83,14 @@ class HomeViewModel {
     }
     
     func favoriteBrewery(brewery: Brewery) {
-        let manager = FavoriteBreweriesManager.shared
-        if let id = manager.favoriteBreweries[brewery.id]?.id {
-            manager.deleteFavoriteBreweries(id: id, context: manager.getContext())
+        if let id = manager.getBrewery(id: brewery.id)?.id {
+            manager.deleteFavoriteBreweries(id: id)
         } else {
             manager.saveFavoriteBrewery(brewery: brewery)
         }
+    }
+    
+    func loadFavoriteBreweries() {
+        _ = manager.loadFavoriteBreweries()
     }
 }

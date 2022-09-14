@@ -62,6 +62,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         searchBar.delegate = self
         getTop10Breweries()
         hideKeyboard()
+        
+        viewModel.loadFavoriteBreweries()
     }
     
     override func viewWillAppear(_ animated: Bool) {

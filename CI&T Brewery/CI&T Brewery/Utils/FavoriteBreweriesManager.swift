@@ -10,54 +10,58 @@ import CoreData
 import UIKit
 
 protocol FavoriteBreweriesManagerProtocol {
-	func loadFavoriteBreweries(with context: NSManagedObjectContext)
-	func deleteFavoriteBreweries(id: String, context: NSManagedObjectContext)
+	func loadFavoriteBreweries() -> [FavoriteBreweries]?
+	func deleteFavoriteBreweries(id: String)
+    func saveFavoriteBrewery(brewery: Brewery)
+    func getAllBreweries() -> [FavoriteBreweries]
+    func getBrewery(id: String) -> FavoriteBreweries?
 }
 
 class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
-	static let shared = FavoriteBreweriesManager()
     private var favoriteBreweries: [String : FavoriteBreweries] = [:]
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    private init() {
-        loadFavoriteBreweries(with: appDelegate.persistentContainer.viewContext)
+    let context: NSManagedObjectContext
+    
+    init(context: NSManagedObjectContext) {
+        self.context = context
     }
     
-    func getContext() -> NSManagedObjectContext {
-        let context = appDelegate.persistentContainer.viewContext
-        
-        return context
+    func getBrewery(id: String) -> FavoriteBreweries? {
+        return favoriteBreweries[id]
     }
     
-    private func saveContext() {
-        appDelegate.saveContext()
+    func getAllBreweries() -> [FavoriteBreweries] {
+        return favoriteBreweries.values.sorted { _,_ in true }
     }
 	
-	func loadFavoriteBreweries(with context: NSManagedObjectContext) {
-		let fetchRequest: NSFetchRequest<FavoriteBreweries> = FavoriteBreweries.fetchRequest()
-		do {
-            try context.fetch(fetchRequest).forEach { brewery in
+    func loadFavoriteBreweries() -> [FavoriteBreweries]? {
+        let fetchRequest: NSFetchRequest<FavoriteBreweries> = FavoriteBreweries.fetchRequest()
+        do {
+            let result = try context.fetch(fetchRequest)
+            
+            result.forEach { brewery in
                 addFavoriteBrewery(brewery)
             }
-		} catch  {
-			fatalError("Unresolved error \(error)")
-		}
-	}
+            
+            return result
+        }
+        catch  {
+            fatalError()
+        }
+    }
 	
-	func deleteFavoriteBreweries(id: String, context: NSManagedObjectContext) {
-        guard let brewery = favoriteBreweries[id] else { return }
+    func deleteFavoriteBreweries(id: String) {
+        guard let breweries = favoriteBreweries[id] else { return }
         removeFavoriteBrewery(id)
-		context.delete(brewery)
-		do {
-			try context.save()
-		} catch {
-			fatalError("Unresolved error \(error)")
-		}
-	}
+        self.context.delete(breweries)
+        do {
+             try context.save()
+        } catch {
+            fatalError("Unresolved error \(error)")
+        }
+    }
     
     func saveFavoriteBrewery(brewery: Brewery) {
-        let context = getContext()
-        
         guard let entity = NSEntityDescription.entity(forEntityName: "FavoriteBreweries", in: context) else { return }
         let newFavoriteBrewery = NSManagedObject(entity: entity, insertInto: context)
         newFavoriteBrewery.setValue(brewery.id, forKey: "id")
@@ -69,7 +73,11 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
         
         addFavoriteBrewery(newBrewery)
         
-        saveContext()
+        do {
+            try context.save()
+        } catch let error {
+            fatalError("Unresolved error \(error)")
+        }
     }
     
     func addFavoriteBrewery(_ brewery: FavoriteBreweries) {

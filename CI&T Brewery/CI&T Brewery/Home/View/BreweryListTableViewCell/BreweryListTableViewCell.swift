@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Resolver
 
 class BreweryListTableViewCell: UITableViewCell {
     @IBOutlet var profileLetter: UILabel!
     @IBOutlet var name: UILabel!
     @IBOutlet var average: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @Injected var favoriteManager: FavoriteBreweriesManagerProtocol
     
     var brewery: Brewery? = nil
     var buttonState: ButtonState = .unselected
@@ -27,7 +29,7 @@ class BreweryListTableViewCell: UITableViewCell {
         average.text = "\(brewery.average)"
         self.brewery = brewery
         
-        if FavoriteBreweriesManager.shared.favoriteBreweries[brewery.id] != nil {
+        if favoriteManager.getBrewery(id: brewery.id) != nil {
             buttonState = .selected
         } else {
             buttonState = .unselected
