@@ -38,7 +38,7 @@ class RatedBreweryTableViewCell: UITableViewCell{
 	func configure(_ cell: RatedBreweryTableViewCell, for brewery: Brewery) {
 		lbProfileLetter.text = String(brewery.name[brewery.name.startIndex])
 		lbBrewery.text = brewery.name
-		lbBreweryAverage.text = String(format: "%.f", brewery.average)
+		lbBreweryAverage.text = "\(brewery.average)"
 		cosmosView.rating = round(brewery.average)
 	}
 	
