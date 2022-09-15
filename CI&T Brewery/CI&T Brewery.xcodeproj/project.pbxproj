@@ -96,6 +96,7 @@
 		D299D8AF28D3552800E82D45 /* RatedListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D299D8AD28D3552700E82D45 /* RatedListView.xib */; };
 		D299D8B328D3555500E82D45 /* RatedBreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8B128D3555500E82D45 /* RatedBreweryTableViewCell.swift */; };
 		D299D8B428D3555500E82D45 /* RatedBreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D299D8B228D3555500E82D45 /* RatedBreweryTableViewCell.xib */; };
+		D299D8B628D35B3700E82D45 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8B528D35B3700E82D45 /* CoreDataService.swift */; };
 		D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */; };
 		D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */; };
 		D2AF0AD328B51D0300EAF89B /* BrewerySortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AF0AD228B51D0300EAF89B /* BrewerySortView.xib */; };
@@ -214,6 +215,7 @@
 		D299D8AD28D3552700E82D45 /* RatedListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedListView.xib; sourceTree = "<group>"; };
 		D299D8B128D3555500E82D45 /* RatedBreweryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedBreweryTableViewCell.swift; sourceTree = "<group>"; };
 		D299D8B228D3555500E82D45 /* RatedBreweryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedBreweryTableViewCell.xib; sourceTree = "<group>"; };
+		D299D8B528D35B3700E82D45 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		D2AD32E928ABD9C200CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2AD32ED28ABDB8E00CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2AD32F328ABDD9D00CABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeViewController.xib; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D299D8B528D35B3700E82D45 /* CoreDataService.swift */,
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
 				2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */,
 				2B0CAB7128D35AF2005228DC /* CoreDataService.swift */,
@@ -967,6 +970,7 @@
 				2B92A12228AC51CD00E6FB05 /* BreweryDetailView.swift in Sources */,
 				D299D8AE28D3552800E82D45 /* RatedListView.swift in Sources */,
 				B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */,
+				D299D8B628D35B3700E82D45 /* CoreDataService.swift in Sources */,
 				2B0CAB7228D35AF2005228DC /* CoreDataService.swift in Sources */,
 				33BD22B728AD86530004FEE4 /* SucessStateView.swift in Sources */,
 			);
