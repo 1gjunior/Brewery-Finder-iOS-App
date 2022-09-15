@@ -13,11 +13,14 @@ class BreweryListTableViewCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var average: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    @Injected var favoriteManager: FavoriteBreweriesManagerProtocol
+    var viewModel: HomeViewModel?
     
     var brewery: Brewery? = nil
-    var buttonState: ButtonState = .unselected
-    var onFavorite: ((Brewery) -> ())? = nil
+    var buttonState: FavoriteButtonState = .unselected {
+        didSet {
+            updateFavoriteButton()
+        }
+    }
     
     func configure(_ cell: BreweryListTableViewCell, for brewery: Brewery) {
         cell.contentView.layer.cornerRadius = 30
@@ -28,53 +31,40 @@ class BreweryListTableViewCell: UITableViewCell {
         name.text = brewery.name
         average.text = "\(brewery.average)"
         self.brewery = brewery
-        
-        if favoriteManager.getBrewery(id: brewery.id) != nil {
-            buttonState = .selected
-        } else {
-            buttonState = .unselected
+
+        if let viewModel = viewModel {
+            buttonState = viewModel.getFavoriteButtonState(with: brewery.id)
         }
-        
-        updateFavoriteButton()
     }
     
     @IBAction func favorite(_ sender: UIButton) {
         guard let brewery = brewery else { return }
+        guard let viewModel = viewModel else { return }
         
-        if buttonState == .unselected {
-            buttonState = .selected
-        } else {
-            buttonState = .unselected
-        }
-        
-        if let action = onFavorite {
-            action(brewery)
-        }
-        
-        updateFavoriteButton()
+        buttonState = viewModel.favoriteButtonTapped(brewery: brewery, state: buttonState)
     }
     
     func updateFavoriteButton() {
         favoriteButton.setImage(buttonState.image, for: .normal)
         favoriteButton.tintColor = buttonState.color
     }
+}
+
+enum FavoriteButtonState {
+    case selected
+    case unselected
     
-    enum ButtonState {
-        case selected
-        case unselected
-        
-        var color: UIColor {
-            switch self {
-            case .selected: return .favoriteRedColor()
-            case .unselected: return .label
-            }
+    var color: UIColor {
+        switch self {
+        case .selected: return .favoriteRedColor()
+        case .unselected: return .label
         }
-        
-        var image: UIImage? {
-            switch self {
-            case .selected: return UIImage(systemName: "heart.fill")
-            case .unselected: return UIImage(systemName: "heart")
-            }
+    }
+    
+    var image: UIImage? {
+        switch self {
+        case .selected: return UIImage(systemName: "heart.fill")
+        case .unselected: return UIImage(systemName: "heart")
         }
     }
 }
