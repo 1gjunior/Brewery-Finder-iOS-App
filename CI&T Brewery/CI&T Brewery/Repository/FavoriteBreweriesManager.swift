@@ -76,7 +76,7 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
         let newFavoriteBrewery = NSManagedObject(entity: entity, insertInto: context)
         newFavoriteBrewery.setValue(brewery.id, forKey: Keys.id.rawValue)
         newFavoriteBrewery.setValue(brewery.name, forKey: Keys.name.rawValue)
-        newFavoriteBrewery.setValue(brewery.sizeEvaluations, forKey: Keys.evaluation.rawValue)
+        newFavoriteBrewery.setValue(brewery.average, forKey: Keys.evaluation.rawValue)
         newFavoriteBrewery.setValue(brewery.type, forKey: Keys.type.rawValue)
         
         guard let newBrewery = newFavoriteBrewery as? FavoriteBreweries else { return }

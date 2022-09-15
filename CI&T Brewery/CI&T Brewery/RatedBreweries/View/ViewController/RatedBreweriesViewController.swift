@@ -13,14 +13,29 @@ import Combine
 class RatedBreweriesViewController: UIViewController {
     @Injected var viewModel: RatedBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
+    private var currentView: UIView!
     
     private lazy var fillEmailView: FillEmailView = {
         let fillEmailView = FillEmailView(frame: CGRect())
         fillEmailView.translatesAutoresizingMaskIntoConstraints = false
         fillEmailView.textField.delegate = self
+        fillEmailView.delegate = self
         
         return fillEmailView
     }()
+    
+    private lazy var emptyStateView: RatedBreweryEmptyStateView = {
+        let emptyStateView = RatedBreweryEmptyStateView(frame: CGRect())
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false        
+        
+        return emptyStateView
+    }()
+	
+	private lazy var sucessView: RatedListView = {
+		let sucessView = RatedListView(frame: CGRect())
+		sucessView.translatesAutoresizingMaskIntoConstraints = false
+		return sucessView
+	} ()
     
     init() {
         super.init(nibName: "RatedBreweriesViewController", bundle: nil)
@@ -34,12 +49,19 @@ class RatedBreweriesViewController: UIViewController {
         super.viewDidLoad()
         setupFillEmailView()
         sinkEmailState()
+        sinkRatedBreweriesState()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
     }
+	
+	func setupSucessState (_ breweries: [Brewery]){
+		sucessView.setRatedResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
+		view.addSubview(sucessView)
+		constraintSucessView()
+	}
     
     private func sinkEmailState() {
         viewModel.$fieldsState.sink { [weak self] state in
@@ -54,7 +76,42 @@ class RatedBreweriesViewController: UIViewController {
         }.store(in: &cancellables)
     }
     
+    private func sinkRatedBreweriesState() {
+        viewModel.$state.sink { [weak self] state in
+            switch state {
+            case .initial:
+                print("initial")
+            case .loading:
+                print("loading")
+            case .success(let breweries):
+                print(breweries)
+            case .emptyError:
+                self?.emptyErrorState()
+            }
+        }.store(in: &cancellables)
+    }
+    
+    private func emptyErrorState() {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupEmptyErrorState()
+        }
+    }
+    
+    func setupEmptyErrorState() {
+        changingState(emptyStateView)
+        view.addSubview(emptyStateView)
+        constrainEmptyErrorState()
+    }
+    
+    private func constrainEmptyErrorState() {
+        emptyStateView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor, constant: -100).isActive = true
+        emptyStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        emptyStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        emptyStateView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
+        
     private func setupFillEmailView()  {
+        currentView = fillEmailView
         view.addSubview(fillEmailView)
         constrainFillEmailView()
     }
@@ -65,6 +122,26 @@ class RatedBreweriesViewController: UIViewController {
         fillEmailView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         fillEmailView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
+    
+    private func changingState(_ view: UIView?) {
+        if view != currentView {
+            currentView?.removeFromSuperview()
+            currentView = view
+        }
+    }
+	
+	private func constraintSucessView() {
+		sucessView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+		sucessView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+		sucessView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+		sucessView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+	}
+	
+	private func sucessState(_ breweries: [Brewery]) {
+		DispatchQueue.main.async { [weak self] in
+			self?.setupSucessState(breweries)
+		}
+	}
 }
 
 extension RatedBreweriesViewController {
@@ -95,5 +172,11 @@ extension RatedBreweriesViewController: UITextFieldDelegate {
             return
         }
         viewModel.fieldsValidation(emailText: emailText)
+    }
+}
+
+extension RatedBreweriesViewController: SubmitEmailDelegate {
+    func submitEmail(email: String) {
+        viewModel.fetchRatedBreweries(email: email)
     }
 }

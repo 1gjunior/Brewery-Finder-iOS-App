@@ -7,11 +7,12 @@
 
 import Combine
 import Foundation
+import Resolver
 
 enum FavoriteBreweriesViewModelState {
     case initial
     case loading
-    case success(breweries: [Brewery])
+    case success(breweries: [FavoriteBreweries])
     case emptyError
     case genericError
 }
@@ -22,10 +23,12 @@ enum SortedFavoriteBreweries {
 }
 
 class FavoriteBreweriesViewModel {
+    
     @Published private(set) var state: FavoriteBreweriesViewModelState = .initial
+    @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     
     public var sortedBreweries: SortedBreweries = .sortedName {
-       willSet(newType) {
+        willSet(newType) {
             switch state{
             case .success(let breweries):
                 state = .success(breweries: breweriesSorted(breweries: breweries, type: newType))
@@ -35,12 +38,23 @@ class FavoriteBreweriesViewModel {
         }
     }
     
-    func breweriesSorted(breweries: [Brewery], type: SortedBreweries) -> [Brewery] {
+    func breweriesSorted(breweries: [FavoriteBreweries], type: SortedBreweries) -> [FavoriteBreweries] {
         switch type  {
         case .sortedName:
-         return breweries.sorted(by: {$0.name < $1.name})
+            return breweries.sorted(by: {$0.name ?? "" < $1.name ?? ""})
         case .sortedRating:
-         return breweries.sorted(by: {$0.average < $1.average})
+            return breweries.sorted(by: {$0.evaluation < $1.evaluation})
+        }
+    }
+    
+    func fetchFavoriteBrewery() {
+        let allBrewries = favoriteManager.getAllBreweries()
+        if allBrewries.count > 0 {
+            state = .success(breweries: allBrewries)
+            print(allBrewries)
+        }
+        else {
+            state = .emptyError
         }
     }
 }

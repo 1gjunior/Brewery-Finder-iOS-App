@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BreweryTableViewCell: UITableViewCell {    
+class BreweryTableViewCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView! {
         didSet {
             mainView.layer.cornerRadius = 30
@@ -39,9 +39,10 @@ class BreweryTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(_ cell: BreweryTableViewCell, for brewery: Brewery) {
-        letterImage.text = String(brewery.name[brewery.name.startIndex])
+    func configure(_ cell: BreweryTableViewCell, for brewery: FavoriteBreweries) {
+        letterImage.text = brewery.name!.prefix(1).uppercased()
         name.text = brewery.name
-        average.text = String(format: "%.f", brewery.average)
+        average.text = "\(brewery.evaluation)"
+        type.text = brewery.type
     }
 }
