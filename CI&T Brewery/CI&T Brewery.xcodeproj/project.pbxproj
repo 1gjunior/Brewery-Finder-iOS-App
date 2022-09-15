@@ -97,6 +97,8 @@
 		D299D8B328D3555500E82D45 /* RatedBreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8B128D3555500E82D45 /* RatedBreweryTableViewCell.swift */; };
 		D299D8B428D3555500E82D45 /* RatedBreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D299D8B228D3555500E82D45 /* RatedBreweryTableViewCell.xib */; };
 		D299D8B628D35B3700E82D45 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8B528D35B3700E82D45 /* CoreDataService.swift */; };
+		D299D8BD28D3BF5400E82D45 /* DeleteFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8BC28D3BF5400E82D45 /* DeleteFavoriteView.swift */; };
+		D299D8BF28D3BF6C00E82D45 /* DeleteFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D299D8BE28D3BF6C00E82D45 /* DeleteFavoriteView.xib */; };
 		D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */; };
 		D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */; };
 		D2AF0AD328B51D0300EAF89B /* BrewerySortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AF0AD228B51D0300EAF89B /* BrewerySortView.xib */; };
@@ -216,6 +218,8 @@
 		D299D8B128D3555500E82D45 /* RatedBreweryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedBreweryTableViewCell.swift; sourceTree = "<group>"; };
 		D299D8B228D3555500E82D45 /* RatedBreweryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedBreweryTableViewCell.xib; sourceTree = "<group>"; };
 		D299D8B528D35B3700E82D45 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		D299D8BC28D3BF5400E82D45 /* DeleteFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFavoriteView.swift; sourceTree = "<group>"; };
+		D299D8BE28D3BF6C00E82D45 /* DeleteFavoriteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteFavoriteView.xib; sourceTree = "<group>"; };
 		D2AD32E928ABD9C200CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2AD32ED28ABDB8E00CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2AD32F328ABDD9D00CABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeViewController.xib; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		29C5AD6E28CFDA4500DBA97E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D299D8BB28D3BBB000E82D45 /* DeleteFavoriteView */,
 				2B5FA60B28CFDC780056DE0E /* FavoriteListView */,
 				2B5FA60428CFD0620056DE0E /* BreweryTableViewCell */,
 				29C5AD7828CFE33B00DBA97E /* EmptyStateView */,
@@ -700,6 +705,15 @@
 			path = RatedBreweryTableViewCell;
 			sourceTree = "<group>";
 		};
+		D299D8BB28D3BBB000E82D45 /* DeleteFavoriteView */ = {
+			isa = PBXGroup;
+			children = (
+				D299D8BC28D3BF5400E82D45 /* DeleteFavoriteView.swift */,
+				D299D8BE28D3BF6C00E82D45 /* DeleteFavoriteView.xib */,
+			);
+			path = DeleteFavoriteView;
+			sourceTree = "<group>";
+		};
 		D2AF0AD128B51CDB00EAF89B /* BrewerySortView */ = {
 			isa = PBXGroup;
 			children = (
@@ -817,6 +831,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				337D825D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf in Resources */,
+				D299D8BF28D3BF6C00E82D45 /* DeleteFavoriteView.xib in Resources */,
 				2BCFD90828B6682800F3DFA9 /* RatingViewController.xib in Resources */,
 				B93EF76328AE8D0200BFA9C6 /* FailureStateView.xib in Resources */,
 				33DD4E2E28AEC1A60077D800 /* BreweryDetailView.xib in Resources */,
@@ -940,6 +955,7 @@
 				B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */,
 				B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */,
 				2B7E5CF528D0F7FD00F69F81 /* FillEmailView.swift in Sources */,
+				D299D8BD28D3BF5400E82D45 /* DeleteFavoriteView.swift in Sources */,
 				2B0CAB7628D35B23005228DC /* RatedBreweryEmptyStateView.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
