@@ -11,10 +11,10 @@ import UIKit
 
 class FavoriteBreweriesViewController: UIViewController {
     private var currentView: UIView?
-
+   @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
+    private var favoriteBreweries: [FavoriteBreweries] = []
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
-
     private lazy var breweryList: FavoriteListView = {
         let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         breweryList.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +38,7 @@ class FavoriteBreweriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        getFavoriteBrewery()
         sinkBreweries()
     }
     
@@ -46,13 +47,15 @@ class FavoriteBreweriesViewController: UIViewController {
         setupNavigationBar()
     }
     
-    private func setupSuccessState(_ breweries: [Brewery])  {
+    private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
+        breweryList.setSearchResultFavoriteText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
         view.addSubview(breweryList)
         constrainBreweryList()
-        breweryList.update(breweries)
+        favoriteBreweries = breweries
+        breweryList.update(favoriteBreweries)
     }
 
-    func setupEmptyState() {
+    private func setupEmptyState() {
         changingState(view: emptyStateView)
         view.addSubview(emptyStateView)
         constrainEmptyState()
@@ -63,6 +66,11 @@ class FavoriteBreweriesViewController: UIViewController {
             currentView?.removeFromSuperview()
             currentView = view
         }
+    }
+    
+    func loadFavorite(){
+        favoriteManager.loadFavoriteBreweries()
+        breweryList.tableView.reloadData()
     }
     
     private func constrainBreweryList() {
@@ -88,7 +96,8 @@ class FavoriteBreweriesViewController: UIViewController {
             case .loading:
                 print("loading")
             case .success(breweries: let breweries):
-                print(breweries)
+                self?.favoriteBreweriesList(breweries)
+                print("breweries favorites \(breweries)")
             case .genericError:
                 print("generic")
             }
@@ -99,6 +108,16 @@ class FavoriteBreweriesViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             self?.setupEmptyState()
         }
+    }
+    
+    private func favoriteBreweriesList(_ breweries: [FavoriteBreweries]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupSuccessState(breweries)
+        }
+    }
+    
+    private func getFavoriteBrewery() {
+        viewModel.fetchFavoriteBrewery()
     }
 }
 

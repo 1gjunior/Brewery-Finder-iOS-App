@@ -12,6 +12,9 @@
 		29C5AD7728CFE33500DBA97E /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C5AD7628CFE33500DBA97E /* EmptyStateView.xib */; };
 		29C5AD7A28CFE42D00DBA97E /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5AD7928CFE42D00DBA97E /* EmptyStateView.swift */; };
 		29C5AD7D28CFE97B00DBA97E /* FavoriteBreweriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5AD7C28CFE97B00DBA97E /* FavoriteBreweriesViewModel.swift */; };
+		2B0CAB7228D35AF2005228DC /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7128D35AF2005228DC /* CoreDataService.swift */; };
+		2B0CAB7628D35B23005228DC /* RatedBreweryEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */; };
+		2B0CAB7728D35B23005228DC /* RatedBreweryEmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */; };
 		2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */; };
 		2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0228AD11780037099C /* Quicksand-Bold.ttf */; };
 		2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */; };
@@ -123,6 +126,9 @@
 		29C5AD7628CFE33500DBA97E /* EmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		29C5AD7928CFE42D00DBA97E /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		29C5AD7C28CFE97B00DBA97E /* FavoriteBreweriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesViewModel.swift; sourceTree = "<group>"; };
+		2B0CAB7128D35AF2005228DC /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedBreweryEmptyStateView.swift; sourceTree = "<group>"; };
+		2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedBreweryEmptyStateView.xib; sourceTree = "<group>"; };
 		2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -308,12 +314,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2B0CAB7328D35B23005228DC /* EmptyStateView */ = {
+			isa = PBXGroup;
+			children = (
+				2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */,
+				2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */,
+			);
+			path = EmptyStateView;
+			sourceTree = "<group>";
+		};
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				D299D8B528D35B3700E82D45 /* CoreDataService.swift */,
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
 				2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */,
+				2B0CAB7128D35AF2005228DC /* CoreDataService.swift */,
 				2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */,
 				2BD6CECA28AEAD1400B729C4 /* UIFontExtension.swift */,
 				2BD6CECC28AEAED900B729C4 /* UIColorExtension.swift */,
@@ -360,6 +376,7 @@
 		2B7E5CE928D0F20600F69F81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2B0CAB7328D35B23005228DC /* EmptyStateView */,
 				D299D8B028D3555500E82D45 /* RatedBreweryTableViewCell */,
 				D299D8AB28D3552700E82D45 /* RatedListView */,
 				2B7E5CF128D0F7D500F69F81 /* FillEmailView */,
@@ -839,6 +856,7 @@
 				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
 				29C5AD7228CFDCDD00DBA97E /* FavoriteBreweriesView.xib in Resources */,
 				2B58EFAC28AD36880061B631 /* Quicksand-Regular.ttf in Resources */,
+				2B0CAB7728D35B23005228DC /* RatedBreweryEmptyStateView.xib in Resources */,
 				B99FDE5128AC00BD00F5DA30 /* BreweryListView.xib in Resources */,
 				B93EF76828AFBEE900BFA9C6 /* CarouselCell.xib in Resources */,
 			);
@@ -922,6 +940,7 @@
 				B99B87E528AD732800BF31A0 /* RatingViewController.swift in Sources */,
 				B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */,
 				2B7E5CF528D0F7FD00F69F81 /* FillEmailView.swift in Sources */,
+				2B0CAB7628D35B23005228DC /* RatedBreweryEmptyStateView.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
 				2BD6CECF28AEFB3000B729C4 /* FileManagerExtension.swift in Sources */,
@@ -952,6 +971,7 @@
 				D299D8AE28D3552800E82D45 /* RatedListView.swift in Sources */,
 				B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */,
 				D299D8B628D35B3700E82D45 /* CoreDataService.swift in Sources */,
+				2B0CAB7228D35AF2005228DC /* CoreDataService.swift in Sources */,
 				33BD22B728AD86530004FEE4 /* SucessStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

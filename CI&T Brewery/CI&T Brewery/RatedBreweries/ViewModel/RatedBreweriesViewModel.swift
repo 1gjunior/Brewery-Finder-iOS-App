@@ -13,25 +13,39 @@ enum FillEmailState {
     case invalid
     case valid
 }
-enum RatedBreweriesViewModelState {
-	 case initial
-	 case loading
-	 case success(breweries: [Brewery])
-	 case emptyError
-}
 
 enum SortedRatedBreweries {
 	 case sortedName
 	 case sortedRating
 }
 
+enum RatedBreweriesState {
+    case initial
+    case loading
+    case success(breweries: [Brewery])
+    case emptyError
+}
+
 class RatedBreweriesViewModel {
     let repository: BreweryRepositoryProtocol
+    
+    @Published private(set) var state: RatedBreweriesState = .initial
     @Published private(set) var fieldsState: FieldsState = .blank
-	 @Published private(set) var state: RatedBreweriesViewModelState = .initial
     
     init(repository: BreweryRepository = BreweryRepository()) {
         self.repository = repository
+    }
+    
+    func fetchRatedBreweries(email: String) {
+        state = .emptyError
+//        repository.getRatedBreweries { [weak self] result in
+//            switch result {
+//            case .failure(_):
+//                self?.state = .emptyError
+//            case .success(let breweriesResponse):
+//                self?.state = .success(breweries: breweriesResponse)
+//            }
+//        }
     }
     
     public func fieldsValidation(emailText: String) {

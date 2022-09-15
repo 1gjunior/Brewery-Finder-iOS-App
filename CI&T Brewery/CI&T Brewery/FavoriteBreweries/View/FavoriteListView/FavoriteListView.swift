@@ -13,7 +13,7 @@ public protocol FavoriteListViewDelegate: AnyObject{
 }
 
 class FavoriteListView: UIView {
-    private var breweries: [Brewery] = []
+    private var breweries: [FavoriteBreweries] = []
     private weak var delegate: FavoriteListViewDelegate?
     
     private lazy var sortView: SortView = {
@@ -78,6 +78,10 @@ class FavoriteListView: UIView {
         sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
+    
+    public func setSearchResultFavoriteText(_ text: String) {
+        resultsCount.text = text
+    }
 }
 
 extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
@@ -86,11 +90,11 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        breweries.count
+       breweries.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,7 +108,8 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    public func update(_ breweries: [Brewery]) {
+    public func update(_ breweries: [FavoriteBreweries]) {
+        
         self.breweries = breweries
         self.tableView.reloadData()
     }
