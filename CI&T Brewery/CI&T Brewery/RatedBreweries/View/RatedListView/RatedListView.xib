@@ -57,8 +57,8 @@
                         <constraint firstAttribute="height" constant="50" id="TJT-BL-fB7"/>
                     </constraints>
                 </stackView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-18-8gR">
-                    <rect key="frame" x="16" y="167" width="414" height="692"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-18-8gR">
+                    <rect key="frame" x="16" y="167" width="382" height="692"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,7 +70,7 @@
                 <constraint firstItem="ObI-18-8gR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="2aS-3V-9uS"/>
                 <constraint firstItem="glr-aK-weR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3JZ-6g-Klz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ObI-18-8gR" secondAttribute="bottom" constant="3" id="GDj-cA-doT"/>
-                <constraint firstItem="ObI-18-8gR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="16" id="ILA-l0-qE6"/>
+                <constraint firstItem="ObI-18-8gR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-16" id="ILA-l0-qE6"/>
                 <constraint firstItem="SsL-ah-bU2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Ie9-2n-8IW"/>
                 <constraint firstItem="WP9-ca-9K0" firstAttribute="top" secondItem="glr-aK-weR" secondAttribute="bottom" constant="2" id="L0w-Hi-i4S"/>
                 <constraint firstItem="ObI-18-8gR" firstAttribute="top" secondItem="SsL-ah-bU2" secondAttribute="bottom" constant="5" id="NK7-l9-nfN"/>
