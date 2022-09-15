@@ -111,11 +111,9 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let id = breweries[indexPath.section].id
-        print("id \(id)")
-       
+        guard let id = breweries[indexPath.section].id else {return}
         guard let action = action else { return }
-        action(id ?? "")
+        action(id)
     }
     
     public func setActions(onSelect: @escaping ((String) -> ())) -> () {
