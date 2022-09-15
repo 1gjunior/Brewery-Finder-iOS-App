@@ -40,7 +40,9 @@ class BreweryTableViewCell: UITableViewCell {
     }
     
     func configure(_ cell: BreweryTableViewCell, for brewery: FavoriteBreweries) {
-        letterImage.text = brewery.name!.prefix(1).uppercased()
+        
+        guard let breweryName = brewery.name else {return}
+        letterImage.text = breweryName.prefix(1).uppercased()
         name.text = brewery.name
         average.text = "\(brewery.evaluation)"
         type.text = brewery.type
