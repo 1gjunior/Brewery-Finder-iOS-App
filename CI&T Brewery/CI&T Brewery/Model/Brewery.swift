@@ -65,3 +65,15 @@ struct ApiEvaluationResponse: Codable {
     let breweryId: String
     let evaluationGrade: Double
 }
+
+struct BreweryPhotos: Codable{
+	let PhotoId: String
+	let breweryId: String
+	let url: String
+	
+	enum CodingKeys: String, CodingKey{
+		case PhotoId = "id"
+		case breweryId = "brewery_id"
+		case url
+	}
+}

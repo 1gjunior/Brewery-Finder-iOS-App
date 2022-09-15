@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum BreweryDetailViewModelState {
     case success(brewery: BreweryObject)
@@ -18,6 +19,7 @@ enum EvaluationState {
 
 
 class BreweryDetailViewModel {
+	 var breweriePhotosSubsject = PassthroughSubject<[BreweryPhotos], Error>()
     let repository: BreweryRepositoryProtocol
     @Published private(set) var state: BreweryDetailViewModelState?
     @Published private(set) var stateRatedBrewery: EvaluationState?
@@ -75,4 +77,16 @@ class BreweryDetailViewModel {
         }
         return lastEmail
     }
+	
+	func fetchPhotosByBrewery(id: String) {
+		repository.getBreweryPhotos(id: id) { [weak self] result in
+			  switch result {
+					case .success(let breweryPhotosResponse):
+				  self?.breweriePhotosSubsject.send(breweryPhotosResponse)
+					case .failure(let error):
+						 print(error.localizedDescription)
+			  }
+		 }
+	}
 }
+

@@ -40,4 +40,10 @@ class BreweryAPIService {
         let urlComponents = URLComponents(string: apiBaseURL + "/breweries/myEvaluations/" + encoded)
         return urlComponents?.url
     }
+	
+	static func getPhotosByBrewery(id: String) -> URL? {
+		let urlComponents = URLComponents(string: apiBaseURL + "/breweries/photos/" + id)
+		
+		return urlComponents?.url
+	}
 }

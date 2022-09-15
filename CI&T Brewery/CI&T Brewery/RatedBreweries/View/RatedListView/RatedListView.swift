@@ -77,7 +77,7 @@ class RatedListView: UIView{
 	private func constraintSortView() {
 		 sortView.translatesAutoresizingMaskIntoConstraints = false
 		 sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-		 sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+		 sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10).isActive = true
 		 sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		 sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 	}

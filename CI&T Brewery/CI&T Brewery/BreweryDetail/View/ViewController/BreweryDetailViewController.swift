@@ -16,6 +16,7 @@ class BreweryDetailViewController: UIViewController {
     var dismissAction: (() -> ())?
     private var brewery: BreweryObject?
     private var breweryDetailView: BreweryDetailView?
+	 private var breweryPhotos: [BreweryPhotos]?
     var lastEmail: String?
     @IBOutlet weak var ratedBreweryView: RatedBreweryView!
     @IBOutlet weak var heightDataView: NSLayoutConstraint!
@@ -76,6 +77,8 @@ class BreweryDetailViewController: UIViewController {
         getBreweryBy(id: id)
         sinkBrewery()
         sinkRatedBrewery()
+		  observeViewModel()
+		  getBreweryPhotos(id:id)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,6 +143,22 @@ class BreweryDetailViewController: UIViewController {
     private func getBreweryBy(id: String) {
         viewModel.fetchBreweryBy(id: id)
     }
+	private func getBreweryPhotos(id: String){
+		viewModel.fetchPhotosByBrewery(id: id)
+	}
+	private func observeViewModel() {
+		viewModel.breweriePhotosSubsject.sink(receiveCompletion: { (resultCompletion) in
+			  switch resultCompletion {
+			  case .failure(let error):
+					print(error.localizedDescription)
+			  default: break
+			  }
+		 }) { (result) in
+			  DispatchQueue.main.async {
+					self.breweryPhotos = result
+			  }
+		 }.store(in: &cancellables)
+	}
 }
 
 extension BreweryDetailViewController {
