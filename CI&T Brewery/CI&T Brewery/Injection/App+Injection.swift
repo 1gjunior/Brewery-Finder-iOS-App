@@ -7,9 +7,11 @@
 
 import Foundation
 import Resolver
+import CoreData
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
+        
         defaultScope = .graph
         
         register { APIManager() as APIManagerService }

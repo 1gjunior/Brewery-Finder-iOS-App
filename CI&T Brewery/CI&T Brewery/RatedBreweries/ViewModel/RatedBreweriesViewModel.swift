@@ -6,11 +6,17 @@
 //
 
 import Foundation
+import Combine
 
 enum FillEmailState {
     case blank
     case invalid
     case valid
+}
+
+enum SortedRatedBreweries {
+	 case sortedName
+	 case sortedRating
 }
 
 enum RatedBreweriesState {
@@ -31,7 +37,7 @@ class RatedBreweriesViewModel {
     }
     
     func fetchRatedBreweries(email: String) {
-        state = .loading
+        state = .emptyError
 //        repository.getRatedBreweries { [weak self] result in
 //            switch result {
 //            case .failure(_):
@@ -51,4 +57,22 @@ class RatedBreweriesViewModel {
             fieldsState = .blank
         }
     }
+	public var sortedBreweries: SortedBreweries = .sortedName {
+		willSet(newType) {
+			  switch state{
+			  case .success(let breweries):
+					state = .success(breweries: breweriesSorted(breweries: breweries, type: newType))
+			  default:
+					break
+			  }
+		 }
+	}
+	func breweriesSorted(breweries: [Brewery], type: SortedBreweries) -> [Brewery] {
+		 switch type  {
+		 case .sortedName:
+		  return breweries.sorted(by: {$0.name < $1.name})
+		 case .sortedRating:
+		  return breweries.sorted(by: {$0.average < $1.average})
+		 }
+	}
 }
