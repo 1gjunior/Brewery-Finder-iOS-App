@@ -155,6 +155,13 @@ class BreweryDetailView: UIView {
         website.text = brewery.website
         address.text = brewery.address
         cosmosView.rating = brewery.average
+        
+        if !breweryDetailViewModel.isWebsiteAvailable(brewery: brewery) {
+            websiteStackView.isHidden = true
+            addressStackView.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20).isActive = true
+            dataView.heightAnchor.constraint(equalToConstant: 320).isActive = true
+        }
+        
         if !(breweryDetailViewModel.isCoordinationAvailable(brewery: brewery)) {
             mapStackView.isHidden = true
             addPhotoButton.topAnchor.constraint(equalTo: addressStackView.bottomAnchor, constant: 15).isActive = true
