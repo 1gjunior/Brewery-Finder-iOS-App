@@ -15,51 +15,63 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8f-2W-qcd">
-                    <rect key="frame" x="31" y="314" width="352" height="278"/>
+                    <rect key="frame" x="31" y="324" width="352" height="258"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-fe-IY0">
-                            <rect key="frame" x="17" y="58" width="319" height="75"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-fe-IY0">
+                            <rect key="frame" x="16" y="77" width="320" height="39.5"/>
                             <string key="text">Ao remover a cervejaria dos favoritos, ela deixa de aparecer na listagem de cervejarias favoritas. Você pode adicionar a cervejaria como favorita novamente quando quiser.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIg-6W-SOr">
-                            <rect key="frame" x="136" y="152" width="82" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIg-6W-SOr">
+                            <rect key="frame" x="135" y="151.5" width="82" height="31"/>
+                            <color key="backgroundColor" red="0.87985352449999998" green="1" blue="0.4941793203" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Cancelar"/>
                             <connections>
                                 <action selector="cancelRemoval:" destination="fFB-Tl-fZR" eventType="touchUpInside" id="IA2-Az-HGH"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="117-zl-cN4">
-                            <rect key="frame" x="102" y="210" width="149" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="117-zl-cN4">
+                            <rect key="frame" x="101.5" y="202.5" width="149" height="31"/>
+                            <color key="backgroundColor" red="1" green="0.92156862750000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Confirmar remoção"/>
                             <connections>
                                 <action selector="confirmRemoval:" destination="fFB-Tl-fZR" eventType="touchUpInside" id="BEx-cw-TXC"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remover favorito?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-I7-85g">
-                            <rect key="frame" x="114" y="21" width="137" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remover favorito?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-I7-85g">
+                            <rect key="frame" x="107.5" y="21" width="137" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="117-zl-cN4" firstAttribute="top" secondItem="gIg-6W-SOr" secondAttribute="bottom" constant="20" id="130-D0-3c2"/>
+                        <constraint firstItem="AyX-fe-IY0" firstAttribute="centerX" secondItem="8Au-I7-85g" secondAttribute="centerX" id="17b-xe-PEd"/>
+                        <constraint firstItem="8Au-I7-85g" firstAttribute="centerX" secondItem="G8f-2W-qcd" secondAttribute="centerX" id="4qM-4O-Ngd"/>
+                        <constraint firstItem="gIg-6W-SOr" firstAttribute="centerX" secondItem="AyX-fe-IY0" secondAttribute="centerX" id="4u1-xj-tKG"/>
+                        <constraint firstItem="117-zl-cN4" firstAttribute="centerX" secondItem="8Au-I7-85g" secondAttribute="centerX" id="CK6-D2-fFg"/>
+                        <constraint firstItem="AyX-fe-IY0" firstAttribute="top" secondItem="8Au-I7-85g" secondAttribute="bottom" constant="35" id="M5k-tK-TgQ"/>
+                        <constraint firstItem="8Au-I7-85g" firstAttribute="top" secondItem="G8f-2W-qcd" secondAttribute="top" constant="21" id="XZC-HA-9SS"/>
+                        <constraint firstItem="gIg-6W-SOr" firstAttribute="top" secondItem="AyX-fe-IY0" secondAttribute="bottom" constant="35" id="cfX-bh-9Sy"/>
+                        <constraint firstItem="gIg-6W-SOr" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="135" id="h8e-uN-np5"/>
+                        <constraint firstAttribute="trailing" secondItem="gIg-6W-SOr" secondAttribute="trailing" constant="135" id="rwx-Sc-GSB"/>
+                        <constraint firstItem="AyX-fe-IY0" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="16" id="uta-C3-6t6"/>
+                        <constraint firstAttribute="trailing" secondItem="AyX-fe-IY0" secondAttribute="trailing" constant="16" id="zvV-Yy-hMa"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="gTe-Lo-40b"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="gTe-Lo-40b" firstAttribute="bottom" secondItem="G8f-2W-qcd" secondAttribute="bottom" constant="270" id="6sj-wG-fN8"/>
-                <constraint firstItem="G8f-2W-qcd" firstAttribute="top" secondItem="gTe-Lo-40b" secondAttribute="top" constant="270" id="K73-D3-dH7"/>
+                <constraint firstItem="gTe-Lo-40b" firstAttribute="bottom" secondItem="G8f-2W-qcd" secondAttribute="bottom" constant="280" id="4cn-sU-wpV"/>
                 <constraint firstItem="gTe-Lo-40b" firstAttribute="trailing" secondItem="G8f-2W-qcd" secondAttribute="trailing" constant="31" id="TYx-Xu-YpX"/>
+                <constraint firstItem="G8f-2W-qcd" firstAttribute="top" secondItem="gTe-Lo-40b" secondAttribute="top" constant="280" id="XFa-1K-JyC"/>
                 <constraint firstItem="G8f-2W-qcd" firstAttribute="leading" secondItem="gTe-Lo-40b" secondAttribute="leading" constant="31" id="iWy-YM-lVa"/>
             </constraints>
             <connections>
@@ -69,7 +81,7 @@
                 <outlet property="lbTitle" destination="8Au-I7-85g" id="yZr-lW-r8L"/>
                 <outlet property="modalView" destination="G8f-2W-qcd" id="fSz-ad-9hv"/>
             </connections>
-            <point key="canvasLocation" x="430" y="-206"/>
+            <point key="canvasLocation" x="-367" y="-271"/>
         </view>
     </objects>
     <resources>
