@@ -49,6 +49,8 @@
 "ratedNavigationTitle" = "Cervejarias que você avaliou";
 "ratedFillEmailTitle" = "Por favor, informe Seu e-mail para consultar as cervejarias avaliadas.";
 "ratedFillEmailCheckboxText" = "Lembrar e-mail para futuras avaliações";
+"ratedEmptyStateTitle" = "Nenhuma Cervejaria avaliada";
+"ratedEmptyStateSubTitle" = "Você ainda não avaliou nenhuma cervejaria. Suas cervejarias avaliadas aparecerão aqui.";
 
 /* FavoriteView */
 "favoriteNavigationTitle" = "Suas Cervejarias Favoritas";
