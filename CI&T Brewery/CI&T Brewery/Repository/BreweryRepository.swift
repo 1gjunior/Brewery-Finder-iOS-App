@@ -8,11 +8,12 @@
 import Foundation
 
 protocol BreweryRepositoryProtocol {
-    func getBreweriesBy(city by_city: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
-    func getBreweryBy(id: String, completion: @escaping (Result<Brewery, Error>) -> Void)
-    func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void)
-    func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void)
-    func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
+	func getBreweriesBy(city by_city: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
+	func getBreweryBy(id: String, completion: @escaping (Result<Brewery, Error>) -> Void)
+	func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void)
+	func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void)
+	func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
+	func getBreweryPhotos(id: String, completion: @escaping (Result<[BreweryPhotos], Error>) -> Void)
 }
 
 class BreweryRepository: BreweryRepositoryProtocol {
@@ -87,5 +88,19 @@ class BreweryRepository: BreweryRepositoryProtocol {
         }
 
     }
+	
+	func getBreweryPhotos(id: String, completion: @escaping (Result<[BreweryPhotos], Error>) -> Void) {
+		guard let url = BreweryAPIService.getPhotosByBrewery(id: id) else { return }
+		
+		apiManager.fetchItems(url: url) { (result: Result<[BreweryPhotos], Error>) in
+			switch result {
+			case .success(let data):
+				completion(.success(data))
+			case .failure(let error):
+				completion(.failure(error))
+			}
+		}
+	}
 }
+
 
