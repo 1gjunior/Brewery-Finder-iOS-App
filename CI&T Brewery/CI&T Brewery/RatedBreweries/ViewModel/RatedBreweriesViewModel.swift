@@ -37,15 +37,23 @@ class RatedBreweriesViewModel {
     }
     
     func fetchRatedBreweries(email: String) {
-        state = .emptyError
-//        repository.getRatedBreweries { [weak self] result in
-//            switch result {
-//            case .failure(_):
-//                self?.state = .emptyError
-//            case .success(let breweriesResponse):
-//                self?.state = .success(breweries: breweriesResponse)
-//            }
-//        }
+        repository.getRatedBreweries(email: email) { [weak self] result in
+            switch result {
+            case .failure(_):
+                fatalError()
+            case .success(let breweriesResponse):
+                if breweriesResponse.count > 0 {
+                    self?.state = .success(breweries: breweriesResponse)
+                }
+                else {
+                    self?.state = .emptyError
+                }
+            }
+        }
+    }
+    
+    func fetchEmptyState() {
+        
     }
     
     public func fieldsValidation(emailText: String) {

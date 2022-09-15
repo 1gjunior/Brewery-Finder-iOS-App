@@ -58,8 +58,10 @@ class RatedBreweriesViewController: UIViewController {
     }
 	
 	func setupSucessState (_ breweries: [Brewery]){
+        changingState(sucessView)
 		sucessView.setRatedResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
 		view.addSubview(sucessView)
+        sucessView.update(breweries)
 		constraintSucessView()
 	}
     
@@ -84,6 +86,7 @@ class RatedBreweriesViewController: UIViewController {
             case .loading:
                 print("loading")
             case .success(let breweries):
+                self?.sucessState(breweries)
                 print(breweries)
             case .emptyError:
                 self?.emptyErrorState()
