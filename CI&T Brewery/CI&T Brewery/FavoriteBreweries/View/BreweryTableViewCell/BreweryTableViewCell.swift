@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class BreweryTableViewCell: UITableViewCell {
+	var favoriteListView = FavoriteListView()
     @IBOutlet weak var mainView: UIView! {
         didSet {
             mainView.layer.cornerRadius = 30
@@ -38,7 +39,12 @@ class BreweryTableViewCell: UITableViewCell {
             type.textColor = UIColor.breweryBlack()
         }
     }
-    
+	@IBOutlet weak var favoriteButton: UIButton!{
+		didSet{
+			favoriteButton.tintColor = UIColor.favoriteRedColor()
+		}
+	}
+		
     func configure(_ cell: BreweryTableViewCell, for brewery: FavoriteBreweries) {
         
         guard let breweryName = brewery.name else {return}
@@ -47,4 +53,9 @@ class BreweryTableViewCell: UITableViewCell {
         average.text = "\(brewery.evaluation)"
         type.text = brewery.type
     }
+
+
+	@IBAction func removeFavorite(_ sender: UIButton) {
+		print("clicou favorito")
+	}
 }
