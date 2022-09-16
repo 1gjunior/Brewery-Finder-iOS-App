@@ -76,8 +76,10 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreweryListCell", for: indexPath) as? BreweryListTableViewCell else { return UITableViewCell() }
         
         let brewery = breweries[indexPath.section]
-        cell.configure(cell, for: brewery)
-        cell.viewModel = viewModel
+        
+        if let viewModel = viewModel {
+            cell.configure(for: brewery, with: viewModel)
+        }
         
         return cell
     }

@@ -22,19 +22,18 @@ class BreweryListTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(_ cell: BreweryListTableViewCell, for brewery: Brewery) {
-        cell.contentView.layer.cornerRadius = 30
-        cell.profileLetter.layer.masksToBounds = true
-        cell.profileLetter.layer.cornerRadius = 22
-        cell.profileLetter.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
+    func configure(for brewery: Brewery, with viewModel: HomeViewModel) {
+        contentView.layer.cornerRadius = 30
+        profileLetter.layer.masksToBounds = true
+        profileLetter.layer.cornerRadius = 22
+        profileLetter.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
         profileLetter.text = "\(brewery.name.first ?? "A")"
         name.text = brewery.name
         average.text = "\(brewery.average)"
         self.brewery = brewery
-
-        if let viewModel = viewModel {
-            buttonState = viewModel.getFavoriteButtonState(with: brewery.id)
-        }
+        self.viewModel = viewModel
+        
+        buttonState = viewModel.getFavoriteButtonState(with: brewery.id)
     }
     
     @IBAction func favorite(_ sender: UIButton) {
