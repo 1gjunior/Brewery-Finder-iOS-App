@@ -96,6 +96,7 @@ class BreweryDetailViewModel {
 			  switch result {
 					case .success(let breweryPhotosResponse):
 				  self?.breweriePhotosSubsject.send(breweryPhotosResponse)
+                  print("fetch response \(breweryPhotosResponse)")
 					case .failure(let error):
 						 print(error.localizedDescription)
 			  }
@@ -109,6 +110,7 @@ class BreweryDetailViewModel {
                 print("ERRO RATING VIEW MODEL")
                 self?.statePostPhotos = .error
             case .success(_):
+                self?.fetchPhotosByBrewery(id: id)
                 print("foi")
                 self?.statePostPhotos = .sucess
             }

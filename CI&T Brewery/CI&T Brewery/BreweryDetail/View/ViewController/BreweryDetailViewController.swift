@@ -278,7 +278,7 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     
     private func sinkPhotos() {
         viewModel.breweriePhotosSubsject
-            .sink( receiveCompletion: { _ in } ) { (result) in
+            .sink(receiveCompletion: { _ in } ) { (result) in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.breweryPhotos = result
@@ -342,6 +342,7 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
                        self.images.append(image)
                         print("count \(self.images.count)")
                         self.post()
+                        self.reloadCollectionView()
                     }
                 }
             }
@@ -351,6 +352,12 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     func post() {
         guard let data = images.last??.jpegData(compressionQuality: 0.0) else { return }
         viewModel.postPhotos(imageData: data, id: id)
+    }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.photoCollectionView.reloadData()
+        }
     }
 }
 
