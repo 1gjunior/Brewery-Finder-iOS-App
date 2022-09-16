@@ -13,8 +13,7 @@ class BreweryListTableViewCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var average: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    var viewModel: HomeViewModel?
-    
+    var onFavorite: ((Brewery, FavoriteButtonState) -> FavoriteButtonState)?
     var brewery: Brewery? = nil
     var buttonState: FavoriteButtonState = .unselected {
         didSet {
@@ -22,7 +21,7 @@ class BreweryListTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(for brewery: Brewery, with viewModel: HomeViewModel) {
+    func configure(for brewery: Brewery, onFavorite: ((Brewery, FavoriteButtonState) -> FavoriteButtonState)?) {
         contentView.layer.cornerRadius = 30
         profileLetter.layer.masksToBounds = true
         profileLetter.layer.cornerRadius = 22
@@ -31,16 +30,15 @@ class BreweryListTableViewCell: UITableViewCell {
         name.text = brewery.name
         average.text = "\(brewery.average)"
         self.brewery = brewery
-        self.viewModel = viewModel
-        
-        buttonState = viewModel.getFavoriteButtonState(with: brewery.id)
+        self.onFavorite = onFavorite
+        favoriteButton.addTarget(self, action: #selector(favorite), for: .touchUpInside)
     }
     
-    @IBAction func favorite(_ sender: UIButton) {
+    @objc func favorite() {
         guard let brewery = brewery else { return }
-        guard let viewModel = viewModel else { return }
-        
-        buttonState = viewModel.favoriteButtonTapped(brewery: brewery, state: buttonState)
+        if let newState = onFavorite?(brewery, buttonState) {
+            buttonState = newState
+        }
     }
     
     func updateFavoriteButton() {

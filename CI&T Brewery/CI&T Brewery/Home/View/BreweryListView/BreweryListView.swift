@@ -77,8 +77,9 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         let brewery = breweries[indexPath.section]
         
+        cell.configure(for: brewery, onFavorite: viewModel?.favoriteButtonTapped)
         if let viewModel = viewModel {
-            cell.configure(for: brewery, with: viewModel)
+            cell.buttonState = viewModel.getFavoriteButtonState(with: brewery.id)
         }
         
         return cell
