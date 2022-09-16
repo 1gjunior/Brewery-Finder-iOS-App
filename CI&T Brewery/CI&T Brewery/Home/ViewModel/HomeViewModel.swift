@@ -55,11 +55,36 @@ class HomeViewModel {
         }
     }
     
-    func favoriteButtonTapped(brewery: Brewery) {
+    func saveFavorite(brewery: Brewery) {
         useCase.handleFavoriteBrewery(brewery)
     }
     
     func loadFavoriteBreweries() {
         useCase.loadBreweries()
+    }
+    
+    func getFavoriteButtonState(with id: String) -> FavoriteButtonState {
+        var state: FavoriteButtonState = .unselected
+        
+        if useCase.getBrewery(with: id) != nil {
+            state = .selected
+        } else {
+            state = .unselected
+        }
+        
+        return state
+    }
+    
+    func favoriteButtonTapped(brewery: Brewery, state: FavoriteButtonState) -> FavoriteButtonState {
+        var state = state
+        if state == .unselected {
+            state = .selected
+        } else {
+            state = .unselected
+        }
+        
+        saveFavorite(brewery: brewery)
+        
+        return state
     }
 }

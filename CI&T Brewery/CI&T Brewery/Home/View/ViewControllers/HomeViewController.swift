@@ -84,7 +84,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         constraintListView()
         changingState(view: listView)
         listView.update(breweries)
-        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteButtonTapped)
+        listView.configure(onSelect: goToDetailWith, viewModel: viewModel)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {

@@ -13,8 +13,8 @@ protocol FavoriteBreweriesUseCaseProtocol {
 }
 
 class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
-    let manager: FavoriteBreweriesManagerProtocol
-    let repository: BreweryRepositoryProtocol
+    private let manager: FavoriteBreweriesManagerProtocol
+    private let repository: BreweryRepositoryProtocol
     
     init(manager: FavoriteBreweriesManagerProtocol, repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.manager = manager
@@ -57,7 +57,7 @@ class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
     }
     
     func handleFavoriteBrewery(_ brewery: Brewery) {
-        if let id = manager.getBrewery(id: brewery.id)?.id {
+        if let id = manager.getBrewery(with: brewery.id)?.id {
             manager.deleteFavoriteBreweries(id: id)
         } else {
             manager.saveFavoriteBrewery(brewery: brewery)
@@ -66,6 +66,10 @@ class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
     
     func loadBreweries() {
         _ = manager.loadFavoriteBreweries()
+    }
+    
+    func getBrewery(with id: String) -> FavoriteBreweries? {
+        return manager.getBrewery(with: id)
     }
     
 }
