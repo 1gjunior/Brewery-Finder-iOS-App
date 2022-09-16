@@ -103,7 +103,7 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
         }
         
         let item = breweries[indexPath.section]
-        cell.configure(cell, for: item)
+        cell.configure(for: item)
         
         return cell
     }
