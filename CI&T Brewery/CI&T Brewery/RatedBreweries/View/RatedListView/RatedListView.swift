@@ -111,8 +111,8 @@ extension RatedListView: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	public func update(_ breweries: [Brewery]){
-	self.breweries = breweries
-	self.lbTableView.reloadData()
+        self.breweries = breweries
+        self.lbTableView.reloadData()
 	}
 }
 
