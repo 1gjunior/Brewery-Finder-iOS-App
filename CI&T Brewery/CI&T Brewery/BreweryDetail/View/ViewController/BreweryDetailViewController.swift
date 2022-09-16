@@ -228,16 +228,18 @@ class BreweryDetailViewController: UIViewController {
         average.text = String(brewery.average)
         website.text = brewery.website
         address.text = brewery.address
-        cosmosView.rating = brewery.average
+        cosmosView.rating = floor(brewery.average)
         
         if !viewModel.isWebsiteAvailable(brewery: brewery) {
             websiteStackView.isHidden = true
             addressStackView.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 20).isActive = true
+            heightDataView.constant = heightDataView.constant - 30
         }
         
         if !viewModel.isCoordinationAvailable(brewery: brewery) {
             mapStackView.isHidden = true
             photoCollectionView.topAnchor.constraint(equalTo: addressStackView.bottomAnchor, constant: 15).isActive = true
+            heightDataView.constant = heightDataView.constant - 40
         }
     }
     
@@ -283,7 +285,7 @@ class BreweryDetailViewController: UIViewController {
     private func sucessRatedBrewery() {
         getBreweryBy(id: id)
         evaluateBreweryButton.isHidden = true
-        heightDataView.constant = heightDataView.constant + 40
+        heightDataView.constant = heightDataView.constant + 80
         ratedBreweryView.isHidden = false
         let sucessTitle = NSLocalizedString("ratedBrewery", comment: "")
         ratedBreweryView.ratedBreweryLabel.text = sucessTitle
@@ -337,10 +339,14 @@ extension BreweryDetailViewController {
     private func setupRightNavigationBar() {
         let favoriteIcon = UIButton(type: .system)
         favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        
         let shareIcon = UIButton(type: .system)
         shareIcon.setImage(UIImage(named: "icon_share")?.withRenderingMode(.alwaysOriginal), for: .normal)
         shareIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: favoriteIcon), UIBarButtonItem(customView: shareIcon)]
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(customView: favoriteIcon)
+//            UIBarButtonItem(customView: shareIcon)
+        ]
     }
 }
 
@@ -353,7 +359,7 @@ extension BreweryDetailViewController: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as? PhotoCollectionViewCell else {
             return UICollectionViewCell()
         }
-        print("foto \(indexPath.row)")
+        
         let item = breweryPhotos[indexPath.row]
         let url = URL(string: item.url)!
         cell.photo.kf.setImage(with: url)
