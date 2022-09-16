@@ -175,6 +175,10 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
         sinkRatedBrewery()
         sinkPhotos()
         getBreweryPhotos(id:id)
+        setupPicker()
+    }
+    
+    func setupPicker() {
         pickerConfiguration.filter = .images
         picker = PHPickerViewController(configuration: pickerConfiguration)
         picker?.delegate = self
