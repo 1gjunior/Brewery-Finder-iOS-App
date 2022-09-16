@@ -108,8 +108,10 @@ class BreweryRepository: BreweryRepositoryProtocol {
             switch result {
             case .success(let data):
                 completion(.success(data))
+                print("deu certo")
             case .failure(let error):
                 completion(.failure(error))
+                print("falhou")
             }
         }
     }

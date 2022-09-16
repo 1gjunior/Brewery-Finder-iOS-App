@@ -340,6 +340,7 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
                 provider.loadObject(ofClass: UIImage.self) { image, error in
                     if let image = image as? UIImage, !self.images.contains(image) {
                        self.images.append(image)
+                        print("count \(self.images.count)")
                         self.post()
                     }
                 }
@@ -349,11 +350,7 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     
     func post() {
         guard let data = images.last??.jpegData(compressionQuality: 0.0) else { return }
-//        viewModel.postPhotos(imageData: data, id: "teste"){
-//            DispatchQueue.main.async { [weak self] in
-//                //self?.collectionView.reloadData()
-//            }
-//        }
+        viewModel.postPhotos(imageData: data, id: id)
     }
 }
 

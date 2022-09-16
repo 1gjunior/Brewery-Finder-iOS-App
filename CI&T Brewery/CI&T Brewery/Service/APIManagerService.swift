@@ -76,10 +76,12 @@ class APIManager: APIManagerService {
                 switch resultCompletion {
                 case .failure:
                     completion(.failure(.requestError))
+                    print("resultCompletion \(resultCompletion)")
                 case .finished: break
                 }
             }, receiveValue: { (result) in
                 completion(.success(result))
+                print("result \(result)")
             })
             .store(in: &subscribers)
     }
