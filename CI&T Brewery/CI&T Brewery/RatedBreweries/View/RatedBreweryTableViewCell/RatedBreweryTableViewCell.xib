@@ -92,6 +92,11 @@
             <point key="canvasLocation" x="-1278.2608695652175" y="-108.48214285714285"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="czk-fJ-NjN">
+            <size key="intrinsicContentSize" width="108" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="Brewery Yellow Alpha 16">
             <color red="1" green="0.80000001192092896" blue="0.0" alpha="0.15899999439716339" colorSpace="custom" customColorSpace="sRGB"/>

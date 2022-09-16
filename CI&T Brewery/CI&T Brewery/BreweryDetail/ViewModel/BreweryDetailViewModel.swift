@@ -66,7 +66,7 @@ class BreweryDetailViewModel {
     func isWebsiteAvailable(brewery: BreweryObject) -> Bool {
         brewery.website != nil
     }
-    
+        
     func isCoordinationAvailable(brewery: BreweryObject) -> Bool {brewery.latitute != nil && brewery.longitude != nil}
     
     public func getLastEmail() -> String? {
