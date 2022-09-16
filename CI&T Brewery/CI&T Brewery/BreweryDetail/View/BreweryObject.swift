@@ -15,7 +15,7 @@ class BreweryObject {
     var address: String
     var latitute: Double?
     var longitude: Double?
-    var website: String
+    var website: String?
     var average: Double
     var evaluation: String
     var logo: String
@@ -27,7 +27,7 @@ class BreweryObject {
         self.type = brewery.type
         self.latitute = brewery.latitude
         self.longitude = brewery.longitude
-        self.website = brewery.website ?? ""
+        self.website = brewery.website
         self.average = brewery.average
         
         let arrayAddress = [

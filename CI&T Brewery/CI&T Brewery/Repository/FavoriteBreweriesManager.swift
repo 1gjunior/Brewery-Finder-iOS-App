@@ -13,7 +13,7 @@ protocol FavoriteBreweriesManagerProtocol {
     func deleteFavoriteBreweries(id: String)
     func saveFavoriteBrewery(brewery: Brewery)
     func getAllBreweries() -> [FavoriteBreweries]
-    func getBrewery(id: String) -> FavoriteBreweries?
+    func getBrewery(with id: String) -> FavoriteBreweries?
 }
 
 class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
@@ -35,7 +35,7 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
         case type
     }
     
-    func getBrewery(id: String) -> FavoriteBreweries? {
+    func getBrewery(with id: String) -> FavoriteBreweries? {
         return favoriteBreweries[id]
     }
     
