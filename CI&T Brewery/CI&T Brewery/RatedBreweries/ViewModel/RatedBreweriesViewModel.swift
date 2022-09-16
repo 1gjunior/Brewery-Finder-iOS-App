@@ -19,7 +19,7 @@ enum SortedRatedBreweries {
 	 case sortedRating
 }
 
-enum RatedBreweriesState {
+enum RatedBreweriesState: Equatable {
     case initial
     case loading
     case success(breweries: [Brewery])
@@ -27,20 +27,32 @@ enum RatedBreweriesState {
 }
 
 class RatedBreweriesViewModel {
-    let repository: BreweryRepositoryProtocol
+    private let repository: BreweryRepositoryProtocol
     
     @Published private(set) var state: RatedBreweriesState = .initial
     @Published private(set) var fieldsState: FieldsState = .blank
     
-    init(repository: BreweryRepository = BreweryRepository()) {
+    public var sortedBreweries: SortedBreweries = .sortedName {
+        willSet(newType) {
+              switch state{
+              case .success(let breweries):
+                    state = .success(breweries: breweriesSorted(breweries: breweries, type: newType))
+              default:
+                    break
+              }
+         }
+    }
+    
+    init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
     }
     
     func fetchRatedBreweries(email: String) {
         repository.getRatedBreweries(email: email) { [weak self] result in
             switch result {
-            case .failure(_):
-                fatalError()
+            case .failure(let error):
+                print(error)
+                self?.state = .emptyError
             case .success(let breweriesResponse):
                 if breweriesResponse.count > 0 {
                     self?.state = .success(breweries: breweriesResponse)
@@ -52,10 +64,6 @@ class RatedBreweriesViewModel {
         }
     }
     
-    func fetchEmptyState() {
-        
-    }
-    
     public func fieldsValidation(emailText: String) {
         if !emailText.isEmpty && !emailText.isEmail() {
             fieldsState = .invalid
@@ -65,16 +73,7 @@ class RatedBreweriesViewModel {
             fieldsState = .blank
         }
     }
-	public var sortedBreweries: SortedBreweries = .sortedName {
-		willSet(newType) {
-			  switch state{
-			  case .success(let breweries):
-					state = .success(breweries: breweriesSorted(breweries: breweries, type: newType))
-			  default:
-					break
-			  }
-		 }
-	}
+    
 	func breweriesSorted(breweries: [Brewery], type: SortedBreweries) -> [Brewery] {
 		 switch type  {
 		 case .sortedName:

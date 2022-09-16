@@ -105,14 +105,14 @@ extension RatedListView: UITableViewDelegate, UITableViewDataSource {
 		}
 		
 		let item = breweries[indexPath.section]
-		cell.configure(cell, for: item)
+		cell.configure(for: item)
 		
 		return cell
 	}
 	
 	public func update(_ breweries: [Brewery]){
-	self.breweries = breweries
-	self.lbTableView.reloadData()
+        self.breweries = breweries
+        self.lbTableView.reloadData()
 	}
 }
 

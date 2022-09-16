@@ -39,8 +39,7 @@ class BreweryTableViewCell: UITableViewCell {
         }
     }
     
-    func configure(_ cell: BreweryTableViewCell, for brewery: FavoriteBreweries) {
-        
+    func configure(for brewery: FavoriteBreweries) {
         guard let breweryName = brewery.name else {return}
         letterImage.text = breweryName.prefix(1).uppercased()
         name.text = brewery.name

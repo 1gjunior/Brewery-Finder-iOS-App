@@ -35,7 +35,7 @@ class RatedBreweryTableViewCell: UITableViewCell{
 	}
 	@IBOutlet weak var cosmosView: CosmosView!
 	
-	func configure(_ cell: RatedBreweryTableViewCell, for brewery: Brewery) {
+	func configure(for brewery: Brewery) {
 		lbProfileLetter.text = String(brewery.name[brewery.name.startIndex])
 		lbBrewery.text = brewery.name
 		lbBreweryAverage.text = "\(brewery.average)"

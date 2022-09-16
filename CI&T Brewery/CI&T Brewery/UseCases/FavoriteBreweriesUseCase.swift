@@ -72,4 +72,27 @@ class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
         return manager.getBrewery(with: id)
     }
     
+    func toggleFavoriteButtonState(_ state: FavoriteButtonState) -> FavoriteButtonState {
+        var state = state
+        if state == .unselected {
+            state = .selected
+        } else {
+            state = .unselected
+        }
+        
+        return state
+    }
+    
+    func getFavoriteButtonState(with id: String) -> FavoriteButtonState {
+        var state: FavoriteButtonState = .unselected
+        
+        if getBrewery(with: id) != nil {
+            state = .selected
+        } else {
+            state = .unselected
+        }
+        
+        return state
+    }
+    
 }
