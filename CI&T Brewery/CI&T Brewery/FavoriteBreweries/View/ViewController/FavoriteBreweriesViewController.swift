@@ -26,6 +26,12 @@ class FavoriteBreweriesViewController: UIViewController {
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         return emptyStateView
     }()
+	
+//	private lazy var deleteFavoriteView: DeleteFavoriteView = {
+//		let deleteFavoriteView = DeleteFavoriteView(frame: CGRect(x: 0.0, y: 0, width: 430, height: 896.0))
+//		deleteFavoriteView.translatesAutoresizingMaskIntoConstraints = false
+//		return deleteFavoriteView
+//	}()
 
     init() {
         super.init(nibName: "FavoriteBreweriesView", bundle: nil)
@@ -53,6 +59,9 @@ class FavoriteBreweriesViewController: UIViewController {
         constrainBreweryList()
         favoriteBreweries = breweries
         breweryList.update(favoriteBreweries)
+//		 view.addSubview(deleteFavoriteView)
+//		 constaraintDeleteFavoriteView()
+
     }
 
     private func setupEmptyState() {
@@ -85,6 +94,13 @@ class FavoriteBreweriesViewController: UIViewController {
         emptyStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         emptyStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
+	
+//	private func constaraintDeleteFavoriteView(){
+//		deleteFavoriteView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: -80).isActive = true
+//		deleteFavoriteView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+//		deleteFavoriteView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+//		deleteFavoriteView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+//	}
 
     private func sinkBreweries() {
         viewModel.$state.sink { [weak self] state in
