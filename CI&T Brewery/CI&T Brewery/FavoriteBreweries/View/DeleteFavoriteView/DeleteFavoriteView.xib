@@ -3,90 +3,101 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeleteFavoriteView" customModule="CI_T_Brewery" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="gIg-6W-SOr" id="pIQ-2b-9kW"/>
+                <outlet property="confirmButton" destination="117-zl-cN4" id="Oe9-Ne-rrF"/>
+                <outlet property="lbText" destination="AyX-fe-IY0" id="Fsm-1R-Z29"/>
+                <outlet property="lbTitle" destination="8Au-I7-85g" id="NUL-B8-2qY"/>
+                <outlet property="mainView" destination="fFB-Tl-fZR" id="v2W-X9-eJ2"/>
+                <outlet property="modalView" destination="G8f-2W-qcd" id="KhA-oQ-bfb"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="fFB-Tl-fZR" customClass="DeleteFavoriteView" customModule="CI_T_Brewery" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="fFB-Tl-fZR">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8f-2W-qcd">
-                    <rect key="frame" x="31" y="324" width="352" height="258"/>
+                    <rect key="frame" x="20" y="333.5" width="374" height="219"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-fe-IY0">
-                            <rect key="frame" x="16" y="77" width="320" height="39.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-fe-IY0">
+                            <rect key="frame" x="16" y="61" width="342" height="43"/>
                             <string key="text">Ao remover a cervejaria dos favoritos, ela deixa de aparecer na listagem de cervejarias favoritas. Você pode adicionar a cervejaria como favorita novamente quando quiser.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIg-6W-SOr">
-                            <rect key="frame" x="135" y="151.5" width="82" height="31"/>
-                            <color key="backgroundColor" red="0.87985352449999998" green="1" blue="0.4941793203" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Cancelar"/>
-                            <connections>
-                                <action selector="cancelRemoval:" destination="fFB-Tl-fZR" eventType="touchUpInside" id="IA2-Az-HGH"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="117-zl-cN4">
-                            <rect key="frame" x="101.5" y="202.5" width="149" height="31"/>
-                            <color key="backgroundColor" red="1" green="0.92156862750000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <rect key="frame" x="24" y="160" width="326" height="31"/>
+                            <color key="tintColor" name="BreweryGold"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Confirmar remoção"/>
                             <connections>
-                                <action selector="confirmRemoval:" destination="fFB-Tl-fZR" eventType="touchUpInside" id="BEx-cw-TXC"/>
+                                <action selector="confirmRemoval:" destination="-1" eventType="touchUpInside" id="Itw-tJ-0tf"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remover favorito?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-I7-85g">
-                            <rect key="frame" x="107.5" y="21" width="137" height="21"/>
+                            <rect key="frame" x="118.5" y="25" width="137" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIg-6W-SOr">
+                            <rect key="frame" x="24" y="119" width="326" height="31"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" name="BreweryBlack"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Cancelar"/>
+                            <connections>
+                                <action selector="cancelRemoval:" destination="-1" eventType="touchUpInside" id="UkJ-Zg-9kd"/>
+                            </connections>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" systemColor="systemGreenColor"/>
                     <constraints>
-                        <constraint firstItem="117-zl-cN4" firstAttribute="top" secondItem="gIg-6W-SOr" secondAttribute="bottom" constant="20" id="130-D0-3c2"/>
-                        <constraint firstItem="AyX-fe-IY0" firstAttribute="centerX" secondItem="8Au-I7-85g" secondAttribute="centerX" id="17b-xe-PEd"/>
-                        <constraint firstItem="8Au-I7-85g" firstAttribute="centerX" secondItem="G8f-2W-qcd" secondAttribute="centerX" id="4qM-4O-Ngd"/>
-                        <constraint firstItem="gIg-6W-SOr" firstAttribute="centerX" secondItem="AyX-fe-IY0" secondAttribute="centerX" id="4u1-xj-tKG"/>
-                        <constraint firstItem="117-zl-cN4" firstAttribute="centerX" secondItem="8Au-I7-85g" secondAttribute="centerX" id="CK6-D2-fFg"/>
-                        <constraint firstItem="AyX-fe-IY0" firstAttribute="top" secondItem="8Au-I7-85g" secondAttribute="bottom" constant="35" id="M5k-tK-TgQ"/>
-                        <constraint firstItem="8Au-I7-85g" firstAttribute="top" secondItem="G8f-2W-qcd" secondAttribute="top" constant="21" id="XZC-HA-9SS"/>
-                        <constraint firstItem="gIg-6W-SOr" firstAttribute="top" secondItem="AyX-fe-IY0" secondAttribute="bottom" constant="35" id="cfX-bh-9Sy"/>
-                        <constraint firstItem="gIg-6W-SOr" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="135" id="h8e-uN-np5"/>
-                        <constraint firstAttribute="trailing" secondItem="gIg-6W-SOr" secondAttribute="trailing" constant="135" id="rwx-Sc-GSB"/>
-                        <constraint firstItem="AyX-fe-IY0" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="16" id="uta-C3-6t6"/>
-                        <constraint firstAttribute="trailing" secondItem="AyX-fe-IY0" secondAttribute="trailing" constant="16" id="zvV-Yy-hMa"/>
+                        <constraint firstItem="gIg-6W-SOr" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="24" id="2Xu-8v-MRo"/>
+                        <constraint firstAttribute="trailing" secondItem="117-zl-cN4" secondAttribute="trailing" constant="24" id="5fs-FP-VBN"/>
+                        <constraint firstItem="AyX-fe-IY0" firstAttribute="top" secondItem="8Au-I7-85g" secondAttribute="bottom" constant="15" id="CjT-OR-eza"/>
+                        <constraint firstAttribute="trailing" secondItem="8Au-I7-85g" secondAttribute="trailing" constant="118.5" id="Ied-fY-wT4"/>
+                        <constraint firstAttribute="trailing" secondItem="gIg-6W-SOr" secondAttribute="trailing" constant="24" id="OG9-9d-5gY"/>
+                        <constraint firstItem="117-zl-cN4" firstAttribute="top" secondItem="gIg-6W-SOr" secondAttribute="bottom" constant="10" id="TZ0-7a-gBv"/>
+                        <constraint firstItem="8Au-I7-85g" firstAttribute="top" secondItem="G8f-2W-qcd" secondAttribute="top" constant="25" id="UDg-vJ-A0O"/>
+                        <constraint firstItem="117-zl-cN4" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="24" id="a7R-F4-of0"/>
+                        <constraint firstItem="AyX-fe-IY0" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="16" id="cAV-cF-MrM"/>
+                        <constraint firstAttribute="bottom" secondItem="117-zl-cN4" secondAttribute="bottom" constant="28" id="eSJ-ww-iNO"/>
+                        <constraint firstAttribute="trailing" secondItem="AyX-fe-IY0" secondAttribute="trailing" constant="16" id="iRb-Hd-els"/>
+                        <constraint firstItem="gIg-6W-SOr" firstAttribute="top" secondItem="AyX-fe-IY0" secondAttribute="bottom" constant="15" id="k1F-wK-NJN"/>
+                        <constraint firstItem="8Au-I7-85g" firstAttribute="leading" secondItem="G8f-2W-qcd" secondAttribute="leading" constant="118.5" id="pg2-a4-Pbw"/>
                     </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="gTe-Lo-40b"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="gTe-Lo-40b" firstAttribute="bottom" secondItem="G8f-2W-qcd" secondAttribute="bottom" constant="280" id="4cn-sU-wpV"/>
-                <constraint firstItem="gTe-Lo-40b" firstAttribute="trailing" secondItem="G8f-2W-qcd" secondAttribute="trailing" constant="31" id="TYx-Xu-YpX"/>
-                <constraint firstItem="G8f-2W-qcd" firstAttribute="top" secondItem="gTe-Lo-40b" secondAttribute="top" constant="280" id="XFa-1K-JyC"/>
-                <constraint firstItem="G8f-2W-qcd" firstAttribute="leading" secondItem="gTe-Lo-40b" secondAttribute="leading" constant="31" id="iWy-YM-lVa"/>
+                <constraint firstItem="G8f-2W-qcd" firstAttribute="top" secondItem="gTe-Lo-40b" secondAttribute="top" constant="289.5" id="5Ks-h1-w7x"/>
+                <constraint firstItem="gTe-Lo-40b" firstAttribute="trailing" secondItem="G8f-2W-qcd" secondAttribute="trailing" constant="20" id="95d-g1-Agq"/>
+                <constraint firstItem="G8f-2W-qcd" firstAttribute="leading" secondItem="gTe-Lo-40b" secondAttribute="leading" constant="20" id="EJi-Gp-ivP"/>
+                <constraint firstItem="gTe-Lo-40b" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="G8f-2W-qcd" secondAttribute="bottom" constant="299.5" id="JcS-JV-iFz"/>
             </constraints>
-            <connections>
-                <outlet property="cancelButton" destination="gIg-6W-SOr" id="FGp-pd-sw5"/>
-                <outlet property="confirmButton" destination="117-zl-cN4" id="cJt-0S-tk2"/>
-                <outlet property="lbText" destination="AyX-fe-IY0" id="O8t-nT-lUC"/>
-                <outlet property="lbTitle" destination="8Au-I7-85g" id="yZr-lW-r8L"/>
-                <outlet property="modalView" destination="G8f-2W-qcd" id="fSz-ad-9hv"/>
-            </connections>
-            <point key="canvasLocation" x="-367" y="-271"/>
+            <point key="canvasLocation" x="-3949.275362318841" y="-832.36607142857144"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <namedColor name="BreweryBlack">
+            <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BreweryGold">
+            <color red="0.44999998807907104" green="0.37000000476837158" blue="0.10000000149011612" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
