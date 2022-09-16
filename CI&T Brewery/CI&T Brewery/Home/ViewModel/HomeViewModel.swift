@@ -64,27 +64,11 @@ class HomeViewModel {
     }
     
     func getFavoriteButtonState(with id: String) -> FavoriteButtonState {
-        var state: FavoriteButtonState = .unselected
-        
-        if useCase.getBrewery(with: id) != nil {
-            state = .selected
-        } else {
-            state = .unselected
-        }
-        
-        return state
+        return useCase.getFavoriteButtonState(with: id)
     }
     
     func favoriteButtonTapped(brewery: Brewery, state: FavoriteButtonState) -> FavoriteButtonState {
-        var state = state
-        if state == .unselected {
-            state = .selected
-        } else {
-            state = .unselected
-        }
-        
         saveFavorite(brewery: brewery)
-        
-        return state
+        return useCase.toggleFavoriteButtonState(state)
     }
 }

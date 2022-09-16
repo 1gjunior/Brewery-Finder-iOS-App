@@ -45,15 +45,14 @@ class BreweryTableViewCell: UITableViewCell {
 		}
 	}
 		
-    func configure(_ cell: BreweryTableViewCell, for brewery: FavoriteBreweries) {
-        
+
+    func configure(for brewery: FavoriteBreweries) {
         guard let breweryName = brewery.name else {return}
         letterImage.text = breweryName.prefix(1).uppercased()
         name.text = brewery.name
         average.text = "\(brewery.evaluation)"
         type.text = brewery.type
     }
-
 
 	@IBAction func removeFavorite(_ sender: UIButton) {
 		print("clicou favorito")
