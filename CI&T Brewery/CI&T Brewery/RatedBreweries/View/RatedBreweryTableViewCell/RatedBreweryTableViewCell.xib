@@ -29,13 +29,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejaria A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8p2-1C-0VV">
-                        <rect key="frame" x="61" y="23" width="203" height="20"/>
+                        <rect key="frame" x="61" y="23" width="188" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="czk-fJ-NjN" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="319" y="23" width="82" height="20"/>
+                        <rect key="frame" x="288" y="23" width="113" height="20"/>
                         <viewLayoutGuide key="safeArea" id="ZCT-tj-0K3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <userDefinedRuntimeAttributes>
@@ -56,42 +56,46 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7o-hh-4dA">
-                        <rect key="frame" x="291" y="23" width="20" height="20"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSH-Ak-dqy">
+                        <rect key="frame" x="259" y="23" width="21" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="czk-fJ-NjN" firstAttribute="leading" secondItem="K7o-hh-4dA" secondAttribute="trailing" constant="8" symbolic="YES" id="1Ug-ie-plZ"/>
                     <constraint firstItem="qX9-t2-m61" firstAttribute="leading" secondItem="KlL-rl-SX3" secondAttribute="leading" constant="8" id="5yl-TG-2Cn"/>
                     <constraint firstItem="8p2-1C-0VV" firstAttribute="leading" secondItem="qX9-t2-m61" secondAttribute="trailing" constant="12" id="7Vw-DS-rqL"/>
                     <constraint firstAttribute="trailing" secondItem="czk-fJ-NjN" secondAttribute="trailing" constant="13" id="8DD-g2-Al7"/>
-                    <constraint firstItem="K7o-hh-4dA" firstAttribute="centerY" secondItem="KlL-rl-SX3" secondAttribute="centerY" id="DFU-23-2Vm"/>
-                    <constraint firstAttribute="trailing" secondItem="8p2-1C-0VV" secondAttribute="trailing" constant="150" id="GmP-pQ-29A"/>
+                    <constraint firstItem="GSH-Ak-dqy" firstAttribute="centerY" secondItem="KlL-rl-SX3" secondAttribute="centerY" id="9DW-aE-IxV"/>
+                    <constraint firstAttribute="trailing" secondItem="8p2-1C-0VV" secondAttribute="trailing" constant="165" id="GmP-pQ-29A"/>
                     <constraint firstItem="8p2-1C-0VV" firstAttribute="centerY" secondItem="qX9-t2-m61" secondAttribute="centerY" id="Hoy-Gi-LKj"/>
                     <constraint firstItem="czk-fJ-NjN" firstAttribute="top" secondItem="KlL-rl-SX3" secondAttribute="top" constant="23" id="Jdg-Zs-mN8"/>
-                    <constraint firstAttribute="trailing" secondItem="K7o-hh-4dA" secondAttribute="trailing" constant="103" id="Qjp-W9-AoN"/>
-                    <constraint firstItem="K7o-hh-4dA" firstAttribute="top" secondItem="KlL-rl-SX3" secondAttribute="top" constant="23" id="TG9-4E-IcY"/>
+                    <constraint firstItem="czk-fJ-NjN" firstAttribute="leading" secondItem="GSH-Ak-dqy" secondAttribute="trailing" constant="8" symbolic="YES" id="MJ9-rS-7zW"/>
                     <constraint firstItem="czk-fJ-NjN" firstAttribute="centerY" secondItem="KlL-rl-SX3" secondAttribute="centerY" id="Urq-zb-VYY"/>
-                    <constraint firstItem="K7o-hh-4dA" firstAttribute="centerY" secondItem="qX9-t2-m61" secondAttribute="centerY" id="ZQ1-Mb-rvA"/>
+                    <constraint firstItem="GSH-Ak-dqy" firstAttribute="leading" secondItem="8p2-1C-0VV" secondAttribute="trailing" constant="10" id="Wua-Lo-2Xz"/>
                     <constraint firstItem="qX9-t2-m61" firstAttribute="centerY" secondItem="KlL-rl-SX3" secondAttribute="centerY" id="mV1-Ut-Srj"/>
                     <constraint firstItem="czk-fJ-NjN" firstAttribute="centerY" secondItem="KlL-rl-SX3" secondAttribute="centerY" id="tEU-iD-mcf"/>
+                    <constraint firstItem="GSH-Ak-dqy" firstAttribute="top" secondItem="KlL-rl-SX3" secondAttribute="top" constant="23" id="vOV-vr-fRh"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="cosmosView" destination="czk-fJ-NjN" id="cVC-ao-jDc"/>
                 <outlet property="lbBrewery" destination="8p2-1C-0VV" id="lGU-fY-c8r"/>
-                <outlet property="lbBreweryAverage" destination="K7o-hh-4dA" id="Ss7-Ea-clS"/>
+                <outlet property="lbBreweryAverage" destination="GSH-Ak-dqy" id="gYg-Xr-G4Y"/>
                 <outlet property="lbProfileLetter" destination="qX9-t2-m61" id="vdB-Gf-DbN"/>
                 <outlet property="mainView" destination="KlL-rl-SX3" id="tNg-hU-Ecd"/>
             </connections>
             <point key="canvasLocation" x="-1278.2608695652175" y="-108.48214285714285"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="czk-fJ-NjN">
+            <size key="intrinsicContentSize" width="108" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="Brewery Yellow Alpha 16">
             <color red="1" green="0.80000001192092896" blue="0.0" alpha="0.15899999439716339" colorSpace="custom" customColorSpace="sRGB"/>

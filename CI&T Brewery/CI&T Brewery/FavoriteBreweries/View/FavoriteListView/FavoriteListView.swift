@@ -10,11 +10,13 @@ import UIKit
 
 public protocol FavoriteListViewDelegate: AnyObject{
     func didSorted(type: SortType)
+    func goToDetailWith(id: String)
 }
 
 class FavoriteListView: UIView {
     private var breweries: [FavoriteBreweries] = []
     private weak var delegate: FavoriteListViewDelegate?
+    private var action: ((_ id: String) -> ())?
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
@@ -108,6 +110,16 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let id = breweries[indexPath.section].id else {return}
+        guard let action = action else { return }
+        action(id)
+    }
+    
+    public func setActions(onSelect: @escaping ((String) -> ())) -> () {
+        self.action = onSelect
+    }
+    
     public func update(_ breweries: [FavoriteBreweries]) {
         
         self.breweries = breweries
@@ -120,3 +132,4 @@ extension FavoriteListView: SortViewDelegate {
         delegate?.didSorted(type: type)
     }
 }
+
