@@ -53,6 +53,7 @@ class FavoriteBreweriesViewController: UIViewController {
         constrainBreweryList()
         favoriteBreweries = breweries
         breweryList.update(favoriteBreweries)
+        breweryList.setActions(onSelect: goToDetailWith)
     }
 
     private func setupEmptyState() {
@@ -118,6 +119,11 @@ class FavoriteBreweriesViewController: UIViewController {
     
     private func getFavoriteBrewery() {
         viewModel.fetchFavoriteBrewery()
+    }
+    
+    internal func goToDetailWith(id: String) {
+        let breweryDetailViewController = BreweryDetailViewController(id: id)
+        self.navigationController?.pushViewController(breweryDetailViewController, animated: true)
     }
 }
 
