@@ -83,11 +83,9 @@ class BreweryRepository: BreweryRepositoryProtocol {
             case .success(let data):
                 completion(.success(data))
             case .failure(let error):
-
                 completion(.failure(error))
             }
         }
-
     }
 	
 	func getBreweryPhotos(id: String, completion: @escaping (Result<[BreweryPhotos], Error>) -> Void) {

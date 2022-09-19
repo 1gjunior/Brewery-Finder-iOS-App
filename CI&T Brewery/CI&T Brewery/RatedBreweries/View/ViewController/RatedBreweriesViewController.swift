@@ -58,8 +58,9 @@ class RatedBreweriesViewController: UIViewController {
     }
 	
 	func setupSucessState (_ breweries: [Brewery]){
+        let localizable = breweries.count == 1 ? "resultText" : "resultsText"
         changingState(sucessView)
-		sucessView.setRatedResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
+		sucessView.setRatedResultText("\(breweries.count) \(NSLocalizedString(localizable, comment: ""))")
 		view.addSubview(sucessView)
         sucessView.update(breweries)
 		constraintSucessView()

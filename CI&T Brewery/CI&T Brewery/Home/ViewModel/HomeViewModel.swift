@@ -16,7 +16,7 @@ enum HomeViewModelState {
     case genericError
 }
 
-enum SortedBreweries{
+enum SortedBreweries {
     case sortedName
     case sortedRating
 }
@@ -55,11 +55,20 @@ class HomeViewModel {
         }
     }
     
-    func favoriteButtonTapped(brewery: Brewery) {
+    func saveFavorite(brewery: Brewery) {
         useCase.handleFavoriteBrewery(brewery)
     }
     
     func loadFavoriteBreweries() {
         useCase.loadBreweries()
+    }
+    
+    func getFavoriteButtonState(with id: String) -> FavoriteButtonState {
+        return useCase.getFavoriteButtonState(with: id)
+    }
+    
+    func favoriteButtonTapped(brewery: Brewery, state: FavoriteButtonState) -> FavoriteButtonState {
+        saveFavorite(brewery: brewery)
+        return useCase.toggleFavoriteButtonState(state)
     }
 }

@@ -14,6 +14,7 @@
 "inputEmptyStateText" = "Nenhum termo digitado";
 "resultEmptyStateText" = "Nenhum resultado encontrado para sua busca";
 "resultsText" = "resultados";
+"resultText" = "resultado";
 "Busque por local" = "Busque por local";
 
 

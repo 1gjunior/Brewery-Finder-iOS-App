@@ -1,13 +1,10 @@
-
 //
 //  FormatRequestPhoto.swift
 //  CI&T Brewery
 //
 //  Created by Pamella Victoria Soares Lima on 16/09/22.
 //
-
 import Foundation
-
 protocol FormatRequestPhotoProtocol {
     static func createBodyWithParameters(filePathKey: String?, imageDataKey: Data, boundary: String) -> Data
     static func generateBoundaryString() -> String

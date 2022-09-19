@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol BreweryListViewDelegate: AnyObject{
+public protocol BreweryListViewDelegate: AnyObject {
     
     func didSorted(type: SortType)
 }
@@ -20,7 +20,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var sortLabel: UILabel!
     private var breweries: [Brewery] = []
     private var action: ((_ id: String) -> ())?
-    private var onFavorite: ((Brewery) -> ())?
+    private var viewModel: HomeViewModel?
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
@@ -32,20 +32,21 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     weak var delegate: BreweryListViewDelegate?
     
     private func constraintSortView() {
-        sortView.translatesAutoresizingMaskIntoConstraints = false
         sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        sortView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0).isActive = true
+        sortView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
-    
 
     @IBAction func goToSortView(_ sender: Any) {
-        sortView.view.isHidden = false
         contentView.addSubview(sortView)
         constraintSortView()
     }
     
+    func removeView() {
+        contentView.willRemoveSubview(sortView)
+        sortView.removeFromSuperview()
+    }
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,8 +79,11 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreweryListCell", for: indexPath) as? BreweryListTableViewCell else { return UITableViewCell() }
         
         let brewery = breweries[indexPath.section]
-        cell.configure(cell, for: brewery)
-        cell.onFavorite = onFavorite
+        
+        cell.configure(for: brewery, onFavorite: viewModel?.favoriteButtonTapped)
+        if let viewModel = viewModel {
+            cell.buttonState = viewModel.getFavoriteButtonState(with: brewery.id)
+        }
         
         return cell
     }
@@ -100,9 +104,9 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.tableView.reloadData()
     }
     
-    public func setActions(onSelect: @escaping ((String) -> ()), onFavorite: @escaping ((Brewery) -> ())) {
+    public func configure(onSelect: @escaping ((String) -> ()), viewModel: HomeViewModel) {
         self.action = onSelect
-        self.onFavorite = onFavorite
+        self.viewModel = viewModel
     }
 }
 

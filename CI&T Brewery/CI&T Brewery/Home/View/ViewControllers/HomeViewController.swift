@@ -79,12 +79,13 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     }
     
     func setupSucessState(_ breweries: [Brewery]) {
-        listView.setSearchResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
+        let localizable = breweries.count == 1 ? "resultText" : "resultsText"
+        listView.setSearchResultText("\(breweries.count) \(NSLocalizedString(localizable, comment: ""))")
         view.addSubview(listView)
         constraintListView()
         changingState(view: listView)
         listView.update(breweries)
-        listView.setActions(onSelect: goToDetailWith, onFavorite: viewModel.favoriteButtonTapped)
+        listView.configure(onSelect: goToDetailWith, viewModel: viewModel)
     }
     
     func setupTop10SucessState(_ breweries: [Brewery]) {
@@ -108,7 +109,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         listView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200).isActive = true
         listView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         listView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        listView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        listView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
     }
     
     private func constraintCarouselView() {
@@ -136,7 +137,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         viewModel.fetchBreweriesBy(city: city)
     }
     
-    private func getTop10Breweries() {
+    @objc private func getTop10Breweries() {
         viewModel.fetchTop10Breweries()
     }
     
@@ -217,6 +218,7 @@ extension HomeViewController {
         logoIcon.setImage(UIImage(named: "icon"), for: .normal)
         logoIcon.tintColor = .black
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
+        logoIcon.addTarget(self, action: #selector(getTop10Breweries), for: .touchUpInside)
     }
     
     private func setupRightNavigationBar() {
