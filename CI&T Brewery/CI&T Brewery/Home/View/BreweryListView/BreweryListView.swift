@@ -18,6 +18,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private var resultsLabel: UILabel!
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var sortLabel: UILabel!
+    @IBOutlet weak var label: UILabel!
     private var breweries: [Brewery] = []
     private var action: ((_ id: String) -> ())?
     private var viewModel: HomeViewModel?
@@ -114,5 +115,11 @@ extension BreweryListView: SortViewDelegate {
     
     func didSorted(type: SortType) {
         delegate?.didSorted(type: type)
+        
+        if type == .sortedName {
+            label.text = NSLocalizedString("name", comment: "")
+        } else {
+            label.text = NSLocalizedString("rating", comment: "")
+        }
     }
 }

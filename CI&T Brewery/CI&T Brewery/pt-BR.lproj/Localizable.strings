@@ -42,6 +42,8 @@
 "Ordenar por" = "Ordenar por";
 "Nome (A a Z)" = "Nome (A a Z)";
 "Nota (menor para maior)" = "Nota (menor para maior)";
+"name" = "Ordenar por: Nome";
+"rating" = "Ordenar por: Nota";
 
 /*BreweryDetailViewController*/
 "ratedBrewery" = "Você já avaliou essa \ncervejaria";

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public enum SortType{
+public enum SortType: Int {
     case sortedName
     case sortedRating
 }
@@ -56,9 +56,9 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.sortButton.setImage(UIImage(named: "RadioDisabled"), for: .normal)
         cell.sortButton.setImage(UIImage(named: "RadioSelected"), for: .selected)
 
-        if indexPath.row == SortedBreweries.sortedName.hashValue {
+        if indexPath.row == SortType.sortedName.rawValue {
             cell.label.text = NSLocalizedString("Nome (A a Z)", comment: "")
-        } else if indexPath.row == SortedBreweries.sortedRating.hashValue {
+        } else {
             cell.label.text = NSLocalizedString("Nota (menor para maior)", comment: "")
         }
         
@@ -72,7 +72,7 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.sortButton.isSelected = true
         
         let index: IndexPath
-        if indexPath.row == SortedBreweries.sortedName.hashValue {
+        if indexPath.row == SortType.sortedName.rawValue {
             delegate?.didSorted(type: .sortedName)
             index = IndexPath(row: SortedBreweries.sortedRating.hashValue, section: indexPath.section)
         } else {
