@@ -16,7 +16,7 @@ class SearchBreweryTest: XCTestCase {
     var useCase: FavoriteBreweriesUseCase!
     
     override func setUp() {
-        useCase = .init(manager: FavoriteManagerMock(), repository: BreweryRepositoryMock())
+        useCase = .init(manager: FavoriteBreweriesManagerMock(), repository: BreweryRepositoryMock())
         viewModel = HomeViewModel(useCase: useCase)
     }
     
@@ -36,27 +36,3 @@ class SearchBreweryTest: XCTestCase {
         XCTAssert(viewModel.state == .genericError)
     }
 }
-
-class FavoriteManagerMock: FavoriteBreweriesManagerProtocol {
-    func loadFavoriteBreweries() -> [CI_T_Brewery.FavoriteBreweries]? {
-        return nil
-    }
-    
-    func deleteFavoriteBreweries(id: String) {
-            
-    }
-    
-    func saveFavoriteBrewery(brewery: CI_T_Brewery.Brewery) {
-        
-    }
-    
-    func getAllBreweries() -> [CI_T_Brewery.FavoriteBreweries] {
-        return .init()
-    }
-    
-    func getBrewery(with id: String) -> CI_T_Brewery.FavoriteBreweries? {
-        return nil
-    }
-}
-
-

@@ -11,12 +11,11 @@ import Combine
 
 class HomeViewModelTest: XCTestCase {
     var viewModel: HomeViewModel!
-    var useCase: FavoriteBreweriesUseCaseMock!
     var cancellables: Set<AnyCancellable>!
+    let useCase = FavoriteBreweriesUseCaseMock()
     let breweries = BreweryMock.breweries
     
     override func setUp() {
-        useCase = .init()
         viewModel = HomeViewModel(useCase: useCase)
         cancellables = []
     }

@@ -14,6 +14,8 @@ protocol FavoriteBreweriesManagerProtocol {
     func saveFavoriteBrewery(brewery: Brewery)
     func getAllBreweries() -> [FavoriteBreweries]
     func getBrewery(with id: String) -> FavoriteBreweries?
+    func addFavoriteBrewery(_ brewery: FavoriteBreweries)
+    func removeFavoriteBrewery(_ id: String)
 }
 
 class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {

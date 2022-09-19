@@ -58,19 +58,20 @@ class RatedBreweriesViewModelTests: XCTestCase {
 
 class BreweryRepositoryMock: BreweryRepositoryProtocol {
     var breweries = BreweryMock.breweries
+    var error: Error! = nil
     
     func postPhotosByBrewery(imageData: Data, breweryId: String, completion: @escaping (Result<BreweryPhotos, Error>) -> Void) {
     }
     
     func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
         let emailTest = "test@test.com"
-        let error = NSError(domain: "testing", code: 200)
+        error = NSError(domain: "testing", code: 200)
         
         _ = emailTest == email ? completion(.success(breweries)) : completion(.failure(error))
     }
     
     func getBreweriesBy(city: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
-        let error = NSError(domain: "testing", code: 200)
+        error = NSError(domain: "testing", code: 200)
         if city == "new york" {
             completion(.success(breweries))
         } else if city == ""{
@@ -89,7 +90,11 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
     }
     
     func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void) {
-        
+        if let error = error {
+            completion(.failure(error))
+        } else {
+            completion(.success(breweries))
+        }
     }
     
     func getBreweryPhotos(id: String, completion: @escaping (Result<[BreweryPhotos], Error>) -> Void) {

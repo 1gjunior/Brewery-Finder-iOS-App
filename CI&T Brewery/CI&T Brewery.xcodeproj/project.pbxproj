@@ -19,6 +19,8 @@
 		2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */; };
 		2B125CB628D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB528D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift */; };
 		2B125CB828D9051F00B28F6B /* BreweryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB728D9051F00B28F6B /* BreweryMock.swift */; };
+		2B125CBA28D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */; };
+		2B125CBC28D90A9400B28F6B /* FavoriteBreweriesManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CBB28D90A9400B28F6B /* FavoriteBreweriesManagerMock.swift */; };
 		2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */; };
 		2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0228AD11780037099C /* Quicksand-Bold.ttf */; };
 		2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */; };
@@ -141,6 +143,8 @@
 		2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		2B125CB528D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCaseMock.swift; sourceTree = "<group>"; };
 		2B125CB728D9051F00B28F6B /* BreweryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryMock.swift; sourceTree = "<group>"; };
+		2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweryUseCaseTest.swift; sourceTree = "<group>"; };
+		2B125CBB28D90A9400B28F6B /* FavoriteBreweriesManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManagerMock.swift; sourceTree = "<group>"; };
 		2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -344,6 +348,7 @@
 			children = (
 				2B125CB528D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift */,
 				2B125CB728D9051F00B28F6B /* BreweryMock.swift */,
+				2B125CBB28D90A9400B28F6B /* FavoriteBreweriesManagerMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 				B99FDE2028A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift */,
 				B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */,
 				2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */,
+				2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */,
 			);
 			path = "CI&T BreweryTests";
 			sourceTree = "<group>";
@@ -1024,6 +1030,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B125CBC28D90A9400B28F6B /* FavoriteBreweriesManagerMock.swift in Sources */,
+				2B125CBA28D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift in Sources */,
 				2B125CB828D9051F00B28F6B /* BreweryMock.swift in Sources */,
 				2B125CB628D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift in Sources */,
 				2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */,
