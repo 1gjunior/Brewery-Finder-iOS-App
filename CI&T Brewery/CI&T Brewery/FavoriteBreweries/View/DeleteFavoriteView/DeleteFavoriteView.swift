@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import Resolver
 
 class DeleteFavoriteView: UIViewController{
-	
+	@Injected var viewModel: FavoriteBreweriesViewModel
+	let favoriteBrewery: FavoriteBreweries?
 	@IBOutlet weak var modalView: UIView!{
 		didSet{
 			modalView.layer.cornerRadius = 20
@@ -45,18 +47,20 @@ class DeleteFavoriteView: UIViewController{
 		}
 	}
 
-	 init(frame: CGRect) {
-		 super.init(nibName: "DeleteFavoriteView", bundle: nil)
+	init(favoriteBrewery: FavoriteBreweries) {
+		 self.favoriteBrewery = favoriteBrewery
+		super.init(nibName: "DeleteFavoriteView", bundle: nil)
 	}
 	
-	required init?(coder: NSCoder) {
-		 super.init(coder: coder)
+	required init?(coder aDecoder: NSCoder) {
+		 fatalError("init(coder:) has not been implemented")
 	}
 	
 	@IBAction func cancelRemoval(_ sender: UIButton) {
 		dismiss(animated: true)
 	}
 	@IBAction func confirmRemoval(_ sender: UIButton) {
+		viewModel.removeFavorite(brewery: favoriteBrewery!)
 		dismiss(animated: true)
 	}
 

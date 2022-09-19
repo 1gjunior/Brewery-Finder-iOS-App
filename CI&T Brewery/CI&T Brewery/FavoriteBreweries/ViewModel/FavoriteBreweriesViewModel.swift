@@ -23,7 +23,7 @@ enum SortedFavoriteBreweries {
 }
 
 class FavoriteBreweriesViewModel {
-    
+	 let useCase: FavoriteBreweriesUseCase
     @Published private(set) var state: FavoriteBreweriesViewModelState = .initial
     @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     
@@ -38,6 +38,10 @@ class FavoriteBreweriesViewModel {
         }
     }
     
+	init(useCase: FavoriteBreweriesUseCase) {
+		 self.useCase = useCase
+	}
+	
     func breweriesSorted(breweries: [FavoriteBreweries], type: SortedBreweries) -> [FavoriteBreweries] {
         switch type  {
         case .sortedName:
@@ -57,4 +61,8 @@ class FavoriteBreweriesViewModel {
             state = .emptyError
         }
     }
+	
+	func removeFavorite(brewery: FavoriteBreweries){
+		useCase.removeFavoriteBrewery(brewery)
+	}
 }

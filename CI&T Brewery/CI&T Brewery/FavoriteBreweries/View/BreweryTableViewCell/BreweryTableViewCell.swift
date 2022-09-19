@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-protocol CellActionDelegate{
-	 func didButtonTapped(index: Int)
+protocol FavoriteCellActionDelegate{
+	func didFavoriteButtonTapped(brewery: FavoriteBreweries)
 }
 
 class BreweryTableViewCell: UITableViewCell {
-	var actionDelegate: CellActionDelegate?
-	var index: Int?
+	var actionDelegate: FavoriteCellActionDelegate?
+	var brewery: FavoriteBreweries? = nil
 	var favoriteListView = FavoriteListView()
     @IBOutlet weak var mainView: UIView! {
         didSet {
@@ -57,11 +57,12 @@ class BreweryTableViewCell: UITableViewCell {
         name.text = brewery.name
         average.text = "\(brewery.evaluation)"
         type.text = brewery.type
+			self.brewery = brewery
     }
 
 	@IBAction func removeFavorite(_ sender: UIButton) {
-		if let delegate = self.actionDelegate{
-			delegate.didButtonTapped(index: index!)
+		if let delegate = self.actionDelegate, let brewery = brewery{
+			delegate.didFavoriteButtonTapped(brewery: brewery)
 		}
 	}
 }
