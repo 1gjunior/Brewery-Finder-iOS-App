@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,10 +35,9 @@
                     <rect key="frame" x="33" y="53.5" width="334" height="24.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN1-D7-7Jn">
-                            <rect key="frame" x="0.0" y="11" width="20" height="2.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="20" height="24.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="B0Q-u7-k44"/>
-                                <constraint firstAttribute="width" secondItem="FN1-D7-7Jn" secondAttribute="height" multiplier="277:34" id="fxI-U9-A8v"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="RadioDisabled"/>
@@ -58,9 +58,8 @@
                     <rect key="frame" x="33" y="96.5" width="334" height="24"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-B2-LZq">
-                            <rect key="frame" x="0.0" y="10.5" width="20" height="2.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="20" height="24"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="ShS-B2-LZq" secondAttribute="height" multiplier="277:34" id="EcK-i5-W6y"/>
                                 <constraint firstAttribute="width" constant="20" id="Olr-XW-WBD"/>
                             </constraints>
                             <state key="normal" title="Button"/>
