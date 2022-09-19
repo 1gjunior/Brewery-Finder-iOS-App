@@ -56,9 +56,9 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.sortButton.setImage(UIImage(named: "RadioDisabled"), for: .normal)
         cell.sortButton.setImage(UIImage(named: "RadioSelected"), for: .selected)
 
-        if indexPath.row == 0 {
+        if indexPath.row == SortedBreweries.sortedName.hashValue {
             cell.label.text = NSLocalizedString("Nome (A a Z)", comment: "")
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == SortedBreweries.sortedRating.hashValue {
             cell.label.text = NSLocalizedString("Nota (menor para maior)", comment: "")
         }
         
