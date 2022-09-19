@@ -68,13 +68,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJV-Xo-M5r">
-                        <rect key="frame" x="330.5" y="16" width="42" height="34"/>
+                        <rect key="frame" x="335.5" y="16" width="42" height="34"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="Share"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPu-cX-Exq">
-                        <rect key="frame" x="374.5" y="16" width="50.5" height="34"/>
+                        <rect key="frame" x="379.5" y="17.5" width="45.5" height="31"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
@@ -112,6 +112,7 @@
                 <outlet property="favoriteButton" destination="wPu-cX-Exq" id="d0T-no-Ofu"/>
                 <outlet property="name" destination="giw-cS-cmu" id="l9d-le-OU2"/>
                 <outlet property="profileLetter" destination="CYr-iH-4fp" id="kZV-5a-bF4"/>
+                <outlet property="shareButton" destination="tJV-Xo-M5r" id="ksM-Ii-IRS"/>
             </connections>
             <point key="canvasLocation" x="-42.753623188405797" y="222.32142857142856"/>
         </tableViewCell>
