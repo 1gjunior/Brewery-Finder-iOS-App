@@ -18,6 +18,7 @@ class FavoriteBreweriesViewController: UIViewController {
     private lazy var breweryList: FavoriteListView = {
         let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         breweryList.translatesAutoresizingMaskIntoConstraints = false
+        breweryList.delegate = self
         return breweryList
     }()
     
@@ -71,7 +72,7 @@ class FavoriteBreweriesViewController: UIViewController {
     }
     
     func loadFavorite(){
-        favoriteManager.loadFavoriteBreweries()
+        _ = favoriteManager.loadFavoriteBreweries()
         breweryList.tableView.reloadData()
     }
     
