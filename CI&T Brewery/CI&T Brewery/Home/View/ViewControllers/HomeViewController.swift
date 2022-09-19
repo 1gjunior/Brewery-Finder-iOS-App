@@ -79,7 +79,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     }
     
     func setupSucessState(_ breweries: [Brewery]) {
-        listView.setSearchResultText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
+        let localizable = breweries.count == 1 ? "resultText" : "resultsText"
+        listView.setSearchResultText("\(breweries.count) \(NSLocalizedString(localizable, comment: ""))")
         view.addSubview(listView)
         constraintListView()
         changingState(view: listView)
