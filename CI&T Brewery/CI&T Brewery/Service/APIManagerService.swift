@@ -16,6 +16,7 @@ enum NetworkError: Error {
 protocol APIManagerService {
     func fetchItems<T: Decodable>(url: URL, completion: @escaping (Result<T, Error>) -> Void)
     func postItem <T: Codable, R: Decodable> (request: T, completion: @escaping (Result<R, NetworkError>) -> Void)
+    func postPhoto<T: Codable, R: Decodable>(id: String, imageData: Data, request: T, completion: @escaping (Result<R, NetworkError>) -> Void)
 }
 
 class APIManager: APIManagerService {
@@ -60,4 +61,29 @@ class APIManager: APIManagerService {
             })
             .store(in: &subscribers)
     }
+    
+    func postPhoto<T: Codable, R: Decodable>(id: String, imageData: Data, request: T, completion: @escaping (Result<R, NetworkError>) -> Void) {
+        guard let url = BreweryAPIService.postPhotosURLString(id: id) else { return }
+        let boundary = FormatRequestPhoto.generateBoundaryString()
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.httpBody = FormatRequestPhoto.createBodyWithParameters(filePathKey: "file", imageDataKey: imageData, boundary: boundary)
+        URLSession.shared.dataTaskPublisher(for: request)
+            .map{$0.data}
+            .decode(type: R.self, decoder: JSONDecoder())
+            .sink(receiveCompletion: { (resultCompletion) in
+                switch resultCompletion {
+                case .failure:
+                    completion(.failure(.requestError))
+                    print("resultCompletion \(resultCompletion)")
+                case .finished: break
+                }
+            }, receiveValue: { (result) in
+                completion(.success(result))
+                print("result \(result)")
+            })
+            .store(in: &subscribers)
+    }
 }
+

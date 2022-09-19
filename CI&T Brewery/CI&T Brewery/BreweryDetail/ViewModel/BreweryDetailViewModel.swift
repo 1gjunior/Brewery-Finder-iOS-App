@@ -12,6 +12,12 @@ enum BreweryDetailViewModelState {
     case success(brewery: BreweryObject)
 }
 
+enum PostPhotoViewModelState {
+    case initial
+    case success
+    case error
+}
+
 enum EvaluationState {
     case evaluated
     case noEvaluated
@@ -19,10 +25,13 @@ enum EvaluationState {
 
 
 class BreweryDetailViewModel {
-	 var breweriePhotosSubsject = PassthroughSubject<[BreweryPhotos], Error>()
+    var breweriePhotosSubsject = PassthroughSubject<[BreweryPhotos], Error>()
     let repository: BreweryRepositoryProtocol
+    var lastImages: [BreweryPhotos] = []
+    var savedImages: [String : [BreweryPhotos]] = [:]
     @Published private(set) var state: BreweryDetailViewModelState?
     @Published private(set) var stateRatedBrewery: EvaluationState?
+    @Published private(set) var statePostPhotos: PostPhotoViewModelState?
 
     init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
@@ -87,10 +96,25 @@ class BreweryDetailViewModel {
 			  switch result {
 					case .success(let breweryPhotosResponse):
 				  self?.breweriePhotosSubsject.send(breweryPhotosResponse)
+                  print("fetch response \(breweryPhotosResponse)")
 					case .failure(let error):
 						 print(error.localizedDescription)
 			  }
 		 }
 	}
+    
+    func postPhotos(imageData: Data, id: String){
+        repository.postPhotosByBrewery(imageData: imageData, breweryId: id) {[weak self] response in
+            switch response {
+            case .failure(_):
+                print("ERRO BREWERY DETAIL VIEW MODEL")
+                self?.statePostPhotos = .error
+            case .success(_):
+                self?.fetchPhotosByBrewery(id: id)
+                print("foi")
+                self?.statePostPhotos = .success
+            }
+        }
+    }
 }
 
