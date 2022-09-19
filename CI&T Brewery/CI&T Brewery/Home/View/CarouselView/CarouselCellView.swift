@@ -10,7 +10,11 @@ import Kingfisher
 
 class CarouselCellView: UICollectionViewCell {
     
-    @IBOutlet weak var distance: UILabel!
+	@IBOutlet weak var distance: UILabel!{
+		didSet{
+			distance.isHidden = true
+		}
+	}
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var averageRating: UILabel!
     @IBOutlet weak var name: UILabel!
