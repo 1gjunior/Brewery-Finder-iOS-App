@@ -42,6 +42,7 @@
 		2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460D28AAB08C00CFC657 /* App+Injection.swift */; };
 		3316153F28D912C500ACB0AC /* RatingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316153D28D912BC00ACB0AC /* RatingViewModelTest.swift */; };
 		3316154128D912EB00ACB0AC /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316154028D912EB00ACB0AC /* FormatRequestPhoto.swift */; };
+		3316154428D9170100ACB0AC /* BreweryRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316154328D9170100ACB0AC /* BreweryRepositoryMock.swift */; };
 		337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */; };
 		337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */; };
 		337D825828AC0B2A00DBAA56 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */; };
@@ -162,6 +163,7 @@
 		2BD9460D28AAB08C00CFC657 /* App+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Injection.swift"; sourceTree = "<group>"; };
 		3316153D28D912BC00ACB0AC /* RatingViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewModelTest.swift; sourceTree = "<group>"; };
 		3316154028D912EB00ACB0AC /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatRequestPhoto.swift; path = ../../../../../Downloads/FormatRequestPhoto.swift; sourceTree = "<group>"; };
+		3316154328D9170100ACB0AC /* BreweryRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryRepositoryMock.swift; sourceTree = "<group>"; };
 		337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -469,6 +471,14 @@
 			path = Injection;
 			sourceTree = "<group>";
 		};
+		3316154228D916EC00ACB0AC /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				3316154328D9170100ACB0AC /* BreweryRepositoryMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		337D824528AC0B2A00DBAA56 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +627,7 @@
 		B99FDE1F28A58F4E00F5DA30 /* CI&T BreweryTests */ = {
 			isa = PBXGroup;
 			children = (
+				3316154228D916EC00ACB0AC /* Mock */,
 				3316153D28D912BC00ACB0AC /* RatingViewModelTest.swift */,
 				B99FDE2028A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift */,
 				B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */,
@@ -1010,6 +1021,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3316154428D9170100ACB0AC /* BreweryRepositoryMock.swift in Sources */,
 				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
 				3316153F28D912C500ACB0AC /* RatingViewModelTest.swift in Sources */,
