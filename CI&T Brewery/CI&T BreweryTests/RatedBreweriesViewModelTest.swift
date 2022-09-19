@@ -92,6 +92,10 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
         
     }
     
+    func postPhotosByBrewery(imageData: Data, breweryId: String, completion: @escaping (Result<CI_T_Brewery.BreweryPhotos, Error>) -> Void) {
+        
+    }
+    
     var breweries = [
                       Brewery(id: "aaaaa", name: "aaaaa", type: "test", street: "test",
                       address2: "test", address3: "test", city: "test", state: "test",
