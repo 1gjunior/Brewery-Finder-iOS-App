@@ -65,8 +65,15 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
         _ = emailTest == email ? completion(.success(breweries)) : completion(.failure(error))
     }
     
-    func getBreweriesBy(city by_city: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
-                    
+    func getBreweriesBy(city: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
+        let error = NSError(domain: "testing", code: 200)
+        if city == "new york" {
+            completion(.success(breweries))
+        } else if city == ""{
+            completion(.success([]))
+        } else {
+            completion(.failure(error))
+        }
     }
     
     func getBreweryBy(id: String, completion: @escaping (Result<Brewery, Error>) -> Void) {

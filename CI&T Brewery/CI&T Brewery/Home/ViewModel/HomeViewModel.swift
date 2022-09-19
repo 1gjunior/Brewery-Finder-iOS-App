@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-enum HomeViewModelState {
+enum HomeViewModelState: Equatable {
     case initial
     case loading
     case success(breweries: [Brewery])

@@ -133,6 +133,12 @@ extension FavoriteListView: SortViewDelegate {
     
     func didSorted(type: SortType) {
         delegate?.didSorted(type: type)
+        
+        if type == .sortedName {
+            filterText.text = NSLocalizedString("name", comment: "")
+        } else {
+            filterText.text = NSLocalizedString("rating", comment: "")
+        }
     }
 }
 

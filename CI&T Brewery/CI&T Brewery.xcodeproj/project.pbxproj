@@ -91,6 +91,7 @@
 		B99FDE5128AC00BD00F5DA30 /* BreweryListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B99FDE4A28AC00BD00F5DA30 /* BreweryListView.xib */; };
 		B99FDE5228AC00BD00F5DA30 /* BreweryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE4B28AC00BD00F5DA30 /* BreweryListTableViewCell.swift */; };
 		B99FDE5628AC10E700F5DA30 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99FDE5528AC10E600F5DA30 /* ErrorStateView.swift */; };
+		B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */; };
 		B9BF804528D2254D00278012 /* FavoriteBreweriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF804428D2254D00278012 /* FavoriteBreweriesUseCase.swift */; };
 		B9DC366528D80E8700A1C249 /* SortCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DC366428D80E8700A1C249 /* SortCell.xib */; };
 		D22C936D28CFB5F100C64EA7 /* CITModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D22C936B28CFB5F100C64EA7 /* CITModel.xcdatamodeld */; };
@@ -213,6 +214,7 @@
 		B99FDE4A28AC00BD00F5DA30 /* BreweryListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BreweryListView.xib; path = "CI&T Brewery/Home/View/BreweryListView/BreweryListView.xib"; sourceTree = SOURCE_ROOT; };
 		B99FDE4B28AC00BD00F5DA30 /* BreweryListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryListTableViewCell.swift; path = "CI&T Brewery/Home/View/BreweryListTableViewCell/BreweryListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		B99FDE5528AC10E600F5DA30 /* ErrorStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreweryTest.swift; sourceTree = "<group>"; };
 		B9BF804428D2254D00278012 /* FavoriteBreweriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCase.swift; sourceTree = "<group>"; };
 		B9DC366428D80E8700A1C249 /* SortCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortCell.xib; sourceTree = "<group>"; };
 		D22C936C28CFB5F100C64EA7 /* CITModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CITModel.xcdatamodel; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			isa = PBXGroup;
 			children = (
 				B99FDE2028A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift */,
+				B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */,
 			);
 			path = "CI&T BreweryTests";
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
