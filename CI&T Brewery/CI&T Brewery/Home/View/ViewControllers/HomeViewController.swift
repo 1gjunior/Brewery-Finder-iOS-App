@@ -136,7 +136,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         viewModel.fetchBreweriesBy(city: city)
     }
     
-    private func getTop10Breweries() {
+    @objc private func getTop10Breweries() {
         viewModel.fetchTop10Breweries()
     }
     
@@ -217,6 +217,7 @@ extension HomeViewController {
         logoIcon.setImage(UIImage(named: "icon"), for: .normal)
         logoIcon.tintColor = .black
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
+        logoIcon.addTarget(self, action: #selector(getTop10Breweries), for: .touchUpInside)
     }
     
     private func setupRightNavigationBar() {
