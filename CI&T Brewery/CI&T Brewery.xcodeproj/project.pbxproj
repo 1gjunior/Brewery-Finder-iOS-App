@@ -94,6 +94,9 @@
 		B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */; };
 		B9BF804528D2254D00278012 /* FavoriteBreweriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BF804428D2254D00278012 /* FavoriteBreweriesUseCase.swift */; };
 		B9DC366528D80E8700A1C249 /* SortCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DC366428D80E8700A1C249 /* SortCell.xib */; };
+		B9DC366F28D8B9EA00A1C249 /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC366E28D8B9EA00A1C249 /* FormatRequestPhoto.swift */; };
+		B9DC367228D8D19100A1C249 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DC367128D8D19100A1C249 /* PhotosViewController.xib */; };
+		B9DC367428D8D33700A1C249 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC367328D8D33700A1C249 /* PhotosViewController.swift */; };
 		D22C936D28CFB5F100C64EA7 /* CITModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D22C936B28CFB5F100C64EA7 /* CITModel.xcdatamodeld */; };
 		D22C937128CFB9D500C64EA7 /* FavoriteBreweriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */; };
 		D299D8AE28D3552800E82D45 /* RatedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8AC28D3552700E82D45 /* RatedListView.swift */; };
@@ -217,6 +220,9 @@
 		B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreweryTest.swift; sourceTree = "<group>"; };
 		B9BF804428D2254D00278012 /* FavoriteBreweriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCase.swift; sourceTree = "<group>"; };
 		B9DC366428D80E8700A1C249 /* SortCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortCell.xib; sourceTree = "<group>"; };
+		B9DC366E28D8B9EA00A1C249 /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
+		B9DC367128D8D19100A1C249 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
+		B9DC367328D8D33700A1C249 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		D22C936C28CFB5F100C64EA7 /* CITModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CITModel.xcdatamodel; sourceTree = "<group>"; };
 		D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManager.swift; sourceTree = "<group>"; };
 		D299D8AC28D3552700E82D45 /* RatedListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedListView.swift; sourceTree = "<group>"; };
@@ -334,6 +340,7 @@
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B9DC366E28D8B9EA00A1C249 /* FormatRequestPhoto.swift */,
 				D299D8B528D35B3700E82D45 /* CoreDataService.swift */,
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
 				2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */,
@@ -590,6 +597,7 @@
 				2B7E5CE728D0F1F000F69F81 /* RatedBreweries */,
 				B99FDE0928A58F4D00F5DA30 /* AppDelegate.swift */,
 				B99FDE1228A58F4E00F5DA30 /* Assets.xcassets */,
+				B9DC367028D8D14800A1C249 /* Photos */,
 				2B92A11528AC3A0B00E6FB05 /* BreweryDetail */,
 				29C5AD6D28CFDA3B00DBA97E /* FavoriteBreweries */,
 				337D824528AC0B2A00DBAA56 /* Fonts */,
@@ -698,6 +706,15 @@
 				B9BF804428D2254D00278012 /* FavoriteBreweriesUseCase.swift */,
 			);
 			path = UseCases;
+			sourceTree = "<group>";
+		};
+		B9DC367028D8D14800A1C249 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				B9DC367128D8D19100A1C249 /* PhotosViewController.xib */,
+				B9DC367328D8D33700A1C249 /* PhotosViewController.swift */,
+			);
+			path = Photos;
 			sourceTree = "<group>";
 		};
 		D299D8AB28D3552700E82D45 /* RatedListView */ = {
@@ -877,6 +894,7 @@
 				D2AF0AD328B51D0300EAF89B /* BrewerySortView.xib in Resources */,
 				B99FDE1328A58F4E00F5DA30 /* Assets.xcassets in Resources */,
 				29C5AD7228CFDCDD00DBA97E /* FavoriteBreweriesView.xib in Resources */,
+				B9DC367228D8D19100A1C249 /* PhotosViewController.xib in Resources */,
 				2B58EFAC28AD36880061B631 /* Quicksand-Regular.ttf in Resources */,
 				2B0CAB7728D35B23005228DC /* RatedBreweryEmptyStateView.xib in Resources */,
 				B99FDE5128AC00BD00F5DA30 /* BreweryListView.xib in Resources */,
@@ -952,6 +970,7 @@
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
 				B9BF804528D2254D00278012 /* FavoriteBreweriesUseCase.swift in Sources */,
 				2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */,
+				B9DC366F28D8B9EA00A1C249 /* FormatRequestPhoto.swift in Sources */,
 				2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */,
@@ -967,6 +986,7 @@
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,
 				2BD6CECF28AEFB3000B729C4 /* FileManagerExtension.swift in Sources */,
+				B9DC367428D8D33700A1C249 /* PhotosViewController.swift in Sources */,
 				B93EF76C28B0118C00BFA9C6 /* CarouselCellView.swift in Sources */,
 				2BD6CECB28AEAD1400B729C4 /* UIFontExtension.swift in Sources */,
 				B99FDE5028AC00BD00F5DA30 /* BreweryAPIService.swift in Sources */,
