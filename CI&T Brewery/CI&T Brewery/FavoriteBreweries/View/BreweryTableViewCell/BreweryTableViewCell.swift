@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+protocol CellActionDelegate{
+	 func didButtonTapped(index: Int)
+}
+
 class BreweryTableViewCell: UITableViewCell {
+	var actionDelegate: CellActionDelegate?
+	var index: Int?
 	var favoriteListView = FavoriteListView()
     @IBOutlet weak var mainView: UIView! {
         didSet {
@@ -45,7 +51,6 @@ class BreweryTableViewCell: UITableViewCell {
 		}
 	}
 		
-
     func configure(for brewery: FavoriteBreweries) {
         guard let breweryName = brewery.name else {return}
         letterImage.text = breweryName.prefix(1).uppercased()
@@ -55,6 +60,8 @@ class BreweryTableViewCell: UITableViewCell {
     }
 
 	@IBAction func removeFavorite(_ sender: UIButton) {
-		print("clicou favorito")
+		if let delegate = self.actionDelegate{
+			delegate.didButtonTapped(index: index!)
+		}
 	}
 }

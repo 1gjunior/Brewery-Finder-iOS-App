@@ -13,7 +13,8 @@ public protocol FavoriteListViewDelegate: AnyObject{
     func goToDetailWith(id: String)
 }
 
-class FavoriteListView: UIView {
+class FavoriteListView: UIView{
+	
     private var breweries: [FavoriteBreweries] = []
     private weak var delegate: FavoriteListViewDelegate?
     private var action: ((_ id: String) -> ())?
@@ -106,10 +107,13 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
         
         let item = breweries[indexPath.section]
         cell.configure(for: item)
-        
-        return cell
+		
+		 cell.actionDelegate = self
+		 cell.index = indexPath.section
+		 
+		 return cell
     }
-    
+
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let id = breweries[indexPath.section].id else {return}
         guard let action = action else { return }
@@ -133,3 +137,25 @@ extension FavoriteListView: SortViewDelegate {
     }
 }
 
+extension FavoriteListView: CellActionDelegate {
+	func didButtonTapped(index: Int) {
+		let del = DeleteFavoriteView(frame: CGRect(x: 0, y: 0, width: 300, height: 896))
+		self.parentViewController?.modalPresentationStyle = .overFullScreen
+		self.parentViewController?.modalTransitionStyle = .flipHorizontal
+		self.parentViewController?.present(del, animated: true)
+	}
+	
+}
+
+extension FavoriteListView {
+	 var parentViewController: UIViewController? {
+		  var parentResponder: UIResponder? = self.next
+		  while parentResponder != nil {
+				if let viewController = parentResponder as? UIViewController {
+					 return viewController
+				}
+				parentResponder = parentResponder?.next
+		  }
+		  return nil
+	 }
+}

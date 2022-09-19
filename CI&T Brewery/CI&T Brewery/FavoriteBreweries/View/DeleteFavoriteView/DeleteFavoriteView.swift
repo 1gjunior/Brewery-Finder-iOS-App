@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-class DeleteFavoriteView: UIView{
+class DeleteFavoriteView: UIViewController{
 	
-	@IBOutlet var mainView: UIView!
 	@IBOutlet weak var modalView: UIView!{
 		didSet{
 			modalView.layer.cornerRadius = 20
@@ -46,27 +45,19 @@ class DeleteFavoriteView: UIView{
 		}
 	}
 
-	override init(frame: CGRect) {
-		 super.init(frame: frame)
-		 commonInit()
+	 init(frame: CGRect) {
+		 super.init(nibName: "DeleteFavoriteView", bundle: nil)
 	}
 	
 	required init?(coder: NSCoder) {
 		 super.init(coder: coder)
-		 commonInit()
-	}
-	
-	public func commonInit() {
-		 guard let viewFromXib = Bundle.main.loadNibNamed("DeleteFavoriteView", owner: self, options: nil)?[0] as? UIView else { return }
-		 viewFromXib.frame = self.bounds
-		 addSubview(viewFromXib)
 	}
 	
 	@IBAction func cancelRemoval(_ sender: UIButton) {
-		print("cancelou")
+		dismiss(animated: true)
 	}
 	@IBAction func confirmRemoval(_ sender: UIButton) {
-		print("excluiu")
+		dismiss(animated: true)
 	}
 
 }
