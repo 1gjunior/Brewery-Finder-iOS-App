@@ -14,7 +14,7 @@ enum BreweryDetailViewModelState {
 
 enum PostPhotoViewModelState {
     case initial
-    case sucess
+    case success
     case error
 }
 
@@ -107,12 +107,12 @@ class BreweryDetailViewModel {
         repository.postPhotosByBrewery(imageData: imageData, breweryId: id) {[weak self] response in
             switch response {
             case .failure(_):
-                print("ERRO RATING VIEW MODEL")
+                print("ERRO BREWERY DETAIL VIEW MODEL")
                 self?.statePostPhotos = .error
             case .success(_):
                 self?.fetchPhotosByBrewery(id: id)
                 print("foi")
-                self?.statePostPhotos = .sucess
+                self?.statePostPhotos = .success
             }
         }
     }

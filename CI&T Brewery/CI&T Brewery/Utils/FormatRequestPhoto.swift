@@ -1,3 +1,4 @@
+
 //
 //  FormatRequestPhoto.swift
 //  CI&T Brewery
@@ -11,7 +12,6 @@ protocol FormatRequestPhotoProtocol {
     static func createBodyWithParameters(filePathKey: String?, imageDataKey: Data, boundary: String) -> Data
     static func generateBoundaryString() -> String
 }
-
 class FormatRequestPhoto {
     
     static func createBodyWithParameters(filePathKey: String?, imageDataKey: Data, boundary: String) -> Data {
@@ -26,7 +26,6 @@ class FormatRequestPhoto {
         body.append(imageDataKey as Data)
         body.append("\r\n")
         body.append("--\(boundary)--\r\n")
-
         return body
     }
     
@@ -34,11 +33,9 @@ class FormatRequestPhoto {
         return "Boundary-\(UUID().uuidString)"
     }
 }
-
 extension Data {
     mutating func append(_ text: String) {
         guard let data = text.data(using: .utf8) else { return }
         append(data)
     }
 }
-

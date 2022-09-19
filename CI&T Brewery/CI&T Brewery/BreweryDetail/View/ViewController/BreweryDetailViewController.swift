@@ -24,6 +24,7 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     var pickerConfiguration = PHPickerConfiguration()
     var picker: PHPickerViewController?
     var images: [UIImage?] = []
+    var lastImage: UIImage? = nil
     
     // MARK: Outlets
     @IBOutlet weak var viewTitle: UILabel! {
@@ -292,6 +293,22 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
             .store(in: &cancellables)
     }
     
+    private func sinkPostPhotos() {
+        viewModel.$statePostPhotos.sink{ [weak self] state in
+            switch state {
+            case .initial:
+                print("initial")
+            case .success:
+                self?.images.append(self?.lastImage)
+                self?.reloadCollectionView()
+            case .error:
+                print("error")
+            case .none:
+                break
+            }
+        }.store(in: &cancellables)
+    }
+    
     private func updateRatedBrewery() {
         getRatedBreweries(id: id)
     }
@@ -343,10 +360,9 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
             if provider.canLoadObject(ofClass: UIImage.self) {
                 provider.loadObject(ofClass: UIImage.self) { image, error in
                     if let image = image as? UIImage, !self.images.contains(image) {
-                       self.images.append(image)
-                        print("count \(self.images.count)")
+                        self.lastImage = image
                         self.post()
-                        self.reloadCollectionView()
+                        self.sinkPostPhotos()
                     }
                 }
             }
@@ -354,7 +370,7 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     }
     
     func post() {
-        guard let data = images.last??.jpegData(compressionQuality: 0.0) else { return }
+        guard let data = lastImage?.jpegData(compressionQuality: 0.0) else { return }
         viewModel.postPhotos(imageData: data, id: id)
     }
     
