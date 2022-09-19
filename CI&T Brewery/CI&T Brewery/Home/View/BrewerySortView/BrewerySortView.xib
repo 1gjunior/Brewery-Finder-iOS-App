@@ -5,17 +5,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SortView" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
-                <outlet property="byNameButton" destination="FN1-D7-7Jn" id="oUB-F4-9ol"/>
-                <outlet property="byRatingButton" destination="ShS-B2-LZq" id="Kcm-dl-v0K"/>
-                <outlet property="nameLabel" destination="EWU-Jq-6NO" id="srY-my-lMj"/>
-                <outlet property="ratingLabel" destination="5SD-uk-iKk" id="QXi-sz-IuX"/>
-                <outlet property="sortByName" destination="Wtr-PG-ryW" id="JLr-5R-by2"/>
-                <outlet property="sortByRating" destination="bym-JP-qRO" id="h8b-YX-dld"/>
+                <outlet property="tableView" destination="hcW-dM-hRj" id="Jst-KV-CDR"/>
                 <outlet property="titleLabel" destination="ImH-PM-UbK" id="Onh-VW-cBY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eda-2Q-kCk"/>
             </connections>
@@ -31,75 +27,31 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wtr-PG-ryW">
-                    <rect key="frame" x="33" y="53.5" width="334" height="24.5"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FN1-D7-7Jn">
-                            <rect key="frame" x="0.0" y="0.0" width="20" height="24.5"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="20" id="B0Q-u7-k44"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="RadioDisabled"/>
-                            <connections>
-                                <action selector="isByNameButtonSelected:" destination="-1" eventType="touchUpInside" id="7KL-38-vlf"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWU-Jq-6NO">
-                            <rect key="frame" x="35" y="2" width="299" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bym-JP-qRO">
-                    <rect key="frame" x="33" y="96.5" width="334" height="24"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShS-B2-LZq">
-                            <rect key="frame" x="0.0" y="0.0" width="20" height="24"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="20" id="Olr-XW-WBD"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" image="RadioDisabled"/>
-                            <connections>
-                                <action selector="isByRatingButtonSelected:" destination="-1" eventType="touchUpInside" id="Cah-VZ-TxU"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SD-uk-iKk">
-                            <rect key="frame" x="35" y="1.5" width="299" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <viewLayoutGuide key="safeArea" id="lI1-gq-rZf"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hcW-dM-hRj">
+                    <rect key="frame" x="0.0" y="52" width="400" height="111"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="111" id="edY-uJ-vN4"/>
+                    </constraints>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="bym-JP-qRO" firstAttribute="leading" secondItem="Wtr-PG-ryW" secondAttribute="leading" id="1xv-zE-xhp"/>
-                <constraint firstItem="Wtr-PG-ryW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="33" id="7Gf-pi-QbV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Wtr-PG-ryW" secondAttribute="trailing" constant="33" id="8X2-o8-Tth"/>
-                <constraint firstItem="bym-JP-qRO" firstAttribute="height" secondItem="Wtr-PG-ryW" secondAttribute="height" id="Br1-MU-uWQ"/>
-                <constraint firstItem="bym-JP-qRO" firstAttribute="trailing" secondItem="Wtr-PG-ryW" secondAttribute="trailing" id="Cxl-CN-mFx"/>
-                <constraint firstItem="Wtr-PG-ryW" firstAttribute="top" secondItem="ImH-PM-UbK" secondAttribute="bottom" constant="10" id="UdZ-M1-nYz"/>
+                <constraint firstItem="hcW-dM-hRj" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="13" id="LGB-Ax-gxk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hcW-dM-hRj" secondAttribute="trailing" id="OGJ-eZ-lh9"/>
                 <constraint firstItem="ImH-PM-UbK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="23" id="Ypz-KO-hce"/>
                 <constraint firstAttribute="trailing" secondItem="ImH-PM-UbK" secondAttribute="trailing" constant="153" id="aiW-vc-97A"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bym-JP-qRO" secondAttribute="bottom" constant="29.5" id="akp-NQ-De1"/>
-                <constraint firstItem="bym-JP-qRO" firstAttribute="width" secondItem="Wtr-PG-ryW" secondAttribute="width" id="rNQ-CT-prb"/>
-                <constraint firstItem="bym-JP-qRO" firstAttribute="top" secondItem="Wtr-PG-ryW" secondAttribute="bottom" constant="18.5" id="vXp-qe-2o4"/>
+                <constraint firstItem="hcW-dM-hRj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="kUQ-Bx-Q1X"/>
                 <constraint firstItem="ImH-PM-UbK" firstAttribute="leading" relation="lessThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="154" id="xIE-HO-YtE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="165" y="40"/>
+            <point key="canvasLocation" x="163.768115942029" y="39.508928571428569"/>
         </view>
     </objects>
     <resources>
-        <image name="RadioDisabled" width="20" height="20"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

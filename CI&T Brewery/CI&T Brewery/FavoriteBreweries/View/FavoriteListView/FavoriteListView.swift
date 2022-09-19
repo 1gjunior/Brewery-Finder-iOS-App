@@ -128,6 +128,11 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension FavoriteListView: SortViewDelegate {
+    func removeView() {
+        
+        
+    }
+    
     func didSorted(type: SortType) {
         delegate?.didSorted(type: type)
     }

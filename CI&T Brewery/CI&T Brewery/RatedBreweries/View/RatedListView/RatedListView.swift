@@ -118,6 +118,10 @@ extension RatedListView: UITableViewDelegate, UITableViewDataSource {
 
 
 extension RatedListView: SortViewDelegate {
+    func removeView() {
+        
+    }
+    
 	func didSorted(type: SortType) {
 		delegate?.didSorted(type: type)
 	}

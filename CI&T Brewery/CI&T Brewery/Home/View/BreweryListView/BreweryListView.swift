@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol BreweryListViewDelegate: AnyObject{
+public protocol BreweryListViewDelegate: AnyObject {
     
     func didSorted(type: SortType)
 }
@@ -32,17 +32,20 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
     weak var delegate: BreweryListViewDelegate?
     
     private func constraintSortView() {
-        sortView.translatesAutoresizingMaskIntoConstraints = false
         sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         sortView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        sortView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 0).isActive = true
+        sortView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
 
     @IBAction func goToSortView(_ sender: Any) {
-        sortView.view.isHidden = false
         contentView.addSubview(sortView)
         constraintSortView()
+    }
+    
+    func removeView() {
+        contentView.willRemoveSubview(sortView)
+        sortView.removeFromSuperview()
     }
     
     override public init(frame: CGRect) {
