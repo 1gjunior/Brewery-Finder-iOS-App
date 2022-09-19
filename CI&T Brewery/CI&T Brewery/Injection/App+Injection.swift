@@ -26,7 +26,7 @@ extension Resolver: ResolverRegistering {
         register { FavoriteBreweriesViewModel() }
         let coreDataService = CoreDataService()
         register { FavoriteBreweriesManager(context: coreDataService.mainContext) as FavoriteBreweriesManagerProtocol}.scope(.application)
-        register { FavoriteBreweriesUseCase(manager: resolve()) }
+        register { FavoriteBreweriesUseCase(manager: resolve()) as FavoriteBreweriesUseCaseProtocol }
         register { RatedBreweriesViewModel() }
     }
 }

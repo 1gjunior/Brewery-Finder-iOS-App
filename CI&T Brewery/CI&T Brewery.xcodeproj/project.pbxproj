@@ -16,6 +16,9 @@
 		2B0CAB7628D35B23005228DC /* RatedBreweryEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */; };
 		2B0CAB7728D35B23005228DC /* RatedBreweryEmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */; };
 		2B125CAD28D8BA4000B28F6B /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CAC28D8BA4000B28F6B /* FormatRequestPhoto.swift */; };
+		2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */; };
+		2B125CB628D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB528D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift */; };
+		2B125CB828D9051F00B28F6B /* BreweryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB728D9051F00B28F6B /* BreweryMock.swift */; };
 		2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */; };
 		2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0228AD11780037099C /* Quicksand-Bold.ttf */; };
 		2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */; };
@@ -135,6 +138,9 @@
 		2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedBreweryEmptyStateView.swift; sourceTree = "<group>"; };
 		2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedBreweryEmptyStateView.xib; sourceTree = "<group>"; };
 		2B125CAC28D8BA4000B28F6B /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
+		2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
+		2B125CB528D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCaseMock.swift; sourceTree = "<group>"; };
+		2B125CB728D9051F00B28F6B /* BreweryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryMock.swift; sourceTree = "<group>"; };
 		2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -331,6 +337,15 @@
 				2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */,
 			);
 			path = EmptyStateView;
+			sourceTree = "<group>";
+		};
+		2B125CB428D8DD9C00B28F6B /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				2B125CB528D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift */,
+				2B125CB728D9051F00B28F6B /* BreweryMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
@@ -615,8 +630,10 @@
 		B99FDE1F28A58F4E00F5DA30 /* CI&T BreweryTests */ = {
 			isa = PBXGroup;
 			children = (
+				2B125CB428D8DD9C00B28F6B /* Mock */,
 				B99FDE2028A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift */,
 				B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */,
+				2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */,
 			);
 			path = "CI&T BreweryTests";
 			sourceTree = "<group>";
@@ -1007,6 +1024,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B125CB828D9051F00B28F6B /* BreweryMock.swift in Sources */,
+				2B125CB628D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift in Sources */,
+				2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */,
 				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
 			);
