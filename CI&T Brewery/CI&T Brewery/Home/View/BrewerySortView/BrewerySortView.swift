@@ -72,12 +72,12 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.sortButton.isSelected = true
         
         let index: IndexPath
-        if indexPath.row == 0 {
+        if indexPath.row == SortedBreweries.sortedName.hashValue {
             delegate?.didSorted(type: .sortedName)
-            index = IndexPath(row: 1, section: indexPath.section)
+            index = IndexPath(row: SortedBreweries.sortedRating.hashValue, section: indexPath.section)
         } else {
             delegate?.didSorted(type: .sortedRating)
-            index = IndexPath(row: 0, section: indexPath.section)
+            index = IndexPath(row: SortedBreweries.sortedName.hashValue, section: indexPath.section)
         }
         
         tableView.deselectRow(at: index, animated: true)

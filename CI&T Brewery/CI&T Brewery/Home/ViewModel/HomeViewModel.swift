@@ -16,7 +16,7 @@ enum HomeViewModelState {
     case genericError
 }
 
-enum SortedBreweries{
+enum SortedBreweries {
     case sortedName
     case sortedRating
 }
