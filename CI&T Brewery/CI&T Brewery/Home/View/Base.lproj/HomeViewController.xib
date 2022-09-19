@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Frame 168" translatesAutoresizingMaskIntoConstraints="NO" id="oae-7X-6hm">
-                    <rect key="frame" x="0.0" y="-106" width="320" height="300"/>
+                    <rect key="frame" x="-14" y="-106" width="349" height="300"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bem-Vindo(a)!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahW-nu-oyv">
                     <rect key="frame" x="16" y="19" width="118" height="22"/>
@@ -29,13 +30,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encontre as melhores Cervejarias!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSi-ma-QFo">
-                    <rect key="frame" x="16" y="43" width="273" height="22"/>
+                    <rect key="frame" x="16" y="38" width="273" height="22"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Busque por local" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3U-ej-sAn">
-                    <rect key="frame" x="12" y="75" width="296" height="51"/>
+                    <rect key="frame" x="12" y="70" width="296" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits" textContentType="address-level2"/>
@@ -63,7 +64,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GdY-2w-Gm2" secondAttribute="trailing" id="3GK-Yu-Jeu"/>
                 <constraint firstItem="I3U-ej-sAn" firstAttribute="top" secondItem="hSi-ma-QFo" secondAttribute="bottom" constant="10" id="3WS-rp-VSp"/>
                 <constraint firstItem="7rx-8t-Rv6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="51" id="4jV-rF-ele"/>
-                <constraint firstItem="GdY-2w-Gm2" firstAttribute="leading" secondItem="oae-7X-6hm" secondAttribute="leading" id="AtK-zJ-xpB"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="leading" secondItem="oae-7X-6hm" secondAttribute="leading" constant="14" id="AtK-zJ-xpB"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="centerX" secondItem="I3U-ej-sAn" secondAttribute="centerX" id="GDx-Hk-fbs"/>
                 <constraint firstItem="hSi-ma-QFo" firstAttribute="leading" secondItem="ahW-nu-oyv" secondAttribute="leading" id="GTJ-Fb-F1F"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="centerX" secondItem="7rx-8t-Rv6" secondAttribute="centerX" id="GV1-yB-xlx"/>
@@ -72,7 +73,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GdY-2w-Gm2" secondAttribute="bottom" id="MuU-wd-wcR"/>
                 <constraint firstItem="ahW-nu-oyv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="19" id="UWe-F1-OMz"/>
                 <constraint firstItem="I3U-ej-sAn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="aek-3I-Kka"/>
-                <constraint firstItem="GdY-2w-Gm2" firstAttribute="trailing" secondItem="oae-7X-6hm" secondAttribute="trailing" id="c64-Iz-agH"/>
+                <constraint firstItem="GdY-2w-Gm2" firstAttribute="trailing" secondItem="oae-7X-6hm" secondAttribute="trailing" constant="-15" id="c64-Iz-agH"/>
                 <constraint firstItem="GdY-2w-Gm2" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fkK-FP-ObU"/>
                 <constraint firstItem="hSi-ma-QFo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="n8T-ft-LKh"/>
                 <constraint firstItem="7rx-8t-Rv6" firstAttribute="centerX" secondItem="I3U-ej-sAn" secondAttribute="centerX" id="qiJ-PY-adO"/>
