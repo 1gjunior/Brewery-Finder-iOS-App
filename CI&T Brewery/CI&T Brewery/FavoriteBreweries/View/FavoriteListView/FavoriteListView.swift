@@ -16,7 +16,7 @@ public protocol FavoriteListViewDelegate: AnyObject{
 class FavoriteListView: UIView{
 	
     private var breweries: [FavoriteBreweries] = []
-    private weak var delegate: FavoriteListViewDelegate?
+    weak var delegate: FavoriteListViewDelegate?
     private var action: ((_ id: String) -> ())?
     
     private lazy var sortView: SortView = {
@@ -69,7 +69,6 @@ class FavoriteListView: UIView{
     @IBOutlet weak var tableView: UITableView!
         
     @IBAction func openSortView(_ sender: Any) {
-        sortView.view.isHidden = false
         contentView.addSubview(sortView)
         constrainSortView()
     }
@@ -125,15 +124,25 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     public func update(_ breweries: [FavoriteBreweries]) {
-        
         self.breweries = breweries
         self.tableView.reloadData()
     }
 }
 
 extension FavoriteListView: SortViewDelegate {
+    func removeView() {
+        self.willRemoveSubview(sortView)
+        sortView.removeFromSuperview()
+    }
+    
     func didSorted(type: SortType) {
         delegate?.didSorted(type: type)
+        
+        if type == .sortedName {
+            filterText.text = NSLocalizedString("name", comment: "")
+        } else {
+            filterText.text = NSLocalizedString("rating", comment: "")
+        }
     }
 }
 

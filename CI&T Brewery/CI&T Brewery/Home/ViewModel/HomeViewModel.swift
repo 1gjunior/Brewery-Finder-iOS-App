@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-enum HomeViewModelState {
+enum HomeViewModelState: Equatable {
     case initial
     case loading
     case success(breweries: [Brewery])
@@ -16,7 +16,7 @@ enum HomeViewModelState {
     case genericError
 }
 
-enum SortedBreweries{
+enum SortedBreweries {
     case sortedName
     case sortedRating
 }

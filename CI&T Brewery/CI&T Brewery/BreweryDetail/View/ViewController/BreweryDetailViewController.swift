@@ -11,8 +11,9 @@ import Combine
 import Resolver
 import Kingfisher
 import Cosmos
+import PhotosUI
 
-class BreweryDetailViewController: UIViewController {
+class BreweryDetailViewController: UIViewController, PHPickerViewControllerDelegate {
     @Injected var viewModel: BreweryDetailViewModel
     var dismissAction: (() -> ())?
     private var brewery: BreweryObject?
@@ -20,6 +21,10 @@ class BreweryDetailViewController: UIViewController {
     var lastEmail: String?
     private var cancellables: Set<AnyCancellable> = []
     let id: String
+    var pickerConfiguration = PHPickerConfiguration()
+    var picker: PHPickerViewController?
+    var images: [UIImage?] = []
+    var lastImage: UIImage? = nil
     
     // MARK: Outlets
     @IBOutlet weak var viewTitle: UILabel! {
@@ -28,6 +33,8 @@ class BreweryDetailViewController: UIViewController {
             viewTitle.textColor = UIColor.breweryBlack()
         }
     }
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet var dataView: UIView! {
         didSet {
@@ -133,6 +140,9 @@ class BreweryDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func addPhoto(_ sender: Any) {
+        present(picker ?? UIViewController(), animated: true)
+    }
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
             evaluateBreweryButton?.layer.borderColor = UIColor.breweryYellowLight().cgColor
@@ -159,6 +169,7 @@ class BreweryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         photoCollectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCollectionViewCell")
@@ -168,6 +179,13 @@ class BreweryDetailViewController: UIViewController {
         sinkRatedBrewery()
         sinkPhotos()
         getBreweryPhotos(id:id)
+        setupPicker()
+    }
+    
+    func setupPicker() {
+        pickerConfiguration.filter = .images
+        picker = PHPickerViewController(configuration: pickerConfiguration)
+        picker?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -268,7 +286,7 @@ class BreweryDetailViewController: UIViewController {
     
     private func sinkPhotos() {
         viewModel.breweriePhotosSubsject
-            .sink( receiveCompletion: { _ in } ) { (result) in
+            .sink(receiveCompletion: { _ in } ) { (result) in
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
                     self.breweryPhotos = result
@@ -276,6 +294,22 @@ class BreweryDetailViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func sinkPostPhotos() {
+        viewModel.$statePostPhotos.sink{ [weak self] state in
+            switch state {
+            case .initial:
+                print("initial")
+            case .success:
+                self?.images.append(self?.lastImage)
+                self?.reloadCollectionView()
+            case .error:
+                print("error")
+            case .none:
+                break
+            }
+        }.store(in: &cancellables)
     }
     
     private func updateRatedBrewery() {
@@ -320,6 +354,34 @@ class BreweryDetailViewController: UIViewController {
 	private func getBreweryPhotos(id: String){
 		viewModel.fetchPhotosByBrewery(id: id)
 	}
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+       picker.dismiss(animated: true)
+        for result in results {
+            let provider = result.itemProvider
+     
+            if provider.canLoadObject(ofClass: UIImage.self) {
+                provider.loadObject(ofClass: UIImage.self) { image, error in
+                    if let image = image as? UIImage, !self.images.contains(image) {
+                        self.lastImage = image
+                        self.post()
+                        self.sinkPostPhotos()
+                    }
+                }
+            }
+        }
+    }
+    
+    func post() {
+        guard let data = lastImage?.jpegData(compressionQuality: 0.0) else { return }
+        viewModel.postPhotos(imageData: data, id: id)
+    }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.photoCollectionView.reloadData()
+        }
+    }
 }
 
 extension BreweryDetailViewController {

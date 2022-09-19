@@ -18,6 +18,7 @@ class FavoriteBreweriesViewController: UIViewController {
     private lazy var breweryList: FavoriteListView = {
         let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         breweryList.translatesAutoresizingMaskIntoConstraints = false
+        breweryList.delegate = self
         return breweryList
     }()
     
@@ -48,7 +49,8 @@ class FavoriteBreweriesViewController: UIViewController {
     }
     
     private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
-        breweryList.setSearchResultFavoriteText("\(breweries.count) \(NSLocalizedString("resultsText", comment: ""))")
+        let localizable = breweries.count == 1 ? "resultText" : "resultsText"
+        breweryList.setSearchResultFavoriteText("\(breweries.count) \(NSLocalizedString(localizable, comment: ""))")
         view.addSubview(breweryList)
         constrainBreweryList()
         favoriteBreweries = breweries
@@ -70,7 +72,7 @@ class FavoriteBreweriesViewController: UIViewController {
     }
     
     func loadFavorite(){
-        favoriteManager.loadFavoriteBreweries()
+        _ = favoriteManager.loadFavoriteBreweries()
         breweryList.tableView.reloadData()
     }
     

@@ -14,6 +14,7 @@ protocol BreweryRepositoryProtocol {
 	func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void)
 	func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void)
 	func getBreweryPhotos(id: String, completion: @escaping (Result<[BreweryPhotos], Error>) -> Void)
+    func postPhotosByBrewery(imageData: Data, breweryId: String, completion: @escaping (Result<BreweryPhotos, Error>) -> Void)
 }
 
 class BreweryRepository: BreweryRepositoryProtocol {
@@ -99,6 +100,19 @@ class BreweryRepository: BreweryRepositoryProtocol {
 			}
 		}
 	}
+    
+    func postPhotosByBrewery(imageData: Data, breweryId: String, completion: @escaping (Result<BreweryPhotos, Error>) -> Void) {
+        apiManager.postPhoto(id: breweryId, imageData: imageData, request: imageData) { (result: Result<BreweryPhotos, NetworkError>) in
+            switch result {
+            case .success(let data):
+                completion(.success(data))
+                print("deu certo")
+            case .failure(let error):
+                completion(.failure(error))
+                print("falhou")
+            }
+        }
+    }
 }
 
 
