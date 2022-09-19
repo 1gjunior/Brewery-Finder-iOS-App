@@ -193,6 +193,9 @@
                                             <buttonConfiguration key="configuration" style="plain" image="icon_photo_library" title="Adicionar Foto" imagePadding="10" buttonSize="medium">
                                                 <fontDescription key="titleFontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="addPhoto:" destination="-1" eventType="touchUpInside" id="ezc-FX-6Nu"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJh-5d-mfs">
                                             <rect key="frame" x="20" y="432" width="334" height="32"/>
@@ -325,11 +328,6 @@
             <point key="canvasLocation" x="331.8840579710145" y="83.035714285714278"/>
         </view>
     </objects>
-    <designables>
-        <designable name="ofQ-s4-R2W">
-            <size key="intrinsicContentSize" width="108" height="20"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Frame 168" width="400" height="300"/>
         <image name="icon_maps" width="18" height="18"/>
