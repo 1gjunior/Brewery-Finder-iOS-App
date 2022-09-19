@@ -15,6 +15,7 @@
 		2B0CAB7228D35AF2005228DC /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7128D35AF2005228DC /* CoreDataService.swift */; };
 		2B0CAB7628D35B23005228DC /* RatedBreweryEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */; };
 		2B0CAB7728D35B23005228DC /* RatedBreweryEmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */; };
+		2B125CAD28D8BA4000B28F6B /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CAC28D8BA4000B28F6B /* FormatRequestPhoto.swift */; };
 		2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */; };
 		2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0228AD11780037099C /* Quicksand-Bold.ttf */; };
 		2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */; };
@@ -133,6 +134,7 @@
 		2B0CAB7128D35AF2005228DC /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedBreweryEmptyStateView.swift; sourceTree = "<group>"; };
 		2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedBreweryEmptyStateView.xib; sourceTree = "<group>"; };
+		2B125CAC28D8BA4000B28F6B /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
 		2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
 				2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */,
 				2B0CAB7128D35AF2005228DC /* CoreDataService.swift */,
+				2B125CAC28D8BA4000B28F6B /* FormatRequestPhoto.swift */,
 				2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */,
 				2BD6CECA28AEAD1400B729C4 /* UIFontExtension.swift */,
 				2BD6CECC28AEAED900B729C4 /* UIColorExtension.swift */,
@@ -952,6 +955,7 @@
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
 				B9BF804528D2254D00278012 /* FavoriteBreweriesUseCase.swift in Sources */,
 				2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */,
+				2B125CAD28D8BA4000B28F6B /* FormatRequestPhoto.swift in Sources */,
 				2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */,
