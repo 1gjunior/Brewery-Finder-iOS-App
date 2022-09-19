@@ -11,6 +11,13 @@ import UIKit
 public enum SortType: Int {
     case sortedName
     case sortedRating
+    
+    var labelText: String {
+        switch self {
+        case .sortedName: return NSLocalizedString("Nome (A a Z)", comment: "")
+        case .sortedRating: return NSLocalizedString("Nota (menor para maior)", comment: "")
+        }
+    }
 }
 
 public protocol SortViewDelegate: AnyObject {
@@ -57,9 +64,9 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.sortButton.setImage(UIImage(named: "RadioSelected"), for: .selected)
 
         if indexPath.row == SortType.sortedName.rawValue {
-            cell.label.text = NSLocalizedString("Nome (A a Z)", comment: "")
+            cell.type = .sortedName
         } else {
-            cell.label.text = NSLocalizedString("Nota (menor para maior)", comment: "")
+            cell.type = .sortedRating
         }
         
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -72,12 +79,12 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.sortButton.isSelected = true
         
         let index: IndexPath
-        if indexPath.row == SortType.sortedName.rawValue {
+        if cell.type == .sortedName {
             delegate?.didSorted(type: .sortedName)
-            index = IndexPath(row: SortedBreweries.sortedRating.hashValue, section: indexPath.section)
+            index = IndexPath(row: SortType.sortedRating.rawValue, section: indexPath.section)
         } else {
             delegate?.didSorted(type: .sortedRating)
-            index = IndexPath(row: SortedBreweries.sortedName.hashValue, section: indexPath.section)
+            index = IndexPath(row: SortType.sortedName.rawValue, section: indexPath.section)
         }
         
         tableView.deselectRow(at: index, animated: true)
