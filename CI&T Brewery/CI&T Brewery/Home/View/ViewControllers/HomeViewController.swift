@@ -20,6 +20,12 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
             searchBar.searchTextField.font = UIFont.robotoRegular(ofSize: 14)
         }
     }
+	@IBOutlet weak var useLocationButton: UIButton!{
+		didSet{
+			useLocationButton.isHidden = true
+		}
+	}
+	
     private var currentView: UIView? = nil
     
     @Injected var viewModel: HomeViewModel
