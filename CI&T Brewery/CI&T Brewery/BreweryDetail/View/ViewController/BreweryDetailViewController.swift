@@ -29,6 +29,8 @@ class BreweryDetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet var dataView: UIView! {
         didSet {
             dataView.layer.cornerRadius = 30
@@ -159,6 +161,7 @@ class BreweryDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         photoCollectionView.delegate = self
         photoCollectionView.dataSource = self
         photoCollectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCollectionViewCell")
