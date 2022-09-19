@@ -58,6 +58,11 @@ class RatedBreweriesViewModelTests: XCTestCase {
 
 class BreweryRepositoryMock: BreweryRepositoryProtocol {
     
+    var networkError: NetworkError? = nil
+    
+    func postPhotosByBrewery(imageData: Data, breweryId: String, completion: @escaping (Result<BreweryPhotos, Error>) -> Void) {
+    }
+    
     func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
         let emailTest = "test@test.com"
         let error = NSError(domain: "testing", code: 200)
@@ -82,6 +87,12 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
     
     func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void) {
         
+        if networkError != nil {
+            completion(.failure(networkError!))
+        }
+        else {
+            completion(.success(apiEvaluationResponse))
+        }
     }
     
     func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void) {
@@ -108,4 +119,6 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
                       postalCode: "test", country: "test", longitude: 0.0, latitude: 0.0,
                       website: "test", phone: "test", average: 0.0, sizeEvaluations: 0.0, photos: nil)
                     ]
+    
+    var apiEvaluationResponse = ApiEvaluationResponse(email: "Pam00@gmail.com", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)
 }
