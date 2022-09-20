@@ -33,7 +33,7 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         didSet {
             titleLabel.font = UIFont.robotoRegular(ofSize: 16)
             titleLabel.textColor = UIColor.breweryBlack()
-            titleLabel.text = NSLocalizedString("Ordenar por", comment: "")
+            titleLabel.text = NSLocalizedString("sortBy", comment: "")
         }
     }
     
