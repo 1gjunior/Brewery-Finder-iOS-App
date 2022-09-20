@@ -30,6 +30,8 @@
 		2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */; };
 		2B5FA60A28CFD24F0056DE0E /* BreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */; };
 		2B5FA60F28CFDCF60056DE0E /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60E28CFDCF60056DE0E /* FavoriteListView.swift */; };
+		2B66A83228D9D19500CDD9D4 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A83128D9D19500CDD9D4 /* APIManagerMock.swift */; };
+		2B66A83428D9D2D300CDD9D4 /* BreweryRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */; };
 		2B77FEA328D49551001159DE /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */; };
 		2B77FEA728D49D10001159DE /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */; };
 		2B7E5CEB28D0F23000F69F81 /* RatedBreweriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */; };
@@ -152,6 +154,8 @@
 		2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryTableViewCell.swift; sourceTree = "<group>"; };
 		2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweryTableViewCell.xib; sourceTree = "<group>"; };
 		2B5FA60E28CFDCF60056DE0E /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
+		2B66A83128D9D19500CDD9D4 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
+		2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryRepositoryTest.swift; sourceTree = "<group>"; };
 		2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweriesViewModel.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 				2B125CB528D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift */,
 				2B125CB728D9051F00B28F6B /* BreweryMock.swift */,
 				2B125CBB28D90A9400B28F6B /* FavoriteBreweriesManagerMock.swift */,
+				2B66A83128D9D19500CDD9D4 /* APIManagerMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */,
 				2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */,
 				2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */,
+				2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */,
 			);
 			path = "CI&T BreweryTests";
 			sourceTree = "<group>";
@@ -1030,12 +1036,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B66A83428D9D2D300CDD9D4 /* BreweryRepositoryTest.swift in Sources */,
 				2B125CBC28D90A9400B28F6B /* FavoriteBreweriesManagerMock.swift in Sources */,
 				2B125CBA28D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift in Sources */,
 				2B125CB828D9051F00B28F6B /* BreweryMock.swift in Sources */,
 				2B125CB628D8DE1700B28F6B /* FavoriteBreweriesUseCaseMock.swift in Sources */,
 				2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */,
 				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
+				2B66A83228D9D19500CDD9D4 /* APIManagerMock.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

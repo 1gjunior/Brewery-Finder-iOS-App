@@ -14,15 +14,13 @@ class BreweryMock {
                 address2: "test", address3: "test", city: "test", state: "test",
                 postalCode: "test", country: "test", longitude: 0.0, latitude: 0.0,
                 website: "test", phone: "test", average: 1.0, sizeEvaluations: 0.0, photos: nil),
-        
-        Brewery(id: "fopsdk", name: "fopsdk", type: "test", street: "test",
-                address2: "test", address3: "test", city: "test", state: "test",
-                postalCode: "test", country: "test", longitude: 0.0, latitude: 0.0,
-                website: "test", phone: "test", average: 1.0, sizeEvaluations: 0.0, photos: nil),
-        
         Brewery(id: "ckasmplp", name: "ckasmplp", type: "test", street: "test",
                 address2: "test", address3: "test", city: "test", state: "test",
                 postalCode: "test", country: "test", longitude: 0.0, latitude: 0.0,
-                website: "test", phone: "test", average: 0.0, sizeEvaluations: 0.0, photos: nil)
+                website: "test", phone: "test", average: 0.0, sizeEvaluations: 0.0, photos: nil),
+        Brewery(id: "fopsdk", name: "fopsdk", type: "test", street: "test",
+                address2: "test", address3: "test", city: "test", state: "test",
+                postalCode: "test", country: "test", longitude: 0.0, latitude: 0.0,
+                website: "test", phone: "test", average: 1.0, sizeEvaluations: 0.0, photos: nil)
     ]
 }
