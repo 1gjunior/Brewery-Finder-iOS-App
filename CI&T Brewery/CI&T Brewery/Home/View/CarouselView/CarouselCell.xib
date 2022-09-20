@@ -34,50 +34,53 @@
                             <constraint firstAttribute="height" constant="129" id="drG-Gt-Tri"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejaria A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtD-6X-SD0">
-                        <rect key="frame" x="8" y="134" width="122" height="19"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alphabet City Brewing Co" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="vtD-6X-SD0">
+                        <rect key="frame" x="8" y="134" width="122" height="35.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="122" id="oUr-oj-q1Z"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star" translatesAutoresizingMaskIntoConstraints="NO" id="YW9-wc-KOl">
-                        <rect key="frame" x="8" y="155" width="15" height="15"/>
+                        <rect key="frame" x="8" y="173" width="15" height="15"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGg-bX-lgx">
-                        <rect key="frame" x="26" y="154" width="19" height="17"/>
-                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orc-Dg-yqk">
-                        <rect key="frame" x="8" y="178" width="129" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orc-Dg-yqk">
+                        <rect key="frame" x="8" y="193" width="129" height="17"/>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <color key="textColor" name="BreweryBlack"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0,9 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U72-0N-V5f">
-                        <rect key="frame" x="8" y="203" width="41" height="17"/>
+                        <rect key="frame" x="8" y="209" width="41" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="14"/>
                         <color key="textColor" name="BreweryBlack"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGg-bX-lgx">
+                        <rect key="frame" x="26" y="172" width="19" height="17"/>
+                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="YW9-wc-KOl" firstAttribute="centerY" secondItem="WGg-bX-lgx" secondAttribute="centerY" id="0c7-vl-Tug"/>
+                    <constraint firstAttribute="bottom" secondItem="orc-Dg-yqk" secondAttribute="bottom" constant="24" id="27y-Oj-48d"/>
                     <constraint firstItem="YW9-wc-KOl" firstAttribute="leading" secondItem="Ll4-EH-9tl" secondAttribute="leading" constant="8" id="3mO-6E-1uo"/>
                     <constraint firstItem="92C-Zr-Y6X" firstAttribute="top" secondItem="Ll4-EH-9tl" secondAttribute="top" id="GQb-IS-unM"/>
                     <constraint firstAttribute="trailing" secondItem="92C-Zr-Y6X" secondAttribute="trailing" id="Ghq-Tl-jWf"/>
+                    <constraint firstAttribute="trailing" secondItem="orc-Dg-yqk" secondAttribute="trailing" constant="9" id="RCr-BO-jV2"/>
                     <constraint firstItem="vtD-6X-SD0" firstAttribute="top" secondItem="92C-Zr-Y6X" secondAttribute="bottom" constant="5" id="TDE-HL-s6T"/>
                     <constraint firstItem="92C-Zr-Y6X" firstAttribute="leading" secondItem="Ll4-EH-9tl" secondAttribute="leading" id="XEu-1P-zMk"/>
+                    <constraint firstAttribute="bottom" secondItem="YW9-wc-KOl" secondAttribute="bottom" constant="46" id="gra-Pm-4Jx"/>
+                    <constraint firstItem="orc-Dg-yqk" firstAttribute="leading" secondItem="Ll4-EH-9tl" secondAttribute="leading" constant="8" id="jaq-rZ-6AW"/>
                     <constraint firstItem="vtD-6X-SD0" firstAttribute="leading" secondItem="Ll4-EH-9tl" secondAttribute="leading" constant="8" id="rSf-at-rBC"/>
                     <constraint firstItem="WGg-bX-lgx" firstAttribute="leading" secondItem="YW9-wc-KOl" secondAttribute="trailing" constant="3" id="sXj-gY-xL7"/>
-                    <constraint firstItem="YW9-wc-KOl" firstAttribute="top" secondItem="vtD-6X-SD0" secondAttribute="bottom" constant="2" id="zCA-Gb-xd0"/>
+                    <constraint firstItem="YW9-wc-KOl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vtD-6X-SD0" secondAttribute="bottom" constant="3" id="zCA-Gb-xd0"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" name="Fail"/>
@@ -89,7 +92,7 @@
                 <outlet property="name" destination="vtD-6X-SD0" id="QyT-gY-K5P"/>
                 <outlet property="type" destination="orc-Dg-yqk" id="Z5N-Os-Znx"/>
             </connections>
-            <point key="canvasLocation" x="91.304347826086968" y="123.88392857142857"/>
+            <point key="canvasLocation" x="23" y="58"/>
         </collectionViewCell>
     </objects>
     <resources>
