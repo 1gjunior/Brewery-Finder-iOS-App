@@ -22,8 +22,6 @@ class RatingViewModelTest: XCTestCase {
         
         var evaluation = BreweryEvaluation(email: "Pam00@gmail.com", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)
         
-        var nome: String = ""
-        
         viewModel.post(evaluation: evaluation)
         XCTAssert(viewModel.stateRating == .sucess)
     }
@@ -50,6 +48,7 @@ class RatingViewModelTest: XCTestCase {
         catch {
            print("")
         }
+        
         XCTAssertEqual(email, lastEmail)
     }
     
