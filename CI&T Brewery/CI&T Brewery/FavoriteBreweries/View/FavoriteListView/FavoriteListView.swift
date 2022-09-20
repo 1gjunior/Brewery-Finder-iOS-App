@@ -107,7 +107,7 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
         let item = breweries[indexPath.section]
         cell.configure(for: item)
 		
-		 cell.actionDelegate = self
+		 cell.delegate = self
 		 cell.brewery = breweries[indexPath.section]
 		 
 		 return cell
@@ -148,10 +148,10 @@ extension FavoriteListView: SortViewDelegate {
 
 extension FavoriteListView: FavoriteCellActionDelegate {
 	func didFavoriteButtonTapped(brewery: FavoriteBreweries) {
-		let del = DeleteFavoriteView(favoriteBrewery: brewery)
+		let deleteFavoriteView = DeleteFavoriteView(favoriteBrewery: brewery)
 		self.parentViewController?.modalPresentationStyle = .overFullScreen
 		self.parentViewController?.modalTransitionStyle = .flipHorizontal
-		self.parentViewController?.present(del, animated: true)
+		self.parentViewController?.present(deleteFavoriteView, animated: true)
 	}
 }
 

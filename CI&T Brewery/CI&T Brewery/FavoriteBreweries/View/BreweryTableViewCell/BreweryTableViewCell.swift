@@ -13,7 +13,7 @@ protocol FavoriteCellActionDelegate{
 }
 
 class BreweryTableViewCell: UITableViewCell {
-	var actionDelegate: FavoriteCellActionDelegate?
+	var delegate: FavoriteCellActionDelegate?
 	var brewery: FavoriteBreweries? = nil
 	var favoriteListView = FavoriteListView()
     @IBOutlet weak var mainView: UIView! {
@@ -61,7 +61,7 @@ class BreweryTableViewCell: UITableViewCell {
     }
 
 	@IBAction func removeFavorite(_ sender: UIButton) {
-		if let delegate = self.actionDelegate, let brewery = brewery{
+		if let delegate = self.delegate, let brewery = brewery{
 			delegate.didFavoriteButtonTapped(brewery: brewery)
 		}
 	}
