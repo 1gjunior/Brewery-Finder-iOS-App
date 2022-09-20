@@ -28,9 +28,6 @@ class BreweryRepositoryTest: XCTestCase {
         // when
         repository.getTop10Breweries { result in
             // then
-            print("Teste \(result)")
-//            XCTAssertEqual(result, .failure(result as! Error))
-            // then
             switch result {
             case .success(let data):
                 XCTAssertNotNil(data)
