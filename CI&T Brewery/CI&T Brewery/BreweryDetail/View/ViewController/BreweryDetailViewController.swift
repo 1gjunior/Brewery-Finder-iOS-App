@@ -136,7 +136,7 @@ class BreweryDetailViewController: UIViewController {
     }
     
     @IBAction func addPhoto(_ sender: Any) {
-        present(PhotosViewController(viewModel: viewModel), animated: true)
+        present(PhotosViewController(postPhoto: viewModel.postPhotos), animated: true)
     }
     
     @IBOutlet weak var evaluateBreweryButton: UIButton! {

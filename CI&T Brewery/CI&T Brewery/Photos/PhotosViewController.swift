@@ -10,22 +10,21 @@ import UIKit
 import PhotosUI
 
 class PhotosViewController: UIViewController, PHPickerViewControllerDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-    var viewModel: BreweryDetailViewModel?
     var pickerConfiguration = PHPickerConfiguration()
     var picker: PHPickerViewController?
     var images: [UIImage?] = []
     var lastImage: UIImage? = nil
     private var cancellables: Set<AnyCancellable> = []
-    var reloadCollectionView: (() -> ())?
+    var postPhoto: ((Data) -> ())?
     
     @IBAction func dismissPhotosView(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
-    init(viewModel: BreweryDetailViewModel) {
+    init(postPhoto: @escaping ((Data) -> ())) {
         super.init(nibName: "PhotosViewController", bundle: nil)
         self.view.subviews.first?.layer.cornerRadius = 20
-        self.viewModel = viewModel
+        self.postPhoto = postPhoto
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,7 +60,7 @@ class PhotosViewController: UIViewController, PHPickerViewControllerDelegate, UI
     
     func post() {
         guard let data = lastImage?.jpegData(compressionQuality: 0.0) else { return }
-        viewModel?.postPhotos(imageData: data)
+        postPhoto?(data)
         DispatchQueue.main.async {
             self.dismiss(animated: true)
         }
@@ -80,7 +79,7 @@ class PhotosViewController: UIViewController, PHPickerViewControllerDelegate, UI
         }
 
         guard let data = image.jpegData(compressionQuality: 0.0) else { return }
-        viewModel?.postPhotos(imageData: data)
+        postPhoto?(data)
     }
     
     @IBAction func cameraTapped(_ sender: Any) {
