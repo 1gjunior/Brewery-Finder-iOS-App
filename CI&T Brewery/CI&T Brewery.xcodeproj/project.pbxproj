@@ -41,8 +41,8 @@
 		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
 		2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460D28AAB08C00CFC657 /* App+Injection.swift */; };
 		3316153F28D912C500ACB0AC /* RatingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316153D28D912BC00ACB0AC /* RatingViewModelTest.swift */; };
-		3316154128D912EB00ACB0AC /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316154028D912EB00ACB0AC /* FormatRequestPhoto.swift */; };
 		3316154428D9170100ACB0AC /* BreweryRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316154328D9170100ACB0AC /* BreweryRepositoryMock.swift */; };
+		3316154628D9E8FD00ACB0AC /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3316154528D9E8FD00ACB0AC /* FormatRequestPhoto.swift */; };
 		337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */; };
 		337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */; };
 		337D825828AC0B2A00DBAA56 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */; };
@@ -162,8 +162,8 @@
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BD9460D28AAB08C00CFC657 /* App+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Injection.swift"; sourceTree = "<group>"; };
 		3316153D28D912BC00ACB0AC /* RatingViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewModelTest.swift; sourceTree = "<group>"; };
-		3316154028D912EB00ACB0AC /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatRequestPhoto.swift; path = ../../../../../Downloads/FormatRequestPhoto.swift; sourceTree = "<group>"; };
 		3316154328D9170100ACB0AC /* BreweryRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryRepositoryMock.swift; sourceTree = "<group>"; };
+		3316154528D9E8FD00ACB0AC /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatRequestPhoto.swift; path = ../../../../../Downloads/FormatRequestPhoto.swift; sourceTree = "<group>"; };
 		337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3316154028D912EB00ACB0AC /* FormatRequestPhoto.swift */,
+				3316154528D9E8FD00ACB0AC /* FormatRequestPhoto.swift */,
 				D299D8B528D35B3700E82D45 /* CoreDataService.swift */,
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
 				2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */,
@@ -969,7 +969,7 @@
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
 				B9BF804528D2254D00278012 /* FavoriteBreweriesUseCase.swift in Sources */,
 				2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */,
-				3316154128D912EB00ACB0AC /* FormatRequestPhoto.swift in Sources */,
+				3316154628D9E8FD00ACB0AC /* FormatRequestPhoto.swift in Sources */,
 				2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */,
