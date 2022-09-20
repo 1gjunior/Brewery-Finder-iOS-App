@@ -21,11 +21,11 @@ enum FieldsState {
 
 class RatingViewModel {
     
-    let repository: BreweryRepository
+    let repository: BreweryRepositoryProtocol
     @Published private(set) var stateRating: RatingViewModelState = .initial
     @Published private(set) var fieldsState: FieldsState = .blank
     
-    init(repository: BreweryRepository = BreweryRepository()) {
+    init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
     }
     

@@ -23,7 +23,7 @@ enum SortedFavoriteBreweries {
 }
 
 class FavoriteBreweriesViewModel {
-	 let useCase: FavoriteBreweriesUseCase
+	 let useCase: FavoriteBreweriesUseCaseProtocol
     @Published private(set) var state: FavoriteBreweriesViewModelState = .initial
     @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     
@@ -38,7 +38,7 @@ class FavoriteBreweriesViewModel {
         }
     }
     
-	init(useCase: FavoriteBreweriesUseCase) {
+	init(useCase: FavoriteBreweriesUseCaseProtocol) {
 		 self.useCase = useCase
 	}
 	
