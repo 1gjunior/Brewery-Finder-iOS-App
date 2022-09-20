@@ -24,7 +24,7 @@ class CI_T_BreweryUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func test_top10_from_detail() throws {
         let firstElement =  app.collectionViews.children(matching: .cell).element(boundBy: 0).children(matching: .other).element
         let btnEvaluation = app.scrollViews.otherElements.buttons["Avaliar"]
         let classification = app.otherElements["Classificação"]
