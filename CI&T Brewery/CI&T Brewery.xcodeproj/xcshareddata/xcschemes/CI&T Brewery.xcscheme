@@ -45,7 +45,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B99FDE2528A58F4E00F5DA30"
                BuildableName = "CI&amp;T BreweryUITests.xctest"
-               BlueprintName = "CI&amp;T BreweryUITests"
+               BlueprintName = "CI_T BreweryUITests"
                ReferencedContainer = "container:CI&amp;T Brewery.xcodeproj">
             </BuildableReference>
          </TestableReference>

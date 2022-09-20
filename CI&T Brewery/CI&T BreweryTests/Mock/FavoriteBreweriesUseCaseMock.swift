@@ -9,6 +9,10 @@ import Foundation
 @testable import CI_T_Brewery
 
 class FavoriteBreweriesUseCaseMock: FavoriteBreweriesUseCaseProtocol {
+    
+    func removeFavoriteBrewery(_ brewery: FavoriteBreweries) {
+    }
+    
     var breweryList: [Brewery] = []
     var error: Error! = nil
     var state: HomeViewModelState!
