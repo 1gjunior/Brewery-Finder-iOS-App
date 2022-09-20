@@ -49,7 +49,6 @@ class CI_T_BreweryUITests: XCTestCase {
         btnReturn.tap()
         XCTAssert(emailTextField.exists)
         
-        //uncheckedButton.tap()
         XCTAssert(uncheckedButton.exists)
         
         btnSave.tap()
