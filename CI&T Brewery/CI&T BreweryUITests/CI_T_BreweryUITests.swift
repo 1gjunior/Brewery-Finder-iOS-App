@@ -55,8 +55,6 @@ class CI_T_BreweryUITests: XCTestCase {
         XCTAssert(btnSave.exists)
         
         XCTAssert(btnClose.exists)
-        btnClose.tap()
-        
     }
 
     func testLaunchPerformance() throws {
