@@ -8,8 +8,15 @@
 import Foundation
 
 protocol FavoriteBreweriesUseCaseProtocol {
+    func fetchBreweriesBy(city: String, type: SortedBreweries, completion: @escaping ((HomeViewModelState) -> ()))
+    func fetchTop10Breweries(completion: @escaping ((HomeViewModelState) -> ()))
+    func breweriesSorted(breweries:[Brewery], type: SortedBreweries) -> [Brewery]
     func handleFavoriteBrewery(_ brewery: Brewery)
     func loadBreweries()
+    func getBrewery(with id: String) -> FavoriteBreweries?
+    func toggleFavoriteButtonState(_ state: FavoriteButtonState) -> FavoriteButtonState
+    func getFavoriteButtonState(with id: String) -> FavoriteButtonState
+	func removeFavoriteBrewery(_ brewery: FavoriteBreweries)
 }
 
 class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
@@ -47,7 +54,7 @@ class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
         }
     }
     
-    func breweriesSorted(breweries:[Brewery], type: SortedBreweries) -> [Brewery]{
+    func breweriesSorted(breweries:[Brewery], type: SortedBreweries) -> [Brewery] {
         switch type  {
         case .sortedName:
          return  breweries.sorted(by: {$0.name < $1.name})
@@ -63,6 +70,12 @@ class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
             manager.saveFavoriteBrewery(brewery: brewery)
         }
     }
+	
+	func removeFavoriteBrewery(_ brewery: FavoriteBreweries) {
+		if let id = manager.getBrewery(with: brewery.id!)?.id {
+			 manager.deleteFavoriteBreweries(id: id)
+		} else {return}
+	}
     
     func loadBreweries() {
         _ = manager.loadFavoriteBreweries()

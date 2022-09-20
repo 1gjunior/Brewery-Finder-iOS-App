@@ -23,10 +23,10 @@ extension Resolver: ResolverRegistering {
         register { HomeViewModel(useCase: resolve()) }
         register { BreweryDetailViewModel() }
         register { RatingViewModel() }
-        register { FavoriteBreweriesViewModel() }
+        register { FavoriteBreweriesViewModel(useCase: resolve()) }
         let coreDataService = CoreDataService()
         register { FavoriteBreweriesManager(context: coreDataService.mainContext) as FavoriteBreweriesManagerProtocol}.scope(.application)
-        register { FavoriteBreweriesUseCase(manager: resolve()) }
+        register { FavoriteBreweriesUseCase(manager: resolve()) as FavoriteBreweriesUseCaseProtocol }
         register { RatedBreweriesViewModel() }
     }
 }
