@@ -55,4 +55,3 @@ class RatedBreweriesViewModelTests: XCTestCase {
         XCTAssert(viewModel.state == .success(breweries: sortedByRating))
     }
 }
-

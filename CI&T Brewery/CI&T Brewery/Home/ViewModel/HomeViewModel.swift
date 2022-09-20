@@ -22,7 +22,7 @@ enum SortedBreweries {
 }
 
 class HomeViewModel {
-    let useCase: FavoriteBreweriesUseCase
+    let useCase: FavoriteBreweriesUseCaseProtocol
     @Published private(set) var state: HomeViewModelState = .initial
     @Published private(set) var top10BreweriesState: HomeViewModelState = .initial
     public var sortedBreweries: SortedBreweries = .sortedName {
@@ -36,7 +36,7 @@ class HomeViewModel {
         }
     }
     
-    init(useCase: FavoriteBreweriesUseCase) {
+    init(useCase: FavoriteBreweriesUseCaseProtocol) {
         self.useCase = useCase
     }
     
