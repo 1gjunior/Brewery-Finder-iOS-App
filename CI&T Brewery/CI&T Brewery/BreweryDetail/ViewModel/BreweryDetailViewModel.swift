@@ -37,7 +37,7 @@ class BreweryDetailViewModel {
         self.repository = repository
     }
 
-    func fetchBreweryBy() {
+    func fetchBrewery() {
         guard let id = id else { return }
         repository.getBreweryBy(id: id) { [weak self] result in
             switch result {

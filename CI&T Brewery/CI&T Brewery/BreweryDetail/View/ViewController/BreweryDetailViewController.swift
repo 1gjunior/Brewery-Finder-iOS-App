@@ -171,7 +171,7 @@ class BreweryDetailViewController: UIViewController {
         photoCollectionView.dataSource = self
         photoCollectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         
-        getBreweryBy()
+        getBrewery()
         sinkBrewery()
         sinkRatedBrewery()
         sinkPhotos()
@@ -292,7 +292,7 @@ class BreweryDetailViewController: UIViewController {
     }
     
     private func sucessRatedBrewery() {
-        getBreweryBy()
+        getBrewery()
         evaluateBreweryButton.isHidden = true
         heightDataView.constant = heightDataView.constant + 80
         ratedBreweryView.isHidden = false
@@ -323,8 +323,8 @@ class BreweryDetailViewController: UIViewController {
         viewModel.checkRatingByBrewery()
     }
     
-    private func getBreweryBy() {
-        viewModel.fetchBreweryBy()
+    private func getBrewery() {
+        viewModel.fetchBrewery()
     }
 	private func getBreweryPhotos() {
 		viewModel.fetchPhotosByBrewery()
