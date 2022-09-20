@@ -37,26 +37,6 @@ class SearchBreweryTest: XCTestCase {
     }
 }
 
-class FavoriteManagerMock: FavoriteBreweriesManagerProtocol {
-    func loadFavoriteBreweries() -> [CI_T_Brewery.FavoriteBreweries]? {
-        return nil
-    }
-    
-    func deleteFavoriteBreweries(id: String) {
-            
-    }
-    
-    func saveFavoriteBrewery(brewery: CI_T_Brewery.Brewery) {
-        
-    }
-    
-    func getAllBreweries() -> [CI_T_Brewery.FavoriteBreweries] {
-        return .init()
-    }
-    
-    func getBrewery(with id: String) -> CI_T_Brewery.FavoriteBreweries? {
-        return nil
-    }
-}
+
 
 
