@@ -15,6 +15,8 @@
 		2B0CAB7228D35AF2005228DC /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7128D35AF2005228DC /* CoreDataService.swift */; };
 		2B0CAB7628D35B23005228DC /* RatedBreweryEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */; };
 		2B0CAB7728D35B23005228DC /* RatedBreweryEmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */; };
+		2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */; };
+		2B125CBA28D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */; };
 		2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */; };
 		2B58EFAA28AD36880061B631 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2BCB6A0228AD11780037099C /* Quicksand-Bold.ttf */; };
 		2B58EFAB28AD36880061B631 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */; };
@@ -24,6 +26,7 @@
 		2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */; };
 		2B5FA60A28CFD24F0056DE0E /* BreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */; };
 		2B5FA60F28CFDCF60056DE0E /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60E28CFDCF60056DE0E /* FavoriteListView.swift */; };
+		2B66A83428D9D2D300CDD9D4 /* BreweryRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */; };
 		2B77FEA328D49551001159DE /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */; };
 		2B77FEA728D49D10001159DE /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */; };
 		2B7E5CEB28D0F23000F69F81 /* RatedBreweriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */; };
@@ -98,6 +101,11 @@
 		B9DC366F28D8B9EA00A1C249 /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC366E28D8B9EA00A1C249 /* FormatRequestPhoto.swift */; };
 		B9DC367228D8D19100A1C249 /* PhotosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DC367128D8D19100A1C249 /* PhotosViewController.xib */; };
 		B9DC367428D8D33700A1C249 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC367328D8D33700A1C249 /* PhotosViewController.swift */; };
+		B9DC36A728DA021B00A1C249 /* BreweryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36A228DA021B00A1C249 /* BreweryMock.swift */; };
+		B9DC36A828DA021B00A1C249 /* BreweryRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36A328DA021B00A1C249 /* BreweryRepositoryMock.swift */; };
+		B9DC36A928DA021B00A1C249 /* FavoriteBreweriesManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36A428DA021B00A1C249 /* FavoriteBreweriesManagerMock.swift */; };
+		B9DC36AA28DA021B00A1C249 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36A528DA021B00A1C249 /* APIManagerMock.swift */; };
+		B9DC36AB28DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36A628DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift */; };
 		D22C936D28CFB5F100C64EA7 /* CITModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D22C936B28CFB5F100C64EA7 /* CITModel.xcdatamodeld */; };
 		D22C937128CFB9D500C64EA7 /* FavoriteBreweriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */; };
 		D299D8AE28D3552800E82D45 /* RatedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8AC28D3552700E82D45 /* RatedListView.swift */; };
@@ -137,6 +145,8 @@
 		2B0CAB7128D35AF2005228DC /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		2B0CAB7428D35B23005228DC /* RatedBreweryEmptyStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedBreweryEmptyStateView.swift; sourceTree = "<group>"; };
 		2B0CAB7528D35B23005228DC /* RatedBreweryEmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedBreweryEmptyStateView.xib; sourceTree = "<group>"; };
+		2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
+		2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweryUseCaseTest.swift; sourceTree = "<group>"; };
 		2B58EFA628AD1CD60061B631 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		2B58EFAD28AD4E070061B631 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
@@ -144,6 +154,11 @@
 		2B5FA60728CFD17A0056DE0E /* BreweryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryTableViewCell.swift; sourceTree = "<group>"; };
 		2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreweryTableViewCell.xib; sourceTree = "<group>"; };
 		2B5FA60E28CFDCF60056DE0E /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
+		2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryRepositoryTest.swift; sourceTree = "<group>"; };
+		2B66A84928D9F85100CDD9D4 /* APIManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
+		2B66A84A28D9F85100CDD9D4 /* FavoriteBreweriesUseCaseMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCaseMock.swift; sourceTree = "<group>"; };
+		2B66A84B28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManagerMock.swift; sourceTree = "<group>"; };
+		2B66A84C28D9F85100CDD9D4 /* BreweryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryMock.swift; sourceTree = "<group>"; };
 		2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweriesViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +178,7 @@
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BD9460D28AAB08C00CFC657 /* App+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Injection.swift"; sourceTree = "<group>"; };
 		3316153D28D912BC00ACB0AC /* RatingViewModelTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewModelTest.swift; sourceTree = "<group>"; };
+		3316154328D9170100ACB0AC /* BreweryRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryRepositoryMock.swift; sourceTree = "<group>"; };
 		337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -225,6 +241,11 @@
 		B9DC366E28D8B9EA00A1C249 /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
 		B9DC367128D8D19100A1C249 /* PhotosViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosViewController.xib; sourceTree = "<group>"; };
 		B9DC367328D8D33700A1C249 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		B9DC36A228DA021B00A1C249 /* BreweryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryMock.swift; sourceTree = "<group>"; };
+		B9DC36A328DA021B00A1C249 /* BreweryRepositoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryRepositoryMock.swift; sourceTree = "<group>"; };
+		B9DC36A428DA021B00A1C249 /* FavoriteBreweriesManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManagerMock.swift; sourceTree = "<group>"; };
+		B9DC36A528DA021B00A1C249 /* APIManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
+		B9DC36A628DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCaseMock.swift; sourceTree = "<group>"; };
 		D22C936C28CFB5F100C64EA7 /* CITModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CITModel.xcdatamodel; sourceTree = "<group>"; };
 		D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManager.swift; sourceTree = "<group>"; };
 		D299D8AC28D3552700E82D45 /* RatedListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedListView.swift; sourceTree = "<group>"; };
@@ -580,6 +601,7 @@
 				B99FDE0728A58F4D00F5DA30 /* Products */,
 				152F7328484A51664085778A /* Pods */,
 				55513CA52EAEF0BE5C2B25B4 /* Frameworks */,
+				B9DC368328D9FEE500A1C249 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -622,9 +644,13 @@
 		B99FDE1F28A58F4E00F5DA30 /* CI&T BreweryTests */ = {
 			isa = PBXGroup;
 			children = (
+				B9DC36A128DA021B00A1C249 /* Mock */,
 				3316153D28D912BC00ACB0AC /* RatingViewModelTest.swift */,
 				B99FDE2028A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift */,
 				B9B320CA28D7DD7500C36D91 /* SearchBreweryTest.swift */,
+				2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */,
+				2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */,
+				2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */,
 			);
 			path = "CI&T BreweryTests";
 			sourceTree = "<group>";
@@ -718,6 +744,30 @@
 				B9DC367328D8D33700A1C249 /* PhotosViewController.swift */,
 			);
 			path = Photos;
+			sourceTree = "<group>";
+		};
+		B9DC368328D9FEE500A1C249 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				3316154328D9170100ACB0AC /* BreweryRepositoryMock.swift */,
+				2B66A84C28D9F85100CDD9D4 /* BreweryMock.swift */,
+				2B66A84B28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift */,
+				2B66A84928D9F85100CDD9D4 /* APIManagerMock.swift */,
+				2B66A84A28D9F85100CDD9D4 /* FavoriteBreweriesUseCaseMock.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		B9DC36A128DA021B00A1C249 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				B9DC36A228DA021B00A1C249 /* BreweryMock.swift */,
+				B9DC36A328DA021B00A1C249 /* BreweryRepositoryMock.swift */,
+				B9DC36A428DA021B00A1C249 /* FavoriteBreweriesManagerMock.swift */,
+				B9DC36A528DA021B00A1C249 /* APIManagerMock.swift */,
+				B9DC36A628DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		D299D8AB28D3552700E82D45 /* RatedListView */ = {
@@ -1027,10 +1077,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
+				B9DC36A728DA021B00A1C249 /* BreweryMock.swift in Sources */,
+				B9DC36A828DA021B00A1C249 /* BreweryRepositoryMock.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
+				2B66A83428D9D2D300CDD9D4 /* BreweryRepositoryTest.swift in Sources */,
+				2B125CBA28D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift in Sources */,
+				B9DC36AA28DA021B00A1C249 /* APIManagerMock.swift in Sources */,
+				B9DC36AB28DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift in Sources */,
+				2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */,
 				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
 				3316153F28D912C500ACB0AC /* RatingViewModelTest.swift in Sources */,
+				B9DC36A928DA021B00A1C249 /* FavoriteBreweriesManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

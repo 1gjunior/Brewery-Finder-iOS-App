@@ -14,15 +14,16 @@ class SearchBreweryTest: XCTestCase {
     var viewModel: HomeViewModel!
     var repository: BreweryRepositoryMock!
     var useCase: FavoriteBreweriesUseCase!
+    let breweries = BreweryMock.breweries
     
     override func setUp() {
-        useCase = .init(manager: FavoriteManagerMock(), repository: BreweryRepositoryMock())
+        useCase = .init(manager: FavoriteBreweriesManagerMock(), repository: BreweryRepositoryMock())
         viewModel = HomeViewModel(useCase: useCase)
     }
     
     func testFetchBreweriesSucess() {
         viewModel.fetchBreweriesBy(city: "new york")
-        XCTAssert(viewModel.state == .success(breweries: repository.breweries))
+        XCTAssert(viewModel.state == .success(breweries: breweries))
     }
     
     func testFetchBreweriesEmptyError() {
@@ -36,7 +37,3 @@ class SearchBreweryTest: XCTestCase {
         XCTAssert(viewModel.state == .genericError)
     }
 }
-
-
-
-
