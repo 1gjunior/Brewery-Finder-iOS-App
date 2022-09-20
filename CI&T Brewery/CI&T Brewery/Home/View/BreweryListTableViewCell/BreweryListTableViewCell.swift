@@ -13,7 +13,12 @@ class BreweryListTableViewCell: UITableViewCell {
     @IBOutlet var name: UILabel!
     @IBOutlet var average: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-    var onFavorite: ((Brewery, FavoriteButtonState) -> FavoriteButtonState)?
+	@IBOutlet weak var shareButton: UIButton!{
+		didSet{
+			shareButton.isHidden = true
+		}
+	}
+	var onFavorite: ((Brewery, FavoriteButtonState) -> FavoriteButtonState)?
     var brewery: Brewery? = nil
     var buttonState: FavoriteButtonState = .unselected {
         didSet {

@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qX9-t2-m61">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qX9-t2-m61">
                         <rect key="frame" x="8" y="12.5" width="41" height="41"/>
                         <color key="backgroundColor" name="Brewery Yellow Alpha 16"/>
                         <constraints>
@@ -28,8 +28,8 @@
                         <color key="textColor" name="Brewery Yellow Light"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejaria A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8p2-1C-0VV">
-                        <rect key="frame" x="61" y="23" width="188" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Cervejaria A" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8p2-1C-0VV">
+                        <rect key="frame" x="61" y="23.5" width="188" height="19.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -88,7 +88,7 @@
                 <outlet property="lbProfileLetter" destination="qX9-t2-m61" id="vdB-Gf-DbN"/>
                 <outlet property="mainView" destination="KlL-rl-SX3" id="tNg-hU-Ecd"/>
             </connections>
-            <point key="canvasLocation" x="-1278.2608695652175" y="-108.48214285714285"/>
+            <point key="canvasLocation" x="-1706" y="-103"/>
         </tableViewCell>
     </objects>
     <designables>

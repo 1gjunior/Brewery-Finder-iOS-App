@@ -61,7 +61,6 @@ class RatedListView: UIView{
 	}
 	@IBOutlet weak var lbFilterText: UILabel!{
 		didSet{
-			lbFilterText.text = NSLocalizedString("lbFilterText", comment: "")
 			lbFilterText.font = UIFont.robotoLight(ofSize: 14)
 			lbFilterText.textColor = UIColor.breweryBlack()
 		}
@@ -70,7 +69,6 @@ class RatedListView: UIView{
 	
 	
 	@IBAction func openSortView(_ sender: UIButton) {
-		sortView.view.isHidden = false
 		contentView.addSubview(sortView)
 		constraintSortView()
 	}
@@ -124,6 +122,12 @@ extension RatedListView: SortViewDelegate {
     }
     
 	func didSorted(type: SortType) {
-		delegate?.didSorted(type: type)
+		 delegate?.didSorted(type: type)
+		 
+		 if type == .sortedName {
+			 lbFilterText.text = NSLocalizedString("name", comment: "")
+		 } else {
+			 lbFilterText.text = NSLocalizedString("rating", comment: "")
+		 }
 	}
 }

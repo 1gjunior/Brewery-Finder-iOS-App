@@ -26,7 +26,7 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         didSet {
             titleLabel.font = UIFont.robotoRegular(ofSize: 16)
             titleLabel.textColor = UIColor.breweryBlack()
-            titleLabel.text = NSLocalizedString("Ordenar por", comment: "")
+            titleLabel.text = NSLocalizedString("sortBy", comment: "")
         }
     }
     
@@ -57,9 +57,9 @@ public class SortView: UIView, UITableViewDataSource, UITableViewDelegate {
         cell.sortButton.setImage(UIImage(named: "RadioSelected"), for: .selected)
 
         if indexPath.row == SortType.sortedName.rawValue {
-            cell.label.text = NSLocalizedString("Nome (A a Z)", comment: "")
+            cell.label.text = NSLocalizedString("sortName", comment: "")
         } else {
-            cell.label.text = NSLocalizedString("Nota (menor para maior)", comment: "")
+            cell.label.text = NSLocalizedString("sortRating", comment: "")
         }
         
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
