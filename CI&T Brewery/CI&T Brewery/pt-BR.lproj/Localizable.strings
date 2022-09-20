@@ -67,3 +67,8 @@
 
 "ratedViewTitle" = "Aqui estão suas Avaliações!";
 "lbFilterText" = "Ordenar por: ";
+
+/* DeleteFavoriteView */
+
+"deleteFavoriteTitle" = "Remover favorito?";
+"deleteFavoriteText" = "Ao remover a cervejaria dos favoritos, ela deixa de aparecer na listagem de cervejarias favoritas. Você pode adicionar a cervejaria como favorita novamente quando quiser.";

@@ -106,11 +106,14 @@
 		B9DC366528D80E8700A1C249 /* SortCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9DC366428D80E8700A1C249 /* SortCell.xib */; };
 		D22C936D28CFB5F100C64EA7 /* CITModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D22C936B28CFB5F100C64EA7 /* CITModel.xcdatamodeld */; };
 		D22C937128CFB9D500C64EA7 /* FavoriteBreweriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */; };
+		D27BC81C28D8B69F00A02097 /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27BC81B28D8B69F00A02097 /* FormatRequestPhoto.swift */; };
 		D299D8AE28D3552800E82D45 /* RatedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8AC28D3552700E82D45 /* RatedListView.swift */; };
 		D299D8AF28D3552800E82D45 /* RatedListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D299D8AD28D3552700E82D45 /* RatedListView.xib */; };
 		D299D8B328D3555500E82D45 /* RatedBreweryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8B128D3555500E82D45 /* RatedBreweryTableViewCell.swift */; };
 		D299D8B428D3555500E82D45 /* RatedBreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D299D8B228D3555500E82D45 /* RatedBreweryTableViewCell.xib */; };
 		D299D8B628D35B3700E82D45 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8B528D35B3700E82D45 /* CoreDataService.swift */; };
+		D299D8BD28D3BF5400E82D45 /* DeleteFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D299D8BC28D3BF5400E82D45 /* DeleteFavoriteView.swift */; };
+		D299D8BF28D3BF6C00E82D45 /* DeleteFavoriteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D299D8BE28D3BF6C00E82D45 /* DeleteFavoriteView.xib */; };
 		D2AD32EC28ABDB8E00CABCD3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32EE28ABDB8E00CABCD3 /* Localizable.strings */; };
 		D2AD32F028ABDD9300CABCD3 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AD32F228ABDD9300CABCD3 /* HomeViewController.xib */; };
 		D2AF0AD328B51D0300EAF89B /* BrewerySortView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2AF0AD228B51D0300EAF89B /* BrewerySortView.xib */; };
@@ -239,11 +242,14 @@
 		B9DC366428D80E8700A1C249 /* SortCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortCell.xib; sourceTree = "<group>"; };
 		D22C936C28CFB5F100C64EA7 /* CITModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CITModel.xcdatamodel; sourceTree = "<group>"; };
 		D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManager.swift; sourceTree = "<group>"; };
+		D27BC81B28D8B69F00A02097 /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
 		D299D8AC28D3552700E82D45 /* RatedListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedListView.swift; sourceTree = "<group>"; };
 		D299D8AD28D3552700E82D45 /* RatedListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedListView.xib; sourceTree = "<group>"; };
 		D299D8B128D3555500E82D45 /* RatedBreweryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatedBreweryTableViewCell.swift; sourceTree = "<group>"; };
 		D299D8B228D3555500E82D45 /* RatedBreweryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatedBreweryTableViewCell.xib; sourceTree = "<group>"; };
 		D299D8B528D35B3700E82D45 /* CoreDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		D299D8BC28D3BF5400E82D45 /* DeleteFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFavoriteView.swift; sourceTree = "<group>"; };
+		D299D8BE28D3BF6C00E82D45 /* DeleteFavoriteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeleteFavoriteView.xib; sourceTree = "<group>"; };
 		D2AD32E928ABD9C200CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		D2AD32ED28ABDB8E00CABCD3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2AD32F328ABDD9D00CABCD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/HomeViewController.xib; sourceTree = "<group>"; };
@@ -300,6 +306,7 @@
 		29C5AD6E28CFDA4500DBA97E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D299D8BB28D3BBB000E82D45 /* DeleteFavoriteView */,
 				2B5FA60B28CFDC780056DE0E /* FavoriteListView */,
 				2B5FA60428CFD0620056DE0E /* BreweryTableViewCell */,
 				29C5AD7828CFE33B00DBA97E /* EmptyStateView */,
@@ -354,6 +361,7 @@
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				D27BC81B28D8B69F00A02097 /* FormatRequestPhoto.swift */,
 				2B66A85128D9F8AE00CDD9D4 /* FormatRequestPhoto.swift */,
 				D299D8B528D35B3700E82D45 /* CoreDataService.swift */,
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
@@ -756,6 +764,15 @@
 			path = RatedBreweryTableViewCell;
 			sourceTree = "<group>";
 		};
+		D299D8BB28D3BBB000E82D45 /* DeleteFavoriteView */ = {
+			isa = PBXGroup;
+			children = (
+				D299D8BC28D3BF5400E82D45 /* DeleteFavoriteView.swift */,
+				D299D8BE28D3BF6C00E82D45 /* DeleteFavoriteView.xib */,
+			);
+			path = DeleteFavoriteView;
+			sourceTree = "<group>";
+		};
 		D2AF0AD128B51CDB00EAF89B /* BrewerySortView */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +892,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				337D825D28AC0B2A00DBAA56 /* Roboto-ThinItalic.ttf in Resources */,
+				D299D8BF28D3BF6C00E82D45 /* DeleteFavoriteView.xib in Resources */,
 				2BCFD90828B6682800F3DFA9 /* RatingViewController.xib in Resources */,
 				B93EF76328AE8D0200BFA9C6 /* FailureStateView.xib in Resources */,
 				33DD4E2E28AEC1A60077D800 /* BreweryDetailViewController.xib in Resources */,
@@ -1002,6 +1020,8 @@
 				B93EF76228AE8D0200BFA9C6 /* FailureStateView.swift in Sources */,
 				B91F88BE28D80C17009A5FB7 /* SortCell.swift in Sources */,
 				2B7E5CF528D0F7FD00F69F81 /* FillEmailView.swift in Sources */,
+				D299D8BD28D3BF5400E82D45 /* DeleteFavoriteView.swift in Sources */,
+				D27BC81C28D8B69F00A02097 /* FormatRequestPhoto.swift in Sources */,
 				2B0CAB7628D35B23005228DC /* RatedBreweryEmptyStateView.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				B99FDE4F28AC00BD00F5DA30 /* BreweryRepository.swift in Sources */,

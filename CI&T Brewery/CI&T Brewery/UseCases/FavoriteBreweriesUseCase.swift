@@ -16,6 +16,7 @@ protocol FavoriteBreweriesUseCaseProtocol {
     func getBrewery(with id: String) -> FavoriteBreweries?
     func toggleFavoriteButtonState(_ state: FavoriteButtonState) -> FavoriteButtonState
     func getFavoriteButtonState(with id: String) -> FavoriteButtonState
+	func removeFavoriteBrewery(_ brewery: FavoriteBreweries)
 }
 
 class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
@@ -69,6 +70,12 @@ class FavoriteBreweriesUseCase: FavoriteBreweriesUseCaseProtocol {
             manager.saveFavoriteBrewery(brewery: brewery)
         }
     }
+	
+	func removeFavoriteBrewery(_ brewery: FavoriteBreweries) {
+		if let id = manager.getBrewery(with: brewery.id!)?.id {
+			 manager.deleteFavoriteBreweries(id: id)
+		} else {return}
+	}
     
     func loadBreweries() {
         _ = manager.loadFavoriteBreweries()
