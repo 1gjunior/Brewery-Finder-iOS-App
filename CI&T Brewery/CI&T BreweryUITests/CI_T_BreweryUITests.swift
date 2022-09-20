@@ -78,15 +78,3 @@ class CI_T_BreweryUITests: XCTestCase {
         return "\(username)@\(randomProvider)"
     }
 }
-
-extension String {
-    func getRandomEmail(currentStringAsUsername: Bool = false) -> String {
-        let providers = ["gmail.com", "hotmail.com", "icloud.com", "live.com"]
-        let randomProvider = providers.randomElement()!
-        if currentStringAsUsername && self.count > 0 {
-            return "\(self)@\(randomProvider)"
-        }
-        let username = UUID.init().uuidString.replacingOccurrences(of: "-", with: "")
-        return "\(username)@\(randomProvider)"
-    }
-}
