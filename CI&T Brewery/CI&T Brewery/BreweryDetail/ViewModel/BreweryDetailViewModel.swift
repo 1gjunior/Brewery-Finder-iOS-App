@@ -8,8 +8,9 @@
 import Foundation
 import Combine
 
-enum BreweryDetailViewModelState {
+enum BreweryDetailViewModelState: Equatable {
     case success(brewery: BreweryObject)
+    case error
 }
 
 enum PostPhotoViewModelState {
@@ -22,7 +23,6 @@ enum EvaluationState {
     case evaluated
     case noEvaluated
 }
-
 
 class BreweryDetailViewModel {
     var breweriePhotosSubsject = PassthroughSubject<[BreweryPhotos], Error>()
@@ -43,8 +43,8 @@ class BreweryDetailViewModel {
                 case .success(let breweryResponse):
                     let parsedBrewery = BreweryObject(brewery: breweryResponse)
                     self?.state = .success(brewery: parsedBrewery)
-                case .failure(let error):
-                    print(error.localizedDescription)
+            case .failure:
+                self?.state = .error
             }
         }
     }

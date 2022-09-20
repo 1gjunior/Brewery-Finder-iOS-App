@@ -23,4 +23,6 @@ class BreweryMock {
                 postalCode: "test", country: "test", longitude: 0.0, latitude: 0.0,
                 website: "test", phone: "test", average: 1.0, sizeEvaluations: 0.0, photos: nil)
     ]
+    
+    static let breweryObject = BreweryObject(brewery: breweries[0])
 }

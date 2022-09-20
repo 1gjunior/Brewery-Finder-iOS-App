@@ -32,6 +32,7 @@
 		2B66A84F28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A84B28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift */; };
 		2B66A85028D9F85100CDD9D4 /* BreweryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A84C28D9F85100CDD9D4 /* BreweryMock.swift */; };
 		2B66A85228D9F8AE00CDD9D4 /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A85128D9F8AE00CDD9D4 /* FormatRequestPhoto.swift */; };
+		2B66A85528DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A85428DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift */; };
 		2B77FEA328D49551001159DE /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */; };
 		2B77FEA728D49D10001159DE /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */; };
 		2B7E5CEB28D0F23000F69F81 /* RatedBreweriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */; };
@@ -158,6 +159,7 @@
 		2B66A84B28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManagerMock.swift; sourceTree = "<group>"; };
 		2B66A84C28D9F85100CDD9D4 /* BreweryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryMock.swift; sourceTree = "<group>"; };
 		2B66A85128D9F8AE00CDD9D4 /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
+		2B66A85428DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewModelTest.swift; sourceTree = "<group>"; };
 		2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweriesViewModel.swift; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 				2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */,
 				2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */,
 				2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */,
+				2B66A85428DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift */,
 			);
 			path = "CI&T BreweryTests";
 			sourceTree = "<group>";
@@ -1046,6 +1049,7 @@
 				2B125CBA28D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift in Sources */,
 				2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */,
 				3316154428D9170100ACB0AC /* BreweryRepositoryMock.swift in Sources */,
+				2B66A85528DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift in Sources */,
 				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
 				2B66A85028D9F85100CDD9D4 /* BreweryMock.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,

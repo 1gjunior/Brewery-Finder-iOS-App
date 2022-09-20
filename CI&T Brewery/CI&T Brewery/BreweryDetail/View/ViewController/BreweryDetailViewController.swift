@@ -266,6 +266,8 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
             switch state {
             case .success(let brewery):
                 self?.successState(brewery)
+            case .error:
+                print("error")
             case .none: break
             }
         }.store(in: &cancellables)
