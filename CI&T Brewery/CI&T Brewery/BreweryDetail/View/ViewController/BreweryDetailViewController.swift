@@ -11,9 +11,8 @@ import Combine
 import Resolver
 import Kingfisher
 import Cosmos
-import PhotosUI
 
-class BreweryDetailViewController: UIViewController, PHPickerViewControllerDelegate {
+class BreweryDetailViewController: UIViewController {
     @Injected var viewModel: BreweryDetailViewModel
     var dismissAction: (() -> ())?
     private var brewery: BreweryObject?
@@ -21,10 +20,6 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     var lastEmail: String?
     private var cancellables: Set<AnyCancellable> = []
     let id: String
-    var pickerConfiguration = PHPickerConfiguration()
-    var picker: PHPickerViewController?
-    var images: [UIImage?] = []
-    var lastImage: UIImage? = nil
     
     // MARK: Outlets
     @IBOutlet weak var viewTitle: UILabel! {
@@ -141,8 +136,13 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     }
     
     @IBAction func addPhoto(_ sender: Any) {
-        present(picker ?? UIViewController(), animated: true)
+        present(PhotosViewController(id: id, completion: onDismissAddPhotoView), animated: true)
     }
+    
+    func onDismissAddPhotoView() {
+        getBreweryPhotos()
+    }
+    
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
         didSet {
             evaluateBreweryButton?.layer.borderColor = UIColor.breweryYellowLight().cgColor
@@ -161,6 +161,7 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
     init(id: String) {
         self.id = id
         super.init(nibName: "BreweryDetailViewController", bundle: nil)
+        viewModel.id = id
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -174,24 +175,17 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
         photoCollectionView.dataSource = self
         photoCollectionView.register(UINib(nibName: "PhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         
-        getBreweryBy(id: id)
+        getBrewery()
         sinkBrewery()
         sinkRatedBrewery()
         sinkPhotos()
-        getBreweryPhotos(id:id)
-        setupPicker()
-    }
-    
-    func setupPicker() {
-        pickerConfiguration.filter = .images
-        picker = PHPickerViewController(configuration: pickerConfiguration)
-        picker?.delegate = self
+        getBreweryPhotos()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
-        getRatedBreweries(id: id)
+        getRatedBreweries()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -296,28 +290,12 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
             .store(in: &cancellables)
     }
     
-    private func sinkPostPhotos() {
-        viewModel.$statePostPhotos.sink{ [weak self] state in
-            switch state {
-            case .initial:
-                print("initial")
-            case .success:
-                self?.images.append(self?.lastImage)
-                self?.reloadCollectionView()
-            case .error:
-                print("error")
-            case .none:
-                break
-            }
-        }.store(in: &cancellables)
-    }
-    
     private func updateRatedBrewery() {
-        getRatedBreweries(id: id)
+        getRatedBreweries()
     }
     
     private func sucessRatedBrewery() {
-        getBreweryBy(id: id)
+        getBrewery()
         evaluateBreweryButton.isHidden = true
         heightDataView.constant = heightDataView.constant + 80
         ratedBreweryView.isHidden = false
@@ -344,38 +322,16 @@ class BreweryDetailViewController: UIViewController, PHPickerViewControllerDeleg
         }
     }
     
-    internal func getRatedBreweries(id: String) {
-        viewModel.checkRatingByBrewery(id: id)
+    internal func getRatedBreweries() {
+        viewModel.checkRatingByBrewery()
     }
     
-    private func getBreweryBy(id: String) {
-        viewModel.fetchBreweryBy(id: id)
+    private func getBrewery() {
+        viewModel.fetchBrewery()
     }
-	private func getBreweryPhotos(id: String){
-		viewModel.fetchPhotosByBrewery(id: id)
+	private func getBreweryPhotos() {
+		viewModel.fetchPhotosByBrewery()
 	}
-    
-    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-       picker.dismiss(animated: true)
-        for result in results {
-            let provider = result.itemProvider
-     
-            if provider.canLoadObject(ofClass: UIImage.self) {
-                provider.loadObject(ofClass: UIImage.self) { image, error in
-                    if let image = image as? UIImage, !self.images.contains(image) {
-                        self.lastImage = image
-                        self.post()
-                        self.sinkPostPhotos()
-                    }
-                }
-            }
-        }
-    }
-    
-    func post() {
-        guard let data = lastImage?.jpegData(compressionQuality: 0.0) else { return }
-        viewModel.postPhotos(imageData: data, id: id)
-    }
     
     func reloadCollectionView() {
         DispatchQueue.main.async { [weak self] in

@@ -23,21 +23,21 @@ enum EvaluationState {
     case noEvaluated
 }
 
-
 class BreweryDetailViewModel {
+    var id: String? = nil
     var breweriePhotosSubsject = PassthroughSubject<[BreweryPhotos], Error>()
     let repository: BreweryRepositoryProtocol
     var lastImages: [BreweryPhotos] = []
     var savedImages: [String : [BreweryPhotos]] = [:]
     @Published private(set) var state: BreweryDetailViewModelState?
     @Published private(set) var stateRatedBrewery: EvaluationState?
-    @Published private(set) var statePostPhotos: PostPhotoViewModelState?
 
     init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
     }
 
-    func fetchBreweryBy(id: String) {
+    func fetchBrewery() {
+        guard let id = id else { return }
         repository.getBreweryBy(id: id) { [weak self] result in
             switch result {
                 case .success(let breweryResponse):
@@ -49,14 +49,15 @@ class BreweryDetailViewModel {
         }
     }
     
-    func checkRatingByBrewery(id: String) {
+    //TODO: CRIAR UM USE CASE, RETORNA UMA CERVEJARIA COM A INFO DE AVALIAÇÃOww
+    func checkRatingByBrewery() {
         let email = getLastEmail()
         guard let email = email else {return}
         repository.getRatedBreweries(email: email) { [weak self] result in
             guard let self = self  else {return}
             switch result {
                 case .success(let breweryResponse):
-                if self.isBreweryEvaluated(breweryResponse: breweryResponse, id: id) {
+                if self.isBreweryEvaluated(breweryResponse: breweryResponse) {
                     self.stateRatedBrewery = .evaluated
                 }
                 else {
@@ -68,8 +69,9 @@ class BreweryDetailViewModel {
         }
     }
     
-    func isBreweryEvaluated(breweryResponse: [Brewery], id: String) -> Bool {
-        breweryResponse.contains(where: {$0.id == id })
+    func isBreweryEvaluated(breweryResponse: [Brewery]) -> Bool {
+        guard let id = id else { return false }
+        return breweryResponse.contains(where: {$0.id == id })
     }
     
     func isWebsiteAvailable(brewery: BreweryObject) -> Bool {
@@ -91,7 +93,8 @@ class BreweryDetailViewModel {
         return lastEmail
     }
 	
-	func fetchPhotosByBrewery(id: String) {
+	func fetchPhotosByBrewery() {
+        guard let id = id else { return }
 		repository.getBreweryPhotos(id: id) { [weak self] result in
 			  switch result {
 					case .success(let breweryPhotosResponse):
@@ -102,19 +105,5 @@ class BreweryDetailViewModel {
 			  }
 		 }
 	}
-    
-    func postPhotos(imageData: Data, id: String){
-        repository.postPhotosByBrewery(imageData: imageData, breweryId: id) {[weak self] response in
-            switch response {
-            case .failure(_):
-                print("ERRO BREWERY DETAIL VIEW MODEL")
-                self?.statePostPhotos = .error
-            case .success(_):
-                self?.fetchPhotosByBrewery(id: id)
-                print("foi")
-                self?.statePostPhotos = .success
-            }
-        }
-    }
 }
 
