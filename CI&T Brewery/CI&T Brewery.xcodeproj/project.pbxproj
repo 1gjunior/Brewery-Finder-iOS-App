@@ -40,6 +40,7 @@
 		2BD6CECF28AEFB3000B729C4 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6CECE28AEFB3000B729C4 /* FileManagerExtension.swift */; };
 		2BD9460028AA79CC00CFC657 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */; };
 		2BD9460E28AAB08C00CFC657 /* App+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD9460D28AAB08C00CFC657 /* App+Injection.swift */; };
+		336DB72628D8B52A00614046 /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336DB72528D8B52A00614046 /* FormatRequestPhoto.swift */; };
 		337D825628AC0B2A00DBAA56 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */; };
 		337D825728AC0B2A00DBAA56 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */; };
 		337D825828AC0B2A00DBAA56 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */; };
@@ -158,6 +159,7 @@
 		2BD6CECE28AEFB3000B729C4 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		2BD945FF28AA79CC00CFC657 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2BD9460D28AAB08C00CFC657 /* App+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Injection.swift"; sourceTree = "<group>"; };
+		336DB72528D8B52A00614046 /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatRequestPhoto.swift; path = ../../../../FormatRequestPhoto.swift; sourceTree = "<group>"; };
 		337D824628AC0B2A00DBAA56 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		337D824728AC0B2A00DBAA56 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		337D824828AC0B2A00DBAA56 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		2B58EFA728AD2E6F0061B631 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				336DB72528D8B52A00614046 /* FormatRequestPhoto.swift */,
 				D299D8B528D35B3700E82D45 /* CoreDataService.swift */,
 				33BD22AE28AD5ADE0004FEE4 /* OpenMap.swift */,
 				2B58EFA828AD2EB10061B631 /* UILabelExtension.swift */,
@@ -952,6 +955,7 @@
 				B99FDE4128AA966D00F5DA30 /* Brewery.swift in Sources */,
 				B9BF804528D2254D00278012 /* FavoriteBreweriesUseCase.swift in Sources */,
 				2B5FA60828CFD17A0056DE0E /* BreweryTableViewCell.swift in Sources */,
+				336DB72628D8B52A00614046 /* FormatRequestPhoto.swift in Sources */,
 				2B58EFA928AD2EB10061B631 /* UILabelExtension.swift in Sources */,
 				B99FDE0E28A58F4D00F5DA30 /* HomeViewController.swift in Sources */,
 				2B92A12428AC587000E6FB05 /* BreweryObject.swift in Sources */,
