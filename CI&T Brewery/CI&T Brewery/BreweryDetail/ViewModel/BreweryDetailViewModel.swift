@@ -50,6 +50,7 @@ class BreweryDetailViewModel {
         }
     }
     
+    //TODO: CRIAR UM USE CASE, RETORNA UMA CERVEJARIA COM A INFO DE AVALIAÇÃOww
     func checkRatingByBrewery() {
         let email = getLastEmail()
         guard let email = email else {return}
