@@ -25,20 +25,39 @@ class CI_T_BreweryUITests: XCTestCase {
     }
 
     func testExample() throws {
+        let firstElement =  app.collectionViews.children(matching: .cell).element(boundBy: 0).children(matching: .other).element
+        let btnEvaluation = app.scrollViews.otherElements.buttons["Avaliar"]
+        let classification = app.otherElements["Classificação"]
+        let emailTextField = app.textFields["e-mail"]
+        let btnSave = app/*@START_MENU_TOKEN@*/.buttons["Salvar"].staticTexts["Salvar"]/*[[".buttons[\"Salvar\"].staticTexts[\"Salvar\"]",".staticTexts[\"Salvar\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+        let btnClose = app.buttons["Fechar"]
+        let uncheckedButton = app.buttons["Unchecked"]
+        let btnReturn = app/*@START_MENU_TOKEN@*/.keyboards.buttons["Return"]/*[[".keyboards",".buttons[\"retorno\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[2,0]]@END_MENU_TOKEN@*/
+        let email = getRandomEmail()
         
-        app.collectionViews.cells.otherElements.containing(.staticText, identifier:"B9 Beverages Inc").element.swipeLeft()
+        firstElement.tap()
+        XCTAssert(firstElement.exists)
         
-        let scrollViewsQuery = app.scrollViews
-        scrollViewsQuery.otherElements.buttons["Avaliar"].tap()
-        app.otherElements["Classificação"].tap()
-        app.textFields["e-mail"].tap()
-        app.buttons["Unchecked"].tap()
-        app/*@START_MENU_TOKEN@*/.staticTexts["Salvar"]/*[[".buttons[\"Salvar\"].staticTexts[\"Salvar\"]",".staticTexts[\"Salvar\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        app.buttons["Fechar"].tap()
-        scrollViewsQuery.otherElements.containing(.staticText, identifier:"Detalhes da Cervejaria").children(matching: .other).element.children(matching: .other).element(boundBy: 2).children(matching: .other).element.tap()
-                
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        btnEvaluation.tap()
+        XCTAssert(btnEvaluation.exists)
+        
+        classification.firstMatch.tap()
+        XCTAssert(classification.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText(email)
+        btnReturn.tap()
+        XCTAssert(emailTextField.exists)
+        
+        //uncheckedButton.tap()
+        XCTAssert(uncheckedButton.exists)
+        
+        btnSave.tap()
+        XCTAssert(btnSave.exists)
+        
+        XCTAssert(btnClose.exists)
+        btnClose.tap()
+        
     }
 
     func testLaunchPerformance() throws {
@@ -48,5 +67,27 @@ class CI_T_BreweryUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+    }
+    
+    func getRandomEmail(currentStringAsUsername: Bool = false) -> String {
+        let providers = ["gmail.com", "hotmail.com", "icloud.com", "live.com"]
+        let randomProvider = providers.randomElement()!
+        if currentStringAsUsername {
+            return "\(self)@\(randomProvider)"
+        }
+        let username = UUID.init().uuidString.replacingOccurrences(of: "-", with: "")
+        return "\(username)@\(randomProvider)"
+    }
+}
+
+extension String {
+    func getRandomEmail(currentStringAsUsername: Bool = false) -> String {
+        let providers = ["gmail.com", "hotmail.com", "icloud.com", "live.com"]
+        let randomProvider = providers.randomElement()!
+        if currentStringAsUsername && self.count > 0 {
+            return "\(self)@\(randomProvider)"
+        }
+        let username = UUID.init().uuidString.replacingOccurrences(of: "-", with: "")
+        return "\(username)@\(randomProvider)"
     }
 }
