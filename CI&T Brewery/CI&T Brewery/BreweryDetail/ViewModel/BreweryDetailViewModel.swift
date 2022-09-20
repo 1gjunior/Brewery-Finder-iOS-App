@@ -31,7 +31,6 @@ class BreweryDetailViewModel {
     var savedImages: [String : [BreweryPhotos]] = [:]
     @Published private(set) var state: BreweryDetailViewModelState?
     @Published private(set) var stateRatedBrewery: EvaluationState?
-    @Published private(set) var statePostPhotos: PostPhotoViewModelState?
 
     init(repository: BreweryRepositoryProtocol = BreweryRepository()) {
         self.repository = repository
@@ -106,20 +105,5 @@ class BreweryDetailViewModel {
 			  }
 		 }
 	}
-    
-    func postPhotos(imageData: Data) {
-        guard let id = id else { return }
-        repository.postPhotosByBrewery(imageData: imageData, breweryId: id) {[weak self] response in
-            switch response {
-            case .failure(_):
-                print("ERRO BREWERY DETAIL VIEW MODEL")
-                self?.statePostPhotos = .error
-            case .success(_):
-                self?.fetchPhotosByBrewery()
-                print("foi")
-                self?.statePostPhotos = .success
-            }
-        }
-    }
 }
 

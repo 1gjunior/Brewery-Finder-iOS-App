@@ -14,17 +14,24 @@ class PhotosViewController: UIViewController, PHPickerViewControllerDelegate, UI
     var picker: PHPickerViewController?
     var images: [UIImage?] = []
     var lastImage: UIImage? = nil
+    var id: String
     private var cancellables: Set<AnyCancellable> = []
-    var postPhoto: ((Data) -> ())?
+    var viewModel: PhotosViewModel
+    var completion: (() -> ())
     
     @IBAction func dismissPhotosView(_ sender: Any) {
-        self.dismiss(animated: true)
+        DispatchQueue.main.async { [weak self] in
+            self?.completion()
+            self?.dismiss(animated: true)
+        }
     }
     
-    init(postPhoto: @escaping ((Data) -> ())) {
+    init(id: String, completion: @escaping (() -> ())) {
+        self.id = id
+        self.completion = completion
+        viewModel = .init(id: id)
         super.init(nibName: "PhotosViewController", bundle: nil)
         self.view.subviews.first?.layer.cornerRadius = 20
-        self.postPhoto = postPhoto
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,9 +67,10 @@ class PhotosViewController: UIViewController, PHPickerViewControllerDelegate, UI
     
     func post() {
         guard let data = lastImage?.jpegData(compressionQuality: 0.0) else { return }
-        postPhoto?(data)
-        DispatchQueue.main.async {
-            self.dismiss(animated: true)
+        
+        viewModel.postPhotos(imageData: data) { [weak self] in
+            guard let self = self else { return }
+            self.dismissPhotosView(self)
         }
     }
     
@@ -79,7 +87,11 @@ class PhotosViewController: UIViewController, PHPickerViewControllerDelegate, UI
         }
 
         guard let data = image.jpegData(compressionQuality: 0.0) else { return }
-        postPhoto?(data)
+        
+        viewModel.postPhotos(imageData: data) { [weak self] in
+            guard let self = self else { return }
+            self.dismissPhotosView(self)
+        }
     }
     
     @IBAction func cameraTapped(_ sender: Any) {

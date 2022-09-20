@@ -136,7 +136,11 @@ class BreweryDetailViewController: UIViewController {
     }
     
     @IBAction func addPhoto(_ sender: Any) {
-        present(PhotosViewController(postPhoto: viewModel.postPhotos), animated: true)
+        present(PhotosViewController(id: id, completion: onDismissAddPhotoView), animated: true)
+    }
+    
+    func onDismissAddPhotoView() {
+        getBreweryPhotos()
     }
     
     @IBOutlet weak var evaluateBreweryButton: UIButton! {
@@ -176,7 +180,6 @@ class BreweryDetailViewController: UIViewController {
         sinkRatedBrewery()
         sinkPhotos()
         getBreweryPhotos()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
