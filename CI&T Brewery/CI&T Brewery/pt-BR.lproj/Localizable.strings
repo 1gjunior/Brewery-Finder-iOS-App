@@ -10,12 +10,12 @@
 "buttonConfirm" = "Confirmar";
 
 /* HomeViewController */
-"CI&T Brewery" = "CI&T Brewery";
+"navigatioBarnTitle" = "CI&T Brewery";
 "inputEmptyStateText" = "Nenhum termo digitado";
 "resultEmptyStateText" = "Nenhum resultado encontrado para sua busca";
 "resultsText" = "resultados";
 "resultText" = "resultado";
-"Busque por local" = "Busque por local";
+"searchPlaceholder" = "Busque por local";
 
 
 /* RatingViewController */
@@ -27,10 +27,10 @@
 "evaluation" = "Avaliação";
 
 /* Open Map */
-"Open Location" = "Abrir localização";
-"Google Maps" = "Google Maps";
-"Choose an app to open direction" = "Escolher aplicativo para mostrar localização";
-"Cancel" = "Cancelar";
+"alertTitle" = "Abrir localização";
+"actionTitle" = "Google Maps";
+"alertMessage" = "Escolher aplicativo para mostrar localização";
+"cancelButtonTitle" = "Cancelar";
 "seeOnMap" = "Ver no mapa";
 
 /* RatingViewController */
@@ -39,9 +39,9 @@
 "EvaluationAddFailure" =  "Não foi possível adicionar sua avaliação. \n Tente mais tarde.";
 
 /* BrewerySortView */
-"Ordenar por" = "Ordenar por";
-"Nome (A a Z)" = "Nome (A a Z)";
-"Nota (menor para maior)" = "Nota (menor para maior)";
+"sortBy" = "Ordenar por";
+"sortName" = "Nome (A a Z)";
+"sortRating" = "Nota (menor para maior)";
 "name" = "Ordenar por: Nome";
 "rating" = "Ordenar por: Nota";
 

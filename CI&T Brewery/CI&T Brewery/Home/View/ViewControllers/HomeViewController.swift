@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         didSet{
             searchBar.searchTextField.layer.cornerRadius = 20
             searchBar.searchTextField.layer.masksToBounds = true
-            searchBar.placeholder = NSLocalizedString("Busque por local", comment: "")
+            searchBar.placeholder = NSLocalizedString("searchPlaceholder", comment: "")
             searchBar.searchTextField.backgroundColor = UIColor.BreweryYellowPale()
             searchBar.searchTextField.font = UIFont.robotoRegular(ofSize: 14)
         }
@@ -214,7 +214,7 @@ extension HomeViewController {
     }
     
     private func setupNavigationBarItems() {
-        navigationItem.title = "CI&T Brewery"
+        navigationItem.title = NSLocalizedString("navigatioBarnTitle", comment: "String")
         setupLeftNavigationBar()
         setupRightNavigationBar()
     }
