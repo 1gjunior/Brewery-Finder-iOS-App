@@ -10,7 +10,9 @@ import Foundation
 
 class BreweryRepositoryMock: BreweryRepositoryProtocol {
     var breweries = BreweryMock.breweries
-    var error: Error! = nil
+    var brewery: Brewery!
+    var photos: [BreweryPhotos] = []
+    var error: Error!
     var networkError: NetworkError? = nil
     
     func postPhotosByBrewery(imageData: Data, breweryId: String, completion: @escaping (Result<BreweryPhotos, Error>) -> Void) {
@@ -35,7 +37,11 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
     }
     
     func getBreweryBy(id: String, completion: @escaping (Result<Brewery, Error>) -> Void) {
-        
+        if let error = error {
+            completion(.failure(error))
+        } else {
+            completion(.success(brewery))
+        }
     }
     
     func postBreweryEvaluation(evaluation: BreweryEvaluation, completion: @escaping (Result<ApiEvaluationResponse, NetworkError>) -> Void) {
@@ -49,11 +55,19 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
     }
     
     func getTop10Breweries(completion: @escaping (Result<[Brewery], Error>) -> Void) {
-        
+        if let error = error {
+            completion(.failure(error))
+        } else {
+            completion(.success(breweries))
+        }
     }
     
     func getBreweryPhotos(id: String, completion: @escaping (Result<[BreweryPhotos], Error>) -> Void) {
-        
+        if let error = error {
+            completion(.failure(error))
+        } else {
+            completion(.success(photos))
+        }
     }
     
     var apiEvaluationResponse = ApiEvaluationResponse(email: "Pam00@gmail.com", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)
