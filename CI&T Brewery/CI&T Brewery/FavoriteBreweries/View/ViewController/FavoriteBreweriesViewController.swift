@@ -46,6 +46,7 @@ class FavoriteBreweriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        loadFavorite()
     }
     
     private func setupSuccessState(_ breweries: [FavoriteBreweries])  {

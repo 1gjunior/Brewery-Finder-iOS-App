@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Resolver
 
 public protocol FavoriteListViewDelegate: AnyObject{
     func didSorted(type: SortType)
@@ -15,6 +16,7 @@ public protocol FavoriteListViewDelegate: AnyObject{
 
 class FavoriteListView: UIView{
 	
+    @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     private var breweries: [FavoriteBreweries] = []
     weak var delegate: FavoriteListViewDelegate?
     private var action: ((_ id: String) -> ())?
@@ -92,7 +94,8 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-       breweries.count
+        print("favorites count \(breweries.count)")
+        return breweries.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -149,10 +152,18 @@ extension FavoriteListView: SortViewDelegate {
 extension FavoriteListView: FavoriteCellActionDelegate {
 	func didFavoriteButtonTapped(brewery: FavoriteBreweries) {
 		let deleteFavoriteView = DeleteFavoriteView(favoriteBrewery: brewery)
-		self.parentViewController?.modalPresentationStyle = .overFullScreen
+        self.parentViewController?.modalPresentationStyle = .overFullScreen
 		self.parentViewController?.modalTransitionStyle = .flipHorizontal
-		self.parentViewController?.present(deleteFavoriteView, animated: true)
+        deleteFavoriteView.dismissActionDelete = reloadTableView
+        self.parentViewController?.present(deleteFavoriteView, animated: true, completion: nil)
 	}
+    
+    func reloadTableView() {
+        breweries = favoriteManager.loadFavoriteBreweries()!
+        self.tableView.reloadData()
+        print("favorites count \(breweries.count)")
+        print("breweries count\(breweries)")
+    }
 }
 
 extension FavoriteListView {

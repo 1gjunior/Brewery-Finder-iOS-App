@@ -12,6 +12,7 @@ import Resolver
 class DeleteFavoriteView: UIViewController{
 	@Injected var viewModel: FavoriteBreweriesViewModel
 	let favoriteBrewery: FavoriteBreweries?
+    var dismissActionDelete: (() -> ())?
 	@IBOutlet weak var modalView: UIView!{
 		didSet{
 			modalView.layer.cornerRadius = 20
@@ -55,13 +56,19 @@ class DeleteFavoriteView: UIViewController{
 	required init?(coder aDecoder: NSCoder) {
 		 fatalError("init(coder:) has not been implemented")
 	}
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("saindo da delete favorite view")
+        guard let dismissActionDelete = dismissActionDelete else {return}
+        dismissActionDelete()
+    }
 	
 	@IBAction func cancelRemoval(_ sender: UIButton) {
 		dismiss(animated: true)
 	}
 	@IBAction func confirmRemoval(_ sender: UIButton) {
 		viewModel.removeFavorite(brewery: favoriteBrewery!)
-		dismiss(animated: true)
+        dismiss(animated: true)
 	}
-
 }
