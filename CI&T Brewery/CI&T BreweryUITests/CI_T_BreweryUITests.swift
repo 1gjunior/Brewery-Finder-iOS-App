@@ -102,6 +102,7 @@ class CI_T_BreweryUITests: XCTestCase {
         
         let button = app.buttons["favorite border"]
         let firstCell = app.tables.cells.firstMatch
+        let btnEvaluation = app.scrollViews.otherElements.buttons["Avaliar"]
         
         XCTAssert(button.exists)
         button.tap()
@@ -109,6 +110,7 @@ class CI_T_BreweryUITests: XCTestCase {
         if firstCell.exists {
             firstCell.tap()
             XCTAssert(firstCell.exists)
+            XCTAssert(btnEvaluation.exists)
         }
     }
 
