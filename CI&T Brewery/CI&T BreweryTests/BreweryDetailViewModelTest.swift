@@ -25,12 +25,13 @@ class BreweryDetailViewModelTest: XCTestCase {
         viewModel = nil
     }
     
-    func test_fetchBreweryByIdSuccess() {
+    func test_fetchBrewerySuccess() {
         // given
         repository.brewery = brewery
+        viewModel.id = "alphabet-city-brewing-co-new-york"
         
         // when
-        viewModel.fetchBreweryBy(id: "alphabet-city-brewing-co-new-york")
+        viewModel.fetchBrewery()
         
         // then
         viewModel.$state
@@ -45,12 +46,13 @@ class BreweryDetailViewModelTest: XCTestCase {
             .store(in: &cancellables)
     }
     
-    func test_fetchBreweryByIdError() {
+    func test_fetchBreweryError() {
         // given
         repository.error = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Error"])
+        viewModel.id = "alphabet-city-brewing-co-new-york"
         
         // when
-        viewModel.fetchBreweryBy(id: "alphabet-city-brewing-co-new-york")
+        viewModel.fetchBrewery()
         
         // then
         viewModel.$state
@@ -81,11 +83,9 @@ class BreweryDetailViewModelTest: XCTestCase {
     }
     
     func test_getLastEmailError() {
-        let email = ""
-        
         let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
         do {
-            try email.write(to: fileURL, atomically: false, encoding: .utf8)
+            try FileManager.default.removeItem(atPath: fileURL.path)
         }
         catch {
             print("Error writing")
