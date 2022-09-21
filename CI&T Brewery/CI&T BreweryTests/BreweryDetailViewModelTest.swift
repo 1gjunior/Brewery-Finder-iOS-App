@@ -64,4 +64,34 @@ class BreweryDetailViewModelTest: XCTestCase {
             )
             .store(in: &cancellables)
     }
+    
+    func test_getLastEmailSuccess() {
+        let email = "teste@gmail.com"
+        
+        let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        do {
+            try email.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch {
+            print("Error writing")
+        }
+        
+        let lastEmail = viewModel.getLastEmail()
+        XCTAssertEqual(email, lastEmail)
+    }
+    
+    func test_getLastEmailError() {
+        let email = ""
+        
+        let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        do {
+            try email.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch {
+            print("Error writing")
+        }
+        
+        let lastEmail = viewModel.getLastEmail()
+        XCTAssertNil(lastEmail)
+    }
 }
