@@ -97,6 +97,20 @@ class CI_T_BreweryUITests: XCTestCase {
         
         XCTAssert(btnClose.exists)
     }
+    
+    func test_my_favorites() {
+        
+        let button = app.buttons["favorite border"]
+        let firstCell = app.tables.cells.firstMatch
+        
+        XCTAssert(button.exists)
+        button.tap()
+        
+        if firstCell.exists {
+            firstCell.tap()
+            XCTAssert(firstCell.exists)
+        }
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
