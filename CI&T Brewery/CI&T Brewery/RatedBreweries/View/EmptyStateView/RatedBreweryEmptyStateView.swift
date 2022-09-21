@@ -14,6 +14,7 @@ class RatedBreweryEmptyStateView: UIView {
             mainTitle.font = UIFont.robotoMedium(ofSize: 20)
             mainTitle.textColor = .black
             mainTitle.text = NSLocalizedString("ratedEmptyStateTitle", comment: "")
+            mainTitle.accessibilityIdentifier = "main_title_label_rated_breweries"
         }
     }
     @IBOutlet weak var subTitle: UILabel! {
