@@ -115,6 +115,22 @@ class CI_T_BreweryUITests: XCTestCase {
         XCTAssertTrue(mainTitle.isHittable)
     }
 
+    func test_favorite_brewery_in_details_view() {
+        let search = app.searchFields["Busque por local"]
+        let btnSearch = app.buttons["Search"]
+        let firstCell = app.tables.cells.firstMatch
+        let favoriteBreweryButton = app.navigationBars["home_nav_bar"].buttons["favorite border"]
+        
+        search.tap()
+        search.typeText("San Francisco")
+        btnSearch.tap()
+        firstCell.tap()
+        favoriteBreweryButton.tap()
+        
+        XCTAssert(favoriteBreweryButton.isHittable)
+        XCTAssert(favoriteBreweryButton.isEnabled)
+    }
+    
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
