@@ -14,7 +14,6 @@ import Cosmos
 
 class BreweryDetailViewController: UIViewController {
     @Injected var viewModel: BreweryDetailViewModel
-    @Injected var manager: FavoriteBreweriesManagerProtocol
     var dismissAction: (() -> ())?
     private var brewery: BreweryObject?
     private var breweryPhotos: [BreweryPhotos] = []
@@ -208,11 +207,7 @@ class BreweryDetailViewController: UIViewController {
         
         sender.isSelected.toggle()
         
-        if ((manager.getBrewery(with: id)?.id) != nil) {
-            manager.deleteFavoriteBreweries(id: id)
-        } else {
-            manager.saveFavoriteBrewery(brewery: brewery.brewery)
-        }
+        viewModel.handleFavoriteBrewery(brewery: brewery.brewery)
     }
     
     @IBAction func fadeButtonTouchDown(sender: UIButton) {
@@ -342,20 +337,9 @@ class BreweryDetailViewController: UIViewController {
     private func getBrewery() {
         viewModel.fetchBrewery()
     }
+    
     private func getBreweryPhotos() {
         viewModel.fetchPhotosByBrewery()
-    }
-    
-    private func getButtonIsFavorited(with id: String) -> Bool {
-        var state: FavoriteButtonState = .unselected
-        
-        if manager.getBrewery(with: id) != nil {
-            state = .selected
-        } else {
-            state = .unselected
-        }
-        
-        return state.isSelected
     }
     
     func reloadCollectionView() {
@@ -381,7 +365,7 @@ extension BreweryDetailViewController {
     }
     private func setupRightNavigationBar() {
         let favoriteButton = UIButton()
-        favoriteButton.isSelected = getButtonIsFavorited(with: id)
+        favoriteButton.isSelected = viewModel.getButtonIsFavorited(with: id)
         favoriteButton.setImage(UIImage(named: "favorite_border_fill")?.withRenderingMode(.alwaysOriginal), for: .selected)
         favoriteButton.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         favoriteButton.addTarget(self, action: #selector(favorite(_:)), for: .touchUpInside)
