@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
+protocol FavoriteCellActionDelegate{
+	func didFavoriteButtonTapped(brewery: FavoriteBreweries)
+}
+
 class BreweryTableViewCell: UITableViewCell {
+	var delegate: FavoriteCellActionDelegate?
+	var brewery: FavoriteBreweries? = nil
+	var favoriteListView = FavoriteListView()
     @IBOutlet weak var mainView: UIView! {
         didSet {
             mainView.layer.cornerRadius = 30
@@ -38,12 +45,24 @@ class BreweryTableViewCell: UITableViewCell {
             type.textColor = UIColor.breweryBlack()
         }
     }
-    
+	@IBOutlet weak var favoriteButton: UIButton!{
+		didSet{
+			favoriteButton.tintColor = UIColor.favoriteRedColor()
+		}
+	}
+		
     func configure(for brewery: FavoriteBreweries) {
         guard let breweryName = brewery.name else {return}
         letterImage.text = breweryName.prefix(1).uppercased()
         name.text = brewery.name
         average.text = "\(brewery.evaluation)"
         type.text = brewery.type
+			self.brewery = brewery
     }
+
+	@IBAction func removeFavorite(_ sender: UIButton) {
+		if let delegate = self.delegate, let brewery = brewery{
+			delegate.didFavoriteButtonTapped(brewery: brewery)
+		}
+	}
 }

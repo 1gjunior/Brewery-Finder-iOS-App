@@ -60,7 +60,10 @@
                         <rect key="frame" x="369.5" y="17.5" width="45.5" height="31"/>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                        <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
+                        <connections>
+                            <action selector="removeFavorite:" destination="8Dd-Gi-ZAn" eventType="touchUpInside" id="7bL-Wc-wFG"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -86,6 +89,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="average" destination="w3w-sO-yaT" id="2XN-J7-4C7"/>
+                <outlet property="favoriteButton" destination="r5S-DP-gwv" id="5cr-Tu-l9I"/>
                 <outlet property="letterImage" destination="sVR-a3-PuK" id="Ych-BL-onX"/>
                 <outlet property="mainView" destination="tht-68-Ame" id="2dg-Dr-FZi"/>
                 <outlet property="name" destination="EJd-Mg-7XI" id="yi6-8q-nFd"/>
@@ -96,7 +100,7 @@
     </objects>
     <resources>
         <image name="Star" width="15" height="15"/>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <namedColor name="Brewery Yellow Alpha 16">
             <color red="1" green="0.80000001192092896" blue="0.0" alpha="0.15899999439716339" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -27,7 +27,7 @@ class FavoriteBreweriesViewController: UIViewController {
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         return emptyStateView
     }()
-
+	
     init() {
         super.init(nibName: "FavoriteBreweriesView", bundle: nil)
     }
@@ -88,7 +88,7 @@ class FavoriteBreweriesViewController: UIViewController {
         emptyStateView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         emptyStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
     }
-
+	
     private func sinkBreweries() {
         viewModel.$state.sink { [weak self] state in
             switch state {

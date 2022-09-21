@@ -10,4 +10,9 @@ import UIKit
 class SortCell: UITableViewCell {
     @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var label: UILabel!
+    var type: SortType? {
+        didSet {
+            label.text = type?.labelText
+        }
+    }
 }
