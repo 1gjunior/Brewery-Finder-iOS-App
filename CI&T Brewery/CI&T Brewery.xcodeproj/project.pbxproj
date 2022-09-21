@@ -113,6 +113,8 @@
 		B9DC36AA28DA021B00A1C249 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36A528DA021B00A1C249 /* APIManagerMock.swift */; };
 		B9DC36AB28DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36A628DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift */; };
 		B9DC36AD28DA535800A1C249 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DC36AC28DA535800A1C249 /* PhotosViewModel.swift */; };
+		D224C3ED28DB386800500011 /* PhotosViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224C3EC28DB386800500011 /* PhotosViewModelTest.swift */; };
+		D224C3EF28DB7C6A00500011 /* BreweryPhotosMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D224C3EE28DB7C6A00500011 /* BreweryPhotosMock.swift */; };
 		D22C936D28CFB5F100C64EA7 /* CITModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D22C936B28CFB5F100C64EA7 /* CITModel.xcdatamodeld */; };
 		D22C937128CFB9D500C64EA7 /* FavoriteBreweriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */; };
 		D27BC81C28D8B69F00A02097 /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27BC81B28D8B69F00A02097 /* FormatRequestPhoto.swift */; };
@@ -260,6 +262,8 @@
 		B9DC36A528DA021B00A1C249 /* APIManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
 		B9DC36A628DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCaseMock.swift; sourceTree = "<group>"; };
 		B9DC36AC28DA535800A1C249 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
+		D224C3EC28DB386800500011 /* PhotosViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModelTest.swift; sourceTree = "<group>"; };
+		D224C3EE28DB7C6A00500011 /* BreweryPhotosMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryPhotosMock.swift; sourceTree = "<group>"; };
 		D22C936C28CFB5F100C64EA7 /* CITModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CITModel.xcdatamodel; sourceTree = "<group>"; };
 		D22C937028CFB9D500C64EA7 /* FavoriteBreweriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManager.swift; sourceTree = "<group>"; };
 		D27BC81B28D8B69F00A02097 /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
@@ -672,6 +676,7 @@
 				2B125CB228D8D8B800B28F6B /* HomeViewModelTest.swift */,
 				2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */,
 				2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */,
+				D224C3EC28DB386800500011 /* PhotosViewModelTest.swift */,
 				2B66A85428DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift */,
 			);
 			path = "CI&T BreweryTests";
@@ -788,6 +793,7 @@
 				B9DC36A428DA021B00A1C249 /* FavoriteBreweriesManagerMock.swift */,
 				B9DC36A528DA021B00A1C249 /* APIManagerMock.swift */,
 				B9DC36A628DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift */,
+				D224C3EE28DB7C6A00500011 /* BreweryPhotosMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -1135,6 +1141,8 @@
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
 				2B66A83428D9D2D300CDD9D4 /* BreweryRepositoryTest.swift in Sources */,
 				2B125CBA28D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift in Sources */,
+				D224C3EF28DB7C6A00500011 /* BreweryPhotosMock.swift in Sources */,
+				D224C3ED28DB386800500011 /* PhotosViewModelTest.swift in Sources */,
 				B9DC36AA28DA021B00A1C249 /* APIManagerMock.swift in Sources */,
 				B9DC36AB28DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift in Sources */,
 				2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */,

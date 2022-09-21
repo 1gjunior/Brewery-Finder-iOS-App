@@ -7,15 +7,23 @@
 
 import Foundation
 @testable import CI_T_Brewery
+import UIKit
 
 class BreweryRepositoryMock: BreweryRepositoryProtocol {
     var breweries = BreweryMock.breweries
+	 var breweryPhotos = BreweryPhotosMock.breweryPhotos
+    var error: Error! = nil
     var brewery: Brewery!
     var photos: [BreweryPhotos] = []
-    var error: Error!
     var networkError: NetworkError? = nil
     
     func postPhotosByBrewery(imageData: Data, breweryId: String, completion: @escaping (Result<BreweryPhotos, Error>) -> Void) {
+		 if networkError != nil {
+			  completion(.failure(networkError!))
+		 }
+		 else {
+			  completion(.success(breweryPhotos))
+		 }
     }
     
     func getRatedBreweries(email: String, completion: @escaping (Result<[Brewery], Error>) -> Void) {
