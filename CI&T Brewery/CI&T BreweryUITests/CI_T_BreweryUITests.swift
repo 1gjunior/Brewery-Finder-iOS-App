@@ -56,6 +56,47 @@ class CI_T_BreweryUITests: XCTestCase {
         
         XCTAssert(btnClose.exists)
     }
+    
+    func test_detail_from_search_by_city() {
+        
+        let search = app.searchFields["Busque por local"]
+        let firstCell = app.tables.cells.firstMatch
+        let btnSearch =  app/*@START_MENU_TOKEN@*/.buttons["Search"]/*[[".keyboards",".buttons[\"buscar\"]",".buttons[\"Search\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/
+        let btnEvaluation = app.scrollViews.otherElements.buttons["Avaliar"]
+        let classification = app.otherElements["Classificação"]
+        let emailTextField = app.textFields["e-mail"]
+        let btnSave = app/*@START_MENU_TOKEN@*/.buttons["Salvar"].staticTexts["Salvar"]/*[[".buttons[\"Salvar\"].staticTexts[\"Salvar\"]",".staticTexts[\"Salvar\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+        let btnClose = app.buttons["Fechar"]
+        let uncheckedButton = app.buttons["Unchecked"]
+        let btnReturn = app/*@START_MENU_TOKEN@*/.keyboards.buttons["Return"]/*[[".keyboards",".buttons[\"retorno\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[2,0]]@END_MENU_TOKEN@*/
+        let email = getRandomEmail()
+        
+        search.tap()
+        search.typeText("Paris")
+        btnSearch.tap()
+        XCTAssert(search.exists)
+        
+        firstCell.tap()
+        XCTAssert(firstCell.exists)
+        
+        btnEvaluation.tap()
+        XCTAssert(btnEvaluation.exists)
+        
+        classification.firstMatch.tap()
+        XCTAssert(classification.exists)
+        
+        emailTextField.tap()
+        emailTextField.typeText(email)
+        btnReturn.tap()
+        XCTAssert(emailTextField.exists)
+        
+        XCTAssert(uncheckedButton.exists)
+        
+        btnSave.tap()
+        XCTAssert(btnSave.exists)
+        
+        XCTAssert(btnClose.exists)
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
