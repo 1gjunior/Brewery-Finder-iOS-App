@@ -66,7 +66,7 @@ struct ApiEvaluationResponse: Codable {
     let evaluationGrade: Double
 }
 
-struct BreweryPhotos: Codable{
+struct BreweryPhotos: Codable, Equatable {
 	let PhotoId: String
 	let breweryId: String
 	let url: String

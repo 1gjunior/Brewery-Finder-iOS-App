@@ -9,8 +9,9 @@ import Foundation
 import Combine
 import Resolver
 
-enum BreweryDetailViewModelState {
+enum BreweryDetailViewModelState: Equatable {
     case success(brewery: BreweryObject)
+    case error
 }
 
 enum PostPhotoViewModelState {
@@ -42,11 +43,11 @@ class BreweryDetailViewModel {
         guard let id = id else { return }
         repository.getBreweryBy(id: id) { [weak self] result in
             switch result {
-            case .success(let breweryResponse):
-                let parsedBrewery = BreweryObject(brewery: breweryResponse)
-                self?.state = .success(brewery: parsedBrewery)
-            case .failure(let error):
-                print(error.localizedDescription)
+                case .success(let breweryResponse):
+                    let parsedBrewery = BreweryObject(brewery: breweryResponse)
+                    self?.state = .success(brewery: parsedBrewery)
+            case .failure:
+                self?.state = .error
             }
         }
     }
