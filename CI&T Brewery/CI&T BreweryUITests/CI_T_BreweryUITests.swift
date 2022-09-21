@@ -57,6 +57,26 @@ class CI_T_BreweryUITests: XCTestCase {
         XCTAssert(btnClose.exists)
     }
     
+    func test_favorite_from_home() {
+        let searchField = app.searchFields["Busque por local"]
+        searchField.tap()
+        searchField.typeText("London")
+        
+        let searchButton = app.buttons["Search"]
+        searchButton.tap()
+        
+        let favoriteButton = app.tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"6")/*[[".cells.containing(.staticText, identifier:\"603 Brewery\")",".cells.containing(.staticText, identifier:\"6\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.buttons["gostei"]
+        
+        XCTAssertFalse(favoriteButton.isSelected)
+        favoriteButton.tap()
+        XCTAssertTrue(favoriteButton.isSelected)
+        print(favoriteButton.isSelected)
+        favoriteButton.tap()
+        XCTAssertFalse(favoriteButton.isSelected)
+        let image = favoriteButton.images.element
+        print(image)
+    }
+    
     func test_detail_from_search_by_city() {
         
         let search = app.searchFields["Busque por local"]
