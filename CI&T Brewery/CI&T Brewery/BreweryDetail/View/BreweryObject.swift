@@ -8,7 +8,7 @@
 import Foundation
 
 class BreweryObject {
-    private var brewery: Brewery
+    var brewery: Brewery
     
     var name: String
     var type: String

@@ -204,7 +204,15 @@ class BreweryDetailViewController: UIViewController {
     }
     
     @IBAction func favorite(_ sender: UIButton) {
+        guard let brewery = brewery else { return }
+        
         sender.isSelected.toggle()
+        
+        if ((manager.getBrewery(with: id)?.id) != nil) {
+            manager.deleteFavoriteBreweries(id: id)
+        } else {
+            manager.saveFavoriteBrewery(brewery: brewery.brewery)
+        }
     }
     
     @IBAction func fadeButtonTouchDown(sender: UIButton) {
