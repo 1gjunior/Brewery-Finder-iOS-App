@@ -210,6 +210,7 @@ extension HomeViewController {
     private func setupNavigationBar() {
         navigationController?.navigationBar.backgroundColor = UIColor.yellowDark()
         navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.accessibilityIdentifier = "home_nav_bar"
         setupNavigationBarItems()
     }
     
@@ -236,6 +237,7 @@ extension HomeViewController {
         starIcon.setImage(UIImage(named: "star_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
         starIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         starIcon.addTarget(self, action: #selector(didTapRatingButton), for: UIControl.Event.touchUpInside)
+        starIcon.accessibilityIdentifier = "rated_breweries_button"
         
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(customView: favoriteIcon),
