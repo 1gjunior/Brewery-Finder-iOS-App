@@ -27,6 +27,12 @@
 		2B5FA60A28CFD24F0056DE0E /* BreweryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B5FA60928CFD24F0056DE0E /* BreweryTableViewCell.xib */; };
 		2B5FA60F28CFDCF60056DE0E /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FA60E28CFDCF60056DE0E /* FavoriteListView.swift */; };
 		2B66A83428D9D2D300CDD9D4 /* BreweryRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */; };
+		2B66A84D28D9F85100CDD9D4 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A84928D9F85100CDD9D4 /* APIManagerMock.swift */; };
+		2B66A84E28D9F85100CDD9D4 /* FavoriteBreweriesUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A84A28D9F85100CDD9D4 /* FavoriteBreweriesUseCaseMock.swift */; };
+		2B66A84F28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A84B28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift */; };
+		2B66A85028D9F85100CDD9D4 /* BreweryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A84C28D9F85100CDD9D4 /* BreweryMock.swift */; };
+		2B66A85228D9F8AE00CDD9D4 /* FormatRequestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A85128D9F8AE00CDD9D4 /* FormatRequestPhoto.swift */; };
+		2B66A85528DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B66A85428DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift */; };
 		2B77FEA328D49551001159DE /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */; };
 		2B77FEA728D49D10001159DE /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */; };
 		2B7E5CEB28D0F23000F69F81 /* RatedBreweriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */; };
@@ -166,6 +172,8 @@
 		2B66A84A28D9F85100CDD9D4 /* FavoriteBreweriesUseCaseMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesUseCaseMock.swift; sourceTree = "<group>"; };
 		2B66A84B28D9F85100CDD9D4 /* FavoriteBreweriesManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteBreweriesManagerMock.swift; sourceTree = "<group>"; };
 		2B66A84C28D9F85100CDD9D4 /* BreweryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryMock.swift; sourceTree = "<group>"; };
+		2B66A85128D9F8AE00CDD9D4 /* FormatRequestPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatRequestPhoto.swift; sourceTree = "<group>"; };
+		2B66A85428DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreweryDetailViewModelTest.swift; sourceTree = "<group>"; };
 		2B77FEA228D49551001159DE /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B77FEA628D49D10001159DE /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B7E5CEA28D0F23000F69F81 /* RatedBreweriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatedBreweriesViewModel.swift; sourceTree = "<group>"; };
@@ -669,6 +677,7 @@
 				2B125CB928D90A2900B28F6B /* FavoriteBreweryUseCaseTest.swift */,
 				2B66A83328D9D2D300CDD9D4 /* BreweryRepositoryTest.swift */,
 				D224C3EC28DB386800500011 /* PhotosViewModelTest.swift */,
+				2B66A85428DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift */,
 			);
 			path = "CI&T BreweryTests";
 			sourceTree = "<group>";
@@ -1137,6 +1146,8 @@
 				B9DC36AA28DA021B00A1C249 /* APIManagerMock.swift in Sources */,
 				B9DC36AB28DA021B00A1C249 /* FavoriteBreweriesUseCaseMock.swift in Sources */,
 				2B125CB328D8D8B800B28F6B /* HomeViewModelTest.swift in Sources */,
+				3316154428D9170100ACB0AC /* BreweryRepositoryMock.swift in Sources */,
+				2B66A85528DA1C6F00CDD9D4 /* BreweryDetailViewModelTest.swift in Sources */,
 				B9B320CB28D7DD7500C36D91 /* SearchBreweryTest.swift in Sources */,
 				B99FDE2128A58F4E00F5DA30 /* RatedBreweriesViewModelTest.swift in Sources */,
 				3316153F28D912C500ACB0AC /* RatingViewModelTest.swift in Sources */,
@@ -1323,7 +1334,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3FR268SB5J;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CI&T Brewery/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1351,7 +1362,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3FR268SB5J;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CI&T Brewery/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1378,7 +1389,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3FR268SB5J;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -1398,7 +1409,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3FR268SB5J;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
@@ -1417,7 +1428,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3FR268SB5J;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-BreweryUITests";
@@ -1435,7 +1446,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3FR268SB5J;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "CI-T.CI-T-BreweryUITests";

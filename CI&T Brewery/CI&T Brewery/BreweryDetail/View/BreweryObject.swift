@@ -8,8 +8,9 @@
 import Foundation
 
 class BreweryObject {
-    private var brewery: Brewery
+    var brewery: Brewery
     
+    var id: String
     var name: String
     var type: String
     var address: String
@@ -23,6 +24,7 @@ class BreweryObject {
     init(brewery: Brewery) {
         self.brewery = brewery
         
+        self.id = brewery.id
         self.name = brewery.name
         self.type = brewery.type
         self.latitute = brewery.latitude
@@ -60,5 +62,11 @@ class BreweryObject {
         self.evaluation = evaluationString
         
         self.logo = String(name[name.startIndex])
+    }
+}
+
+extension BreweryObject: Equatable {
+    static func == (lhs: BreweryObject, rhs: BreweryObject) -> Bool {
+        return lhs.id == rhs.id
     }
 }

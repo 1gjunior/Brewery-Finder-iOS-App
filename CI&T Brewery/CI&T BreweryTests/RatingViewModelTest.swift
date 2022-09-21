@@ -20,7 +20,7 @@ class RatingViewModelTest: XCTestCase {
       
         XCTAssert(viewModel.stateRating == .initial)
         
-        var evaluation = BreweryEvaluation(email: "Pam00@gmail.com", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)
+        let evaluation = BreweryEvaluation(email: "Pam00@gmail.com", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)
         
         viewModel.post(evaluation: evaluation)
         XCTAssert(viewModel.stateRating == .sucess)
@@ -29,7 +29,7 @@ class RatingViewModelTest: XCTestCase {
     func testPostErrorRatingBreweries() {
         repository.networkError = .responseError
         
-        var evaluation = BreweryEvaluation(email: "", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)
+        let evaluation = BreweryEvaluation(email: "", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)
         
         viewModel.post(evaluation: evaluation)
         XCTAssert(viewModel.stateRating == .error)

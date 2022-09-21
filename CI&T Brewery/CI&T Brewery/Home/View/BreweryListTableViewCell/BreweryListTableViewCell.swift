@@ -63,6 +63,13 @@ enum FavoriteButtonState {
         }
     }
     
+    var isSelected: Bool {
+        switch self {
+        case .selected: return true
+        case .unselected: return false
+        }
+    }
+    
     var image: UIImage? {
         switch self {
         case .selected: return UIImage(systemName: "heart.fill")
