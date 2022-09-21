@@ -97,6 +97,23 @@ class CI_T_BreweryUITests: XCTestCase {
         
         XCTAssert(btnClose.exists)
     }
+    
+    func test_myRatedBreweries() {
+        let ratedBreweriesButton = app.navigationBars["home_nav_bar"].buttons["rated_breweries_button"]
+        let emailTextField = app.textFields["email_text_field_rated_breweries"]
+        let email = getRandomEmail()
+        let btnReturn = app/*@START_MENU_TOKEN@*/.keyboards.buttons["Return"]/*[[".keyboards",".buttons[\"retorno\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[2,0]]@END_MENU_TOKEN@*/
+        let confirmBtn = app.buttons["confirm_button_rated_breweries"]
+        let mainTitle = app.staticTexts["main_title_label_rated_breweries"]
+        
+        ratedBreweriesButton.tap()
+        emailTextField.tap()
+        emailTextField.typeText(email)
+        btnReturn.tap()
+        confirmBtn.tap()
+        
+        XCTAssertTrue(mainTitle.isHittable)
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
