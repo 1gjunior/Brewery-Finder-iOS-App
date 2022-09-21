@@ -155,9 +155,9 @@ class BreweryDetailViewController: UIViewController {
     @IBOutlet weak var ratedBreweryView: RatedBreweryView!
     
     @IBOutlet weak var heightDataView: NSLayoutConstraint!
-        
+    
     @IBOutlet weak var photoCollectionView: UICollectionView!
-            
+    
     init(id: String) {
         self.id = id
         super.init(nibName: "BreweryDetailViewController", bundle: nil)
@@ -202,6 +202,14 @@ class BreweryDetailViewController: UIViewController {
         present(ratingViewController, animated: true, completion: nil)
     }
     
+    @IBAction func favorite(_ sender: UIButton) {
+        guard let brewery = brewery else { return }
+        
+        sender.isSelected.toggle()
+        
+        viewModel.handleFavoriteBrewery(brewery: brewery.brewery)
+    }
+    
     @IBAction func fadeButtonTouchDown(sender: UIButton) {
         sender.isHighlighted = false
         UIView.animate(
@@ -222,8 +230,8 @@ class BreweryDetailViewController: UIViewController {
     
     @IBAction func openMapButton(_ sender: Any) {
         guard let brewery = brewery,
-        let breweryLatitude = brewery.latitute,
-        let breweryLongitude = brewery.longitude
+              let breweryLatitude = brewery.latitute,
+              let breweryLongitude = brewery.longitude
         else {return}
         OpenMapDirections.present(in: self, sourceView: view, latitude: breweryLatitude, longitude: breweryLongitude)
     }
@@ -329,9 +337,10 @@ class BreweryDetailViewController: UIViewController {
     private func getBrewery() {
         viewModel.fetchBrewery()
     }
-	private func getBreweryPhotos() {
-		viewModel.fetchPhotosByBrewery()
-	}
+    
+    private func getBreweryPhotos() {
+        viewModel.fetchPhotosByBrewery()
+    }
     
     func reloadCollectionView() {
         DispatchQueue.main.async { [weak self] in
@@ -355,15 +364,17 @@ extension BreweryDetailViewController {
         self.navigationController?.navigationBar.tintColor = .black
     }
     private func setupRightNavigationBar() {
-        let favoriteIcon = UIButton(type: .system)
-        favoriteIcon.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        let favoriteButton = UIButton()
+        favoriteButton.isSelected = viewModel.getButtonIsFavorited(with: id)
+        favoriteButton.setImage(UIImage(named: "favorite_border_fill")?.withRenderingMode(.alwaysOriginal), for: .selected)
+        favoriteButton.setImage(UIImage(named: "favorite_border")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        favoriteButton.addTarget(self, action: #selector(favorite(_:)), for: .touchUpInside)
         
         let shareIcon = UIButton(type: .system)
         shareIcon.setImage(UIImage(named: "icon_share")?.withRenderingMode(.alwaysOriginal), for: .normal)
         shareIcon.frame = CGRect(x: 0, y: 0, width: 40, height: 30)
         navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(customView: favoriteIcon)
-//            UIBarButtonItem(customView: shareIcon)
+            UIBarButtonItem(customView: favoriteButton)
         ]
     }
 }
