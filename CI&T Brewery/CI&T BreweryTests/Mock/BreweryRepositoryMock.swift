@@ -11,6 +11,7 @@ import Foundation
 class BreweryRepositoryMock: BreweryRepositoryProtocol {
     var breweries = BreweryMock.breweries
     var brewery: Brewery!
+    var photos: [BreweryPhotos] = []
     var error: Error!
     var networkError: NetworkError? = nil
     
@@ -62,7 +63,11 @@ class BreweryRepositoryMock: BreweryRepositoryProtocol {
     }
     
     func getBreweryPhotos(id: String, completion: @escaping (Result<[BreweryPhotos], Error>) -> Void) {
-        
+        if let error = error {
+            completion(.failure(error))
+        } else {
+            completion(.success(photos))
+        }
     }
     
     var apiEvaluationResponse = ApiEvaluationResponse(email: "Pam00@gmail.com", breweryId: "goat-ridge-brewing-new-london", evaluationGrade: 4.5)

@@ -25,4 +25,17 @@ class BreweryMock {
     ]
     
     static let breweryObject = BreweryObject(brewery: breweries[0])
+    
+    static let breweryPhotos = [
+        BreweryPhotos(
+            PhotoId: "bbbbb",
+            breweryId: "aaaaa",
+            url: "https://www.google.com/"
+        ),
+        BreweryPhotos(
+            PhotoId: "ccccc",
+            breweryId: "aaaaa",
+            url: "https://www.google.com/"
+        )
+    ]
 }

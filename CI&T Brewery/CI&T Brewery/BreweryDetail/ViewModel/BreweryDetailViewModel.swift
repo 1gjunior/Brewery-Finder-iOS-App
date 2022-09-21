@@ -94,17 +94,17 @@ class BreweryDetailViewModel {
         return lastEmail
     }
 	
-	func fetchPhotosByBrewery() {
+    func fetchPhotosByBrewery() {
         guard let id = id else { return }
-		repository.getBreweryPhotos(id: id) { [weak self] result in
-			  switch result {
-					case .success(let breweryPhotosResponse):
-				  self?.breweriePhotosSubsject.send(breweryPhotosResponse)
-                  print("fetch response \(breweryPhotosResponse)")
-					case .failure(let error):
-						 print(error.localizedDescription)
-			  }
-		 }
-	}
+        repository.getBreweryPhotos(id: id) { [weak self] result in
+            switch result {
+            case .success(let breweryPhotosResponse):
+                self?.breweriePhotosSubsject.send(breweryPhotosResponse)
+                print("fetch response \(breweryPhotosResponse)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 

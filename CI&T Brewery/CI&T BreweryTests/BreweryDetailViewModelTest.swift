@@ -152,6 +152,14 @@ class BreweryDetailViewModelTest: XCTestCase {
             .store(in: &cancellables)
     }
     
+    func test_isWebsiteAvailableSuccess() {
+        XCTAssertEqual(viewModel.isWebsiteAvailable(brewery: breweryObject), true)
+    }
+    
+    func test_isCoordinationAvailableSuccess() {
+        XCTAssertEqual(viewModel.isCoordinationAvailable(brewery: breweryObject), true)
+    }
+    
     func test_getLastEmailSuccess() {
         // given
         let email = "teste@gmail.com"
@@ -187,5 +195,48 @@ class BreweryDetailViewModelTest: XCTestCase {
         
         // then
         XCTAssertNil(lastEmail)
+    }
+    
+    func test_fetchPhotosByBrewerySuccess() {
+        // given
+        let photos = BreweryMock.breweryPhotos
+        repository.photos = photos
+        viewModel.id = "alphabet-city-brewing-co-new-york"
+        
+        // when
+        viewModel.fetchPhotosByBrewery()
+        
+        // then
+        viewModel.breweriePhotosSubsject
+            .sink(
+                receiveCompletion: {_ in
+                    XCTFail("Error test_fetchPhotosByBrewerySuccess BreweryDetailViewModelTest")
+                },
+                receiveValue: { result in
+                    XCTAssertEqual(result, photos)
+                }
+            )
+            .store(in: &cancellables)
+    }
+    
+    func test_fetchPhotosByBreweryError() {
+        // given
+        repository.error = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: "Error"])
+        viewModel.id = "alphabet-city-brewing-co-new-york"
+        
+        // when
+        viewModel.fetchPhotosByBrewery()
+        
+        // then
+        viewModel.breweriePhotosSubsject
+            .sink(
+                receiveCompletion: {result in
+                    XCTAssertNotNil(result)
+                },
+                receiveValue: { _ in
+                    XCTFail("Error test_fetchPhotosByBreweryError BreweryDetailViewModelTest")
+                }
+            )
+            .store(in: &cancellables)
     }
 }
