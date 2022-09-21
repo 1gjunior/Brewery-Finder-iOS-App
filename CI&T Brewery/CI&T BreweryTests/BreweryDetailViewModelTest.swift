@@ -67,10 +67,97 @@ class BreweryDetailViewModelTest: XCTestCase {
             .store(in: &cancellables)
     }
     
-    func test_getLastEmailSuccess() {
-        let email = "teste@gmail.com"
-        
+    func test_checkRatingByBreweryEvaluatedSuccess() {
+        // given
+        let email = "test@test.com"
         let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        viewModel.id = "aaaaa"
+        
+        do {
+            try email.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch {
+            print("Error writing")
+        }
+        
+        // when
+        viewModel.checkRatingByBrewery()
+        
+        // then
+        viewModel.$stateRatedBrewery
+            .sink(
+                receiveCompletion: { result in
+                    XCTFail("Error test_checkRatingByBreweryEvaluatedSuccess BreweryDetailViewModelTest")
+                },
+                receiveValue: { result in
+                    XCTAssertEqual(result, .evaluated)
+                }
+            )
+            .store(in: &cancellables)
+    }
+    
+    func test_checkRatingByBreweryNotEvaluatedSuccess() {
+        // given
+        let email = "test@test.com"
+        let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        
+        do {
+            try email.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch {
+            print("Error writing")
+        }
+        
+        // when
+        viewModel.checkRatingByBrewery()
+        
+        // then
+        viewModel.$stateRatedBrewery
+            .sink(
+                receiveCompletion: { result in
+                    XCTFail("Error test_checkRatingByBreweryNotEvaluatedSuccess BreweryDetailViewModelTest")
+                },
+                receiveValue: { result in
+                    XCTAssertEqual(result, .noEvaluated)
+                }
+            )
+            .store(in: &cancellables)
+    }
+    
+    func test_checkRatingByBreweryError() {
+        // given
+        let email = "error@test.com"
+        let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        
+        do {
+            try email.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch {
+            print("Error writing")
+        }
+        
+        // when
+        viewModel.checkRatingByBrewery()
+        
+        // then
+        viewModel.$stateRatedBrewery
+            .sink(
+                receiveCompletion: { result in
+                    XCTFail("Error test_checkRatingByBrewerySuccess BreweryDetailViewModelTest")
+                },
+                receiveValue: { result in
+                    XCTAssertNil(result)
+                }
+            )
+            .store(in: &cancellables)
+    }
+    
+    func test_getLastEmailSuccess() {
+        // given
+        let email = "teste@gmail.com"
+        let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        
+        // when
         do {
             try email.write(to: fileURL, atomically: false, encoding: .utf8)
         }
@@ -79,11 +166,16 @@ class BreweryDetailViewModelTest: XCTestCase {
         }
         
         let lastEmail = viewModel.getLastEmail()
+        
+        // then
         XCTAssertEqual(email, lastEmail)
     }
     
     func test_getLastEmailError() {
+        // given
         let fileURL = FileManager.documentsDirectoryURL.appendingPathComponent(FileManager.userEmailTxt)
+        
+        // when
         do {
             try FileManager.default.removeItem(atPath: fileURL.path)
         }
@@ -92,6 +184,8 @@ class BreweryDetailViewModelTest: XCTestCase {
         }
         
         let lastEmail = viewModel.getLastEmail()
+        
+        // then
         XCTAssertNil(lastEmail)
     }
 }

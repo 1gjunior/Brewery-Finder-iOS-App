@@ -57,14 +57,14 @@ class BreweryDetailViewModel {
         repository.getRatedBreweries(email: email) { [weak self] result in
             guard let self = self  else {return}
             switch result {
-                case .success(let breweryResponse):
+            case .success(let breweryResponse):
                 if self.isBreweryEvaluated(breweryResponse: breweryResponse) {
                     self.stateRatedBrewery = .evaluated
                 }
                 else {
                     self.stateRatedBrewery = .noEvaluated
                 }
-                case .failure(let error):
+            case .failure(let error):
                 print("ERROR GET RATED BREWERIS \(error)")
             }
         }
