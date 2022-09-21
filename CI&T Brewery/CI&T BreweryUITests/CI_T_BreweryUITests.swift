@@ -98,6 +98,22 @@ class CI_T_BreweryUITests: XCTestCase {
         XCTAssert(btnClose.exists)
     }
     
+    func test_my_favorites() {
+        
+        let button = app.buttons["favorite border"]
+        let firstCell = app.tables.cells.firstMatch
+        let btnEvaluation = app.scrollViews.otherElements.buttons["Avaliar"]
+        
+        XCTAssert(button.exists)
+        button.tap()
+        
+        if firstCell.exists {
+            firstCell.tap()
+            XCTAssert(firstCell.exists)
+            XCTAssert(btnEvaluation.exists)
+        }
+    }
+        
     func test_myRatedBreweries() {
         let ratedBreweriesButton = app.navigationBars["home_nav_bar"].buttons["rated_breweries_button"]
         let emailTextField = app.textFields["email_text_field_rated_breweries"]
