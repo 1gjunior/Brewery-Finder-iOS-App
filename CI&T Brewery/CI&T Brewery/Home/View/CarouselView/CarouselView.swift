@@ -7,13 +7,8 @@
 
 import UIKit
 
-class CarouselView: UIView, UICollectionViewDelegate {
-    var dataSource: UICollectionViewDiffableDataSource<Section, Brewery>?
-    var breweries: [Brewery]? = nil {
-        didSet {
-            configureDataSource()
-        }
-    }
+class CarouselView: UIView {
+    var breweries: [Brewery] = []
     weak var delegate: CarouselViewDelegate? = nil
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -22,7 +17,7 @@ class CarouselView: UIView, UICollectionViewDelegate {
         super.init(frame: frame)
         commonInit()
     }
-        
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         commonInit()
@@ -34,54 +29,29 @@ class CarouselView: UIView, UICollectionViewDelegate {
         addSubview(viewFromXib)
         self.collectionView.register(UINib(nibName: "CarouselCell", bundle: nil), forCellWithReuseIdentifier: "CarouselCell")
         collectionView.delegate = self
-    }
-    
-    enum Section {
-        case main
+        collectionView.dataSource = self
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let brewery = breweries?[indexPath.row] else { return }
+        let brewery = breweries[indexPath.row]
         delegate?.goToDetailWith(id: brewery.id)
     }
-    
-    func configureLayout() -> UICollectionViewCompositionalLayout {
-        let groupWidth = CGFloat(140 * (breweries?.count ?? 0))
-        let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(140), heightDimension: .absolute(234))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 5)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(groupWidth), heightDimension: .absolute(234))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-        let section = NSCollectionLayoutSection(group: group)
-        collectionView.alwaysBounceHorizontal = true
-        collectionView.alwaysBounceVertical = false
-        collectionView.isDirectionalLockEnabled = true
-        collectionView.isScrollEnabled = true
-        collectionView.bounces = false
-        return UICollectionViewCompositionalLayout(section: section)
+}
+
+extension CarouselView: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        breweries.count
     }
     
-    public func configureDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, Brewery>(collectionView: self.collectionView, cellProvider: { collectionView, indexPath, brewery in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCellView else { return UICollectionViewCell() }
-            
-            cell.layer.cornerRadius = 10
-            cell.configure(brewery)
-            
-            return cell
-        })
-        
-        guard let breweries = breweries else {
-            return
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCellView else {
+            return UICollectionViewCell()
         }
         
-        var initialSnapshot = NSDiffableDataSourceSnapshot<Section, Brewery>()
-        initialSnapshot.appendSections([.main])
-        initialSnapshot.appendItems(breweries)
+        cell.layer.cornerRadius = 10
+        cell.configure(breweries[indexPath.row])
         
-        
-        dataSource?.apply(initialSnapshot)
-        collectionView.collectionViewLayout = configureLayout()
+        return cell
     }
 }
 
