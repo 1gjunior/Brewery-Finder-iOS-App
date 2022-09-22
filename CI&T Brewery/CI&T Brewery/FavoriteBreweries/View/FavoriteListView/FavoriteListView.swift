@@ -20,6 +20,8 @@ class FavoriteListView: UIView{
     private var breweries: [FavoriteBreweries] = []
     weak var delegate: FavoriteListViewDelegate?
     private var action: ((_ id: String) -> ())?
+    private let resultsTitle = NSLocalizedString("resultsText", comment: "")
+    private let resultTitle = NSLocalizedString("resultText", comment: "")
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
@@ -161,8 +163,13 @@ extension FavoriteListView: FavoriteCellActionDelegate {
     func reloadTableView() {
         breweries = favoriteManager.loadFavoriteBreweries()!
         self.tableView.reloadData()
-        print("favorites count \(breweries.count)")
-        print("breweries count\(breweries)")
+        resultsCount.text = reloadResultsCount()
+    }
+    
+    func reloadResultsCount() -> String {
+        let localizable = breweries.count == 1 ? resultsTitle: resultsTitle
+        let countBreweries = breweries.count
+        return "\(countBreweries) " + localizable
     }
 }
 
