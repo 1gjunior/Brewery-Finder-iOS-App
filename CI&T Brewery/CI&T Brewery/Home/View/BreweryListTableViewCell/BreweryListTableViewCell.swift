@@ -10,6 +10,7 @@ import Resolver
 
 class BreweryListTableViewCell: UITableViewCell {
     @IBOutlet var profileLetter: UILabel!
+    @IBOutlet weak var roundedView: UIView!
     @IBOutlet var name: UILabel!
     @IBOutlet var average: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -27,7 +28,6 @@ class BreweryListTableViewCell: UITableViewCell {
     }
     
     func configure(for brewery: Brewery, onFavorite: ((Brewery, FavoriteButtonState) -> FavoriteButtonState)?) {
-        contentView.layer.cornerRadius = 30
         profileLetter.layer.masksToBounds = true
         profileLetter.layer.cornerRadius = 22
         profileLetter.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)

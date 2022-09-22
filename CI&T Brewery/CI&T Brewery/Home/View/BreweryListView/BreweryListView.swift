@@ -86,6 +86,13 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
             cell.buttonState = viewModel.getFavoriteButtonState(with: brewery.id)
         }
         
+        cell.roundedView.layer.cornerRadius = 30
+        cell.roundedView.layer.masksToBounds = false
+        cell.roundedView.layer.shadowOffset = CGSizeMake(0, 7)
+        cell.roundedView.layer.shadowColor = UIColor.black.cgColor
+        cell.roundedView.layer.shadowOpacity = 0.1
+        cell.roundedView.layer.shadowRadius = 4
+        
         return cell
     }
     

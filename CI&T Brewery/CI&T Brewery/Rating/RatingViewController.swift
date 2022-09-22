@@ -62,6 +62,12 @@ class RatingViewController: UIViewController {
         sinkEmailState()
         setGeneralTitle()
         observeRating()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didEndEditing))
+        ratingView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func didEndEditing() {
+        textField.endEditing(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

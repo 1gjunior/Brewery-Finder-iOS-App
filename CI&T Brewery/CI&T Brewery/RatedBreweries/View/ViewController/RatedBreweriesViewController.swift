@@ -58,6 +58,12 @@ class RatedBreweriesViewController: UIViewController {
         setupFillEmailView()
         sinkEmailState()
         sinkRatedBreweriesState()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didEndEditing))
+        fillEmailView.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func didEndEditing() {
+        fillEmailView.textField.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
