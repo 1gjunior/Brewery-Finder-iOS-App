@@ -9,22 +9,29 @@ import Foundation
 import CoreData
 
 class CoreDataService {
-    
-    let persistentContainer: NSPersistentContainer
-    let mainContext: NSManagedObjectContext
-    
-    init() {
-         persistentContainer = {
-            let container = NSPersistentContainer(name: "CITModel")
-            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-                if let error = error as NSError? {
-                    fatalError("Unresolved error \(error), \(error.userInfo)")
-                }
-            })
-            return container
-        }()
-        
-        mainContext = persistentContainer.viewContext
-    }
-}
+		 
+		 static let shared = CoreDataService()
+		 
+		 let persistentContainer: NSPersistentContainer
+		 let backgroundContext: NSManagedObjectContext
+		 let mainContext: NSManagedObjectContext
+		 
+		  init() {
+			  persistentContainer = NSPersistentContainer(name: "CITModel")
+			  let description = persistentContainer.persistentStoreDescriptions.first
+			  description?.type = NSSQLiteStoreType
+			  
+			  persistentContainer.loadPersistentStores { description, error in
+					guard error == nil else {
+						 fatalError("was unable to load store \(error!)")
+					}
+			  }
+			  
+			  mainContext = persistentContainer.viewContext
+			  
+			  backgroundContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+			  backgroundContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+			  backgroundContext.parent = self.mainContext
+		 }
+	}
     
