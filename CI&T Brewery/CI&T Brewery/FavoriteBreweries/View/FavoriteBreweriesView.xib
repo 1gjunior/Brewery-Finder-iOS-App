@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoriteBreweriesViewController" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
+                <outlet property="mainTitle" destination="PFy-pw-Yib" id="PKF-G1-8cw"/>
                 <outlet property="view" destination="jZm-gM-5ft" id="L5L-7d-az8"/>
             </connections>
         </placeholder>
@@ -24,14 +26,24 @@
                         <constraint firstAttribute="height" constant="180" id="xqR-cN-9nh"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suas Cervejarias Favoritas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFy-pw-Yib">
+                    <rect key="frame" x="16" y="10" width="382" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="AGs-BC-yrp"/>
             <color key="backgroundColor" name="Background Home"/>
             <constraints>
                 <constraint firstItem="j4U-yl-Saq" firstAttribute="leading" secondItem="jZm-gM-5ft" secondAttribute="leading" constant="-1" id="Eth-TO-NOs"/>
                 <constraint firstItem="j4U-yl-Saq" firstAttribute="top" secondItem="jZm-gM-5ft" secondAttribute="top" id="Wyb-Si-TzX"/>
+                <constraint firstItem="PFy-pw-Yib" firstAttribute="top" secondItem="jZm-gM-5ft" secondAttribute="top" constant="10" id="j0C-ol-YYi"/>
+                <constraint firstItem="AGs-BC-yrp" firstAttribute="trailing" secondItem="PFy-pw-Yib" secondAttribute="trailing" constant="16" id="lJN-m5-7LE"/>
+                <constraint firstItem="PFy-pw-Yib" firstAttribute="leading" secondItem="AGs-BC-yrp" secondAttribute="leading" constant="16" id="rG7-bE-9Br"/>
                 <constraint firstItem="j4U-yl-Saq" firstAttribute="trailing" secondItem="jZm-gM-5ft" secondAttribute="trailing" id="zGV-2s-Ywn"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
         </view>
     </objects>
