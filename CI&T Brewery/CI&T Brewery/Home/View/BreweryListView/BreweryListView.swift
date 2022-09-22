@@ -8,7 +8,6 @@
 import UIKit
 
 public protocol BreweryListViewDelegate: AnyObject {
-    
     func didSorted(type: SortType)
 }
 
