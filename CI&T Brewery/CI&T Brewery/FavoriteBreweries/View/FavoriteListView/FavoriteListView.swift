@@ -167,7 +167,7 @@ extension FavoriteListView: FavoriteCellActionDelegate {
     }
     
     func reloadResultsCount() -> String {
-        let localizable = breweries.count == 1 ? resultsTitle: resultsTitle
+        let localizable = breweries.count == 1 ?  resultTitle : resultsTitle
         let countBreweries = breweries.count
         return "\(countBreweries) " + localizable
     }
