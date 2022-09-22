@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatedBreweriesViewController" customModule="CI_T_Brewery" customModuleProvider="target">
             <connections>
+                <outlet property="mainTitle" destination="nac-95-SVr" id="O6t-41-jhJ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="HlU-Oc-eTw"/>
             </connections>
         </placeholder>
@@ -24,14 +26,24 @@
                         <constraint firstAttribute="height" constant="180" id="TSD-v8-2kS"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejarias que você avaliou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nac-95-SVr">
+                    <rect key="frame" x="16" y="10" width="382" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="Background Home"/>
             <constraints>
                 <constraint firstItem="M58-8v-vtF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Gqz-AS-lNT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nac-95-SVr" secondAttribute="trailing" constant="16" id="QqL-a8-qe7"/>
                 <constraint firstItem="M58-8v-vtF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="jV8-hM-xTd"/>
                 <constraint firstItem="M58-8v-vtF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-1" id="m1M-Xr-jwj"/>
+                <constraint firstItem="nac-95-SVr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="w6K-11-jcS"/>
+                <constraint firstItem="nac-95-SVr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="xXM-5S-8nT"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="132" y="99"/>
         </view>
     </objects>

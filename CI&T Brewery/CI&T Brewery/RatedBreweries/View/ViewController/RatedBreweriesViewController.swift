@@ -26,16 +26,24 @@ class RatedBreweriesViewController: UIViewController {
     
     private lazy var emptyStateView: RatedBreweryEmptyStateView = {
         let emptyStateView = RatedBreweryEmptyStateView(frame: CGRect())
-        emptyStateView.translatesAutoresizingMaskIntoConstraints = false        
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         
         return emptyStateView
     }()
-	
-	private lazy var sucessView: RatedListView = {
-		let sucessView = RatedListView(frame: CGRect())
-		sucessView.translatesAutoresizingMaskIntoConstraints = false
-		return sucessView
-	} ()
+    
+    private lazy var sucessView: RatedListView = {
+        let sucessView = RatedListView(frame: CGRect())
+        sucessView.translatesAutoresizingMaskIntoConstraints = false
+        return sucessView
+    } ()
+    
+    @IBOutlet weak var mainTitle: UILabel! {
+        didSet {
+            mainTitle.font = UIFont.robotoRegular(ofSize: 24)
+            mainTitle.textColor = UIColor.breweryBlack()
+            mainTitle.text = NSLocalizedString("ratedNavigationTitle", comment: "")
+        }
+    }
     
     init() {
         super.init(nibName: "RatedBreweriesViewController", bundle: nil)
@@ -56,15 +64,15 @@ class RatedBreweriesViewController: UIViewController {
         super.viewWillAppear(animated)
         setupNavigationBar()
     }
-	
-	func setupSucessState (_ breweries: [Brewery]){
+    
+    func setupSucessState (_ breweries: [Brewery]){
         let localizable = breweries.count == 1 ? "resultText" : "resultsText"
         changingState(sucessView)
-		sucessView.setRatedResultText("\(breweries.count) \(NSLocalizedString(localizable, comment: ""))")
-		view.addSubview(sucessView)
+        sucessView.setRatedResultText("\(breweries.count) \(NSLocalizedString(localizable, comment: ""))")
+        view.addSubview(sucessView)
         sucessView.update(breweries)
-		constraintSucessView()
-	}
+        constraintSucessView()
+    }
     
     private func sinkEmailState() {
         viewModel.$fieldsState.sink { [weak self] state in
@@ -113,7 +121,7 @@ class RatedBreweriesViewController: UIViewController {
         emptyStateView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         emptyStateView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
     }
-        
+    
     private func setupFillEmailView()  {
         currentView = fillEmailView
         view.addSubview(fillEmailView)
@@ -133,36 +141,24 @@ class RatedBreweriesViewController: UIViewController {
             currentView = view
         }
     }
-	
-	private func constraintSucessView() {
-		sucessView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-		sucessView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-		sucessView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-		sucessView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-	}
-	
-	private func sucessState(_ breweries: [Brewery]) {
-		DispatchQueue.main.async { [weak self] in
-			self?.setupSucessState(breweries)
-		}
-	}
+    
+    private func constraintSucessView() {
+        sucessView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+        sucessView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        sucessView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        sucessView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    private func sucessState(_ breweries: [Brewery]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.setupSucessState(breweries)
+        }
+    }
 }
 
 extension RatedBreweriesViewController {
     private func setupNavigationBar() {
-        let lbNavTitle = UILabel(frame: CGRect(x: 0, y: 40, width: 320, height: 40))
-        lbNavTitle.textAlignment = .left
-        lbNavTitle.text = NSLocalizedString("ratedNavigationTitle", comment: "")
-        lbNavTitle.textColor = .breweryBlack()
-        lbNavTitle.font = UIFont.robotoRegular(ofSize: 22)
-        
-        let logoIcon = UIButton(type: .system)
-        logoIcon.setImage(UIImage(named: "icon_back"), for: .normal)
-        logoIcon.tintColor = .black
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
-        logoIcon.addTarget(self, action: #selector(goBack), for: .touchUpInside)
-        
-        self.navigationItem.titleView = lbNavTitle
+        self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
     }
     
