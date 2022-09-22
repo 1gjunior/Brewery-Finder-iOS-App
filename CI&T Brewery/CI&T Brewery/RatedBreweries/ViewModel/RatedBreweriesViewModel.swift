@@ -34,7 +34,6 @@ class RatedBreweriesViewModel {
     
     public var sortedBreweries: SortedBreweries = .sortedName {
         willSet(newType) {
-            print("CHAMOU sortedBreweries")
               switch state{
               case .success(let breweries):
                     state = .success(breweries: breweriesSorted(breweries: breweries, type: newType))
