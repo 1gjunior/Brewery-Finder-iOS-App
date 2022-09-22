@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +14,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="XlU-5h-EFC"/>
                 <outlet property="filterText" destination="JIf-p3-tTc" id="P8Y-mK-9pU"/>
                 <outlet property="resultsCount" destination="smR-rF-Q7u" id="B4Q-il-bWl"/>
-                <outlet property="tableView" destination="iuH-S4-KmX" id="GvC-Jg-B9F"/>
+                <outlet property="tableView" destination="Grp-Bh-hBg" id="ixZ-BT-ktZ"/>
                 <outlet property="viewTitle" destination="Oho-tt-Q9h" id="1Mh-I9-hRI"/>
             </connections>
         </placeholder>
@@ -23,19 +24,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aqui estão suas Cervejarias!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oho-tt-Q9h">
-                    <rect key="frame" x="16" y="59" width="382" height="20.5"/>
+                    <rect key="frame" x="16" y="63" width="382" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11 resultados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smR-rF-Q7u">
-                    <rect key="frame" x="16" y="81.5" width="382" height="20.5"/>
+                    <rect key="frame" x="16" y="85.5" width="382" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x4b-vQ-1JL">
-                    <rect key="frame" x="16" y="112" width="382" height="26"/>
+                    <rect key="frame" x="16" y="116" width="382" height="26"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordenar por: Nota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JIf-p3-tTc">
                             <rect key="frame" x="0.0" y="0.0" width="115.5" height="26"/>
@@ -57,26 +58,24 @@
                         <constraint firstAttribute="height" constant="50" id="MLL-xk-xA6"/>
                     </constraints>
                 </stackView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iuH-S4-KmX">
-                    <rect key="frame" x="16" y="123" width="382" height="730"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Grp-Bh-hBg">
+                    <rect key="frame" x="0.0" y="157" width="414" height="705"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="iuH-S4-KmX" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-43" id="1nP-qf-JZD"/>
-                <constraint firstItem="iuH-S4-KmX" firstAttribute="top" secondItem="x4b-vQ-1JL" secondAttribute="bottom" constant="-15" id="5KR-m9-iHL"/>
                 <constraint firstItem="Oho-tt-Q9h" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="BPN-UT-0lt"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Oho-tt-Q9h" secondAttribute="trailing" constant="16" id="CnC-SX-UAM"/>
-                <constraint firstItem="iuH-S4-KmX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="KHM-ra-kxq"/>
+                <constraint firstItem="Grp-Bh-hBg" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="KfG-SB-Ee6"/>
                 <constraint firstItem="x4b-vQ-1JL" firstAttribute="top" secondItem="smR-rF-Q7u" secondAttribute="bottom" constant="10" id="MYn-RE-bcC"/>
                 <constraint firstItem="Oho-tt-Q9h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="NE8-fa-ZWu"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iuH-S4-KmX" secondAttribute="trailing" constant="16" id="Rty-NL-Jxo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="x4b-vQ-1JL" secondAttribute="trailing" constant="16" id="WBv-Hf-3f6"/>
+                <constraint firstItem="Grp-Bh-hBg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Yrx-eG-UCj"/>
+                <constraint firstItem="Grp-Bh-hBg" firstAttribute="top" secondItem="x4b-vQ-1JL" secondAttribute="bottom" constant="15" id="eQ3-AK-eOk"/>
                 <constraint firstItem="smR-rF-Q7u" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="eVO-0e-DSI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Grp-Bh-hBg" secondAttribute="trailing" id="maD-XL-kf8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="smR-rF-Q7u" secondAttribute="trailing" constant="16" id="vM4-N9-Vm9"/>
                 <constraint firstItem="x4b-vQ-1JL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="wCw-DZ-No5"/>
                 <constraint firstItem="smR-rF-Q7u" firstAttribute="top" secondItem="Oho-tt-Q9h" secondAttribute="bottom" constant="2" id="yXj-QT-YBU"/>

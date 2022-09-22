@@ -72,6 +72,7 @@ class RatedListView: UIView{
 		contentView.addSubview(sortView)
 		constraintSortView()
 	}
+    
 	private func constraintSortView() {
 		 sortView.translatesAutoresizingMaskIntoConstraints = false
 		 sortView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
@@ -79,6 +80,7 @@ class RatedListView: UIView{
 		 sortView.bottomAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
 		 sortView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 	}
+    
 	public func setRatedResultText(_ text: String) {
 		lbResult.text = text
 	}
