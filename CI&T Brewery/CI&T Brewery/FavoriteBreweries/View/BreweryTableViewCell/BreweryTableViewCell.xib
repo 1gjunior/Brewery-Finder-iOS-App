@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -30,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejaria A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJd-Mg-7XI">
-                        <rect key="frame" x="72" y="11" width="88" height="20"/>
+                        <rect key="frame" x="72" y="11" width="303" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,7 +58,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5S-DP-gwv">
-                        <rect key="frame" x="369.5" y="17.5" width="45.5" height="31"/>
+                        <rect key="frame" x="375" y="16" width="40" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="sRf-AZ-BXt"/>
+                        </constraints>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system"/>
@@ -74,6 +78,7 @@
                     <constraint firstItem="w3w-sO-yaT" firstAttribute="top" secondItem="VO9-ne-qmW" secondAttribute="top" id="GHN-fb-d83"/>
                     <constraint firstItem="sVR-a3-PuK" firstAttribute="leading" secondItem="tht-68-Ame" secondAttribute="leadingMargin" id="GKq-eY-aqD"/>
                     <constraint firstItem="7Ah-Mt-zMx" firstAttribute="centerY" secondItem="VO9-ne-qmW" secondAttribute="centerY" id="IwO-Sr-jjw"/>
+                    <constraint firstItem="EJd-Mg-7XI" firstAttribute="trailing" secondItem="r5S-DP-gwv" secondAttribute="leading" id="JmS-nM-nux"/>
                     <constraint firstItem="EJd-Mg-7XI" firstAttribute="leading" secondItem="sVR-a3-PuK" secondAttribute="trailing" constant="8" symbolic="YES" id="PY4-cq-VRc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="sVR-a3-PuK" secondAttribute="bottom" id="Slr-D7-Rmr"/>
                     <constraint firstItem="4K8-ZO-TtM" firstAttribute="top" secondItem="VO9-ne-qmW" secondAttribute="top" id="UZU-sq-IWd"/>
@@ -100,7 +105,7 @@
     </objects>
     <resources>
         <image name="Star" width="15" height="15"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <namedColor name="Brewery Yellow Alpha 16">
             <color red="1" green="0.80000001192092896" blue="0.0" alpha="0.15899999439716339" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -108,7 +113,7 @@
             <color red="1" green="0.86699998378753662" blue="0.29399999976158142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

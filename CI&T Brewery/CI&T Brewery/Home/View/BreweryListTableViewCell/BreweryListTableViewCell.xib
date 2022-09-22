@@ -24,13 +24,14 @@
                         <color key="backgroundColor" name="Brewery Yellow Alpha 16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="44" id="QRj-Ae-6Ea"/>
+                            <constraint firstAttribute="width" secondItem="CYr-iH-4fp" secondAttribute="height" multiplier="1:1" id="uff-Jf-bZ7"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
                         <color key="textColor" name="Brewery Yellow Light"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejaria A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giw-cS-cmu">
-                        <rect key="frame" x="72" y="11" width="88" height="20"/>
+                        <rect key="frame" x="72" y="11" width="303" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -69,13 +70,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJV-Xo-M5r">
-                        <rect key="frame" x="330.5" y="16" width="42" height="34"/>
+                        <rect key="frame" x="333" y="16" width="40" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="VcG-Ad-r9R"/>
+                        </constraints>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="Share"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPu-cX-Exq">
-                        <rect key="frame" x="374.5" y="16" width="50.5" height="34"/>
+                        <rect key="frame" x="375" y="16" width="40" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="6w8-lN-b3f"/>
+                        </constraints>
                         <color key="tintColor" systemColor="labelColor"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
@@ -91,6 +98,7 @@
                     <constraint firstItem="giw-cS-cmu" firstAttribute="leading" secondItem="CYr-iH-4fp" secondAttribute="trailing" constant="8" symbolic="YES" id="360-O8-9iy"/>
                     <constraint firstItem="37s-29-cjh" firstAttribute="leading" secondItem="om3-x1-6Ei" secondAttribute="trailing" constant="2" id="536-91-ohR"/>
                     <constraint firstItem="tJV-Xo-M5r" firstAttribute="centerY" secondItem="CYr-iH-4fp" secondAttribute="centerY" id="5vu-X3-Pad"/>
+                    <constraint firstItem="giw-cS-cmu" firstAttribute="trailing" secondItem="wPu-cX-Exq" secondAttribute="leading" id="9rZ-AA-QSE"/>
                     <constraint firstItem="giw-cS-cmu" firstAttribute="leading" secondItem="om3-x1-6Ei" secondAttribute="leading" id="Mat-fb-XOE"/>
                     <constraint firstItem="c3E-wA-0e5" firstAttribute="leading" secondItem="TXi-58-O7y" secondAttribute="trailing" constant="4" id="PoI-Um-Brg"/>
                     <constraint firstItem="wPu-cX-Exq" firstAttribute="leading" secondItem="tJV-Xo-M5r" secondAttribute="trailing" constant="2" id="Shm-ZU-uI0"/>
@@ -106,7 +114,7 @@
                     <constraint firstItem="CYr-iH-4fp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="tIW-LC-fCP"/>
                     <constraint firstItem="9Sb-m1-org" firstAttribute="centerY" secondItem="TXi-58-O7y" secondAttribute="centerY" id="xPg-vX-GKP"/>
                     <constraint firstItem="om3-x1-6Ei" firstAttribute="top" secondItem="giw-cS-cmu" secondAttribute="bottom" constant="5" id="xpN-TK-kyx"/>
-                    <constraint firstAttribute="trailing" secondItem="wPu-cX-Exq" secondAttribute="trailing" id="yAx-JX-k0F"/>
+                    <constraint firstAttribute="trailing" secondItem="wPu-cX-Exq" secondAttribute="trailing" constant="10" id="yAx-JX-k0F"/>
                     <constraint firstItem="TXi-58-O7y" firstAttribute="leading" secondItem="37s-29-cjh" secondAttribute="trailing" constant="4" id="yBt-Gl-NOk"/>
                 </constraints>
             </tableViewCellContentView>
