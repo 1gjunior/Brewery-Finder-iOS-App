@@ -357,14 +357,25 @@ extension BreweryDetailViewController {
         navigationController?.navigationBar.isTranslucent = false
         setupNavigationBarItems()
     }
+    
     private func setupNavigationBarItems() {
         setupLeftNavigationBar()
         setupRightNavigationBar()
     }
+    
     private func setupLeftNavigationBar() {
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
+        
+        let logoIcon = UIButton(type: .system)
+        logoIcon.setImage(UIImage(named: "icon_back"), for: .normal)
+        logoIcon.tintColor = .black
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
+        logoIcon.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        
+        self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Find or Invite", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
     }
+    
     private func setupRightNavigationBar() {
         let favoriteButton = UIButton()
         favoriteButton.isSelected = viewModel.getButtonIsFavorited(with: id)
@@ -378,6 +389,10 @@ extension BreweryDetailViewController {
         navigationItem.rightBarButtonItems = [
             UIBarButtonItem(customView: favoriteButton)
         ]
+    }
+    
+    @objc private func goBack() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
