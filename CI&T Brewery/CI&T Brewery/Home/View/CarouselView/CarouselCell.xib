@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,7 +36,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alphabet City Brewing Co" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.84999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="vtD-6X-SD0">
-                        <rect key="frame" x="8" y="134" width="122" height="35.5"/>
+                        <rect key="frame" x="8" y="134" width="122" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="122" id="oUr-oj-q1Z"/>
                         </constraints>
@@ -83,7 +84,7 @@
                     <constraint firstItem="YW9-wc-KOl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vtD-6X-SD0" secondAttribute="bottom" constant="3" id="zCA-Gb-xd0"/>
                 </constraints>
             </collectionViewCellContentView>
-            <color key="backgroundColor" name="Fail"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <size key="customSize" width="146" height="221"/>
             <connections>
                 <outlet property="averageRating" destination="WGg-bX-lgx" id="lZH-Qw-F0w"/>
@@ -100,9 +101,6 @@
         <image name="Sucess" width="86" height="80"/>
         <namedColor name="BreweryBlack">
             <color red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Fail">
-            <color red="0.76899999380111694" green="0.059000000357627869" blue="0.059000000357627869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
