@@ -7,17 +7,26 @@
 
 import Foundation
 import UIKit
+import Resolver
 
 public protocol FavoriteListViewDelegate: AnyObject{
     func didSorted(type: SortType)
     func goToDetailWith(id: String)
 }
 
-class FavoriteListView: UIView{
+public protocol EmptyStateFavoriteDelegate : AnyObject{
+    func showEmptyState()
+}
+
+class FavoriteListView: UIView {
 	
+    @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     private var breweries: [FavoriteBreweries] = []
     weak var delegate: FavoriteListViewDelegate?
     private var action: ((_ id: String) -> ())?
+    private let resultsTitle = NSLocalizedString("resultsText", comment: "")
+    private let resultTitle = NSLocalizedString("resultText", comment: "")
+    public var delegateEmptyState: EmptyStateFavoriteDelegate?
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
@@ -92,7 +101,8 @@ extension FavoriteListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-       breweries.count
+        print("favorites count \(breweries.count)")
+        return breweries.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -149,10 +159,27 @@ extension FavoriteListView: SortViewDelegate {
 extension FavoriteListView: FavoriteCellActionDelegate {
 	func didFavoriteButtonTapped(brewery: FavoriteBreweries) {
 		let deleteFavoriteView = DeleteFavoriteView(favoriteBrewery: brewery)
-		self.parentViewController?.modalPresentationStyle = .overFullScreen
+        self.parentViewController?.modalPresentationStyle = .overFullScreen
 		self.parentViewController?.modalTransitionStyle = .flipHorizontal
-		self.parentViewController?.present(deleteFavoriteView, animated: true)
+        deleteFavoriteView.dismissActionDelete = reloadTableView
+        self.parentViewController?.present(deleteFavoriteView, animated: true, completion: nil)
 	}
+    
+    func reloadTableView() {
+        breweries = favoriteManager.loadFavoriteBreweries()!
+        self.tableView.reloadData()
+        resultsCount.text = reloadResultsCount()
+        if breweries.count == 0 {
+            print("caiu aquii")
+            delegateEmptyState?.showEmptyState()
+        }
+    }
+    
+    func reloadResultsCount() -> String {
+        let localizable = breweries.count == 1 ?  resultTitle : resultsTitle
+        let countBreweries = breweries.count
+        return "\(countBreweries) " + localizable
+    }
 }
 
 extension FavoriteListView {

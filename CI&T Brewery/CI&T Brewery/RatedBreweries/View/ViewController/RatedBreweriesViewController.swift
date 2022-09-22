@@ -161,6 +161,10 @@ extension RatedBreweriesViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
     }
+    
+    @objc private func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension RatedBreweriesViewController: UITextFieldDelegate {
