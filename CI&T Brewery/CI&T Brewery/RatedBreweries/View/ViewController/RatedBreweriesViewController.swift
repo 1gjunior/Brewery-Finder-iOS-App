@@ -34,6 +34,7 @@ class RatedBreweriesViewController: UIViewController {
     private lazy var sucessView: RatedListView = {
         let sucessView = RatedListView(frame: CGRect())
         sucessView.translatesAutoresizingMaskIntoConstraints = false
+        sucessView.delegate = self
         return sucessView
     } ()
     
@@ -196,3 +197,15 @@ extension RatedBreweriesViewController: SubmitEmailDelegate {
         viewModel.fetchRatedBreweries(email: email)
     }
 }
+    
+extension RatedBreweriesViewController: RatedListViewDelegate {
+    func didSorted(type: SortType) {
+        switch type {
+        case .sortedName:
+            viewModel.sortedBreweries = .sortedName
+        case .sortedRating:
+            viewModel.sortedBreweries = .sortedRating
+        }
+    }
+}
+

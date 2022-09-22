@@ -14,7 +14,7 @@ public protocol RatedListViewDelegate: AnyObject{
 
 class RatedListView: UIView{
 	private var breweries: [Brewery] = []
-	private weak var delegate: RatedListViewDelegate?
+    public weak var delegate: RatedListViewDelegate?
 	
 	private lazy var sortView: SortView = {
 		let sortView = SortView()
