@@ -19,6 +19,7 @@ class FavoriteBreweriesViewController: UIViewController {
         let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         breweryList.translatesAutoresizingMaskIntoConstraints = false
         breweryList.delegate = self
+        breweryList.delegateEmptyState = self
         return breweryList
     }()
     
@@ -46,6 +47,7 @@ class FavoriteBreweriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        loadFavorite()
     }
     
     private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
@@ -150,5 +152,12 @@ extension FavoriteBreweriesViewController {
         
         self.navigationItem.titleView = lbNavTitle
         self.navigationController?.navigationBar.tintColor = .black
+    }
+}
+
+extension FavoriteBreweriesViewController: EmptyStateFavoriteDelegate {
+    func showEmptyState() {
+        currentView = breweryList
+        getFavoriteBrewery()
     }
 }

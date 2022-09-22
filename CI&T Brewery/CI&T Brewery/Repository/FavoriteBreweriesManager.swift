@@ -63,6 +63,7 @@ class FavoriteBreweriesManager: FavoriteBreweriesManagerProtocol {
 	
     func deleteFavoriteBreweries(id: String) {
         guard let breweries = favoriteBreweries[id] else { return }
+        print("count brewerie \(breweries)")
         removeFavoriteBrewery(id)
         self.context.delete(breweries)
         do {
