@@ -121,8 +121,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     private func constraintCarouselView() {
         carouselView.translatesAutoresizingMaskIntoConstraints = false
         carouselView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 200).isActive = true
-        carouselView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        carouselView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 20).isActive = true
+        carouselView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        carouselView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         carouselView.heightAnchor.constraint(equalToConstant: 600).isActive = true
     }
     
