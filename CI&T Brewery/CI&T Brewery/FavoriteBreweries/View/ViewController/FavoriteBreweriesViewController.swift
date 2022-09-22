@@ -150,8 +150,18 @@ extension FavoriteBreweriesViewController {
         lbNavTitle.textColor = .breweryBlack()
         lbNavTitle.font = UIFont.robotoRegular(ofSize: 22)
         
+        let logoIcon = UIButton(type: .system)
+        logoIcon.setImage(UIImage(named: "icon_back"), for: .normal)
+        logoIcon.tintColor = .black
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoIcon)
+        logoIcon.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+        
         self.navigationItem.titleView = lbNavTitle
         self.navigationController?.navigationBar.tintColor = .black
+    }
+    
+    @objc private func goBack() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
