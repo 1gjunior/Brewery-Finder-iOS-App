@@ -14,7 +14,11 @@ public protocol FavoriteListViewDelegate: AnyObject{
     func goToDetailWith(id: String)
 }
 
-class FavoriteListView: UIView{
+public protocol EmptyStateFavoriteDelegate : AnyObject{
+    func showEmptyState()
+}
+
+class FavoriteListView: UIView {
 	
     @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     private var breweries: [FavoriteBreweries] = []
@@ -22,6 +26,7 @@ class FavoriteListView: UIView{
     private var action: ((_ id: String) -> ())?
     private let resultsTitle = NSLocalizedString("resultsText", comment: "")
     private let resultTitle = NSLocalizedString("resultText", comment: "")
+    public var delegateEmptyState: EmptyStateFavoriteDelegate?
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
@@ -164,6 +169,10 @@ extension FavoriteListView: FavoriteCellActionDelegate {
         breweries = favoriteManager.loadFavoriteBreweries()!
         self.tableView.reloadData()
         resultsCount.text = reloadResultsCount()
+        if breweries.count == 0 {
+            print("caiu aquii")
+            delegateEmptyState?.showEmptyState()
+        }
     }
     
     func reloadResultsCount() -> String {

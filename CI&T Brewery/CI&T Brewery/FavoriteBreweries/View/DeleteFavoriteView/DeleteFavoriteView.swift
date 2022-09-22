@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Resolver
 
-class DeleteFavoriteView: UIViewController{
+class DeleteFavoriteView: UIViewController {
 	@Injected var viewModel: FavoriteBreweriesViewModel
 	let favoriteBrewery: FavoriteBreweries?
     var dismissActionDelete: (() -> ())?
