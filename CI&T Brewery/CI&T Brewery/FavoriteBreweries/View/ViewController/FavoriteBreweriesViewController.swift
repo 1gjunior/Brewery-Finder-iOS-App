@@ -11,7 +11,7 @@ import UIKit
 
 class FavoriteBreweriesViewController: UIViewController {
     private var currentView: UIView?
-   @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
+    @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
     private var favoriteBreweries: [FavoriteBreweries] = []
     @Injected var viewModel: FavoriteBreweriesViewModel
     private var cancellables: Set<AnyCancellable> = []
@@ -19,6 +19,7 @@ class FavoriteBreweriesViewController: UIViewController {
         let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         breweryList.translatesAutoresizingMaskIntoConstraints = false
         breweryList.delegate = self
+        breweryList.delegateEmptyState = self
         return breweryList
     }()
     
@@ -26,8 +27,16 @@ class FavoriteBreweriesViewController: UIViewController {
         let emptyStateView = EmptyStateView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         emptyStateView.translatesAutoresizingMaskIntoConstraints = false
         return emptyStateView
-    }()
-	
+    }()    
+    
+    @IBOutlet weak var mainTitle: UILabel! {
+        didSet {
+            mainTitle.font = UIFont.robotoRegular(ofSize: 24)
+            mainTitle.textColor = UIColor.breweryBlack()
+            mainTitle.text = NSLocalizedString("favoriteNavigationTitle", comment: "")
+        }
+    }
+    
     init() {
         super.init(nibName: "FavoriteBreweriesView", bundle: nil)
     }
@@ -46,6 +55,7 @@ class FavoriteBreweriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+        loadFavorite()
     }
     
     private func setupSuccessState(_ breweries: [FavoriteBreweries])  {
@@ -77,7 +87,7 @@ class FavoriteBreweriesViewController: UIViewController {
     }
     
     private func constrainBreweryList() {
-        breweryList.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        breweryList.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         breweryList.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         breweryList.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
         breweryList.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
@@ -142,13 +152,18 @@ extension FavoriteBreweriesViewController: FavoriteListViewDelegate {
 
 extension FavoriteBreweriesViewController {
     private func setupNavigationBar() {
-        let lbNavTitle = UILabel(frame: CGRect(x: 0, y: 40, width: 320, height: 40))
-        lbNavTitle.textAlignment = .left
-        lbNavTitle.text = NSLocalizedString("favoriteNavigationTitle", comment: "")
-        lbNavTitle.textColor = .breweryBlack()
-        lbNavTitle.font = UIFont.robotoRegular(ofSize: 22)
-        
-        self.navigationItem.titleView = lbNavTitle
+        self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.navigationBar.tintColor = .black
+    }
+    
+    @objc private func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension FavoriteBreweriesViewController: EmptyStateFavoriteDelegate {
+    func showEmptyState() {
+        currentView = breweryList
+        getFavoriteBrewery()
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +14,7 @@
                 <outlet property="contentView" destination="iN0-l3-epB" id="DNf-Xc-qYf"/>
                 <outlet property="lbFilterText" destination="wxb-tz-qRQ" id="CzY-QD-UZE"/>
                 <outlet property="lbResult" destination="WP9-ca-9K0" id="JvF-sq-8gk"/>
-                <outlet property="lbTableView" destination="ObI-18-8gR" id="Hyh-85-Vb7"/>
+                <outlet property="lbTableView" destination="hoh-zx-tbh" id="ofT-Qa-E9Q"/>
                 <outlet property="lbTitle" destination="glr-aK-weR" id="WUA-JN-cEE"/>
             </connections>
         </placeholder>
@@ -23,19 +24,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aqui estão suas Avaliações!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glr-aK-weR">
-                    <rect key="frame" x="16" y="59" width="382" height="20.5"/>
+                    <rect key="frame" x="16" y="63" width="382" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 resultados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WP9-ca-9K0">
-                    <rect key="frame" x="16" y="81.5" width="382" height="20.5"/>
+                    <rect key="frame" x="16" y="85.5" width="382" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-ah-bU2">
-                    <rect key="frame" x="16" y="112" width="382" height="50"/>
+                    <rect key="frame" x="16" y="116" width="382" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ordenar por: Nota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wxb-tz-qRQ">
                             <rect key="frame" x="0.0" y="0.0" width="115.5" height="50"/>
@@ -57,23 +58,22 @@
                         <constraint firstAttribute="height" constant="50" id="TJT-BL-fB7"/>
                     </constraints>
                 </stackView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ObI-18-8gR">
-                    <rect key="frame" x="16" y="167" width="382" height="692"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" estimatedSectionHeaderHeight="-1" sectionFooterHeight="10" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hoh-zx-tbh">
+                    <rect key="frame" x="0.0" y="181" width="414" height="681"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ObI-18-8gR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="2aS-3V-9uS"/>
                 <constraint firstItem="glr-aK-weR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="3JZ-6g-Klz"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ObI-18-8gR" secondAttribute="bottom" constant="3" id="GDj-cA-doT"/>
-                <constraint firstItem="ObI-18-8gR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-16" id="ILA-l0-qE6"/>
+                <constraint firstItem="hoh-zx-tbh" firstAttribute="top" secondItem="SsL-ah-bU2" secondAttribute="bottom" constant="15" id="5RL-ri-Syd"/>
                 <constraint firstItem="SsL-ah-bU2" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Ie9-2n-8IW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hoh-zx-tbh" secondAttribute="trailing" id="Kn3-4v-G3j"/>
                 <constraint firstItem="WP9-ca-9K0" firstAttribute="top" secondItem="glr-aK-weR" secondAttribute="bottom" constant="2" id="L0w-Hi-i4S"/>
-                <constraint firstItem="ObI-18-8gR" firstAttribute="top" secondItem="SsL-ah-bU2" secondAttribute="bottom" constant="5" id="NK7-l9-nfN"/>
+                <constraint firstItem="hoh-zx-tbh" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="N7l-jc-AGm"/>
+                <constraint firstItem="hoh-zx-tbh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="SrR-sV-sHi"/>
                 <constraint firstItem="SsL-ah-bU2" firstAttribute="top" secondItem="WP9-ca-9K0" secondAttribute="bottom" constant="10" id="YAV-LD-0l2"/>
                 <constraint firstItem="glr-aK-weR" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="ap0-hg-FBj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="glr-aK-weR" secondAttribute="trailing" constant="16" id="bc4-ey-JyS"/>

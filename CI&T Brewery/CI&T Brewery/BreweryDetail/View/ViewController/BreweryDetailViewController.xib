@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -51,13 +52,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalhes da Cervejaria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0e-9L-wsX">
-                                    <rect key="frame" x="20" y="20" width="394.5" height="29"/>
+                                    <rect key="frame" x="20" y="10" width="374" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EO1-s5-riq" userLabel="DataView">
-                                    <rect key="frame" x="20" y="79" width="374" height="470"/>
+                                    <rect key="frame" x="20" y="69" width="374" height="470"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vw2-aq-F4g">
                                             <rect key="frame" x="20" y="20" width="69" height="69"/>
@@ -291,10 +292,10 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="l0e-9L-wsX" firstAttribute="top" secondItem="zOs-53-wev" secondAttribute="top" constant="20" id="DUA-g1-QiB"/>
+                                <constraint firstItem="l0e-9L-wsX" firstAttribute="top" secondItem="zOs-53-wev" secondAttribute="top" constant="10" id="DUA-g1-QiB"/>
                                 <constraint firstItem="EO1-s5-riq" firstAttribute="top" secondItem="l0e-9L-wsX" secondAttribute="bottom" constant="30" id="IKZ-SD-Zk1"/>
                                 <constraint firstAttribute="trailing" secondItem="EO1-s5-riq" secondAttribute="trailing" constant="20" symbolic="YES" id="UDG-EZ-9Q2"/>
-                                <constraint firstAttribute="trailing" secondItem="l0e-9L-wsX" secondAttribute="trailing" constant="-0.5" id="ckZ-J0-Abh"/>
+                                <constraint firstAttribute="trailing" secondItem="l0e-9L-wsX" secondAttribute="trailing" constant="20" symbolic="YES" id="ckZ-J0-Abh"/>
                                 <constraint firstItem="l0e-9L-wsX" firstAttribute="leading" secondItem="zOs-53-wev" secondAttribute="leading" constant="20" symbolic="YES" id="e02-YO-L6p"/>
                                 <constraint firstAttribute="height" constant="650" id="hTV-ar-aBY"/>
                                 <constraint firstItem="EO1-s5-riq" firstAttribute="leading" secondItem="zOs-53-wev" secondAttribute="leading" constant="20" symbolic="YES" id="mmV-Lw-WsV"/>

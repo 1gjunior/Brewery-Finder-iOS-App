@@ -39,7 +39,8 @@ class BreweryListTableViewCell: UITableViewCell {
         favoriteButton.addTarget(self, action: #selector(favorite), for: .touchUpInside)
     }
     
-    @objc func favorite() {
+    @objc func favorite(button: UIButton) {
+        button.isSelected.toggle()
         guard let brewery = brewery else { return }
         if let newState = onFavorite?(brewery, buttonState) {
             buttonState = newState

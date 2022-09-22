@@ -52,6 +52,7 @@ class FillEmailView: UIView {
             confirmButton.setTitleColor(UIColor.breweryGold(), for: .normal)
             confirmButton.titleLabel?.font = UIFont.robotoRegular(ofSize: 14)
             confirmButton.isEnabled = false
+            confirmButton.accessibilityIdentifier = "confirm_button_rated_breweries"
         }
     }
     
@@ -90,6 +91,7 @@ class FillEmailView: UIView {
         textField.trailingViewMode = .unlessEditing
         textField.leadingViewMode = .always
         textField.leadingView = UIImageView(image: UIImage(named: "inputLeadingLabel"))
+        textField.accessibilityIdentifier = "email_text_field_rated_breweries"
         
         view.addSubview(textField)
         constrainTextField()

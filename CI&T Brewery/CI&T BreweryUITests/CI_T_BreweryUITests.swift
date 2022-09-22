@@ -57,6 +57,26 @@ class CI_T_BreweryUITests: XCTestCase {
         XCTAssert(btnClose.exists)
     }
     
+    func test_favorite_from_home() {
+        let searchField = app.searchFields["Busque por local"]
+        searchField.tap()
+        searchField.typeText("London")
+        
+        let searchButton = app.buttons["Search"]
+        searchButton.tap()
+        
+        let favoriteButton = app.tables/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"6")/*[[".cells.containing(.staticText, identifier:\"603 Brewery\")",".cells.containing(.staticText, identifier:\"6\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.buttons["gostei"]
+        
+        XCTAssertFalse(favoriteButton.isSelected)
+        favoriteButton.tap()
+        XCTAssertTrue(favoriteButton.isSelected)
+        print(favoriteButton.isSelected)
+        favoriteButton.tap()
+        XCTAssertFalse(favoriteButton.isSelected)
+        let image = favoriteButton.images.element
+        print(image)
+    }
+    
     func test_detail_from_search_by_city() {
         
         let search = app.searchFields["Busque por local"]
@@ -97,7 +117,56 @@ class CI_T_BreweryUITests: XCTestCase {
         
         XCTAssert(btnClose.exists)
     }
+    
+    func test_my_favorites() {
+        
+        let button = app.buttons["favorite border"]
+        let firstCell = app.tables.cells.firstMatch
+        let btnEvaluation = app.scrollViews.otherElements.buttons["Avaliar"]
+        
+        XCTAssert(button.exists)
+        button.tap()
+        
+        if firstCell.exists {
+            firstCell.tap()
+            XCTAssert(firstCell.exists)
+            XCTAssert(btnEvaluation.exists)
+        }
+    }
+        
+    func test_myRatedBreweries() {
+        let ratedBreweriesButton = app.navigationBars["home_nav_bar"].buttons["rated_breweries_button"]
+        let emailTextField = app.textFields["email_text_field_rated_breweries"]
+        let email = getRandomEmail()
+        let btnReturn = app/*@START_MENU_TOKEN@*/.keyboards.buttons["Return"]/*[[".keyboards",".buttons[\"retorno\"]",".buttons[\"Return\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[2,0]]@END_MENU_TOKEN@*/
+        let confirmBtn = app.buttons["confirm_button_rated_breweries"]
+        let mainTitle = app.staticTexts["main_title_label_rated_breweries"]
+        
+        ratedBreweriesButton.tap()
+        emailTextField.tap()
+        emailTextField.typeText(email)
+        btnReturn.tap()
+        confirmBtn.tap()
+        
+        XCTAssertTrue(mainTitle.isHittable)
+    }
 
+    func test_favorite_brewery_in_details_view() {
+        let search = app.searchFields["Busque por local"]
+        let btnSearch = app.buttons["Search"]
+        let firstCell = app.tables.cells.firstMatch
+        let favoriteBreweryButton = app.navigationBars["home_nav_bar"].buttons["favorite border"]
+        
+        search.tap()
+        search.typeText("San Francisco")
+        btnSearch.tap()
+        firstCell.tap()
+        favoriteBreweryButton.tap()
+        
+        XCTAssert(favoriteBreweryButton.isHittable)
+        XCTAssert(favoriteBreweryButton.isEnabled)
+    }
+    
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.
