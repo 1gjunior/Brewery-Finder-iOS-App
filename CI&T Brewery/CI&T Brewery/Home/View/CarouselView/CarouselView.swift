@@ -26,7 +26,9 @@ class CarouselView: UIView {
     private func commonInit() {
         guard let viewFromXib = Bundle.main.loadNibNamed("CarouselView", owner: self, options: nil)?[0] as? UIView else { return }
         viewFromXib.frame = self.bounds
+        viewFromXib.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(viewFromXib)
+        
         self.collectionView.register(UINib(nibName: "CarouselCell", bundle: nil), forCellWithReuseIdentifier: "CarouselCell")
         collectionView.delegate = self
         collectionView.dataSource = self
