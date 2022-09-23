@@ -23,8 +23,8 @@
 "emailInvalid" = "Favor informar um e-mail válido";
 
 /* Details */
-"evaluations" = "Avaliações";
-"evaluation" = "Avaliação";
+"evaluations" = "avaliações";
+"evaluation" = "avaliação";
 
 /* Open Map */
 "alertTitle" = "Abrir localização";

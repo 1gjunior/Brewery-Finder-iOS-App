@@ -47,6 +47,7 @@ class BreweryDetailViewController: UIViewController {
         didSet {
             name.font = UIFont.quicksandBold(ofSize: 16)
             name.textColor = UIColor.breweryBlack()
+            name.showsExpansionTextWhenTruncated = true
         }
     }
     
