@@ -12,6 +12,7 @@ import Resolver
 public protocol FavoriteListViewDelegate: AnyObject{
     func didSorted(type: SortType)
     func goToDetailWith(id: String)
+    func didDeleted()
 }
 
 public protocol EmptyStateFavoriteDelegate : AnyObject{
@@ -157,28 +158,12 @@ extension FavoriteListView: SortViewDelegate {
 }
 
 extension FavoriteListView: FavoriteCellActionDelegate {
-	func didFavoriteButtonTapped(brewery: FavoriteBreweries) {
-		let deleteFavoriteView = DeleteFavoriteView(favoriteBrewery: brewery)
+    func didFavoriteButtonTapped(brewery: FavoriteBreweries) {
+        let deleteFavoriteView = DeleteFavoriteView(favoriteBrewery: brewery)
         self.parentViewController?.modalPresentationStyle = .overFullScreen
-		self.parentViewController?.modalTransitionStyle = .flipHorizontal
-        deleteFavoriteView.dismissActionDelete = reloadTableView
+        self.parentViewController?.modalTransitionStyle = .flipHorizontal
+        deleteFavoriteView.dismissActionDelete = delegate?.didDeleted
         self.parentViewController?.present(deleteFavoriteView, animated: true, completion: nil)
-	}
-    
-    func reloadTableView() {
-        breweries = favoriteManager.loadFavoriteBreweries()!
-        self.tableView.reloadData()
-        resultsCount.text = reloadResultsCount()
-        if breweries.count == 0 {
-            print("caiu aquii")
-            delegateEmptyState?.showEmptyState()
-        }
-    }
-    
-    func reloadResultsCount() -> String {
-        let localizable = breweries.count == 1 ?  resultTitle : resultsTitle
-        let countBreweries = breweries.count
-        return "\(countBreweries) " + localizable
     }
 }
 
