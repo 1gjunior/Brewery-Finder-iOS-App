@@ -53,11 +53,9 @@ class FavoriteBreweriesViewModel {
     
     func fetchFavoriteBrewery() {
         let allBrewries = favoriteManager.getAllBreweries()
-        if allBrewries.count > 0 {
-            state = .success(breweries: allBrewries)
-            print(allBrewries)
-        }
-        else {
+        state = .success(breweries: allBrewries)
+        print(allBrewries)
+        if allBrewries.count == 0 {
             state = .emptyError
         }
     }

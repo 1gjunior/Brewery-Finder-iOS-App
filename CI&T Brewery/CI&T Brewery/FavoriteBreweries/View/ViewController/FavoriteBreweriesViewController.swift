@@ -19,7 +19,6 @@ class FavoriteBreweriesViewController: UIViewController {
         let breweryList = FavoriteListView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
         breweryList.translatesAutoresizingMaskIntoConstraints = false
         breweryList.delegate = self
-        breweryList.delegateEmptyState = self
         return breweryList
     }()
     
@@ -142,6 +141,7 @@ class FavoriteBreweriesViewController: UIViewController {
 extension FavoriteBreweriesViewController: FavoriteListViewDelegate {
     
     func didDeleted() {
+        currentView = breweryList
         getFavoriteBrewery()
     }
     
@@ -169,12 +169,5 @@ extension FavoriteBreweriesViewController {
     
     @objc private func goBack() {
         self.navigationController?.popViewController(animated: true)
-    }
-}
-
-extension FavoriteBreweriesViewController: EmptyStateFavoriteDelegate {
-    func showEmptyState() {
-        currentView = breweryList
-        getFavoriteBrewery()
     }
 }
