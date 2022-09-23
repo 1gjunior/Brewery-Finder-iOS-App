@@ -74,6 +74,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        listView.reloadTableView()
         setupNavigationBar()
     }
     
