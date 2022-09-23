@@ -9,16 +9,15 @@ import UIKit
 import Resolver
 
 class BreweryListTableViewCell: UITableViewCell {
-    @IBOutlet var profileLetter: UILabel!
+    @IBOutlet var profileLetter: UILabel! {
+        didSet {
+            profileLetter.makeRoundLabel()
+        }
+    }
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet var name: UILabel!
     @IBOutlet var average: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
-	@IBOutlet weak var shareButton: UIButton!{
-		didSet{
-			shareButton.isHidden = true
-		}
-	}
 	var onFavorite: ((Brewery, FavoriteButtonState) -> FavoriteButtonState)?
     var brewery: Brewery? = nil
     var buttonState: FavoriteButtonState = .unselected {
@@ -28,10 +27,7 @@ class BreweryListTableViewCell: UITableViewCell {
     }
     
     func configure(for brewery: Brewery, onFavorite: ((Brewery, FavoriteButtonState) -> FavoriteButtonState)?) {
-        profileLetter.layer.masksToBounds = true
-        profileLetter.layer.cornerRadius = 22
-        profileLetter.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
-        profileLetter.text = "\(brewery.name.first ?? "A")"
+        profileLetter.text = brewery.name.prefix(1).uppercased()
         name.text = brewery.name
         average.text = "\(brewery.average)"
         self.brewery = brewery
