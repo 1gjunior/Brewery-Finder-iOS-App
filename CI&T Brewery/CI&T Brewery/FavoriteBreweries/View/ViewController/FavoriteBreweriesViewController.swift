@@ -142,6 +142,7 @@ class FavoriteBreweriesViewController: UIViewController {
 extension FavoriteBreweriesViewController: FavoriteListViewDelegate {
     
     func didDeleted() {
+        currentView = breweryList
         getFavoriteBrewery()
     }
     
@@ -174,7 +175,7 @@ extension FavoriteBreweriesViewController {
 
 extension FavoriteBreweriesViewController: EmptyStateFavoriteDelegate {
     func showEmptyState() {
-        currentView = breweryList
+        
         getFavoriteBrewery()
     }
 }
