@@ -165,13 +165,6 @@ extension FavoriteListView: FavoriteCellActionDelegate {
         deleteFavoriteView.dismissActionDelete = delegate?.didDeleted
         self.parentViewController?.present(deleteFavoriteView, animated: true, completion: nil)
     }
-
-    
-    func reloadResultsCount() -> String {
-        let localizable = breweries.count == 1 ?  resultTitle : resultsTitle
-        let countBreweries = breweries.count
-        return "\(countBreweries) " + localizable
-    }
 }
 
 extension FavoriteListView {
