@@ -106,6 +106,14 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         action(id)
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        1
+    }
+    
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+    
     public func update(_ breweries: [Brewery]) {
         self.breweries = breweries
         self.tableView.reloadData()

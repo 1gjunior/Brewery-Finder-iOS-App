@@ -47,7 +47,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     }()
     
     private lazy var carouselView: CarouselView = {
-        let carouselView = CarouselView(frame: CGRect(x: 0.0, y: 400.0, width: 400.0, height: 300.0))
+        let carouselView = CarouselView(frame: CGRect())
         carouselView.translatesAutoresizingMaskIntoConstraints = false
         carouselView.delegate = self
         return carouselView
@@ -74,6 +74,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        listView.reloadTableView()
         setupNavigationBar()
     }
     
