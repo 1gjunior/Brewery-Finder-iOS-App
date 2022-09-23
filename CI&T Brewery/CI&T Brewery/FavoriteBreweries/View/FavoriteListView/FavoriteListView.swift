@@ -15,10 +15,6 @@ public protocol FavoriteListViewDelegate: AnyObject{
     func didDeleted()
 }
 
-public protocol EmptyStateFavoriteDelegate : AnyObject{
-    func showEmptyState()
-}
-
 class FavoriteListView: UIView {
 	
     @Injected private var favoriteManager: FavoriteBreweriesManagerProtocol
@@ -27,7 +23,6 @@ class FavoriteListView: UIView {
     private var action: ((_ id: String) -> ())?
     private let resultsTitle = NSLocalizedString("resultsText", comment: "")
     private let resultTitle = NSLocalizedString("resultText", comment: "")
-    public var delegateEmptyState: EmptyStateFavoriteDelegate?
     
     private lazy var sortView: SortView = {
         let sortView = SortView()
