@@ -140,6 +140,11 @@ class FavoriteBreweriesViewController: UIViewController {
 }
 
 extension FavoriteBreweriesViewController: FavoriteListViewDelegate {
+    
+    func didDeleted() {
+        getFavoriteBrewery()
+    }
+    
     func didSorted(type: SortType) {
         switch type {
         case .sortedName:

@@ -30,8 +30,7 @@ class FavoriteBreweriesViewModel {
     public var sortedBreweries: SortedBreweries = .sortedName {
         willSet(newType) {
             switch state{
-            case .success(_):
-                guard let breweries = favoriteManager.loadFavoriteBreweries() else {return}
+            case .success(let breweries):
                 state = .success(breweries: breweriesSorted(breweries: breweries, type: newType))
             default:
                 break
