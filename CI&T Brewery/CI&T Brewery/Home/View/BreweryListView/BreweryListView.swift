@@ -87,7 +87,7 @@ class BreweryListView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         cell.roundedView.layer.cornerRadius = 30
         cell.roundedView.layer.masksToBounds = false
-        cell.roundedView.layer.shadowOffset = CGSizeMake(0, 7)
+		  cell.roundedView.layer.shadowOffset = CGSize(width: 0, height: 7)
         cell.roundedView.layer.shadowColor = UIColor.black.cgColor
         cell.roundedView.layer.shadowOpacity = 0.1
         cell.roundedView.layer.shadowRadius = 4
