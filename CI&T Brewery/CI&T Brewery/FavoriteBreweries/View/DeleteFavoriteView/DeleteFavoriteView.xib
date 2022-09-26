@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,17 +23,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G8f-2W-qcd">
-                    <rect key="frame" x="20" y="335" width="374" height="226"/>
+                    <rect key="frame" x="35" y="331.5" width="344" height="233.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AyX-fe-IY0">
-                            <rect key="frame" x="16" y="61" width="342" height="43"/>
+                            <rect key="frame" x="16" y="61" width="312" height="57.5"/>
                             <string key="text">Ao remover a cervejaria dos favoritos, ela deixa de aparecer na listagem de cervejarias favoritas. Você pode adicionar a cervejaria como favorita novamente quando quiser.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="117-zl-cN4">
-                            <rect key="frame" x="24" y="163.5" width="326" height="34.5"/>
+                            <rect key="frame" x="24" y="174.5" width="296" height="31"/>
                             <color key="tintColor" name="BreweryGold"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Confirmar remoção"/>
@@ -42,14 +41,14 @@
                                 <action selector="confirmRemoval:" destination="-1" eventType="touchUpInside" id="Itw-tJ-0tf"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remover favorito?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-I7-85g">
-                            <rect key="frame" x="70" y="25" width="234" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remover favorito?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Au-I7-85g">
+                            <rect key="frame" x="70" y="25" width="204" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gIg-6W-SOr">
-                            <rect key="frame" x="24" y="119" width="326" height="34.5"/>
+                            <rect key="frame" x="24" y="133.5" width="296" height="31"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" name="BreweryBlack"/>
                             <state key="normal" title="Button"/>
@@ -79,9 +78,9 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="G8f-2W-qcd" secondAttribute="trailing" constant="20" id="95d-g1-Agq"/>
+                <constraint firstAttribute="trailing" secondItem="G8f-2W-qcd" secondAttribute="trailing" constant="35" id="95d-g1-Agq"/>
                 <constraint firstItem="G8f-2W-qcd" firstAttribute="centerX" secondItem="fFB-Tl-fZR" secondAttribute="centerX" id="AaV-9C-RxB"/>
-                <constraint firstItem="G8f-2W-qcd" firstAttribute="leading" secondItem="fFB-Tl-fZR" secondAttribute="leading" constant="20" id="EJi-Gp-ivP"/>
+                <constraint firstItem="G8f-2W-qcd" firstAttribute="leading" secondItem="fFB-Tl-fZR" secondAttribute="leading" constant="35" id="EJi-Gp-ivP"/>
                 <constraint firstItem="G8f-2W-qcd" firstAttribute="centerY" secondItem="fFB-Tl-fZR" secondAttribute="centerY" id="xKI-C3-eyj"/>
             </constraints>
             <point key="canvasLocation" x="-4601" y="-853"/>
