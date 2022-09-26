@@ -9,6 +9,12 @@ import UIKit
 import Resolver
 import Combine
 
+class ArrayCache {
+    private init() {}
+
+    static let shared = NSCache<NSString, NSArray>()
+}
+
 class HomeViewController: UIViewController, CarouselViewDelegate {
     
     @IBOutlet var searchBar: UISearchBar!{
@@ -99,7 +105,16 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
         view.addSubview(carouselView)
         constraintCarouselView()
         changingState(view: carouselView)
-        carouselView.breweries = breweries
+        manageTopTenInCache(breweries)
+    }
+    
+    private func manageTopTenInCache(_ breweries: [Brewery]) {
+        if let cachedVersion = ArrayCache.shared.object(forKey: "TopTenBreweries") as? [Brewery] {
+            carouselView.breweries = cachedVersion
+        } else {
+            ArrayCache.shared.setObject(breweries as NSArray, forKey: "TopTenBreweries")
+            carouselView.breweries = breweries
+        }
     }
     
     internal func goToDetailWith(id: String) {
@@ -173,7 +188,7 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
             case .success(let breweries):
                 self?.sucessStateTop10(breweries)
             case .genericError:
-                print("generic error")
+                self?.manageTopTenInCache([])
             case .loading:
                 print("loading")
             case .emptyError:
