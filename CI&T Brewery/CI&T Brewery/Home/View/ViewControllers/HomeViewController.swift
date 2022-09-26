@@ -10,7 +10,6 @@ import Resolver
 import Combine
 
 class ArrayCache {
-
     private init() {}
 
     static let shared = NSCache<NSString, NSArray>()
@@ -111,10 +110,8 @@ class HomeViewController: UIViewController, CarouselViewDelegate {
     
     private func manageTopTenInCache(_ breweries: [Brewery]) {
         if let cachedVersion = ArrayCache.shared.object(forKey: "TopTenBreweries") as? [Brewery] {
-            print("peguei do cache")
             carouselView.breweries = cachedVersion
         } else {
-            print("salvei no cache")
             ArrayCache.shared.setObject(breweries as NSArray, forKey: "TopTenBreweries")
             carouselView.breweries = breweries
         }
