@@ -20,10 +20,6 @@ class CI_T_BreweryUITests: XCTestCase {
 
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     func test_top10_from_detail() throws {
         let firstElement =  app.collectionViews.children(matching: .cell).element(boundBy: 0).children(matching: .other).element
         let btnEvaluation = app.scrollViews.otherElements.buttons["Avaliar"]
@@ -73,8 +69,6 @@ class CI_T_BreweryUITests: XCTestCase {
         print(favoriteButton.isSelected)
         favoriteButton.tap()
         XCTAssertFalse(favoriteButton.isSelected)
-        let image = favoriteButton.images.element
-        print(image)
     }
     
     func test_detail_from_search_by_city() {
