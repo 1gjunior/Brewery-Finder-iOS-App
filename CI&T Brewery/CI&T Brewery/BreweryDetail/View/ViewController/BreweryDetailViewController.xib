@@ -254,7 +254,7 @@
                                         <constraint firstItem="ofQ-s4-R2W" firstAttribute="centerY" secondItem="DXF-IP-h1A" secondAttribute="centerY" id="B1t-15-UoL"/>
                                         <constraint firstItem="pJh-5d-mfs" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="BVO-EQ-1HY"/>
                                         <constraint firstItem="tlg-gx-VI2" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="BXb-vj-wH7"/>
-                                        <constraint firstItem="wrF-Gt-dUI" firstAttribute="leading" secondItem="wOH-wf-BGZ" secondAttribute="trailing" constant="8" symbolic="YES" id="DfH-ac-a5l"/>
+                                        <constraint firstItem="wrF-Gt-dUI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wOH-wf-BGZ" secondAttribute="trailing" constant="8" symbolic="YES" id="DfH-ac-a5l"/>
                                         <constraint firstItem="Td8-8c-bVL" firstAttribute="leading" secondItem="EO1-s5-riq" secondAttribute="leading" constant="20" symbolic="YES" id="Djs-OG-YU7"/>
                                         <constraint firstAttribute="trailing" secondItem="Q6J-JF-g6b" secondAttribute="trailing" constant="20" symbolic="YES" id="F2U-NH-RAD"/>
                                         <constraint firstAttribute="trailing" secondItem="pJh-5d-mfs" secondAttribute="trailing" constant="20" symbolic="YES" id="FM9-WO-IUD"/>

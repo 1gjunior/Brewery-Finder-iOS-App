@@ -103,7 +103,6 @@ class RatedBreweriesViewController: UIViewController {
                 print("loading")
             case .success(let breweries):
                 self?.sucessState(breweries)
-                print(breweries)
             case .emptyError:
                 self?.emptyErrorState()
             }
