@@ -30,7 +30,7 @@ class RatedBreweriesViewModel {
     private let repository: BreweryRepositoryProtocol
     
     @Published private(set) var state: RatedBreweriesState = .initial
-    @Published private(set) var fieldsState: FieldsState = .blank
+    @Published private(set) var fieldsState: FillEmailState = .blank
     
     public var sortedBreweries: SortedBreweries = .sortedName {
         willSet(newType) {
