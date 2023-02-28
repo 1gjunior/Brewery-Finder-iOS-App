@@ -9,6 +9,8 @@ Technologies used in the project
 
 * Swift
 * UIKit
+* Core Data
+* Combine
 * Kingfisher
 * Resolver
 * Cosmos
